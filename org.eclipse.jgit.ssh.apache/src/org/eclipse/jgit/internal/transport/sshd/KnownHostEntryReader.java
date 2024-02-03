@@ -9,10 +9,13 @@
  */
 package org.eclipse.jgit.internal.transport.sshd;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
-import static java.text.MessageFormat.format;
-import static org.apache.sshd.client.config.hosts.HostPatternsHolder.NON_STANDARD_PORT_PATTERN_ENCLOSURE_END_DELIM;
-import static org.apache.sshd.client.config.hosts.HostPatternsHolder.NON_STANDARD_PORT_PATTERN_ENCLOSURE_START_DELIM;
+import org.apache.sshd.client.config.hosts.HostPatternValue;
+import org.apache.sshd.client.config.hosts.HostPatternsHolder;
+import org.apache.sshd.client.config.hosts.KnownHostEntry;
+import org.apache.sshd.client.config.hosts.KnownHostHashValue;
+import org.apache.sshd.common.config.keys.AuthorizedKeyEntry;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -24,13 +27,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.apache.sshd.client.config.hosts.HostPatternValue;
-import org.apache.sshd.client.config.hosts.HostPatternsHolder;
-import org.apache.sshd.client.config.hosts.KnownHostEntry;
-import org.apache.sshd.client.config.hosts.KnownHostHashValue;
-import org.apache.sshd.common.config.keys.AuthorizedKeyEntry;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import static java.nio.charset.StandardCharsets.UTF_8;
+import static java.text.MessageFormat.format;
+import static org.apache.sshd.client.config.hosts.HostPatternsHolder.NON_STANDARD_PORT_PATTERN_ENCLOSURE_END_DELIM;
+import static org.apache.sshd.client.config.hosts.HostPatternsHolder.NON_STANDARD_PORT_PATTERN_ENCLOSURE_START_DELIM;
 
 /**
  * Apache MINA sshd 2.0.0 KnownHostEntry cannot read a host entry line like

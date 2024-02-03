@@ -11,54 +11,6 @@
 
 package org.eclipse.jgit.lib;
 
-import static org.eclipse.jgit.lib.Constants.DOT_GIT_MODULES;
-import static org.eclipse.jgit.lib.Constants.OBJECT_ID_LENGTH;
-import static org.eclipse.jgit.lib.Constants.OBJECT_ID_STRING_LENGTH;
-import static org.eclipse.jgit.lib.Constants.OBJ_BAD;
-import static org.eclipse.jgit.lib.Constants.OBJ_BLOB;
-import static org.eclipse.jgit.lib.Constants.OBJ_COMMIT;
-import static org.eclipse.jgit.lib.Constants.OBJ_TAG;
-import static org.eclipse.jgit.lib.Constants.OBJ_TREE;
-import static org.eclipse.jgit.lib.ObjectChecker.ErrorType.BAD_DATE;
-import static org.eclipse.jgit.lib.ObjectChecker.ErrorType.BAD_EMAIL;
-import static org.eclipse.jgit.lib.ObjectChecker.ErrorType.BAD_OBJECT_SHA1;
-import static org.eclipse.jgit.lib.ObjectChecker.ErrorType.BAD_PARENT_SHA1;
-import static org.eclipse.jgit.lib.ObjectChecker.ErrorType.BAD_TIMEZONE;
-import static org.eclipse.jgit.lib.ObjectChecker.ErrorType.BAD_TREE_SHA1;
-import static org.eclipse.jgit.lib.ObjectChecker.ErrorType.BAD_UTF8;
-import static org.eclipse.jgit.lib.ObjectChecker.ErrorType.DUPLICATE_ENTRIES;
-import static org.eclipse.jgit.lib.ObjectChecker.ErrorType.EMPTY_NAME;
-import static org.eclipse.jgit.lib.ObjectChecker.ErrorType.FULL_PATHNAME;
-import static org.eclipse.jgit.lib.ObjectChecker.ErrorType.HAS_DOT;
-import static org.eclipse.jgit.lib.ObjectChecker.ErrorType.HAS_DOTDOT;
-import static org.eclipse.jgit.lib.ObjectChecker.ErrorType.HAS_DOTGIT;
-import static org.eclipse.jgit.lib.ObjectChecker.ErrorType.MISSING_AUTHOR;
-import static org.eclipse.jgit.lib.ObjectChecker.ErrorType.MISSING_COMMITTER;
-import static org.eclipse.jgit.lib.ObjectChecker.ErrorType.MISSING_EMAIL;
-import static org.eclipse.jgit.lib.ObjectChecker.ErrorType.MISSING_OBJECT;
-import static org.eclipse.jgit.lib.ObjectChecker.ErrorType.MISSING_SPACE_BEFORE_DATE;
-import static org.eclipse.jgit.lib.ObjectChecker.ErrorType.MISSING_TAG_ENTRY;
-import static org.eclipse.jgit.lib.ObjectChecker.ErrorType.MISSING_TREE;
-import static org.eclipse.jgit.lib.ObjectChecker.ErrorType.MISSING_TYPE_ENTRY;
-import static org.eclipse.jgit.lib.ObjectChecker.ErrorType.NULL_SHA1;
-import static org.eclipse.jgit.lib.ObjectChecker.ErrorType.TREE_NOT_SORTED;
-import static org.eclipse.jgit.lib.ObjectChecker.ErrorType.UNKNOWN_TYPE;
-import static org.eclipse.jgit.lib.ObjectChecker.ErrorType.WIN32_BAD_NAME;
-import static org.eclipse.jgit.lib.ObjectChecker.ErrorType.ZERO_PADDED_FILEMODE;
-import static org.eclipse.jgit.util.Paths.compare;
-import static org.eclipse.jgit.util.Paths.compareSameName;
-import static org.eclipse.jgit.util.RawParseUtils.nextLF;
-import static org.eclipse.jgit.util.RawParseUtils.parseBase10;
-
-import java.text.MessageFormat;
-import java.text.Normalizer;
-import java.util.ArrayList;
-import java.util.EnumSet;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Locale;
-import java.util.Set;
-
 import org.eclipse.jgit.annotations.NonNull;
 import org.eclipse.jgit.annotations.Nullable;
 import org.eclipse.jgit.errors.CorruptObjectException;
@@ -66,6 +18,17 @@ import org.eclipse.jgit.internal.JGitText;
 import org.eclipse.jgit.util.MutableInteger;
 import org.eclipse.jgit.util.RawParseUtils;
 import org.eclipse.jgit.util.StringUtils;
+
+import java.text.MessageFormat;
+import java.text.Normalizer;
+import java.util.*;
+
+import static org.eclipse.jgit.lib.Constants.*;
+import static org.eclipse.jgit.lib.ObjectChecker.ErrorType.*;
+import static org.eclipse.jgit.util.Paths.compare;
+import static org.eclipse.jgit.util.Paths.compareSameName;
+import static org.eclipse.jgit.util.RawParseUtils.nextLF;
+import static org.eclipse.jgit.util.RawParseUtils.parseBase10;
 
 /**
  * Verifies that an object is formatted correctly.

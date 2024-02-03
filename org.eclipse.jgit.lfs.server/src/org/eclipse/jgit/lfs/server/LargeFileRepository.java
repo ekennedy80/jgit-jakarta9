@@ -9,10 +9,10 @@
  */
 package org.eclipse.jgit.lfs.server;
 
-import java.io.IOException;
-
 import org.eclipse.jgit.annotations.Nullable;
 import org.eclipse.jgit.lfs.lib.AnyLongObjectId;
+
+import java.io.IOException;
 
 /**
  * Abstraction of a repository for storing large objects

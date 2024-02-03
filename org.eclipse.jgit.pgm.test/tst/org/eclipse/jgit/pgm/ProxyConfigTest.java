@@ -37,8 +37,8 @@
  */
 package org.eclipse.jgit.pgm;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
-import static org.junit.Assert.assertEquals;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -48,8 +48,8 @@ import java.net.MalformedURLException;
 import java.util.List;
 import java.util.Map;
 
-import org.junit.Before;
-import org.junit.Test;
+import static java.nio.charset.StandardCharsets.UTF_8;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Test how the content of the environment variables http[s]_proxy (upper- and

@@ -10,11 +10,11 @@
 
 package org.eclipse.jgit.http.server.glue;
 
+import jakarta.servlet.FilterConfig;
+import jakarta.servlet.ServletContext;
+
 import java.util.Enumeration;
 import java.util.NoSuchElementException;
-
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletContext;
 
 final class NoParameterFilterConfig implements FilterConfig {
 	private final String filterName;

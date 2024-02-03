@@ -9,10 +9,10 @@
  */
 package org.eclipse.jgit.transport.sshd;
 
+import org.eclipse.jgit.transport.URIish;
+
 import java.io.IOException;
 import java.security.GeneralSecurityException;
-
-import org.eclipse.jgit.transport.URIish;
 
 /**
  * A {@code KeyPasswordProvider} provides passwords for encrypted private keys.

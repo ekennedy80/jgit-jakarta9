@@ -9,11 +9,11 @@
  */
 package org.eclipse.jgit.transport.sshd;
 
+import org.eclipse.jgit.annotations.NonNull;
+
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.util.Arrays;
-
-import org.eclipse.jgit.annotations.NonNull;
 
 /**
  * A DTO encapsulating the data needed to connect through a proxy server.

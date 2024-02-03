@@ -9,11 +9,11 @@
  */
 package org.eclipse.jgit.internal.transport.sshd.proxy;
 
+import org.eclipse.jgit.annotations.NonNull;
+
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
-
-import org.eclipse.jgit.annotations.NonNull;
 
 /**
  * A simple representation of an authentication challenge as sent in a

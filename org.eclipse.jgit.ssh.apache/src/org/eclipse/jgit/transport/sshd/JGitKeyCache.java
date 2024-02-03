@@ -9,6 +9,7 @@
  */
 package org.eclipse.jgit.transport.sshd;
 
+import javax.security.auth.DestroyFailedException;
 import java.nio.file.Path;
 import java.security.KeyPair;
 import java.security.PrivateKey;
@@ -16,8 +17,6 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.Function;
-
-import javax.security.auth.DestroyFailedException;
 
 /**
  * A simple {@link KeyCache}. JGit uses one such cache in its

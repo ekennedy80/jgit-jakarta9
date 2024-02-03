@@ -9,10 +9,10 @@
  */
 package org.eclipse.jgit.pgm;
 
-import static org.junit.Assert.assertEquals;
-
 import org.eclipse.jgit.lib.CLIRepositoryTestCase;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class CommitTest extends CLIRepositoryTestCase {
 

@@ -9,11 +9,11 @@
  */
 package org.eclipse.jgit.internal.transport.sshd.proxy;
 
-import java.util.concurrent.Callable;
-
 import org.apache.sshd.client.session.ClientProxyConnector;
 import org.apache.sshd.common.io.IoSession;
 import org.apache.sshd.common.util.Readable;
+
+import java.util.concurrent.Callable;
 
 /**
  * Some proxy connections are stateful and require the exchange of multiple

@@ -10,20 +10,19 @@
 
 package org.eclipse.jgit.http.server;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
-import static org.eclipse.jgit.http.server.ServletUtils.getRepository;
-
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.eclipse.jgit.lib.Constants;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.transport.RefAdvertiser;
 import org.eclipse.jgit.util.HttpSupport;
+
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+
+import static java.nio.charset.StandardCharsets.UTF_8;
+import static org.eclipse.jgit.http.server.ServletUtils.getRepository;
 
 /** Send a complete list of current refs, including peeled values for tags. */
 class InfoRefsServlet extends HttpServlet {

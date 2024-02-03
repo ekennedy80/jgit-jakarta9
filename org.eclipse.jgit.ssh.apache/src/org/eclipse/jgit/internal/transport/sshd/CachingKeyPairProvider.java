@@ -9,32 +9,8 @@
  */
 package org.eclipse.jgit.internal.transport.sshd;
 
-import static java.text.MessageFormat.format;
-
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.security.GeneralSecurityException;
-import java.security.InvalidKeyException;
-import java.security.KeyPair;
-import java.security.PrivateKey;
-import java.security.PublicKey;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.NoSuchElementException;
-import java.util.concurrent.CancellationException;
-
-import javax.security.auth.DestroyFailedException;
-
-import org.apache.sshd.common.AttributeRepository.AttributeKey;
 import org.apache.sshd.client.session.ClientSession;
+import org.apache.sshd.common.AttributeRepository.AttributeKey;
 import org.apache.sshd.common.NamedResource;
 import org.apache.sshd.common.config.keys.FilePasswordProvider;
 import org.apache.sshd.common.config.keys.KeyUtils;
@@ -43,6 +19,18 @@ import org.apache.sshd.common.session.SessionContext;
 import org.apache.sshd.common.util.io.resource.IoResource;
 import org.apache.sshd.common.util.security.SecurityUtils;
 import org.eclipse.jgit.transport.sshd.KeyCache;
+
+import javax.security.auth.DestroyFailedException;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.security.*;
+import java.util.*;
+import java.util.concurrent.CancellationException;
+
+import static java.text.MessageFormat.format;
 
 /**
  * A {@link FileKeyPairProvider} that uses an external {@link KeyCache}.

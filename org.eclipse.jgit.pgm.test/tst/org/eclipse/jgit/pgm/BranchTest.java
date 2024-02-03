@@ -9,13 +9,6 @@
  */
 package org.eclipse.jgit.pgm;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
-import java.io.File;
-
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.lib.CLIRepositoryTestCase;
 import org.eclipse.jgit.lib.Constants;
@@ -24,6 +17,10 @@ import org.eclipse.jgit.pgm.internal.CLIText;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.io.File;
+
+import static org.junit.Assert.*;
 
 public class BranchTest extends CLIRepositoryTestCase {
 	@Override

@@ -9,12 +9,12 @@
  */
 package org.eclipse.jgit.internal.transport.sshd;
 
+import org.apache.sshd.client.config.hosts.HostConfigEntry;
+import org.eclipse.jgit.annotations.NonNull;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-
-import org.apache.sshd.client.config.hosts.HostConfigEntry;
-import org.eclipse.jgit.annotations.NonNull;
 
 /**
  * A {@link HostConfigEntry} that provides access to the multi-valued keys as

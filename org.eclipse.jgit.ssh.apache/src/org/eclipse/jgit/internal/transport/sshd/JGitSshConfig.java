@@ -9,14 +9,6 @@
  */
 package org.eclipse.jgit.internal.transport.sshd;
 
-import static org.eclipse.jgit.internal.transport.ssh.OpenSshConfigFile.flag;
-import static org.eclipse.jgit.internal.transport.ssh.OpenSshConfigFile.positive;
-
-import java.io.IOException;
-import java.net.SocketAddress;
-import java.util.Map;
-import java.util.TreeMap;
-
 import org.apache.sshd.client.config.hosts.HostConfigEntry;
 import org.apache.sshd.client.config.hosts.HostConfigEntryResolver;
 import org.apache.sshd.common.AttributeRepository;
@@ -24,6 +16,14 @@ import org.apache.sshd.common.util.net.SshdSocketAddress;
 import org.eclipse.jgit.transport.SshConfigStore;
 import org.eclipse.jgit.transport.SshConstants;
 import org.eclipse.jgit.transport.SshSessionFactory;
+
+import java.io.IOException;
+import java.net.SocketAddress;
+import java.util.Map;
+import java.util.TreeMap;
+
+import static org.eclipse.jgit.internal.transport.ssh.OpenSshConfigFile.flag;
+import static org.eclipse.jgit.internal.transport.ssh.OpenSshConfigFile.positive;
 
 /**
  * A bridge between a JGit {@link SshConfigStore} and the Apache MINA sshd

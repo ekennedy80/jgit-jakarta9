@@ -10,9 +10,9 @@
 
 package org.eclipse.jgit.junit;
 
-import static org.junit.Assert.assertEquals;
-
 import org.eclipse.jgit.lib.ProgressMonitor;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * Strict work monitor

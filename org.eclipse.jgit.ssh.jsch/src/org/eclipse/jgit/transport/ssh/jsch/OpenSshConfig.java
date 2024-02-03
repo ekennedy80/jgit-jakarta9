@@ -10,20 +10,19 @@
 
 package org.eclipse.jgit.transport.ssh.jsch;
 
-import static org.eclipse.jgit.internal.transport.ssh.OpenSshConfigFile.positive;
-
-import java.io.File;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
-
+import com.jcraft.jsch.ConfigRepository;
 import org.eclipse.jgit.internal.transport.ssh.OpenSshConfigFile;
 import org.eclipse.jgit.internal.transport.ssh.OpenSshConfigFile.HostEntry;
 import org.eclipse.jgit.transport.SshConstants;
 import org.eclipse.jgit.transport.SshSessionFactory;
 import org.eclipse.jgit.util.FS;
 
-import com.jcraft.jsch.ConfigRepository;
+import java.io.File;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
+import static org.eclipse.jgit.internal.transport.ssh.OpenSshConfigFile.positive;
 
 /**
  * Fairly complete configuration parser for the OpenSSH ~/.ssh/config file.

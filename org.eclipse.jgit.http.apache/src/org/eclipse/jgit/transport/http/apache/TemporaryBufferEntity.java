@@ -9,12 +9,12 @@
  */
 package org.eclipse.jgit.transport.http.apache;
 
+import org.apache.http.entity.AbstractHttpEntity;
+import org.eclipse.jgit.util.TemporaryBuffer;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-
-import org.apache.http.entity.AbstractHttpEntity;
-import org.eclipse.jgit.util.TemporaryBuffer;
 
 /**
  * A {@link org.apache.http.HttpEntity} which takes its content from a

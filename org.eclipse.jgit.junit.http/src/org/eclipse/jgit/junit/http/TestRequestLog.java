@@ -10,22 +10,17 @@
 
 package org.eclipse.jgit.junit.http;
 
-import java.io.IOException;
+import org.eclipse.jetty.server.*;
+import org.eclipse.jetty.util.Callback;
+
 import java.util.ArrayList;
+import java.util.EventListener;
 import java.util.List;
 import java.util.concurrent.Semaphore;
 
-import javax.servlet.DispatcherType;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.eclipse.jetty.server.Request;
-import org.eclipse.jetty.server.Response;
-import org.eclipse.jetty.server.handler.HandlerWrapper;
-
 /** Logs request made through {@link AppServer}. */
-class TestRequestLog extends HandlerWrapper {
+class TestRequestLog implements RequestLog, Handler {
+
 	private static final int MAX = 16;
 
 	private final List<AccessEvent> events = new ArrayList<>();
@@ -73,36 +68,77 @@ class TestRequestLog extends HandlerWrapper {
 	}
 
 	@Override
-	public void handle(String target, Request baseRequest,
-			HttpServletRequest request, HttpServletResponse response)
-			throws IOException, ServletException {
-		try {
-			for (;;) {
-				try {
-					active.acquire();
-					break;
-				} catch (InterruptedException e) {
-					continue;
-				}
-			}
+	public void log(Request request, Response response) {
 
-			AccessEvent event = null;
-			if (DispatcherType.REQUEST
-					.equals(baseRequest.getDispatcherType())) {
-				event = new AccessEvent((Request) request);
-				synchronized (events) {
-					events.add(event);
-				}
-			}
+	}
 
-			super.handle(target, baseRequest, request, response);
+	@Override
+	public Server getServer() {
+		return null;
+	}
 
-			if (event != null) {
-				event.setResponse((Response) response);
-			}
+	@Override
+	public void setServer(Server server) {
 
-		} finally {
-			active.release();
-		}
+	}
+
+	@Override
+	public boolean handle(Request request, Response response, Callback callback) throws Exception {
+		return false;
+	}
+
+	@Override
+	public void destroy() {
+
+	}
+
+	@Override
+	public void start() throws Exception {
+
+	}
+
+	@Override
+	public void stop() throws Exception {
+
+	}
+
+	@Override
+	public boolean isRunning() {
+		return false;
+	}
+
+	@Override
+	public boolean isStarted() {
+		return false;
+	}
+
+	@Override
+	public boolean isStarting() {
+		return false;
+	}
+
+	@Override
+	public boolean isStopping() {
+		return false;
+	}
+
+	@Override
+	public boolean isStopped() {
+		return false;
+	}
+
+	@Override
+	public boolean isFailed() {
+		return false;
+	}
+
+	@Override
+	public boolean addEventListener(EventListener eventListener) {
+		return false;
+	}
+
+	@Override
+	public boolean removeEventListener(EventListener eventListener) {
+		return false;
 	}
 }

@@ -9,10 +9,10 @@
  */
 package org.eclipse.jgit.internal.transport.sshd.agent.connector;
 
-import java.io.IOException;
-
 import org.eclipse.jgit.transport.sshd.agent.AbstractConnector;
 import org.eclipse.jgit.transport.sshd.agent.ConnectorFactory.ConnectorDescriptor;
+
+import java.io.IOException;
 
 /**
  * A connector using Pageant's shared memory IPC mechanism.

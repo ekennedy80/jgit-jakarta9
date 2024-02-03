@@ -9,16 +9,16 @@
  */
 package org.eclipse.jgit.pgm;
 
-import static org.junit.Assert.assertArrayEquals;
-
-import java.util.List;
-
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.lib.CLIRepositoryTestCase;
 import org.eclipse.jgit.lib.Constants;
 import org.eclipse.jgit.lib.RefUpdate;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.List;
+
+import static org.junit.Assert.assertArrayEquals;
 
 public class LsRemoteTest extends CLIRepositoryTestCase {
 	private Git git;

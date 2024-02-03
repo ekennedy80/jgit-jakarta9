@@ -10,14 +10,13 @@
 
 package org.eclipse.jgit.http.server.glue;
 
+import jakarta.servlet.Filter;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletResponse;
+import org.eclipse.jgit.http.server.HttpServerText;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.servlet.Filter;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletResponse;
-
-import org.eclipse.jgit.http.server.HttpServerText;
 
 abstract class ServletBinderImpl implements ServletBinder {
 	private final List<Filter> filters;

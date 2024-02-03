@@ -10,13 +10,9 @@
 
 package org.eclipse.jgit.lfs.server.internal;
 
-import java.io.Reader;
+import com.google.gson.*;
 
-import com.google.gson.FieldNamingPolicy;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonIOException;
-import com.google.gson.JsonSyntaxException;
+import java.io.Reader;
 
 /**
  * Wrapper for {@link com.google.gson.Gson} used by LFS servlets.

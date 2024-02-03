@@ -10,18 +10,17 @@
 
 package org.eclipse.jgit.http.server;
 
-import static org.eclipse.jgit.http.server.ServletUtils.acceptsGzipEncoding;
-import static org.eclipse.jgit.util.HttpSupport.ENCODING_GZIP;
-import static org.eclipse.jgit.util.HttpSupport.HDR_CONTENT_ENCODING;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import org.eclipse.jgit.util.TemporaryBuffer;
 
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.zip.GZIPOutputStream;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.eclipse.jgit.util.TemporaryBuffer;
+import static org.eclipse.jgit.http.server.ServletUtils.acceptsGzipEncoding;
+import static org.eclipse.jgit.util.HttpSupport.ENCODING_GZIP;
+import static org.eclipse.jgit.util.HttpSupport.HDR_CONTENT_ENCODING;
 
 /**
  * Buffers a response, trying to gzip it if the user agent supports that.

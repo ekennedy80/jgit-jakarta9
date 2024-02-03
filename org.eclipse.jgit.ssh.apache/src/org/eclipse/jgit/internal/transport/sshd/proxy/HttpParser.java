@@ -9,11 +9,11 @@
  */
 package org.eclipse.jgit.internal.transport.sshd.proxy;
 
+import org.eclipse.jgit.util.HttpSupport;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
-import org.eclipse.jgit.util.HttpSupport;
 
 /**
  * A basic parser for HTTP response headers. Handles status lines and

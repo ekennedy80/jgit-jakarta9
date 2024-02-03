@@ -9,23 +9,22 @@
  */
 package org.eclipse.jgit.transport.http.apache;
 
-import java.io.IOException;
-import java.net.Proxy;
-import java.net.URL;
-import java.security.GeneralSecurityException;
-import java.text.MessageFormat;
-
-import javax.net.ssl.HostnameVerifier;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSocket;
-import javax.net.ssl.TrustManager;
-
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 import org.eclipse.jgit.transport.http.HttpConnection;
 import org.eclipse.jgit.transport.http.HttpConnectionFactory2;
 import org.eclipse.jgit.transport.http.NoCheckX509TrustManager;
 import org.eclipse.jgit.transport.http.apache.internal.HttpApacheText;
 import org.eclipse.jgit.util.HttpSupport;
+
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSocket;
+import javax.net.ssl.TrustManager;
+import java.io.IOException;
+import java.net.Proxy;
+import java.net.URL;
+import java.security.GeneralSecurityException;
+import java.text.MessageFormat;
 
 /**
  * A factory returning instances of {@link HttpClientConnection}.

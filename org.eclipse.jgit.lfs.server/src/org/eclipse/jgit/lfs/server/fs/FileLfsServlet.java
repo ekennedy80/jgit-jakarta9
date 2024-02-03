@@ -9,17 +9,12 @@
  */
 package org.eclipse.jgit.lfs.server.fs;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.text.MessageFormat;
-
-import javax.servlet.AsyncContext;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import jakarta.servlet.AsyncContext;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.apache.http.HttpStatus;
 import org.eclipse.jgit.lfs.errors.InvalidLongObjectIdException;
 import org.eclipse.jgit.lfs.lib.AnyLongObjectId;
@@ -27,6 +22,10 @@ import org.eclipse.jgit.lfs.lib.Constants;
 import org.eclipse.jgit.lfs.lib.LongObjectId;
 import org.eclipse.jgit.lfs.server.internal.LfsGson;
 import org.eclipse.jgit.lfs.server.internal.LfsServerText;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.text.MessageFormat;
 
 /**
  * Servlet supporting upload and download of large objects as defined by the

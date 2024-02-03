@@ -9,19 +9,19 @@
  */
 package org.eclipse.jgit.pgm;
 
-import static org.eclipse.jgit.junit.JGitTestUtil.check;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.lib.CLIRepositoryTestCase;
 import org.eclipse.jgit.pgm.opt.CmdLineParser;
 import org.eclipse.jgit.pgm.opt.SubcommandHandler;
 import org.junit.Test;
 import org.kohsuke.args4j.Argument;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.eclipse.jgit.junit.JGitTestUtil.check;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class TextBuiltinTest extends CLIRepositoryTestCase {
 	public static class GitCliJGitWrapperParser {

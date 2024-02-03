@@ -9,12 +9,12 @@
  */
 package org.eclipse.jgit.internal.transport.sshd;
 
+import org.apache.sshd.client.session.ClientSession;
+import org.eclipse.jgit.annotations.NonNull;
+
 import java.net.SocketAddress;
 import java.security.PublicKey;
 import java.util.List;
-
-import org.apache.sshd.client.session.ClientSession;
-import org.eclipse.jgit.annotations.NonNull;
 
 /**
  * Offers operations to retrieve server keys from known_hosts files.

@@ -9,8 +9,6 @@
  */
 package org.eclipse.jgit.pgm;
 
-import static org.junit.Assert.assertEquals;
-
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.lib.CLIRepositoryTestCase;
 import org.eclipse.jgit.lib.Repository;
@@ -19,6 +17,8 @@ import org.eclipse.jgit.transport.RemoteConfig;
 import org.eclipse.jgit.transport.URIish;
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class FetchTest extends CLIRepositoryTestCase {
 	private Git git;

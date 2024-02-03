@@ -9,26 +9,6 @@
  */
 package org.eclipse.jgit.internal.transport.sshd;
 
-import static java.text.MessageFormat.format;
-import static org.apache.sshd.core.CoreModuleProperties.MAX_IDENTIFICATION_SIZE;
-
-import java.io.IOException;
-import java.io.StreamCorruptedException;
-import java.net.SocketAddress;
-import java.nio.charset.StandardCharsets;
-import java.security.PublicKey;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
-import java.util.function.Supplier;
-
 import org.apache.sshd.client.ClientBuilder;
 import org.apache.sshd.client.ClientFactoryManager;
 import org.apache.sshd.client.config.hosts.HostConfigEntry;
@@ -58,6 +38,17 @@ import org.eclipse.jgit.transport.CredentialsProvider;
 import org.eclipse.jgit.transport.SshConstants;
 import org.eclipse.jgit.transport.sshd.KeyPasswordProvider;
 import org.eclipse.jgit.util.StringUtils;
+
+import java.io.IOException;
+import java.io.StreamCorruptedException;
+import java.net.SocketAddress;
+import java.nio.charset.StandardCharsets;
+import java.security.PublicKey;
+import java.util.*;
+import java.util.function.Supplier;
+
+import static java.text.MessageFormat.format;
+import static org.apache.sshd.core.CoreModuleProperties.MAX_IDENTIFICATION_SIZE;
 
 /**
  * A {@link org.apache.sshd.client.session.ClientSession ClientSession} that can

@@ -10,29 +10,9 @@
 
 package org.eclipse.jgit.http.test;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
-import java.io.File;
-import java.io.OutputStream;
-import java.net.URI;
-import java.net.URL;
-import java.text.MessageFormat;
-import java.time.Instant;
-import java.util.List;
-import java.util.Set;
-
-import javax.servlet.http.HttpServletRequest;
-
-import org.eclipse.jetty.servlet.DefaultServlet;
-import org.eclipse.jetty.servlet.ServletContextHandler;
-import org.eclipse.jetty.servlet.ServletHolder;
+import org.eclipse.jetty.ee10.servlet.DefaultServlet;
+import org.eclipse.jetty.ee10.servlet.ServletContextHandler;
+import org.eclipse.jetty.ee10.servlet.ServletHolder;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.errors.NoRemoteRepositoryException;
 import org.eclipse.jgit.errors.RepositoryNotFoundException;
@@ -42,23 +22,27 @@ import org.eclipse.jgit.internal.JGitText;
 import org.eclipse.jgit.junit.TestRepository;
 import org.eclipse.jgit.junit.http.AccessEvent;
 import org.eclipse.jgit.junit.http.AppServer;
-import org.eclipse.jgit.lib.Constants;
-import org.eclipse.jgit.lib.Ref;
-import org.eclipse.jgit.lib.RefUpdate;
-import org.eclipse.jgit.lib.Repository;
-import org.eclipse.jgit.lib.StoredConfig;
+import org.eclipse.jgit.lib.*;
 import org.eclipse.jgit.revwalk.RevCommit;
-import org.eclipse.jgit.transport.FetchConnection;
-import org.eclipse.jgit.transport.HttpTransport;
-import org.eclipse.jgit.transport.PacketLineIn;
-import org.eclipse.jgit.transport.PacketLineOut;
-import org.eclipse.jgit.transport.Transport;
-import org.eclipse.jgit.transport.URIish;
-import org.eclipse.jgit.transport.UsernamePasswordCredentialsProvider;
+import org.eclipse.jgit.transport.*;
 import org.eclipse.jgit.transport.http.HttpConnection;
 import org.eclipse.jgit.transport.http.HttpConnectionFactory;
 import org.junit.Before;
 import org.junit.Test;
+
+import jakarta.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.OutputStream;
+import java.net.URI;
+import java.net.URL;
+import java.text.MessageFormat;
+import java.time.Instant;
+import java.util.List;
+import java.util.Set;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.*;
 
 public class HttpClientTests extends AllFactoriesHttpTestCase {
 
@@ -105,7 +89,7 @@ public class HttpClientTests extends AllFactoriesHttpTestCase {
 		final URI base = srcGit.getParentFile().toURI();
 
 		ServletContextHandler ctx = server.addContext(path);
-		ctx.setResourceBase(base.toString());
+		ctx.setBaseResourceAsString(base.toString());
 		ServletHolder holder = ctx.addServlet(DefaultServlet.class, "/");
 		// The tmp directory is symlinked on OS X
 		holder.setInitParameter("aliases", "true");

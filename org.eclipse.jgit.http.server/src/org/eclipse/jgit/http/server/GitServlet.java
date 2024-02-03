@@ -10,20 +10,15 @@
 
 package org.eclipse.jgit.http.server;
 
-import java.util.Enumeration;
-
-import javax.servlet.Filter;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-
+import jakarta.servlet.*;
+import jakarta.servlet.http.HttpServletRequest;
 import org.eclipse.jgit.http.server.glue.MetaServlet;
 import org.eclipse.jgit.http.server.resolver.AsIsFileService;
 import org.eclipse.jgit.transport.resolver.ReceivePackFactory;
 import org.eclipse.jgit.transport.resolver.RepositoryResolver;
 import org.eclipse.jgit.transport.resolver.UploadPackFactory;
+
+import java.util.Enumeration;
 
 /**
  * Handles Git repository access over HTTP.

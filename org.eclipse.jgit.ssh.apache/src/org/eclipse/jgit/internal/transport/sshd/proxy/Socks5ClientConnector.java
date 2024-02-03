@@ -9,14 +9,6 @@
  */
 package org.eclipse.jgit.internal.transport.sshd.proxy;
 
-import static java.nio.charset.StandardCharsets.US_ASCII;
-import static java.nio.charset.StandardCharsets.UTF_8;
-import static java.text.MessageFormat.format;
-
-import java.io.IOException;
-import java.net.InetAddress;
-import java.net.InetSocketAddress;
-
 import org.apache.sshd.client.session.ClientSession;
 import org.apache.sshd.common.io.IoSession;
 import org.apache.sshd.common.util.Readable;
@@ -31,6 +23,14 @@ import org.eclipse.jgit.internal.transport.sshd.auth.BasicAuthentication;
 import org.eclipse.jgit.internal.transport.sshd.auth.GssApiAuthentication;
 import org.eclipse.jgit.transport.SshConstants;
 import org.ietf.jgss.GSSContext;
+
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
+
+import static java.nio.charset.StandardCharsets.US_ASCII;
+import static java.nio.charset.StandardCharsets.UTF_8;
+import static java.text.MessageFormat.format;
 
 /**
  * A {@link AbstractClientProxyConnector} to connect through a SOCKS5 proxy.

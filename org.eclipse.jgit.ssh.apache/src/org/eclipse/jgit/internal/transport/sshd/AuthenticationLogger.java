@@ -9,7 +9,12 @@
  */
 package org.eclipse.jgit.internal.transport.sshd;
 
-import static org.eclipse.jgit.internal.transport.sshd.CachingKeyPairProvider.getKeyId;
+import org.apache.sshd.client.auth.password.PasswordAuthenticationReporter;
+import org.apache.sshd.client.auth.password.UserAuthPassword;
+import org.apache.sshd.client.auth.pubkey.PublicKeyAuthenticationReporter;
+import org.apache.sshd.client.auth.pubkey.UserAuthPublicKey;
+import org.apache.sshd.client.session.ClientSession;
+import org.apache.sshd.common.config.keys.KeyUtils;
 
 import java.security.KeyPair;
 import java.text.MessageFormat;
@@ -17,12 +22,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import org.apache.sshd.client.auth.password.PasswordAuthenticationReporter;
-import org.apache.sshd.client.auth.password.UserAuthPassword;
-import org.apache.sshd.client.auth.pubkey.PublicKeyAuthenticationReporter;
-import org.apache.sshd.client.auth.pubkey.UserAuthPublicKey;
-import org.apache.sshd.client.session.ClientSession;
-import org.apache.sshd.common.config.keys.KeyUtils;
+import static org.eclipse.jgit.internal.transport.sshd.CachingKeyPairProvider.getKeyId;
 
 /**
  * Provides a log of authentication attempts for a {@link ClientSession}.

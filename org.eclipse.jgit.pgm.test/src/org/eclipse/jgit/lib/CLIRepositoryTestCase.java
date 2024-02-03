@@ -9,7 +9,12 @@
  */
 package org.eclipse.jgit.lib;
 
-import static org.junit.Assert.assertEquals;
+import org.eclipse.jgit.junit.JGitTestUtil;
+import org.eclipse.jgit.junit.LocalDiskRepositoryTestCase;
+import org.eclipse.jgit.pgm.CLIGitCommand;
+import org.eclipse.jgit.pgm.CLIGitCommand.Result;
+import org.eclipse.jgit.pgm.TextBuiltin.TerminatedByHelpException;
+import org.junit.Before;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,12 +23,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.eclipse.jgit.junit.JGitTestUtil;
-import org.eclipse.jgit.junit.LocalDiskRepositoryTestCase;
-import org.eclipse.jgit.pgm.CLIGitCommand;
-import org.eclipse.jgit.pgm.CLIGitCommand.Result;
-import org.eclipse.jgit.pgm.TextBuiltin.TerminatedByHelpException;
-import org.junit.Before;
+import static org.junit.Assert.assertEquals;
 
 public class CLIRepositoryTestCase extends LocalDiskRepositoryTestCase {
 	/** Test repository, initialized for this test case. */

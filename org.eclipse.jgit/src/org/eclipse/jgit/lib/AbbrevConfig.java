@@ -9,13 +9,13 @@
  */
 package org.eclipse.jgit.lib;
 
-import static org.eclipse.jgit.lib.Constants.OBJECT_ID_ABBREV_STRING_LENGTH;
-import static org.eclipse.jgit.lib.TypedConfigGetter.UNSET_INT;
+import org.eclipse.jgit.api.errors.InvalidConfigurationException;
+import org.eclipse.jgit.internal.JGitText;
 
 import java.text.MessageFormat;
 
-import org.eclipse.jgit.api.errors.InvalidConfigurationException;
-import org.eclipse.jgit.internal.JGitText;
+import static org.eclipse.jgit.lib.Constants.OBJECT_ID_ABBREV_STRING_LENGTH;
+import static org.eclipse.jgit.lib.TypedConfigGetter.UNSET_INT;
 
 /**
  * Git configuration option <a

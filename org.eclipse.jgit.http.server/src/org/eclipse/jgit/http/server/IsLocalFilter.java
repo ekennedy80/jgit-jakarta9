@@ -10,21 +10,15 @@
 
 package org.eclipse.jgit.http.server;
 
-import static javax.servlet.http.HttpServletResponse.SC_FORBIDDEN;
-import static org.eclipse.jgit.http.server.ServletUtils.getRepository;
+import jakarta.servlet.*;
+import jakarta.servlet.http.HttpServletResponse;
+import org.eclipse.jgit.internal.storage.file.ObjectDirectory;
+import org.eclipse.jgit.lib.Repository;
 
 import java.io.IOException;
 
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletResponse;
-
-import org.eclipse.jgit.internal.storage.file.ObjectDirectory;
-import org.eclipse.jgit.lib.Repository;
+import static jakarta.servlet.http.HttpServletResponse.SC_FORBIDDEN;
+import static org.eclipse.jgit.http.server.ServletUtils.getRepository;
 
 /**
  * Requires the target {@link Repository} to be available via local filesystem.

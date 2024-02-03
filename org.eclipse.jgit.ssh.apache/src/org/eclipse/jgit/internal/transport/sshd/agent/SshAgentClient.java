@@ -9,19 +9,6 @@
  */
 package org.eclipse.jgit.internal.transport.sshd.agent;
 
-import java.io.IOException;
-import java.security.KeyPair;
-import java.security.PrivateKey;
-import java.security.PublicKey;
-import java.text.MessageFormat;
-import java.util.AbstractMap;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.atomic.AtomicBoolean;
-
 import org.apache.sshd.agent.SshAgent;
 import org.apache.sshd.agent.SshAgentConstants;
 import org.apache.sshd.agent.SshAgentKeyConstraint;
@@ -39,6 +26,14 @@ import org.eclipse.jgit.internal.transport.sshd.SshdText;
 import org.eclipse.jgit.transport.sshd.agent.Connector;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
+import java.security.KeyPair;
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.text.MessageFormat;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * A client for an SSH2 agent. This client supports querying identities,

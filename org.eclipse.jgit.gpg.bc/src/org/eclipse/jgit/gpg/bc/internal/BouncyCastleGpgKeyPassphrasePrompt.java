@@ -9,10 +9,6 @@
  */
 package org.eclipse.jgit.gpg.bc.internal;
 
-import java.net.URISyntaxException;
-import java.nio.file.Path;
-import java.text.MessageFormat;
-
 import org.bouncycastle.openpgp.PGPException;
 import org.bouncycastle.util.encoders.Hex;
 import org.eclipse.jgit.api.errors.CanceledException;
@@ -21,6 +17,10 @@ import org.eclipse.jgit.transport.CredentialItem.InformationalMessage;
 import org.eclipse.jgit.transport.CredentialItem.Password;
 import org.eclipse.jgit.transport.CredentialsProvider;
 import org.eclipse.jgit.transport.URIish;
+
+import java.net.URISyntaxException;
+import java.nio.file.Path;
+import java.text.MessageFormat;
 
 /**
  * Prompts for a passphrase and caches it until {@link #clear() cleared}.

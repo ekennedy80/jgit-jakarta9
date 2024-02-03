@@ -17,24 +17,12 @@
 
 package org.eclipse.jgit.lib;
 
-import static org.eclipse.jgit.util.StringUtils.compareIgnoreCase;
-import static org.eclipse.jgit.util.StringUtils.compareWithCase;
-import static org.eclipse.jgit.util.StringUtils.toLowerCase;
+import org.eclipse.jgit.util.StringUtils;
 
-import java.util.AbstractSet;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
-import org.eclipse.jgit.util.StringUtils;
+import static org.eclipse.jgit.util.StringUtils.*;
 
 class ConfigSnapshot {
 	final List<ConfigLine> entryList;

@@ -9,15 +9,6 @@
  */
 package org.eclipse.jgit.api;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.text.MessageFormat;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.api.errors.InvalidRemoteException;
 import org.eclipse.jgit.api.errors.JGitInternalException;
@@ -27,12 +18,13 @@ import org.eclipse.jgit.internal.JGitText;
 import org.eclipse.jgit.lib.Constants;
 import org.eclipse.jgit.lib.Ref;
 import org.eclipse.jgit.lib.Repository;
-import org.eclipse.jgit.transport.FetchConnection;
-import org.eclipse.jgit.transport.RefSpec;
-import org.eclipse.jgit.transport.Transport;
-import org.eclipse.jgit.transport.URIish;
-import org.eclipse.jgit.transport.UrlConfig;
+import org.eclipse.jgit.transport.*;
 import org.eclipse.jgit.util.SystemReader;
+
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.text.MessageFormat;
+import java.util.*;
 
 /**
  * The ls-remote command

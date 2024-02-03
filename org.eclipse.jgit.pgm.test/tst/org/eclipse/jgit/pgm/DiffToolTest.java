@@ -9,12 +9,11 @@
  */
 package org.eclipse.jgit.pgm;
 
-import static org.eclipse.jgit.lib.ConfigConstants.CONFIG_DIFFTOOL_SECTION;
-import static org.eclipse.jgit.lib.ConfigConstants.CONFIG_DIFF_SECTION;
-import static org.eclipse.jgit.lib.ConfigConstants.CONFIG_KEY_CMD;
-import static org.eclipse.jgit.lib.ConfigConstants.CONFIG_KEY_PROMPT;
-import static org.eclipse.jgit.lib.ConfigConstants.CONFIG_KEY_TOOL;
-import static org.junit.Assert.fail;
+import org.eclipse.jgit.internal.diffmergetool.DiffTools;
+import org.eclipse.jgit.internal.diffmergetool.ExternalDiffTool;
+import org.eclipse.jgit.lib.StoredConfig;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.io.File;
 import java.io.InputStream;
@@ -25,11 +24,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
-import org.eclipse.jgit.internal.diffmergetool.DiffTools;
-import org.eclipse.jgit.internal.diffmergetool.ExternalDiffTool;
-import org.eclipse.jgit.lib.StoredConfig;
-import org.junit.Before;
-import org.junit.Test;
+import static org.eclipse.jgit.lib.ConfigConstants.*;
+import static org.junit.Assert.fail;
 
 /**
  * Testing the {@code difftool} command.

@@ -10,10 +10,10 @@
 
 package org.eclipse.jgit.lfs.server;
 
-import static javax.servlet.http.HttpServletResponse.SC_NOT_FOUND;
-import static org.eclipse.jgit.lfs.lib.Constants.DOWNLOAD;
-import static org.eclipse.jgit.lfs.lib.Constants.UPLOAD;
-import static org.eclipse.jgit.lfs.lib.Constants.VERIFY;
+import org.eclipse.jgit.lfs.lib.LongObjectId;
+import org.eclipse.jgit.lfs.server.Response.Action;
+import org.eclipse.jgit.lfs.server.Response.Body;
+import org.eclipse.jgit.lfs.server.internal.LfsServerText;
 
 import java.io.IOException;
 import java.text.MessageFormat;
@@ -21,10 +21,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import org.eclipse.jgit.lfs.lib.LongObjectId;
-import org.eclipse.jgit.lfs.server.Response.Action;
-import org.eclipse.jgit.lfs.server.Response.Body;
-import org.eclipse.jgit.lfs.server.internal.LfsServerText;
+import static jakarta.servlet.http.HttpServletResponse.SC_NOT_FOUND;
+import static org.eclipse.jgit.lfs.lib.Constants.*;
 
 abstract class TransferHandler {
 

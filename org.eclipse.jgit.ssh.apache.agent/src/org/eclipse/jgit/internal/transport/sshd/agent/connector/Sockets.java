@@ -9,10 +9,10 @@
  */
 package org.eclipse.jgit.internal.transport.sshd.agent.connector;
 
-import java.nio.charset.Charset;
-
 import com.sun.jna.Structure;
 import com.sun.jna.Structure.FieldOrder;
+
+import java.nio.charset.Charset;
 
 /**
  * Common things for socket communication.

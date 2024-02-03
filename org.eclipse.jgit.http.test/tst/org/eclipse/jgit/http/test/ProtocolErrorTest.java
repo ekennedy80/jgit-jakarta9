@@ -10,20 +10,8 @@
 
 package org.eclipse.jgit.http.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-
-import javax.servlet.http.HttpServletRequest;
-
-import org.eclipse.jetty.servlet.ServletContextHandler;
-import org.eclipse.jetty.servlet.ServletHolder;
+import org.eclipse.jetty.ee10.servlet.ServletContextHandler;
+import org.eclipse.jetty.ee10.servlet.ServletHolder;
 import org.eclipse.jgit.errors.RepositoryNotFoundException;
 import org.eclipse.jgit.http.server.GitServlet;
 import org.eclipse.jgit.http.server.GitSmartHttpTools;
@@ -41,6 +29,17 @@ import org.eclipse.jgit.transport.URIish;
 import org.eclipse.jgit.util.NB;
 import org.junit.Before;
 import org.junit.Test;
+
+import jakarta.servlet.http.HttpServletRequest;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class ProtocolErrorTest extends HttpTestCase {
 	private Repository remoteRepository;

@@ -10,17 +10,11 @@
 
 package org.eclipse.jgit.http.server;
 
-import java.io.File;
-import java.text.MessageFormat;
-import java.util.LinkedList;
-import java.util.List;
-
-import javax.servlet.Filter;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import jakarta.servlet.Filter;
+import jakarta.servlet.FilterConfig;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.eclipse.jgit.http.server.glue.ErrorServlet;
 import org.eclipse.jgit.http.server.glue.MetaFilter;
 import org.eclipse.jgit.http.server.glue.RegexGroupFilter;
@@ -34,6 +28,11 @@ import org.eclipse.jgit.transport.resolver.ReceivePackFactory;
 import org.eclipse.jgit.transport.resolver.RepositoryResolver;
 import org.eclipse.jgit.transport.resolver.UploadPackFactory;
 import org.eclipse.jgit.util.StringUtils;
+
+import java.io.File;
+import java.text.MessageFormat;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Handles Git repository access over HTTP.

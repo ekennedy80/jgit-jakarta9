@@ -9,11 +9,11 @@
  */
 package org.eclipse.jgit.internal.transport.sshd;
 
-import java.io.IOException;
-
 import org.apache.sshd.client.auth.pubkey.UserAuthPublicKey;
 import org.apache.sshd.client.auth.pubkey.UserAuthPublicKeyFactory;
 import org.apache.sshd.client.session.ClientSession;
+
+import java.io.IOException;
 
 /**
  * A customized authentication factory for public key user authentication.

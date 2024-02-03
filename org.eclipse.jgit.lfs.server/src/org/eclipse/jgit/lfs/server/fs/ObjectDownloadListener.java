@@ -9,6 +9,15 @@
  */
 package org.eclipse.jgit.lfs.server.fs;
 
+import jakarta.servlet.AsyncContext;
+import jakarta.servlet.ServletOutputStream;
+import jakarta.servlet.WriteListener;
+import jakarta.servlet.http.HttpServletResponse;
+import org.apache.http.HttpStatus;
+import org.eclipse.jgit.lfs.lib.AnyLongObjectId;
+import org.eclipse.jgit.lfs.lib.Constants;
+import org.eclipse.jgit.util.HttpSupport;
+
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.Channels;
@@ -16,16 +25,6 @@ import java.nio.channels.ReadableByteChannel;
 import java.nio.channels.WritableByteChannel;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import javax.servlet.AsyncContext;
-import javax.servlet.ServletOutputStream;
-import javax.servlet.WriteListener;
-import javax.servlet.http.HttpServletResponse;
-
-import org.apache.http.HttpStatus;
-import org.eclipse.jgit.lfs.lib.AnyLongObjectId;
-import org.eclipse.jgit.lfs.lib.Constants;
-import org.eclipse.jgit.util.HttpSupport;
 
 /**
  * Handle asynchronous large object download.

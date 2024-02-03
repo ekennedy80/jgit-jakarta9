@@ -9,10 +9,6 @@
  */
 package org.eclipse.jgit.http.test;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
 import org.eclipse.jgit.junit.http.HttpTestCase;
 import org.eclipse.jgit.transport.HttpTransport;
 import org.eclipse.jgit.transport.http.HttpConnectionFactory;
@@ -24,6 +20,10 @@ import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 /**
  * Abstract test base class for running HTTP-related tests with all connection

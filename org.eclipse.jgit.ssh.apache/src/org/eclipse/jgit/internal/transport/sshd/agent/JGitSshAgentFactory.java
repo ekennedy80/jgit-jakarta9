@@ -9,11 +9,6 @@
  */
 package org.eclipse.jgit.internal.transport.sshd.agent;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.Collections;
-import java.util.List;
-
 import org.apache.sshd.agent.SshAgent;
 import org.apache.sshd.agent.SshAgentFactory;
 import org.apache.sshd.agent.SshAgentServer;
@@ -26,6 +21,11 @@ import org.eclipse.jgit.annotations.NonNull;
 import org.eclipse.jgit.internal.transport.sshd.JGitClientSession;
 import org.eclipse.jgit.transport.SshConstants;
 import org.eclipse.jgit.transport.sshd.agent.ConnectorFactory;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * A factory for creating {@link SshAgentClient}s.

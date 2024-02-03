@@ -17,8 +17,16 @@
 
 package org.eclipse.jgit.transport.ssh.jsch;
 
-import static java.util.stream.Collectors.joining;
-import static java.util.stream.Collectors.toList;
+import com.jcraft.jsch.*;
+import com.jcraft.jsch.ConfigRepository.Config;
+import org.eclipse.jgit.errors.TransportException;
+import org.eclipse.jgit.internal.transport.ssh.jsch.CredentialsProviderUserInfo;
+import org.eclipse.jgit.internal.transport.ssh.jsch.JSchText;
+import org.eclipse.jgit.transport.*;
+import org.eclipse.jgit.util.FS;
+import org.eclipse.jgit.util.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -36,26 +44,8 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Stream;
 
-import org.eclipse.jgit.errors.TransportException;
-import org.eclipse.jgit.internal.transport.ssh.jsch.CredentialsProviderUserInfo;
-import org.eclipse.jgit.internal.transport.ssh.jsch.JSchText;
-import org.eclipse.jgit.transport.CredentialsProvider;
-import org.eclipse.jgit.transport.RemoteSession;
-import org.eclipse.jgit.transport.SshConstants;
-import org.eclipse.jgit.transport.SshSessionFactory;
-import org.eclipse.jgit.transport.URIish;
-import org.eclipse.jgit.util.FS;
-import org.eclipse.jgit.util.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import com.jcraft.jsch.ConfigRepository;
-import com.jcraft.jsch.ConfigRepository.Config;
-import com.jcraft.jsch.HostKey;
-import com.jcraft.jsch.HostKeyRepository;
-import com.jcraft.jsch.JSch;
-import com.jcraft.jsch.JSchException;
-import com.jcraft.jsch.Session;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
 
 /**
  * The base session factory that loads known hosts and private keys from

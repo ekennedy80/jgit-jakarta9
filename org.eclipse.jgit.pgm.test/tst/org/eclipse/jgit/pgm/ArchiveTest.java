@@ -9,21 +9,14 @@
  */
 package org.eclipse.jgit.pgm;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-import static org.junit.Assume.assumeNoException;
+import org.eclipse.jgit.api.Git;
+import org.eclipse.jgit.dircache.DirCache;
+import org.eclipse.jgit.lib.CLIRepositoryTestCase;
+import org.eclipse.jgit.lib.FileMode;
+import org.junit.Before;
+import org.junit.Test;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -33,12 +26,9 @@ import java.util.concurrent.Future;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-import org.eclipse.jgit.api.Git;
-import org.eclipse.jgit.dircache.DirCache;
-import org.eclipse.jgit.lib.CLIRepositoryTestCase;
-import org.eclipse.jgit.lib.FileMode;
-import org.junit.Before;
-import org.junit.Test;
+import static java.nio.charset.StandardCharsets.UTF_8;
+import static org.junit.Assert.*;
+import static org.junit.Assume.assumeNoException;
 
 public class ArchiveTest extends CLIRepositoryTestCase {
 	private Git git;

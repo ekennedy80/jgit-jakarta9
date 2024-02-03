@@ -9,17 +9,6 @@
  */
 package org.eclipse.jgit.gpg.bc.internal.keys;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.EOFException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.StreamCorruptedException;
-import java.net.URISyntaxException;
-import java.nio.charset.StandardCharsets;
-import java.text.MessageFormat;
-import java.util.Arrays;
-
 import org.bouncycastle.openpgp.PGPException;
 import org.bouncycastle.openpgp.PGPPublicKey;
 import org.bouncycastle.openpgp.PGPSecretKey;
@@ -31,6 +20,12 @@ import org.eclipse.jgit.api.errors.CanceledException;
 import org.eclipse.jgit.errors.UnsupportedCredentialItem;
 import org.eclipse.jgit.gpg.bc.internal.BCText;
 import org.eclipse.jgit.util.RawParseUtils;
+
+import java.io.*;
+import java.net.URISyntaxException;
+import java.nio.charset.StandardCharsets;
+import java.text.MessageFormat;
+import java.util.Arrays;
 
 /**
  * Utilities for reading GPG secret keys from a gpg-agent key file.

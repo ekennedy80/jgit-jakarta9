@@ -12,6 +12,16 @@
 
 package org.eclipse.jgit.junit;
 
+import org.eclipse.jgit.errors.ConfigInvalidException;
+import org.eclipse.jgit.lib.Config;
+import org.eclipse.jgit.lib.Constants;
+import org.eclipse.jgit.lib.StoredConfig;
+import org.eclipse.jgit.storage.file.FileBasedConfig;
+import org.eclipse.jgit.util.FS;
+import org.eclipse.jgit.util.SystemReader;
+import org.eclipse.jgit.util.time.MonotonicClock;
+import org.eclipse.jgit.util.time.ProposedTimestamp;
+
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
@@ -23,16 +33,6 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
-
-import org.eclipse.jgit.errors.ConfigInvalidException;
-import org.eclipse.jgit.lib.Config;
-import org.eclipse.jgit.lib.Constants;
-import org.eclipse.jgit.lib.StoredConfig;
-import org.eclipse.jgit.storage.file.FileBasedConfig;
-import org.eclipse.jgit.util.FS;
-import org.eclipse.jgit.util.SystemReader;
-import org.eclipse.jgit.util.time.MonotonicClock;
-import org.eclipse.jgit.util.time.ProposedTimestamp;
 
 /**
  * Mock {@link org.eclipse.jgit.util.SystemReader} for tests.

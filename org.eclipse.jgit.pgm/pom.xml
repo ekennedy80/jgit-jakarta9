@@ -108,7 +108,7 @@
 
     <dependency>
       <groupId>org.eclipse.jetty</groupId>
-      <artifactId>jetty-servlet</artifactId>
+      <artifactId>jetty-server</artifactId>
     </dependency>
 
     <dependency>
@@ -128,6 +128,10 @@
       <artifactId>xz</artifactId>
       <optional>true</optional>
     </dependency>
+      <dependency>
+          <groupId>org.eclipse.jetty.ee10</groupId>
+          <artifactId>jetty-ee10-servlet</artifactId>
+      </dependency>
   </dependencies>
 
   <build>

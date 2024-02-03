@@ -10,17 +10,16 @@
  */
 package org.eclipse.jgit.junit.http;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-
-import javax.servlet.http.HttpServletRequest;
-
-import org.eclipse.jetty.servlet.ServletContextHandler;
-import org.eclipse.jetty.servlet.ServletHolder;
+import jakarta.servlet.http.HttpServletRequest;
+import org.eclipse.jetty.ee10.servlet.ServletContextHandler;
+import org.eclipse.jetty.ee10.servlet.ServletHolder;
 import org.eclipse.jgit.errors.RepositoryNotFoundException;
 import org.eclipse.jgit.http.server.GitServlet;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.transport.URIish;
+
+import java.net.URI;
+import java.net.URISyntaxException;
 
 /**
  * Simple http server for testing http access to Git repositories.

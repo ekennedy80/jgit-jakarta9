@@ -9,6 +9,12 @@
  */
 package org.eclipse.jgit.transport.sshd;
 
+import org.eclipse.jgit.annotations.NonNull;
+import org.eclipse.jgit.transport.CredentialsProvider;
+import org.eclipse.jgit.transport.SshConfigStore;
+import org.eclipse.jgit.transport.sshd.agent.ConnectorFactory;
+import org.eclipse.jgit.util.StringUtils;
+
 import java.io.File;
 import java.nio.file.Path;
 import java.security.KeyPair;
@@ -16,12 +22,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.BiFunction;
 import java.util.function.Function;
-
-import org.eclipse.jgit.annotations.NonNull;
-import org.eclipse.jgit.transport.CredentialsProvider;
-import org.eclipse.jgit.transport.SshConfigStore;
-import org.eclipse.jgit.transport.sshd.agent.ConnectorFactory;
-import org.eclipse.jgit.util.StringUtils;
 
 /**
  * A builder API to configure {@link SshdSessionFactory SshdSessionFactories}.

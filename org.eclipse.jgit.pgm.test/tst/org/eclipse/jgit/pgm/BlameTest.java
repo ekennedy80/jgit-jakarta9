@@ -9,9 +9,6 @@
  */
 package org.eclipse.jgit.pgm;
 
-import static org.junit.Assert.assertThrows;
-import static org.junit.Assert.assertTrue;
-
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.MergeResult;
 import org.eclipse.jgit.lib.CLIRepositoryTestCase;
@@ -19,6 +16,9 @@ import org.eclipse.jgit.lib.Constants;
 import org.eclipse.jgit.lib.PersonIdent;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.junit.Test;
+
+import static org.junit.Assert.assertThrows;
+import static org.junit.Assert.assertTrue;
 
 public class BlameTest extends CLIRepositoryTestCase {
 

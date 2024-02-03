@@ -10,8 +10,16 @@
 
 package org.eclipse.jgit.junit.http;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import org.eclipse.jetty.ee10.servlet.ServletContextHandler;
+import org.eclipse.jetty.ee10.servlet.security.ConstraintMapping;
+import org.eclipse.jetty.ee10.servlet.security.ConstraintSecurityHandler;
+import org.eclipse.jetty.security.*;
+import org.eclipse.jetty.security.authentication.BasicAuthenticator;
+import org.eclipse.jetty.server.*;
+import org.eclipse.jetty.server.handler.ContextHandlerCollection;
+import org.eclipse.jetty.util.security.Password;
+import org.eclipse.jetty.util.ssl.SslContextFactory;
+import org.eclipse.jgit.transport.URIish;
 
 import java.io.File;
 import java.io.IOException;
@@ -20,33 +28,11 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.UnknownHostException;
 import java.nio.file.Files;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
-import org.eclipse.jetty.security.AbstractLoginService;
-import org.eclipse.jetty.security.Authenticator;
-import org.eclipse.jetty.security.ConstraintMapping;
-import org.eclipse.jetty.security.ConstraintSecurityHandler;
-import org.eclipse.jetty.security.RolePrincipal;
-import org.eclipse.jetty.security.UserPrincipal;
-import org.eclipse.jetty.security.authentication.BasicAuthenticator;
-import org.eclipse.jetty.server.Connector;
-import org.eclipse.jetty.server.HttpConfiguration;
-import org.eclipse.jetty.server.HttpConnectionFactory;
-import org.eclipse.jetty.server.SecureRequestCustomizer;
-import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.server.ServerConnector;
-import org.eclipse.jetty.server.SslConnectionFactory;
-import org.eclipse.jetty.server.handler.ContextHandlerCollection;
-import org.eclipse.jetty.servlet.ServletContextHandler;
-import org.eclipse.jetty.util.security.Constraint;
-import org.eclipse.jetty.util.security.Password;
-import org.eclipse.jetty.util.ssl.SslContextFactory;
-import org.eclipse.jgit.transport.URIish;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Tiny web application server for unit testing.
@@ -165,7 +151,6 @@ public class AppServer {
 		contexts = new ContextHandlerCollection();
 
 		log = new TestRequestLog();
-		log.setHandler(contexts);
 
 		if (secureConnector == null) {
 			server.setConnectors(new Connector[] { connector });
@@ -173,7 +158,7 @@ public class AppServer {
 			server.setConnectors(
 					new Connector[] { connector, secureConnector });
 		}
-		server.setHandler(log);
+		server.setHandler((Handler) null);
 	}
 
 	private SslContextFactory.Server createTestSslContextFactory(
@@ -305,10 +290,11 @@ public class AppServer {
 
 	private ConstraintMapping createConstraintMapping() {
 		ConstraintMapping cm = new ConstraintMapping();
-		cm.setConstraint(new Constraint());
-		cm.getConstraint().setAuthenticate(true);
-		cm.getConstraint().setDataConstraint(Constraint.DC_NONE);
-		cm.getConstraint().setRoles(new String[] { authRole });
+		Constraint.Builder constraintBuilder = new Constraint.Builder();
+		constraintBuilder.roles(new String[] { authRole });
+		constraintBuilder.authorization(Constraint.Authorization.ANY_USER);
+		constraintBuilder.transport(Constraint.Transport.SECURE);
+		cm.setConstraint(new Constraint.Builder().build());
 		cm.setPathSpec("/*");
 		return cm;
 	}

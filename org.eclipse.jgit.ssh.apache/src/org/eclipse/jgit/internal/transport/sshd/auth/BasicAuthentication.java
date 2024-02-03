@@ -9,7 +9,8 @@
  */
 package org.eclipse.jgit.internal.transport.sshd.auth;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
+import org.eclipse.jgit.internal.transport.sshd.SshdText;
+import org.eclipse.jgit.transport.SshConstants;
 
 import java.net.Authenticator;
 import java.net.Authenticator.RequestorType;
@@ -22,8 +23,7 @@ import java.security.PrivilegedAction;
 import java.util.Arrays;
 import java.util.concurrent.CancellationException;
 
-import org.eclipse.jgit.internal.transport.sshd.SshdText;
-import org.eclipse.jgit.transport.SshConstants;
+import static java.nio.charset.StandardCharsets.UTF_8;
 
 /**
  * An abstract implementation of a username-password authentication. It can be

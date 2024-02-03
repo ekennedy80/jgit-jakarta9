@@ -9,7 +9,15 @@
  */
 package org.eclipse.jgit.internal.transport.sshd;
 
-import static java.text.MessageFormat.format;
+import org.apache.sshd.client.auth.AbstractUserAuth;
+import org.apache.sshd.client.session.ClientSession;
+import org.apache.sshd.common.SshConstants;
+import org.apache.sshd.common.util.buffer.Buffer;
+import org.apache.sshd.common.util.buffer.ByteArrayBuffer;
+import org.ietf.jgss.GSSContext;
+import org.ietf.jgss.GSSException;
+import org.ietf.jgss.MessageProp;
+import org.ietf.jgss.Oid;
 
 import java.io.IOException;
 import java.net.InetAddress;
@@ -20,15 +28,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import org.apache.sshd.client.auth.AbstractUserAuth;
-import org.apache.sshd.client.session.ClientSession;
-import org.apache.sshd.common.SshConstants;
-import org.apache.sshd.common.util.buffer.Buffer;
-import org.apache.sshd.common.util.buffer.ByteArrayBuffer;
-import org.ietf.jgss.GSSContext;
-import org.ietf.jgss.GSSException;
-import org.ietf.jgss.MessageProp;
-import org.ietf.jgss.Oid;
+import static java.text.MessageFormat.format;
 
 /**
  * GSSAPI-with-MIC authentication handler (Kerberos 5).

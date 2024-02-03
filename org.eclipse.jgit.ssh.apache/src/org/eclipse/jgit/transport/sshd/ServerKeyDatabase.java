@@ -9,12 +9,12 @@
  */
 package org.eclipse.jgit.transport.sshd;
 
+import org.eclipse.jgit.annotations.NonNull;
+import org.eclipse.jgit.transport.CredentialsProvider;
+
 import java.net.InetSocketAddress;
 import java.security.PublicKey;
 import java.util.List;
-
-import org.eclipse.jgit.annotations.NonNull;
-import org.eclipse.jgit.transport.CredentialsProvider;
 
 /**
  * An interface for a database of known server keys, supporting finding all

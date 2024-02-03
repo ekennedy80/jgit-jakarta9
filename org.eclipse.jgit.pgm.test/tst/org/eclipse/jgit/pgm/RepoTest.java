@@ -9,19 +9,17 @@
  */
 package org.eclipse.jgit.pgm;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
-import java.io.File;
-import java.util.Arrays;
-
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.junit.JGitTestUtil;
 import org.eclipse.jgit.lib.CLIRepositoryTestCase;
 import org.eclipse.jgit.lib.Repository;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.io.File;
+import java.util.Arrays;
+
+import static org.junit.Assert.*;
 
 public class RepoTest extends CLIRepositoryTestCase {
 	private Repository defaultDb;

@@ -10,19 +10,12 @@
 
 package org.eclipse.jgit.http.server;
 
-import static org.eclipse.jgit.util.HttpSupport.HDR_CACHE_CONTROL;
-import static org.eclipse.jgit.util.HttpSupport.HDR_EXPIRES;
-import static org.eclipse.jgit.util.HttpSupport.HDR_PRAGMA;
+import jakarta.servlet.*;
+import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletResponse;
+import static org.eclipse.jgit.util.HttpSupport.*;
 
 /** Add HTTP response headers to prevent caching by proxies/browsers. */
 class NoCacheFilter implements Filter {

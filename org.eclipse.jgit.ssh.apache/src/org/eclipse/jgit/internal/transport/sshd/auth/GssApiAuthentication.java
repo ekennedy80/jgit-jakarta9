@@ -9,14 +9,14 @@
  */
 package org.eclipse.jgit.internal.transport.sshd.auth;
 
-import static java.text.MessageFormat.format;
+import org.eclipse.jgit.internal.transport.sshd.GssApiMechanisms;
+import org.eclipse.jgit.internal.transport.sshd.SshdText;
+import org.ietf.jgss.GSSContext;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
 
-import org.eclipse.jgit.internal.transport.sshd.GssApiMechanisms;
-import org.eclipse.jgit.internal.transport.sshd.SshdText;
-import org.ietf.jgss.GSSContext;
+import static java.text.MessageFormat.format;
 
 /**
  * An abstract implementation of a GSS-API multi-round authentication.

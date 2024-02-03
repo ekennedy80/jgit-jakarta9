@@ -9,12 +9,11 @@
  */
 package org.eclipse.jgit.pgm;
 
-import static org.eclipse.jgit.lib.ConfigConstants.CONFIG_KEY_CMD;
-import static org.eclipse.jgit.lib.ConfigConstants.CONFIG_KEY_PROMPT;
-import static org.eclipse.jgit.lib.ConfigConstants.CONFIG_KEY_TOOL;
-import static org.eclipse.jgit.lib.ConfigConstants.CONFIG_MERGETOOL_SECTION;
-import static org.eclipse.jgit.lib.ConfigConstants.CONFIG_MERGE_SECTION;
-import static org.junit.Assert.fail;
+import org.eclipse.jgit.internal.diffmergetool.ExternalMergeTool;
+import org.eclipse.jgit.internal.diffmergetool.MergeTools;
+import org.eclipse.jgit.lib.StoredConfig;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.io.InputStream;
 import java.nio.file.Path;
@@ -23,11 +22,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.jgit.internal.diffmergetool.ExternalMergeTool;
-import org.eclipse.jgit.internal.diffmergetool.MergeTools;
-import org.eclipse.jgit.lib.StoredConfig;
-import org.junit.Before;
-import org.junit.Test;
+import static org.eclipse.jgit.lib.ConfigConstants.*;
+import static org.junit.Assert.fail;
 
 /**
  * Testing the {@code mergetool} command.

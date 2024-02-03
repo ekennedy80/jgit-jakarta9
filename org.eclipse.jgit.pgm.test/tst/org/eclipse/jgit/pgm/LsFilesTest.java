@@ -9,17 +9,17 @@
  */
 package org.eclipse.jgit.pgm;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertTrue;
-
-import java.io.File;
-
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.junit.JGitTestUtil;
 import org.eclipse.jgit.lib.CLIRepositoryTestCase;
 import org.eclipse.jgit.util.FileUtils;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.io.File;
+
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertTrue;
 
 public class LsFilesTest extends CLIRepositoryTestCase {
 

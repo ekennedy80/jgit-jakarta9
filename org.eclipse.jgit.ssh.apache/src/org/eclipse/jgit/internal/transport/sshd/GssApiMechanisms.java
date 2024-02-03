@@ -9,6 +9,9 @@
  */
 package org.eclipse.jgit.internal.transport.sshd;
 
+import org.eclipse.jgit.annotations.NonNull;
+import org.ietf.jgss.*;
+
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.UnknownHostException;
@@ -17,13 +20,6 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
-
-import org.eclipse.jgit.annotations.NonNull;
-import org.ietf.jgss.GSSContext;
-import org.ietf.jgss.GSSException;
-import org.ietf.jgss.GSSManager;
-import org.ietf.jgss.GSSName;
-import org.ietf.jgss.Oid;
 
 /**
  * Global repository of GSS-API mechanisms that we can use.

@@ -9,16 +9,20 @@
  */
 package org.eclipse.jgit.internal.transport.sshd.pkcs11;
 
+import org.apache.sshd.agent.SshAgent;
+import org.apache.sshd.agent.SshAgentKeyConstraint;
+import org.apache.sshd.client.auth.pubkey.KeyAgentIdentity;
+import org.apache.sshd.common.session.SessionContext;
+import org.apache.sshd.common.signature.BuiltinSignatures;
+import org.eclipse.jgit.annotations.NonNull;
+import org.eclipse.jgit.transport.URIish;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.security.auth.login.FailedLoginException;
 import java.io.IOException;
 import java.nio.file.Path;
-import java.security.GeneralSecurityException;
-import java.security.KeyPair;
-import java.security.KeyStore;
-import java.security.PrivateKey;
-import java.security.Provider;
-import java.security.PublicKey;
-import java.security.Security;
-import java.security.Signature;
+import java.security.*;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateExpiredException;
 import java.security.cert.CertificateNotYetValidException;
@@ -31,18 +35,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
-
-import javax.security.auth.login.FailedLoginException;
-
-import org.apache.sshd.agent.SshAgent;
-import org.apache.sshd.agent.SshAgentKeyConstraint;
-import org.apache.sshd.client.auth.pubkey.KeyAgentIdentity;
-import org.apache.sshd.common.session.SessionContext;
-import org.apache.sshd.common.signature.BuiltinSignatures;
-import org.eclipse.jgit.annotations.NonNull;
-import org.eclipse.jgit.transport.URIish;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * Bridge for using a PKCS11 HSM (Hardware Security Module) for public-key

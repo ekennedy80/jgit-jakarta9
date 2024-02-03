@@ -10,13 +10,6 @@
 
 package org.eclipse.jgit.http.test;
 
-import static org.junit.Assert.fail;
-
-import java.io.IOException;
-
-import javax.servlet.http.HttpServletRequestWrapper;
-
-import org.eclipse.jetty.server.Request;
 import org.eclipse.jgit.http.server.resolver.AsIsFileService;
 import org.eclipse.jgit.junit.LocalDiskRepositoryTestCase;
 import org.eclipse.jgit.lib.Repository;
@@ -25,6 +18,11 @@ import org.eclipse.jgit.transport.resolver.ServiceNotAuthorizedException;
 import org.eclipse.jgit.transport.resolver.ServiceNotEnabledException;
 import org.junit.Before;
 import org.junit.Test;
+
+import jakarta.servlet.http.HttpServletRequestWrapper;
+import java.io.IOException;
+
+import static org.junit.Assert.fail;
 
 public class AsIsServiceTest extends LocalDiskRepositoryTestCase {
 	private Repository db;
@@ -101,7 +99,7 @@ public class AsIsServiceTest extends LocalDiskRepositoryTestCase {
 		private final String host;
 
 		R(String user, String host) {
-			super(new Request(null, null) /* can't pass null, sigh */);
+			super(new HttpServletRequestWrapper(null) /* can't pass null, sigh */);
 			this.user = user;
 			this.host = host;
 		}

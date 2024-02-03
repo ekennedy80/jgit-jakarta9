@@ -9,25 +9,11 @@
  */
 package org.eclipse.jgit.gpg.bc.internal;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.security.NoSuchAlgorithmException;
-import java.security.NoSuchProviderException;
-import java.security.Security;
-import java.util.Iterator;
-
 import org.bouncycastle.bcpg.ArmoredOutputStream;
 import org.bouncycastle.bcpg.BCPGOutputStream;
 import org.bouncycastle.bcpg.HashAlgorithmTags;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
-import org.bouncycastle.openpgp.PGPException;
-import org.bouncycastle.openpgp.PGPPrivateKey;
-import org.bouncycastle.openpgp.PGPPublicKey;
-import org.bouncycastle.openpgp.PGPSecretKey;
-import org.bouncycastle.openpgp.PGPSignature;
-import org.bouncycastle.openpgp.PGPSignatureGenerator;
-import org.bouncycastle.openpgp.PGPSignatureSubpacketGenerator;
+import org.bouncycastle.openpgp.*;
 import org.bouncycastle.openpgp.operator.jcajce.JcaPGPContentSignerBuilder;
 import org.bouncycastle.openpgp.operator.jcajce.JcePBESecretKeyDecryptorBuilder;
 import org.eclipse.jgit.annotations.NonNull;
@@ -37,16 +23,18 @@ import org.eclipse.jgit.api.errors.JGitInternalException;
 import org.eclipse.jgit.api.errors.UnsupportedSigningFormatException;
 import org.eclipse.jgit.errors.UnsupportedCredentialItem;
 import org.eclipse.jgit.internal.JGitText;
-import org.eclipse.jgit.lib.CommitBuilder;
-import org.eclipse.jgit.lib.GpgConfig;
-import org.eclipse.jgit.lib.GpgObjectSigner;
-import org.eclipse.jgit.lib.GpgSignature;
-import org.eclipse.jgit.lib.GpgSigner;
-import org.eclipse.jgit.lib.ObjectBuilder;
-import org.eclipse.jgit.lib.PersonIdent;
+import org.eclipse.jgit.lib.*;
 import org.eclipse.jgit.lib.GpgConfig.GpgFormat;
 import org.eclipse.jgit.transport.CredentialsProvider;
 import org.eclipse.jgit.util.StringUtils;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
+import java.security.Security;
+import java.util.Iterator;
 
 /**
  * GPG Signer using the BouncyCastle library.

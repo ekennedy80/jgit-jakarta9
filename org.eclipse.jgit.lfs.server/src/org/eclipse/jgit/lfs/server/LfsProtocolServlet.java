@@ -9,48 +9,24 @@
  */
 package org.eclipse.jgit.lfs.server;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
-import static org.apache.http.HttpStatus.SC_FORBIDDEN;
-import static org.apache.http.HttpStatus.SC_INSUFFICIENT_STORAGE;
-import static org.apache.http.HttpStatus.SC_INTERNAL_SERVER_ERROR;
-import static org.apache.http.HttpStatus.SC_NOT_FOUND;
-import static org.apache.http.HttpStatus.SC_OK;
-import static org.apache.http.HttpStatus.SC_SERVICE_UNAVAILABLE;
-import static org.apache.http.HttpStatus.SC_UNAUTHORIZED;
-import static org.apache.http.HttpStatus.SC_UNPROCESSABLE_ENTITY;
-import static org.eclipse.jgit.lfs.lib.Constants.DOWNLOAD;
-import static org.eclipse.jgit.lfs.lib.Constants.UPLOAD;
-import static org.eclipse.jgit.lfs.lib.Constants.VERIFY;
-import static org.eclipse.jgit.util.HttpSupport.HDR_AUTHORIZATION;
-
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.Reader;
-import java.io.Writer;
-import java.text.MessageFormat;
-import java.util.List;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.eclipse.jgit.lfs.errors.LfsBandwidthLimitExceeded;
-import org.eclipse.jgit.lfs.errors.LfsException;
-import org.eclipse.jgit.lfs.errors.LfsInsufficientStorage;
-import org.eclipse.jgit.lfs.errors.LfsRateLimitExceeded;
-import org.eclipse.jgit.lfs.errors.LfsRepositoryNotFound;
-import org.eclipse.jgit.lfs.errors.LfsRepositoryReadOnly;
-import org.eclipse.jgit.lfs.errors.LfsUnauthorized;
-import org.eclipse.jgit.lfs.errors.LfsUnavailable;
-import org.eclipse.jgit.lfs.errors.LfsValidationError;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import org.eclipse.jgit.lfs.errors.*;
 import org.eclipse.jgit.lfs.internal.LfsText;
 import org.eclipse.jgit.lfs.server.internal.LfsGson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.*;
+import java.text.MessageFormat;
+import java.util.List;
+
+import static java.nio.charset.StandardCharsets.UTF_8;
+import static org.apache.http.HttpStatus.*;
+import static org.eclipse.jgit.lfs.lib.Constants.*;
+import static org.eclipse.jgit.util.HttpSupport.HDR_AUTHORIZATION;
 
 /**
  * LFS protocol handler implementing the LFS batch API [1]

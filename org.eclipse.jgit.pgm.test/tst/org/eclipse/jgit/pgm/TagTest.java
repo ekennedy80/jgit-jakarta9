@@ -9,11 +9,6 @@
  */
 package org.eclipse.jgit.pgm;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.junit.TestRepository;
 import org.eclipse.jgit.lib.CLIRepositoryTestCase;
@@ -21,6 +16,8 @@ import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 public class TagTest extends CLIRepositoryTestCase {
 	private Git git;

@@ -9,12 +9,12 @@
  */
 package org.eclipse.jgit.transport.sshd.agent;
 
+import org.eclipse.jgit.annotations.NonNull;
+import org.eclipse.jgit.internal.transport.sshd.agent.ConnectorFactoryProvider;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Collection;
-
-import org.eclipse.jgit.annotations.NonNull;
-import org.eclipse.jgit.internal.transport.sshd.agent.ConnectorFactoryProvider;
 
 /**
  * A factory for creating {@link Connector}s. This is a service provider

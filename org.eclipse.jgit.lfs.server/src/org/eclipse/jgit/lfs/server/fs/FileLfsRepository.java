@@ -9,7 +9,13 @@
  */
 package org.eclipse.jgit.lfs.server.fs;
 
-import static org.eclipse.jgit.util.HttpSupport.HDR_AUTHORIZATION;
+import org.eclipse.jgit.annotations.Nullable;
+import org.eclipse.jgit.lfs.internal.AtomicObjectOutputStream;
+import org.eclipse.jgit.lfs.lib.AnyLongObjectId;
+import org.eclipse.jgit.lfs.lib.Constants;
+import org.eclipse.jgit.lfs.server.LargeFileRepository;
+import org.eclipse.jgit.lfs.server.Response;
+import org.eclipse.jgit.lfs.server.Response.Action;
 
 import java.io.IOException;
 import java.nio.channels.FileChannel;
@@ -19,13 +25,7 @@ import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.util.Collections;
 
-import org.eclipse.jgit.annotations.Nullable;
-import org.eclipse.jgit.lfs.internal.AtomicObjectOutputStream;
-import org.eclipse.jgit.lfs.lib.AnyLongObjectId;
-import org.eclipse.jgit.lfs.lib.Constants;
-import org.eclipse.jgit.lfs.server.LargeFileRepository;
-import org.eclipse.jgit.lfs.server.Response;
-import org.eclipse.jgit.lfs.server.Response.Action;
+import static org.eclipse.jgit.util.HttpSupport.HDR_AUTHORIZATION;
 
 /**
  * Repository storing large objects in the file system

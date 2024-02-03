@@ -10,16 +10,10 @@
 
 package org.eclipse.jgit.http.test;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.fail;
-
-import java.io.IOException;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletRequestWrapper;
-
-import org.eclipse.jetty.server.Request;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.ServletRequestWrapper;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequestWrapper;
 import org.eclipse.jgit.http.server.resolver.DefaultUploadPackFactory;
 import org.eclipse.jgit.junit.LocalDiskRepositoryTestCase;
 import org.eclipse.jgit.lib.Repository;
@@ -31,8 +25,14 @@ import org.eclipse.jgit.transport.resolver.UploadPackFactory;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.IOException;
+
+import static org.junit.Assert.*;
+
 public class DefaultUploadPackFactoryTest extends LocalDiskRepositoryTestCase {
 	private Repository db;
+
+	private static ServletRequest request = null;
 
 	private UploadPackFactory<HttpServletRequest> factory;
 
@@ -129,7 +129,7 @@ public class DefaultUploadPackFactoryTest extends LocalDiskRepositoryTestCase {
 		private final String host;
 
 		R(String user, String host) {
-			super(new Request(null, null) /* can't pass null, sigh */);
+			super((HttpServletRequest) new ServletRequestWrapper(request) /* can't pass null, sigh */);
 			this.user = user;
 			this.host = host;
 		}

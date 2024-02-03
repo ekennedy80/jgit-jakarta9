@@ -9,13 +9,13 @@
  */
 package org.eclipse.jgit.junit;
 
-import java.text.MessageFormat;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import org.junit.rules.TestRule;
 import org.junit.runner.Description;
 import org.junit.runners.model.Statement;
+
+import java.text.MessageFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * {@link org.junit.rules.TestRule} which enables to run the same JUnit test

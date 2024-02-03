@@ -41,17 +41,15 @@
  */
 package org.eclipse.jgit.pgm;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-
-import java.io.File;
-
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.dircache.DirCache;
 import org.eclipse.jgit.lib.CLIRepositoryTestCase;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.io.File;
+
+import static org.junit.Assert.*;
 
 public class RmTest extends CLIRepositoryTestCase {
 	private Git git;

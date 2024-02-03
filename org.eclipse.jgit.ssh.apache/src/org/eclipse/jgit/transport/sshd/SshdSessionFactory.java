@@ -9,26 +9,6 @@
  */
 package org.eclipse.jgit.transport.sshd;
 
-import java.io.Closeable;
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.InvalidPathException;
-import java.nio.file.Path;
-import java.security.KeyPair;
-import java.time.Duration;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.function.Supplier;
-import java.util.stream.Collectors;
-
 import org.apache.sshd.client.ClientBuilder;
 import org.apache.sshd.client.SshClient;
 import org.apache.sshd.client.auth.UserAuthFactory;
@@ -45,25 +25,26 @@ import org.apache.sshd.common.signature.Signature;
 import org.eclipse.jgit.annotations.NonNull;
 import org.eclipse.jgit.errors.TransportException;
 import org.eclipse.jgit.internal.transport.ssh.OpenSshConfigFile;
-import org.eclipse.jgit.internal.transport.sshd.CachingKeyPairProvider;
-import org.eclipse.jgit.internal.transport.sshd.GssApiWithMicAuthFactory;
-import org.eclipse.jgit.internal.transport.sshd.JGitPublicKeyAuthFactory;
-import org.eclipse.jgit.internal.transport.sshd.JGitServerKeyVerifier;
-import org.eclipse.jgit.internal.transport.sshd.JGitSshClient;
-import org.eclipse.jgit.internal.transport.sshd.JGitSshConfig;
-import org.eclipse.jgit.internal.transport.sshd.JGitUserInteraction;
-import org.eclipse.jgit.internal.transport.sshd.OpenSshServerKeyDatabase;
-import org.eclipse.jgit.internal.transport.sshd.PasswordProviderWrapper;
-import org.eclipse.jgit.internal.transport.sshd.SshdText;
+import org.eclipse.jgit.internal.transport.sshd.*;
 import org.eclipse.jgit.internal.transport.sshd.agent.JGitSshAgentFactory;
-import org.eclipse.jgit.transport.CredentialsProvider;
-import org.eclipse.jgit.transport.SshConfigStore;
-import org.eclipse.jgit.transport.SshConstants;
-import org.eclipse.jgit.transport.SshSessionFactory;
-import org.eclipse.jgit.transport.URIish;
+import org.eclipse.jgit.transport.*;
 import org.eclipse.jgit.transport.sshd.agent.Connector;
 import org.eclipse.jgit.transport.sshd.agent.ConnectorFactory;
 import org.eclipse.jgit.util.FS;
+
+import java.io.Closeable;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.InvalidPathException;
+import java.nio.file.Path;
+import java.security.KeyPair;
+import java.time.Duration;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 /**
  * A {@link SshSessionFactory} that uses Apache MINA sshd. Classes from Apache

@@ -9,29 +9,19 @@
  */
 package org.eclipse.jgit.api;
 
-import java.io.IOException;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-
 import org.eclipse.jgit.annotations.NonNull;
 import org.eclipse.jgit.api.errors.JGitInternalException;
 import org.eclipse.jgit.api.errors.ServiceUnavailableException;
 import org.eclipse.jgit.api.errors.WrongObjectTypeException;
 import org.eclipse.jgit.errors.MissingObjectException;
 import org.eclipse.jgit.internal.JGitText;
-import org.eclipse.jgit.lib.Constants;
-import org.eclipse.jgit.lib.GpgConfig;
-import org.eclipse.jgit.lib.GpgSignatureVerifier;
+import org.eclipse.jgit.lib.*;
 import org.eclipse.jgit.lib.GpgSignatureVerifier.SignatureVerification;
-import org.eclipse.jgit.lib.GpgSignatureVerifierFactory;
-import org.eclipse.jgit.lib.ObjectId;
-import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.revwalk.RevObject;
 import org.eclipse.jgit.revwalk.RevWalk;
+
+import java.io.IOException;
+import java.util.*;
 
 /**
  * A command to verify GPG signatures on tags or commits.

@@ -10,31 +10,21 @@
  */
 package org.eclipse.jgit.lfs.server.s3;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
-import static org.eclipse.jgit.util.HttpSupport.HDR_AUTHORIZATION;
+import org.eclipse.jgit.lfs.lib.Constants;
+import org.eclipse.jgit.lfs.server.internal.LfsServerText;
 
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.SimpleTimeZone;
-import java.util.SortedMap;
-import java.util.TreeMap;
+import java.util.*;
 
-import javax.crypto.Mac;
-import javax.crypto.spec.SecretKeySpec;
-
-import org.eclipse.jgit.lfs.lib.Constants;
-import org.eclipse.jgit.lfs.server.internal.LfsServerText;
+import static java.nio.charset.StandardCharsets.UTF_8;
+import static org.eclipse.jgit.util.HttpSupport.HDR_AUTHORIZATION;
 
 /**
  * Signing support for Amazon AWS signing V4

@@ -10,15 +10,6 @@
 
 package org.eclipse.jgit.http.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.fail;
-
-import java.io.File;
-import java.io.IOException;
-
 import org.eclipse.jgit.errors.RepositoryNotFoundException;
 import org.eclipse.jgit.junit.LocalDiskRepositoryTestCase;
 import org.eclipse.jgit.lib.Repository;
@@ -27,6 +18,11 @@ import org.eclipse.jgit.transport.resolver.RepositoryResolver;
 import org.eclipse.jgit.transport.resolver.ServiceNotEnabledException;
 import org.eclipse.jgit.util.FileUtils;
 import org.junit.Test;
+
+import java.io.File;
+import java.io.IOException;
+
+import static org.junit.Assert.*;
 
 public class FileResolverTest extends LocalDiskRepositoryTestCase {
 	@Test

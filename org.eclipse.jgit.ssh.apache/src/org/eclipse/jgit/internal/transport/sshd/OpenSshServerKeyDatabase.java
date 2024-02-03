@@ -9,36 +9,6 @@
  */
 package org.eclipse.jgit.internal.transport.sshd;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
-import static java.text.MessageFormat.format;
-
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.net.InetSocketAddress;
-import java.net.SocketAddress;
-import java.nio.file.Files;
-import java.nio.file.InvalidPathException;
-import java.nio.file.NoSuchFileException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.security.GeneralSecurityException;
-import java.security.PublicKey;
-import java.security.SecureRandom;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
-import java.util.TreeSet;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.function.Supplier;
-
 import org.apache.sshd.client.config.hosts.HostPatternsHolder;
 import org.apache.sshd.client.config.hosts.KnownHostDigest;
 import org.apache.sshd.client.config.hosts.KnownHostEntry;
@@ -62,6 +32,20 @@ import org.eclipse.jgit.transport.URIish;
 import org.eclipse.jgit.transport.sshd.ServerKeyDatabase;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.*;
+import java.net.InetSocketAddress;
+import java.net.SocketAddress;
+import java.nio.file.*;
+import java.security.GeneralSecurityException;
+import java.security.PublicKey;
+import java.security.SecureRandom;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Supplier;
+
+import static java.nio.charset.StandardCharsets.UTF_8;
+import static java.text.MessageFormat.format;
 
 /**
  * A sever host key verifier that honors the {@code StrictHostKeyChecking} and

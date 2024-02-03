@@ -10,16 +10,10 @@
 
 package org.eclipse.jgit.lfs.lib;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNotSame;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
 import org.eclipse.jgit.lfs.test.LongObjectIdTestUtils;
 import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 /*
  * Ported to SHA-256 from org.eclipse.jgit.lib.AbbreviatedObjectIdTest

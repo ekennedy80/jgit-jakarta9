@@ -9,22 +9,21 @@
  */
 package org.eclipse.jgit.internal.transport.sshd.agent.connector;
 
-import java.io.IOException;
-import java.text.MessageFormat;
-import java.util.Arrays;
-import java.util.concurrent.atomic.AtomicBoolean;
-
-import org.apache.sshd.common.SshException;
-import org.eclipse.jgit.transport.sshd.agent.AbstractConnector;
-import org.eclipse.jgit.transport.sshd.agent.ConnectorFactory.ConnectorDescriptor;
-import org.eclipse.jgit.util.StringUtils;
-
 import com.sun.jna.LastErrorException;
 import com.sun.jna.platform.win32.WinBase;
 import com.sun.jna.platform.win32.WinError;
 import com.sun.jna.platform.win32.WinNT;
 import com.sun.jna.platform.win32.WinNT.HANDLE;
 import com.sun.jna.ptr.IntByReference;
+import org.apache.sshd.common.SshException;
+import org.eclipse.jgit.transport.sshd.agent.AbstractConnector;
+import org.eclipse.jgit.transport.sshd.agent.ConnectorFactory.ConnectorDescriptor;
+import org.eclipse.jgit.util.StringUtils;
+
+import java.io.IOException;
+import java.text.MessageFormat;
+import java.util.Arrays;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * A connector based on JNA using Windows' named pipes to communicate with an

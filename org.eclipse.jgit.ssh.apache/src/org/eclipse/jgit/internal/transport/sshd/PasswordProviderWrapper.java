@@ -9,7 +9,14 @@
  */
 package org.eclipse.jgit.internal.transport.sshd;
 
-import static org.apache.sshd.core.CoreModuleProperties.PASSWORD_PROMPTS;
+import org.apache.sshd.common.AttributeRepository.AttributeKey;
+import org.apache.sshd.common.NamedResource;
+import org.apache.sshd.common.config.keys.FilePasswordProvider;
+import org.apache.sshd.common.session.SessionContext;
+import org.eclipse.jgit.annotations.NonNull;
+import org.eclipse.jgit.transport.CredentialsProvider;
+import org.eclipse.jgit.transport.URIish;
+import org.eclipse.jgit.transport.sshd.KeyPasswordProvider;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -20,14 +27,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Supplier;
 
-import org.apache.sshd.common.AttributeRepository.AttributeKey;
-import org.apache.sshd.common.NamedResource;
-import org.apache.sshd.common.config.keys.FilePasswordProvider;
-import org.apache.sshd.common.session.SessionContext;
-import org.eclipse.jgit.annotations.NonNull;
-import org.eclipse.jgit.transport.CredentialsProvider;
-import org.eclipse.jgit.transport.URIish;
-import org.eclipse.jgit.transport.sshd.KeyPasswordProvider;
+import static org.apache.sshd.core.CoreModuleProperties.PASSWORD_PROMPTS;
 
 /**
  * A bridge from sshd's {@link FilePasswordProvider} to our per-session

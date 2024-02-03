@@ -9,6 +9,11 @@
  */
 package org.eclipse.jgit.internal.transport.sshd.agent.connector;
 
+import org.eclipse.jgit.transport.sshd.agent.Connector;
+import org.eclipse.jgit.transport.sshd.agent.ConnectorFactory;
+import org.eclipse.jgit.util.StringUtils;
+import org.eclipse.jgit.util.SystemReader;
+
 import java.io.File;
 import java.io.IOException;
 import java.text.MessageFormat;
@@ -16,11 +21,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
-
-import org.eclipse.jgit.transport.sshd.agent.Connector;
-import org.eclipse.jgit.transport.sshd.agent.ConnectorFactory;
-import org.eclipse.jgit.util.StringUtils;
-import org.eclipse.jgit.util.SystemReader;
 
 /**
  * An {@link ConnectorFactory} for connecting to an OpenSSH SSH agent.

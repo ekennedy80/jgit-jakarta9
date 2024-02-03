@@ -9,16 +9,6 @@
  */
 package org.eclipse.jgit.lfs.internal;
 
-import static org.eclipse.jgit.lib.Constants.DEFAULT_REMOTE_NAME;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThrows;
-import static org.junit.Assert.assertTrue;
-
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.StringWriter;
-
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.RemoteAddCommand;
 import org.eclipse.jgit.attributes.FilterCommandRegistry;
@@ -38,6 +28,14 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+
+import static org.eclipse.jgit.lib.Constants.DEFAULT_REMOTE_NAME;
+import static org.junit.Assert.*;
 
 public class LfsConnectionFactoryTest extends RepositoryTestCase {
 

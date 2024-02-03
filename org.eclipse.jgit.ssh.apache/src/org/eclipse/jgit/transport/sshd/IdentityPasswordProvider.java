@@ -9,17 +9,6 @@
  */
 package org.eclipse.jgit.transport.sshd;
 
-import static java.text.MessageFormat.format;
-
-import java.io.IOException;
-import java.security.GeneralSecurityException;
-import java.security.InvalidKeyException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import org.eclipse.jgit.annotations.NonNull;
 import org.eclipse.jgit.internal.transport.sshd.AuthenticationCanceledException;
 import org.eclipse.jgit.internal.transport.sshd.SshdText;
@@ -27,6 +16,13 @@ import org.eclipse.jgit.transport.CredentialItem;
 import org.eclipse.jgit.transport.CredentialsProvider;
 import org.eclipse.jgit.transport.URIish;
 import org.eclipse.jgit.util.StringUtils;
+
+import java.io.IOException;
+import java.security.GeneralSecurityException;
+import java.security.InvalidKeyException;
+import java.util.*;
+
+import static java.text.MessageFormat.format;
 
 /**
  * A {@link KeyPasswordProvider} based on a {@link CredentialsProvider}.

@@ -10,17 +10,16 @@
 
 package org.eclipse.jgit.internal.transport.ssh.jsch;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
+import com.jcraft.jsch.Session;
+import com.jcraft.jsch.UIKeyboardInteractive;
+import com.jcraft.jsch.UserInfo;
 import org.eclipse.jgit.transport.CredentialItem;
 import org.eclipse.jgit.transport.CredentialsProvider;
 import org.eclipse.jgit.transport.URIish;
 
-import com.jcraft.jsch.Session;
-import com.jcraft.jsch.UIKeyboardInteractive;
-import com.jcraft.jsch.UserInfo;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * A JSch {@link com.jcraft.jsch.UserInfo} adapter for a

@@ -15,18 +15,7 @@
 
 package org.eclipse.jgit.transport.ssh.jsch;
 
-import java.io.BufferedOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.Callable;
-import java.util.concurrent.TimeUnit;
-
+import com.jcraft.jsch.*;
 import org.eclipse.jgit.errors.TransportException;
 import org.eclipse.jgit.internal.transport.ssh.jsch.JSchText;
 import org.eclipse.jgit.transport.FtpChannel;
@@ -34,12 +23,13 @@ import org.eclipse.jgit.transport.RemoteSession2;
 import org.eclipse.jgit.transport.URIish;
 import org.eclipse.jgit.util.io.IsolatedOutputStream;
 
-import com.jcraft.jsch.Channel;
-import com.jcraft.jsch.ChannelExec;
-import com.jcraft.jsch.ChannelSftp;
-import com.jcraft.jsch.JSchException;
-import com.jcraft.jsch.Session;
-import com.jcraft.jsch.SftpException;
+import java.io.BufferedOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.*;
+import java.util.concurrent.Callable;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Run remote commands using Jsch.

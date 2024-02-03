@@ -10,11 +10,11 @@
 
 package org.eclipse.jgit.http.server;
 
-import static org.eclipse.jgit.http.server.ClientVersionUtil.invalidVersion;
-import static org.eclipse.jgit.http.server.ClientVersionUtil.parseVersion;
-
 import org.junit.Assert;
 import org.junit.Test;
+
+import static org.eclipse.jgit.http.server.ClientVersionUtil.invalidVersion;
+import static org.eclipse.jgit.http.server.ClientVersionUtil.parseVersion;
 
 public class ClientVersionUtilTest {
 	@Test

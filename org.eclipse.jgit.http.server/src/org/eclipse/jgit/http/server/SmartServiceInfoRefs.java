@@ -10,31 +10,25 @@
 
 package org.eclipse.jgit.http.server;
 
-import static javax.servlet.http.HttpServletResponse.SC_FORBIDDEN;
-import static javax.servlet.http.HttpServletResponse.SC_UNAUTHORIZED;
-import static org.eclipse.jgit.http.server.GitSmartHttpTools.infoRefsResultType;
-import static org.eclipse.jgit.http.server.GitSmartHttpTools.sendError;
-import static org.eclipse.jgit.http.server.ServletUtils.ATTRIBUTE_HANDLER;
-import static org.eclipse.jgit.http.server.ServletUtils.getRepository;
-
-import java.io.IOException;
-import java.util.List;
-
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import jakarta.servlet.*;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.transport.PacketLineOut;
 import org.eclipse.jgit.transport.RefAdvertiser.PacketLineOutRefAdvertiser;
 import org.eclipse.jgit.transport.ServiceMayNotContinueException;
 import org.eclipse.jgit.transport.resolver.ServiceNotAuthorizedException;
 import org.eclipse.jgit.transport.resolver.ServiceNotEnabledException;
+
+import java.io.IOException;
+import java.util.List;
+
+import static jakarta.servlet.http.HttpServletResponse.SC_FORBIDDEN;
+import static jakarta.servlet.http.HttpServletResponse.SC_UNAUTHORIZED;
+import static org.eclipse.jgit.http.server.GitSmartHttpTools.infoRefsResultType;
+import static org.eclipse.jgit.http.server.GitSmartHttpTools.sendError;
+import static org.eclipse.jgit.http.server.ServletUtils.ATTRIBUTE_HANDLER;
+import static org.eclipse.jgit.http.server.ServletUtils.getRepository;
 
 /** Filter in front of {@link InfoRefsServlet} to catch smart service requests. */
 abstract class SmartServiceInfoRefs implements Filter {

@@ -10,13 +10,13 @@
 
 package org.eclipse.jgit.lfs.lib;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
-import static java.nio.charset.StandardCharsets.US_ASCII;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import org.eclipse.jgit.junit.JGitTestUtil;
+import org.eclipse.jgit.lfs.errors.InvalidLongObjectIdException;
+import org.eclipse.jgit.lfs.test.LongObjectIdTestUtils;
+import org.eclipse.jgit.util.FileUtils;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -27,13 +27,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Locale;
 
-import org.eclipse.jgit.junit.JGitTestUtil;
-import org.eclipse.jgit.lfs.errors.InvalidLongObjectIdException;
-import org.eclipse.jgit.lfs.test.LongObjectIdTestUtils;
-import org.eclipse.jgit.util.FileUtils;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import static java.nio.charset.StandardCharsets.US_ASCII;
+import static java.nio.charset.StandardCharsets.UTF_8;
+import static org.junit.Assert.*;
 
 /*
  * Ported to SHA-256 from org.eclipse.jgit.lib.ObjectIdTest

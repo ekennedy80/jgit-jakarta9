@@ -10,13 +10,12 @@
 
 package org.eclipse.jgit.http.server;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
-import static org.eclipse.jgit.util.HttpSupport.ENCODING_GZIP;
-import static org.eclipse.jgit.util.HttpSupport.ENCODING_X_GZIP;
-import static org.eclipse.jgit.util.HttpSupport.HDR_ACCEPT_ENCODING;
-import static org.eclipse.jgit.util.HttpSupport.HDR_CONTENT_ENCODING;
-import static org.eclipse.jgit.util.HttpSupport.HDR_ETAG;
-import static org.eclipse.jgit.util.HttpSupport.TEXT_PLAIN;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import org.eclipse.jgit.lib.Constants;
+import org.eclipse.jgit.lib.ObjectId;
+import org.eclipse.jgit.lib.Repository;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -27,13 +26,8 @@ import java.text.MessageFormat;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
-import javax.servlet.ServletRequest;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.eclipse.jgit.lib.Constants;
-import org.eclipse.jgit.lib.ObjectId;
-import org.eclipse.jgit.lib.Repository;
+import static java.nio.charset.StandardCharsets.UTF_8;
+import static org.eclipse.jgit.util.HttpSupport.*;
 
 /**
  * Common utility functions for servlets.

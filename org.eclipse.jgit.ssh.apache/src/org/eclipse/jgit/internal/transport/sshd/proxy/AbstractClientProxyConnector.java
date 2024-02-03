@@ -9,6 +9,10 @@
  */
 package org.eclipse.jgit.internal.transport.sshd.proxy;
 
+import org.apache.sshd.client.session.ClientSession;
+import org.eclipse.jgit.annotations.NonNull;
+import org.eclipse.jgit.internal.transport.sshd.JGitClientSession;
+
 import java.net.InetSocketAddress;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,10 +20,6 @@ import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
-
-import org.apache.sshd.client.session.ClientSession;
-import org.eclipse.jgit.annotations.NonNull;
-import org.eclipse.jgit.internal.transport.sshd.JGitClientSession;
 
 /**
  * Basic common functionality for a {@link StatefulProxyConnector}.

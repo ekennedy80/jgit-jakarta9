@@ -10,19 +10,15 @@
 
 package org.eclipse.jgit.lib;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
-
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.util.LinkedList;
-import java.util.List;
-
 import org.eclipse.jgit.lib.RebaseTodoLine.Action;
 import org.eclipse.jgit.util.IO;
 import org.eclipse.jgit.util.RawParseUtils;
+
+import java.io.*;
+import java.util.LinkedList;
+import java.util.List;
+
+import static java.nio.charset.StandardCharsets.UTF_8;
 
 /**
  * Offers methods to read and write files formatted like the git-rebase-todo

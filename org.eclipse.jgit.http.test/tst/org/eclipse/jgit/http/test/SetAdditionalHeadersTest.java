@@ -10,19 +10,9 @@
 
 package org.eclipse.jgit.http.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
-import java.io.File;
-import java.io.IOException;
-import java.net.URI;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.eclipse.jetty.servlet.DefaultServlet;
-import org.eclipse.jetty.servlet.ServletContextHandler;
-import org.eclipse.jetty.servlet.ServletHolder;
+import org.eclipse.jetty.ee10.servlet.DefaultServlet;
+import org.eclipse.jetty.ee10.servlet.ServletContextHandler;
+import org.eclipse.jetty.ee10.servlet.ServletHolder;
 import org.eclipse.jgit.junit.TestRepository;
 import org.eclipse.jgit.junit.http.AccessEvent;
 import org.eclipse.jgit.lib.Repository;
@@ -35,6 +25,16 @@ import org.eclipse.jgit.transport.URIish;
 import org.eclipse.jgit.transport.http.HttpConnectionFactory;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.io.File;
+import java.io.IOException;
+import java.net.URI;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class SetAdditionalHeadersTest extends AllFactoriesHttpTestCase {
 
@@ -58,7 +58,7 @@ public class SetAdditionalHeadersTest extends AllFactoriesHttpTestCase {
 		final URI base = srcGit.getParentFile().toURI();
 
 		ServletContextHandler app = server.addContext("/git");
-		app.setResourceBase(base.toString());
+		app.setBaseResourceAsString(base.toString());
 		ServletHolder holder = app.addServlet(DefaultServlet.class, "/");
 		// The tmp directory is symlinked on OS X
 		holder.setInitParameter("aliases", "true");

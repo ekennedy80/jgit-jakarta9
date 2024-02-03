@@ -10,11 +10,11 @@
 
 package org.eclipse.jgit.junit.time;
 
-import java.time.Duration;
-import java.util.concurrent.TimeUnit;
-
 import org.eclipse.jgit.util.time.MonotonicClock;
 import org.eclipse.jgit.util.time.ProposedTimestamp;
+
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Fake {@link org.eclipse.jgit.util.time.MonotonicClock} for testing code that

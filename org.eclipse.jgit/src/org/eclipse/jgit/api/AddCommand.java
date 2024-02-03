@@ -10,26 +10,11 @@
  */
 package org.eclipse.jgit.api;
 
-import static org.eclipse.jgit.lib.Constants.OBJ_BLOB;
-import static org.eclipse.jgit.lib.FileMode.GITLINK;
-import static org.eclipse.jgit.lib.FileMode.TYPE_GITLINK;
-import static org.eclipse.jgit.lib.FileMode.TYPE_TREE;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.time.Instant;
-import java.util.ArrayList;
-import java.util.List;
-
 import org.eclipse.jgit.api.errors.FilterFailedException;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.api.errors.JGitInternalException;
 import org.eclipse.jgit.api.errors.NoFilepatternException;
-import org.eclipse.jgit.dircache.DirCache;
-import org.eclipse.jgit.dircache.DirCacheBuildIterator;
-import org.eclipse.jgit.dircache.DirCacheBuilder;
-import org.eclipse.jgit.dircache.DirCacheEntry;
-import org.eclipse.jgit.dircache.DirCacheIterator;
+import org.eclipse.jgit.dircache.*;
 import org.eclipse.jgit.internal.JGitText;
 import org.eclipse.jgit.lib.FileMode;
 import org.eclipse.jgit.lib.ObjectId;
@@ -43,6 +28,15 @@ import org.eclipse.jgit.treewalk.filter.AndTreeFilter;
 import org.eclipse.jgit.treewalk.filter.IndexDiffFilter;
 import org.eclipse.jgit.treewalk.filter.PathFilterGroup;
 import org.eclipse.jgit.treewalk.filter.TreeFilter;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.eclipse.jgit.lib.Constants.OBJ_BLOB;
+import static org.eclipse.jgit.lib.FileMode.*;
 
 /**
  * A class used to execute a {@code Add} command. It has setters for all

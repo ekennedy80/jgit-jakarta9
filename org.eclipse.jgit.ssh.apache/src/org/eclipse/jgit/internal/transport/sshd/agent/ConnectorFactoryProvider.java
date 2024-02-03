@@ -9,10 +9,10 @@
  */
 package org.eclipse.jgit.internal.transport.sshd.agent;
 
+import org.eclipse.jgit.transport.sshd.agent.ConnectorFactory;
+
 import java.util.Iterator;
 import java.util.ServiceLoader;
-
-import org.eclipse.jgit.transport.sshd.agent.ConnectorFactory;
 
 /**
  * Provides a {@link ConnectorFactory} obtained via the {@link ServiceLoader}.

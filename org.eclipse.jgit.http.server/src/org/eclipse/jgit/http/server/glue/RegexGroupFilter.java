@@ -10,17 +10,11 @@
 
 package org.eclipse.jgit.http.server.glue;
 
+import jakarta.servlet.*;
+import org.eclipse.jgit.http.server.HttpServerText;
+
 import java.io.IOException;
 import java.text.MessageFormat;
-
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-
-import org.eclipse.jgit.http.server.HttpServerText;
 
 /**
  * Switch servlet path and path info to use another regex match group.

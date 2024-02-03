@@ -9,10 +9,10 @@
  */
 package org.eclipse.jgit.internal.transport.sshd;
 
-import java.util.List;
-
 import org.apache.sshd.client.session.ClientSession;
 import org.apache.sshd.common.AttributeRepository.AttributeKey;
+
+import java.util.List;
 
 /**
  * Callback interface for recording authentication state in

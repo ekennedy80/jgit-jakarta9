@@ -9,9 +9,9 @@
  */
 package org.eclipse.jgit.gpg.bc.internal;
 
-import java.nio.file.Path;
-
 import org.bouncycastle.openpgp.PGPSecretKey;
+
+import java.nio.file.Path;
 
 /**
  * Container which holds a {@link #getSecretKey()} together with the

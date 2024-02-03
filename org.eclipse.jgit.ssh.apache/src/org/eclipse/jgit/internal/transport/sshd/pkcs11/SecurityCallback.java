@@ -9,27 +9,6 @@
  */
 package org.eclipse.jgit.internal.transport.sshd.pkcs11;
 
-import static java.text.MessageFormat.format;
-import static org.apache.sshd.core.CoreModuleProperties.PASSWORD_PROMPTS;
-
-import java.io.IOException;
-import java.security.GeneralSecurityException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Locale;
-import java.util.function.Supplier;
-
-import javax.security.auth.callback.Callback;
-import javax.security.auth.callback.CallbackHandler;
-import javax.security.auth.callback.ChoiceCallback;
-import javax.security.auth.callback.ConfirmationCallback;
-import javax.security.auth.callback.LanguageCallback;
-import javax.security.auth.callback.PasswordCallback;
-import javax.security.auth.callback.TextInputCallback;
-import javax.security.auth.callback.TextOutputCallback;
-import javax.security.auth.callback.UnsupportedCallbackException;
-
 import org.apache.sshd.common.session.SessionContext;
 import org.eclipse.jgit.internal.transport.sshd.AuthenticationCanceledException;
 import org.eclipse.jgit.internal.transport.sshd.JGitClientSession;
@@ -40,6 +19,18 @@ import org.eclipse.jgit.transport.URIish;
 import org.eclipse.jgit.transport.sshd.KeyPasswordProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javax.security.auth.callback.*;
+import java.io.IOException;
+import java.security.GeneralSecurityException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Locale;
+import java.util.function.Supplier;
+
+import static java.text.MessageFormat.format;
+import static org.apache.sshd.core.CoreModuleProperties.PASSWORD_PROMPTS;
 
 /**
  * A bridge to the JGit {@link CredentialsProvider}.

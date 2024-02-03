@@ -9,15 +9,14 @@
  */
 package org.eclipse.jgit.internal.transport.sshd.agent.connector;
 
-import java.text.MessageFormat;
-
 import com.sun.jna.LastErrorException;
 import com.sun.jna.platform.win32.Kernel32;
 import com.sun.jna.platform.win32.Kernel32Util;
 import com.sun.jna.platform.win32.User32;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.text.MessageFormat;
 
 /**
  * Delay loading the native libraries until needed.

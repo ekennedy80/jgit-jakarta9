@@ -9,9 +9,6 @@
  */
 package org.eclipse.jgit.http.test;
 
-import java.util.Arrays;
-import java.util.Collection;
-
 import org.eclipse.jgit.junit.http.HttpTestCase;
 import org.eclipse.jgit.transport.HttpTransport;
 import org.eclipse.jgit.transport.http.HttpConnectionFactory;
@@ -23,6 +20,9 @@ import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
+
+import java.util.Arrays;
+import java.util.Collection;
 
 /**
  * Abstract test base class for running HTTP-related tests with all connection

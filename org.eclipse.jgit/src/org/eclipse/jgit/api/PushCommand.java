@@ -9,45 +9,22 @@
  */
 package org.eclipse.jgit.api;
 
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.PrintStream;
-import java.net.URISyntaxException;
-import java.text.MessageFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.eclipse.jgit.api.errors.DetachedHeadException;
-import org.eclipse.jgit.api.errors.GitAPIException;
-import org.eclipse.jgit.api.errors.InvalidRefNameException;
-import org.eclipse.jgit.api.errors.InvalidRemoteException;
-import org.eclipse.jgit.api.errors.JGitInternalException;
+import org.eclipse.jgit.api.errors.*;
 import org.eclipse.jgit.errors.NotSupportedException;
 import org.eclipse.jgit.errors.TooLargeObjectInPackException;
 import org.eclipse.jgit.errors.TooLargePackException;
 import org.eclipse.jgit.errors.TransportException;
 import org.eclipse.jgit.internal.JGitText;
-import org.eclipse.jgit.lib.BranchConfig;
-import org.eclipse.jgit.lib.Config;
-import org.eclipse.jgit.lib.ConfigConstants;
-import org.eclipse.jgit.lib.Constants;
-import org.eclipse.jgit.lib.NullProgressMonitor;
-import org.eclipse.jgit.lib.ProgressMonitor;
-import org.eclipse.jgit.lib.Ref;
-import org.eclipse.jgit.lib.Repository;
-import org.eclipse.jgit.transport.PushConfig;
+import org.eclipse.jgit.lib.*;
+import org.eclipse.jgit.transport.*;
 import org.eclipse.jgit.transport.PushConfig.PushDefault;
-import org.eclipse.jgit.transport.PushResult;
-import org.eclipse.jgit.transport.RefLeaseSpec;
-import org.eclipse.jgit.transport.RefSpec;
-import org.eclipse.jgit.transport.RemoteConfig;
-import org.eclipse.jgit.transport.RemoteRefUpdate;
-import org.eclipse.jgit.transport.Transport;
+
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintStream;
+import java.net.URISyntaxException;
+import java.text.MessageFormat;
+import java.util.*;
 
 /**
  * A class used to execute a {@code Push} command. It has setters for all

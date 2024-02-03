@@ -9,15 +9,6 @@
  */
 package org.eclipse.jgit.internal.transport.sshd;
 
-import static org.eclipse.jgit.internal.transport.ssh.OpenSshConfigFile.flag;
-
-import java.net.InetSocketAddress;
-import java.net.SocketAddress;
-import java.security.PublicKey;
-import java.util.Collections;
-import java.util.List;
-import java.util.Locale;
-
 import org.apache.sshd.client.config.hosts.HostConfigEntry;
 import org.apache.sshd.client.config.hosts.KnownHostHashValue;
 import org.apache.sshd.client.keyverifier.ServerKeyVerifier;
@@ -29,6 +20,15 @@ import org.eclipse.jgit.transport.SshConstants;
 import org.eclipse.jgit.transport.sshd.ServerKeyDatabase;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.net.InetSocketAddress;
+import java.net.SocketAddress;
+import java.security.PublicKey;
+import java.util.Collections;
+import java.util.List;
+import java.util.Locale;
+
+import static org.eclipse.jgit.internal.transport.ssh.OpenSshConfigFile.flag;
 
 /**
  * A bridge between the {@link ServerKeyVerifier} from Apache MINA sshd and our

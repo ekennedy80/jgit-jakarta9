@@ -9,7 +9,8 @@
  */
 package org.eclipse.jgit.lfs.test;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
+import org.eclipse.jgit.lfs.lib.Constants;
+import org.eclipse.jgit.lfs.lib.LongObjectId;
 
 import java.io.BufferedInputStream;
 import java.io.FileNotFoundException;
@@ -19,8 +20,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.security.MessageDigest;
 
-import org.eclipse.jgit.lfs.lib.Constants;
-import org.eclipse.jgit.lfs.lib.LongObjectId;
+import static java.nio.charset.StandardCharsets.UTF_8;
 
 public class LongObjectIdTestUtils {
 

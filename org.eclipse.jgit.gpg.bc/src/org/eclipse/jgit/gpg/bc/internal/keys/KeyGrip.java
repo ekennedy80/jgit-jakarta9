@@ -9,19 +9,10 @@
  */
 package org.eclipse.jgit.gpg.bc.internal.keys;
 
-import java.math.BigInteger;
-import java.nio.charset.StandardCharsets;
-import java.text.MessageFormat;
-import java.util.Arrays;
-
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.x9.ECNamedCurveTable;
 import org.bouncycastle.asn1.x9.X9ECParameters;
-import org.bouncycastle.bcpg.DSAPublicBCPGKey;
-import org.bouncycastle.bcpg.ECPublicBCPGKey;
-import org.bouncycastle.bcpg.ElGamalPublicBCPGKey;
-import org.bouncycastle.bcpg.PublicKeyAlgorithmTags;
-import org.bouncycastle.bcpg.RSAPublicBCPGKey;
+import org.bouncycastle.bcpg.*;
 import org.bouncycastle.crypto.ec.CustomNamedCurves;
 import org.bouncycastle.math.ec.ECAlgorithms;
 import org.bouncycastle.math.field.FiniteField;
@@ -31,6 +22,11 @@ import org.bouncycastle.util.encoders.Hex;
 import org.eclipse.jgit.annotations.NonNull;
 import org.eclipse.jgit.gpg.bc.internal.BCText;
 import org.eclipse.jgit.util.sha1.SHA1;
+
+import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
+import java.text.MessageFormat;
+import java.util.Arrays;
 
 /**
  * Utilities to compute the <em>keygrip</em> of a key. A keygrip is a SHA1 hash

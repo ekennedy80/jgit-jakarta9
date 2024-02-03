@@ -9,26 +9,9 @@
  */
 package org.eclipse.jgit.gpg.bc.internal;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.security.Security;
-import java.text.MessageFormat;
-import java.time.Instant;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.Locale;
-
 import org.bouncycastle.bcpg.sig.IssuerFingerprint;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
-import org.bouncycastle.openpgp.PGPCompressedData;
-import org.bouncycastle.openpgp.PGPException;
-import org.bouncycastle.openpgp.PGPPublicKey;
-import org.bouncycastle.openpgp.PGPSignature;
-import org.bouncycastle.openpgp.PGPSignatureList;
-import org.bouncycastle.openpgp.PGPSignatureSubpacketVector;
-import org.bouncycastle.openpgp.PGPUtil;
+import org.bouncycastle.openpgp.*;
 import org.bouncycastle.openpgp.jcajce.JcaPGPObjectFactory;
 import org.bouncycastle.openpgp.operator.jcajce.JcaPGPContentVerifierBuilderProvider;
 import org.bouncycastle.util.encoders.Hex;
@@ -43,6 +26,17 @@ import org.eclipse.jgit.revwalk.RevTag;
 import org.eclipse.jgit.util.LRUMap;
 import org.eclipse.jgit.util.RawParseUtils;
 import org.eclipse.jgit.util.StringUtils;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.security.Security;
+import java.text.MessageFormat;
+import java.time.Instant;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.Locale;
 
 /**
  * A {@link GpgSignatureVerifier} to verify GPG signatures using BouncyCastle.

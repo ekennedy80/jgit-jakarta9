@@ -9,18 +9,6 @@
  */
 package org.eclipse.jgit.internal.transport.sshd.proxy;
 
-import static java.nio.charset.StandardCharsets.US_ASCII;
-import static java.nio.charset.StandardCharsets.UTF_8;
-import static java.text.MessageFormat.format;
-
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.InetSocketAddress;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
-
 import org.apache.sshd.client.session.ClientSession;
 import org.apache.sshd.common.io.IoSession;
 import org.apache.sshd.common.util.Readable;
@@ -34,6 +22,18 @@ import org.eclipse.jgit.internal.transport.sshd.auth.BasicAuthentication;
 import org.eclipse.jgit.internal.transport.sshd.auth.GssApiAuthentication;
 import org.eclipse.jgit.util.Base64;
 import org.ietf.jgss.GSSContext;
+
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.InetSocketAddress;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
+
+import static java.nio.charset.StandardCharsets.US_ASCII;
+import static java.nio.charset.StandardCharsets.UTF_8;
+import static java.text.MessageFormat.format;
 
 /**
  * Simple HTTP proxy connector using Basic Authentication.

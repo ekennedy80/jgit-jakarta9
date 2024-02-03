@@ -9,46 +9,9 @@
  */
 package org.eclipse.jgit.gpg.bc.internal;
 
-import static java.nio.file.Files.exists;
-import static java.nio.file.Files.newInputStream;
-
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URISyntaxException;
-import java.nio.file.DirectoryStream;
-import java.nio.file.Files;
-import java.nio.file.InvalidPathException;
-import java.nio.file.NoSuchFileException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.security.NoSuchAlgorithmException;
-import java.security.NoSuchProviderException;
-import java.text.MessageFormat;
-import java.util.Iterator;
-import java.util.Locale;
-import java.util.function.Consumer;
-import java.util.function.Function;
-
-import org.bouncycastle.gpg.keybox.BlobType;
-import org.bouncycastle.gpg.keybox.KeyBlob;
-import org.bouncycastle.gpg.keybox.KeyBox;
-import org.bouncycastle.gpg.keybox.KeyInformation;
-import org.bouncycastle.gpg.keybox.PublicKeyRingBlob;
-import org.bouncycastle.gpg.keybox.UserID;
+import org.bouncycastle.gpg.keybox.*;
 import org.bouncycastle.gpg.keybox.jcajce.JcaKeyBoxBuilder;
-import org.bouncycastle.openpgp.PGPException;
-import org.bouncycastle.openpgp.PGPKeyFlags;
-import org.bouncycastle.openpgp.PGPPublicKey;
-import org.bouncycastle.openpgp.PGPPublicKeyRing;
-import org.bouncycastle.openpgp.PGPPublicKeyRingCollection;
-import org.bouncycastle.openpgp.PGPSecretKey;
-import org.bouncycastle.openpgp.PGPSecretKeyRing;
-import org.bouncycastle.openpgp.PGPSecretKeyRingCollection;
-import org.bouncycastle.openpgp.PGPSignature;
-import org.bouncycastle.openpgp.PGPUtil;
+import org.bouncycastle.openpgp.*;
 import org.bouncycastle.openpgp.operator.PGPDigestCalculatorProvider;
 import org.bouncycastle.openpgp.operator.jcajce.JcaKeyFingerprintCalculator;
 import org.bouncycastle.openpgp.operator.jcajce.JcaPGPDigestCalculatorProviderBuilder;
@@ -63,6 +26,20 @@ import org.eclipse.jgit.util.StringUtils;
 import org.eclipse.jgit.util.SystemReader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.*;
+import java.net.URISyntaxException;
+import java.nio.file.*;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
+import java.text.MessageFormat;
+import java.util.Iterator;
+import java.util.Locale;
+import java.util.function.Consumer;
+import java.util.function.Function;
+
+import static java.nio.file.Files.exists;
+import static java.nio.file.Files.newInputStream;
 
 /**
  * Locates GPG keys from either <code>~/.gnupg/private-keys-v1.d</code> or

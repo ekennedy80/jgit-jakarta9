@@ -9,35 +9,9 @@
  */
 package org.eclipse.jgit.api;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintStream;
-import java.text.MessageFormat;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-
 import org.eclipse.jgit.annotations.NonNull;
-import org.eclipse.jgit.api.errors.AbortedByHookException;
-import org.eclipse.jgit.api.errors.CanceledException;
-import org.eclipse.jgit.api.errors.ConcurrentRefUpdateException;
-import org.eclipse.jgit.api.errors.EmptyCommitException;
-import org.eclipse.jgit.api.errors.GitAPIException;
-import org.eclipse.jgit.api.errors.JGitInternalException;
-import org.eclipse.jgit.api.errors.NoFilepatternException;
-import org.eclipse.jgit.api.errors.NoHeadException;
-import org.eclipse.jgit.api.errors.NoMessageException;
-import org.eclipse.jgit.api.errors.ServiceUnavailableException;
-import org.eclipse.jgit.api.errors.UnmergedPathsException;
-import org.eclipse.jgit.api.errors.UnsupportedSigningFormatException;
-import org.eclipse.jgit.api.errors.WrongRepositoryStateException;
-import org.eclipse.jgit.dircache.DirCache;
-import org.eclipse.jgit.dircache.DirCacheBuildIterator;
-import org.eclipse.jgit.dircache.DirCacheBuilder;
-import org.eclipse.jgit.dircache.DirCacheEntry;
-import org.eclipse.jgit.dircache.DirCacheIterator;
+import org.eclipse.jgit.api.errors.*;
+import org.eclipse.jgit.dircache.*;
 import org.eclipse.jgit.errors.IncorrectObjectTypeException;
 import org.eclipse.jgit.errors.MissingObjectException;
 import org.eclipse.jgit.errors.UnmergedPathException;
@@ -46,23 +20,10 @@ import org.eclipse.jgit.hooks.Hooks;
 import org.eclipse.jgit.hooks.PostCommitHook;
 import org.eclipse.jgit.hooks.PreCommitHook;
 import org.eclipse.jgit.internal.JGitText;
-import org.eclipse.jgit.lib.CommitBuilder;
-import org.eclipse.jgit.lib.CommitConfig;
+import org.eclipse.jgit.lib.*;
 import org.eclipse.jgit.lib.CommitConfig.CleanupMode;
-import org.eclipse.jgit.lib.Constants;
-import org.eclipse.jgit.lib.FileMode;
-import org.eclipse.jgit.lib.GpgConfig;
 import org.eclipse.jgit.lib.GpgConfig.GpgFormat;
-import org.eclipse.jgit.lib.GpgObjectSigner;
-import org.eclipse.jgit.lib.GpgSigner;
-import org.eclipse.jgit.lib.ObjectId;
-import org.eclipse.jgit.lib.ObjectInserter;
-import org.eclipse.jgit.lib.PersonIdent;
-import org.eclipse.jgit.lib.Ref;
-import org.eclipse.jgit.lib.RefUpdate;
 import org.eclipse.jgit.lib.RefUpdate.Result;
-import org.eclipse.jgit.lib.Repository;
-import org.eclipse.jgit.lib.RepositoryState;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.revwalk.RevObject;
 import org.eclipse.jgit.revwalk.RevTag;
@@ -75,6 +36,12 @@ import org.eclipse.jgit.treewalk.TreeWalk.OperationType;
 import org.eclipse.jgit.util.ChangeIdUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintStream;
+import java.text.MessageFormat;
+import java.util.*;
 
 /**
  * A class used to execute a {@code Commit} command. It has setters for all

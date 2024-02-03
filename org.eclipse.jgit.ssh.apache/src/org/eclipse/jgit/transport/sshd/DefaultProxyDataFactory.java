@@ -9,12 +9,7 @@
  */
 package org.eclipse.jgit.transport.sshd;
 
-import java.net.InetSocketAddress;
-import java.net.Proxy;
-import java.net.ProxySelector;
-import java.net.SocketAddress;
-import java.net.URI;
-import java.net.URISyntaxException;
+import java.net.*;
 import java.util.List;
 
 /**

@@ -9,23 +9,6 @@
  */
 package org.eclipse.jgit.api;
 
-import static org.eclipse.jgit.lib.Constants.R_REFS;
-import static org.eclipse.jgit.lib.Constants.R_TAGS;
-import static org.eclipse.jgit.lib.TypedConfigGetter.UNSET_INT;
-
-import java.io.IOException;
-import java.text.MessageFormat;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.api.errors.JGitInternalException;
 import org.eclipse.jgit.api.errors.RefNotFoundException;
@@ -34,16 +17,18 @@ import org.eclipse.jgit.errors.InvalidPatternException;
 import org.eclipse.jgit.errors.MissingObjectException;
 import org.eclipse.jgit.fnmatch.FileNameMatcher;
 import org.eclipse.jgit.internal.JGitText;
-import org.eclipse.jgit.lib.AbbrevConfig;
-import org.eclipse.jgit.lib.Constants;
-import org.eclipse.jgit.lib.ObjectId;
-import org.eclipse.jgit.lib.Ref;
-import org.eclipse.jgit.lib.Repository;
-import org.eclipse.jgit.revwalk.RevCommit;
-import org.eclipse.jgit.revwalk.RevFlag;
-import org.eclipse.jgit.revwalk.RevFlagSet;
-import org.eclipse.jgit.revwalk.RevTag;
-import org.eclipse.jgit.revwalk.RevWalk;
+import org.eclipse.jgit.lib.*;
+import org.eclipse.jgit.revwalk.*;
+
+import java.io.IOException;
+import java.text.MessageFormat;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import static org.eclipse.jgit.lib.Constants.R_REFS;
+import static org.eclipse.jgit.lib.Constants.R_TAGS;
+import static org.eclipse.jgit.lib.TypedConfigGetter.UNSET_INT;
 
 /**
  * Given a commit, show the most recent tag that is reachable from a commit.

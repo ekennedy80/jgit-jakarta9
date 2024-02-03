@@ -9,32 +9,6 @@
  */
 package org.eclipse.jgit.internal.transport.sshd;
 
-import static java.text.MessageFormat.format;
-import static org.apache.sshd.core.CoreModuleProperties.PASSWORD_PROMPTS;
-import static org.apache.sshd.core.CoreModuleProperties.PREFERRED_AUTHS;
-import static org.eclipse.jgit.internal.transport.ssh.OpenSshConfigFile.positive;
-
-import java.io.IOException;
-import java.net.InetSocketAddress;
-import java.net.Proxy;
-import java.net.SocketAddress;
-import java.nio.file.Files;
-import java.nio.file.InvalidPathException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.security.GeneralSecurityException;
-import java.security.KeyPair;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.NoSuchElementException;
-import java.util.Objects;
-import java.util.function.Supplier;
-import java.util.stream.Collectors;
-
 import org.apache.sshd.client.SshClient;
 import org.apache.sshd.client.config.hosts.HostConfigEntry;
 import org.apache.sshd.client.future.ConnectFuture;
@@ -63,6 +37,25 @@ import org.eclipse.jgit.transport.sshd.KeyPasswordProvider;
 import org.eclipse.jgit.transport.sshd.ProxyData;
 import org.eclipse.jgit.transport.sshd.ProxyDataFactory;
 import org.eclipse.jgit.util.StringUtils;
+
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.net.Proxy;
+import java.net.SocketAddress;
+import java.nio.file.Files;
+import java.nio.file.InvalidPathException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.security.GeneralSecurityException;
+import java.security.KeyPair;
+import java.util.*;
+import java.util.function.Supplier;
+import java.util.stream.Collectors;
+
+import static java.text.MessageFormat.format;
+import static org.apache.sshd.core.CoreModuleProperties.PASSWORD_PROMPTS;
+import static org.apache.sshd.core.CoreModuleProperties.PREFERRED_AUTHS;
+import static org.eclipse.jgit.internal.transport.ssh.OpenSshConfigFile.positive;
 
 /**
  * Customized {@link SshClient} for JGit. It creates specialized

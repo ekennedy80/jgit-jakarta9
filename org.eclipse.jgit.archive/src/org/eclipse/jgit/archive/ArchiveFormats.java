@@ -9,10 +9,10 @@
  */
 package org.eclipse.jgit.archive;
 
+import org.eclipse.jgit.api.ArchiveCommand;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import org.eclipse.jgit.api.ArchiveCommand;
 
 /**
  * Registers all format types from the org.eclipse.jgit.archive package for use

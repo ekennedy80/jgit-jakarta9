@@ -10,15 +10,15 @@
 
 package org.eclipse.jgit.archive;
 
-import java.beans.Statement;
-import java.io.IOException;
-import java.text.MessageFormat;
-import java.util.Map;
-
 import org.apache.commons.compress.archivers.ArchiveEntry;
 import org.apache.commons.compress.archivers.ArchiveOutputStream;
 import org.eclipse.jgit.archive.internal.ArchiveText;
 import org.eclipse.jgit.util.StringUtils;
+
+import java.beans.Statement;
+import java.io.IOException;
+import java.text.MessageFormat;
+import java.util.Map;
 
 /**
  * Base format class

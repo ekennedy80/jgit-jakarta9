@@ -9,10 +9,10 @@
  */
 package org.eclipse.jgit.api;
 
-import java.util.List;
-
 import org.eclipse.jgit.revwalk.FooterLine;
 import org.eclipse.jgit.revwalk.RevCommit;
+
+import java.util.List;
 
 /**
  * The interface is used to construct a cherry-picked commit message based on

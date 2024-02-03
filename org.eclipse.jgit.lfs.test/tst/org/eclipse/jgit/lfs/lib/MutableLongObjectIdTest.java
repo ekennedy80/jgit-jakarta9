@@ -9,9 +9,9 @@
  */
 package org.eclipse.jgit.lfs.lib;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 /*
  * Ported to SHA-256 from org.eclipse.jgit.lib.MutableObjectIdTest

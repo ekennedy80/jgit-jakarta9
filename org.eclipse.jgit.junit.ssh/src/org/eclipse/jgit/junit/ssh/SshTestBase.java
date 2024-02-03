@@ -9,22 +9,6 @@
  */
 package org.eclipse.jgit.junit.ssh;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertThrows;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assume.assumeTrue;
-
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.util.List;
-import java.util.Locale;
-import java.util.concurrent.TimeUnit;
-
 import org.eclipse.jgit.api.errors.TransportException;
 import org.eclipse.jgit.errors.CommandFailedException;
 import org.eclipse.jgit.transport.CredentialItem;
@@ -34,6 +18,17 @@ import org.eclipse.jgit.util.SshSupport;
 import org.junit.Test;
 import org.junit.experimental.theories.DataPoints;
 import org.junit.experimental.theories.Theory;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.util.List;
+import java.util.Locale;
+import java.util.concurrent.TimeUnit;
+
+import static java.nio.charset.StandardCharsets.UTF_8;
+import static org.junit.Assert.*;
+import static org.junit.Assume.assumeTrue;
 
 /**
  * The ssh tests. Concrete subclasses can re-use these tests by implementing the

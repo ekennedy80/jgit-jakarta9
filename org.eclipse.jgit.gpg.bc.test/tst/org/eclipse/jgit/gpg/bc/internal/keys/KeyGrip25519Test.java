@@ -9,15 +9,15 @@
  */
 package org.eclipse.jgit.gpg.bc.internal.keys;
 
-import static org.junit.Assert.assertEquals;
-
-import java.math.BigInteger;
-import java.util.Locale;
-
 import org.bouncycastle.openpgp.PGPException;
 import org.bouncycastle.util.encoders.Hex;
 import org.eclipse.jgit.util.sha1.SHA1;
 import org.junit.Test;
+
+import java.math.BigInteger;
+import java.util.Locale;
+
+import static org.junit.Assert.assertEquals;
 
 public class KeyGrip25519Test {
 

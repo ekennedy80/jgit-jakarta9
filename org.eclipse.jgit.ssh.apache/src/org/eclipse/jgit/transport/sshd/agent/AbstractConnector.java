@@ -9,14 +9,14 @@
  */
 package org.eclipse.jgit.transport.sshd.agent;
 
-import java.io.IOException;
-import java.text.MessageFormat;
-import java.util.Objects;
-
 import org.apache.sshd.agent.SshAgentConstants;
 import org.apache.sshd.common.SshException;
 import org.apache.sshd.common.util.buffer.BufferUtils;
 import org.eclipse.jgit.internal.transport.sshd.SshdText;
+
+import java.io.IOException;
+import java.text.MessageFormat;
+import java.util.Objects;
 
 /**
  * Provides some utility methods for implementing {@link Connector}s.

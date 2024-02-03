@@ -10,17 +10,8 @@
 
 package org.eclipse.jgit.http.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.fail;
-
-import java.io.IOException;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletRequestWrapper;
-
-import org.eclipse.jetty.server.Request;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequestWrapper;
 import org.eclipse.jgit.http.server.resolver.DefaultReceivePackFactory;
 import org.eclipse.jgit.junit.LocalDiskRepositoryTestCase;
 import org.eclipse.jgit.lib.PersonIdent;
@@ -32,6 +23,10 @@ import org.eclipse.jgit.transport.resolver.ServiceNotAuthorizedException;
 import org.eclipse.jgit.transport.resolver.ServiceNotEnabledException;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.io.IOException;
+
+import static org.junit.Assert.*;
 
 public class DefaultReceivePackFactoryTest extends LocalDiskRepositoryTestCase {
 	private Repository db;
@@ -172,8 +167,10 @@ public class DefaultReceivePackFactoryTest extends LocalDiskRepositoryTestCase {
 
 		private final String host;
 
+
 		R(String user, String host) {
-			super(new Request(null, null) /* can't pass null, sigh */);
+            super(new HttpServletRequestWrapper(null));
+            //super(new HttpServletRequest(null, null) /* can't pass null, sigh */);
 			this.user = user;
 			this.host = host;
 		}

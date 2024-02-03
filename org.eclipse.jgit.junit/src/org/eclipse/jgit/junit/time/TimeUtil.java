@@ -9,14 +9,14 @@
  */
 package org.eclipse.jgit.junit.time;
 
+import org.eclipse.jgit.util.FS;
+
 import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.attribute.FileTime;
 import java.time.Instant;
-
-import org.eclipse.jgit.util.FS;
 
 /**
  * Utility methods for handling timestamps

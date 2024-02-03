@@ -9,14 +9,6 @@
  */
 package org.eclipse.jgit.gpg.bc.internal.keys;
 
-import java.security.NoSuchAlgorithmException;
-import java.text.MessageFormat;
-
-import javax.crypto.Cipher;
-import javax.crypto.SecretKey;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
-
 import org.bouncycastle.openpgp.PGPException;
 import org.bouncycastle.openpgp.PGPUtil;
 import org.bouncycastle.openpgp.operator.PBEProtectionRemoverFactory;
@@ -24,6 +16,13 @@ import org.bouncycastle.openpgp.operator.PBESecretKeyDecryptor;
 import org.bouncycastle.openpgp.operator.PGPDigestCalculatorProvider;
 import org.bouncycastle.util.Arrays;
 import org.eclipse.jgit.gpg.bc.internal.BCText;
+
+import javax.crypto.Cipher;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+import java.security.NoSuchAlgorithmException;
+import java.text.MessageFormat;
 
 /**
  * A {@link PBEProtectionRemoverFactory} using AES/OCB/NoPadding for decryption.

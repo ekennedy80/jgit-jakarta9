@@ -9,8 +9,18 @@
  */
 package org.eclipse.jgit.api;
 
-import static org.eclipse.jgit.api.CherryPickCommitMessageProvider.ORIGINAL;
-import static org.eclipse.jgit.lib.Constants.OBJECT_ID_ABBREV_STRING_LENGTH;
+import org.eclipse.jgit.api.errors.*;
+import org.eclipse.jgit.dircache.DirCacheCheckout;
+import org.eclipse.jgit.errors.MissingObjectException;
+import org.eclipse.jgit.events.WorkingTreeModifiedEvent;
+import org.eclipse.jgit.internal.JGitText;
+import org.eclipse.jgit.lib.*;
+import org.eclipse.jgit.lib.Ref.Storage;
+import org.eclipse.jgit.merge.*;
+import org.eclipse.jgit.merge.ResolveMerger.MergeFailureReason;
+import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevWalk;
+import org.eclipse.jgit.treewalk.FileTreeIterator;
 
 import java.io.IOException;
 import java.text.MessageFormat;
@@ -18,37 +28,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.jgit.api.errors.ConcurrentRefUpdateException;
-import org.eclipse.jgit.api.errors.GitAPIException;
-import org.eclipse.jgit.api.errors.JGitInternalException;
-import org.eclipse.jgit.api.errors.MultipleParentsNotAllowedException;
-import org.eclipse.jgit.api.errors.NoHeadException;
-import org.eclipse.jgit.api.errors.NoMessageException;
-import org.eclipse.jgit.api.errors.UnmergedPathsException;
-import org.eclipse.jgit.api.errors.WrongRepositoryStateException;
-import org.eclipse.jgit.dircache.DirCacheCheckout;
-import org.eclipse.jgit.errors.MissingObjectException;
-import org.eclipse.jgit.events.WorkingTreeModifiedEvent;
-import org.eclipse.jgit.internal.JGitText;
-import org.eclipse.jgit.lib.AnyObjectId;
-import org.eclipse.jgit.lib.CommitConfig;
-import org.eclipse.jgit.lib.Constants;
-import org.eclipse.jgit.lib.NullProgressMonitor;
-import org.eclipse.jgit.lib.ObjectId;
-import org.eclipse.jgit.lib.ObjectIdRef;
-import org.eclipse.jgit.lib.ProgressMonitor;
-import org.eclipse.jgit.lib.Ref;
-import org.eclipse.jgit.lib.Ref.Storage;
-import org.eclipse.jgit.lib.Repository;
-import org.eclipse.jgit.merge.ContentMergeStrategy;
-import org.eclipse.jgit.merge.MergeMessageFormatter;
-import org.eclipse.jgit.merge.MergeStrategy;
-import org.eclipse.jgit.merge.Merger;
-import org.eclipse.jgit.merge.ResolveMerger;
-import org.eclipse.jgit.merge.ResolveMerger.MergeFailureReason;
-import org.eclipse.jgit.revwalk.RevCommit;
-import org.eclipse.jgit.revwalk.RevWalk;
-import org.eclipse.jgit.treewalk.FileTreeIterator;
+import static org.eclipse.jgit.api.CherryPickCommitMessageProvider.ORIGINAL;
+import static org.eclipse.jgit.lib.Constants.OBJECT_ID_ABBREV_STRING_LENGTH;
 
 /**
  * A class used to execute a {@code cherry-pick} command. It has setters for all

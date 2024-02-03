@@ -9,13 +9,13 @@
  */
 package org.eclipse.jgit.http.test;
 
-import javax.servlet.http.HttpServletRequest;
-
+import jakarta.servlet.http.HttpServletRequest;
 import org.eclipse.jgit.errors.RepositoryNotFoundException;
 import org.eclipse.jgit.junit.TestRepository;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.transport.resolver.RepositoryResolver;
 import org.eclipse.jgit.transport.resolver.ServiceNotEnabledException;
+
 
 /**
  * A simple repository resolver for tests.

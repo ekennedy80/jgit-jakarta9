@@ -9,6 +9,17 @@
  */
 package org.eclipse.jgit.lfs.server.fs;
 
+import jakarta.servlet.AsyncContext;
+import jakarta.servlet.ReadListener;
+import jakarta.servlet.ServletInputStream;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import org.apache.http.HttpStatus;
+import org.eclipse.jgit.lfs.errors.CorruptLongObjectException;
+import org.eclipse.jgit.lfs.internal.AtomicObjectOutputStream;
+import org.eclipse.jgit.lfs.lib.AnyLongObjectId;
+import org.eclipse.jgit.lfs.lib.Constants;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -18,18 +29,6 @@ import java.nio.channels.WritableByteChannel;
 import java.nio.file.Path;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import javax.servlet.AsyncContext;
-import javax.servlet.ReadListener;
-import javax.servlet.ServletInputStream;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.apache.http.HttpStatus;
-import org.eclipse.jgit.lfs.errors.CorruptLongObjectException;
-import org.eclipse.jgit.lfs.internal.AtomicObjectOutputStream;
-import org.eclipse.jgit.lfs.lib.AnyLongObjectId;
-import org.eclipse.jgit.lfs.lib.Constants;
 
 /**
  * Handle asynchronous object upload.
@@ -84,11 +83,11 @@ public class ObjectUploadListener implements ReadListener {
 	 * @param repository
 	 *            the repository storing large objects
 	 * @param context
-	 *            a {@link javax.servlet.AsyncContext} object.
+	 *            a {@link jakarta.servlet.AsyncContext} object.
 	 * @param request
-	 *            a {@link javax.servlet.http.HttpServletRequest} object.
+	 *            a {@link jakarta.servlet.http.HttpServletRequest} object.
 	 * @param response
-	 *            a {@link javax.servlet.http.HttpServletResponse} object.
+	 *            a {@link jakarta.servlet.http.HttpServletResponse} object.
 	 * @param id
 	 *            a {@link org.eclipse.jgit.lfs.lib.AnyLongObjectId} object.
 	 * @throws java.io.FileNotFoundException

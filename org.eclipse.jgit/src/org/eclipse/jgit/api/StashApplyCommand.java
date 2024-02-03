@@ -9,36 +9,14 @@
  */
 package org.eclipse.jgit.api;
 
-import static org.eclipse.jgit.treewalk.TreeWalk.OperationType.CHECKOUT_OP;
-
-import java.io.IOException;
-import java.text.MessageFormat;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import org.eclipse.jgit.api.errors.GitAPIException;
-import org.eclipse.jgit.api.errors.InvalidRefNameException;
-import org.eclipse.jgit.api.errors.JGitInternalException;
-import org.eclipse.jgit.api.errors.NoHeadException;
-import org.eclipse.jgit.api.errors.StashApplyFailureException;
-import org.eclipse.jgit.api.errors.WrongRepositoryStateException;
-import org.eclipse.jgit.dircache.Checkout;
-import org.eclipse.jgit.dircache.DirCache;
-import org.eclipse.jgit.dircache.DirCacheBuilder;
-import org.eclipse.jgit.dircache.DirCacheCheckout;
+import org.eclipse.jgit.api.errors.*;
+import org.eclipse.jgit.dircache.*;
 import org.eclipse.jgit.dircache.DirCacheCheckout.CheckoutMetadata;
-import org.eclipse.jgit.dircache.DirCacheEntry;
-import org.eclipse.jgit.dircache.DirCacheIterator;
 import org.eclipse.jgit.errors.CheckoutConflictException;
 import org.eclipse.jgit.events.WorkingTreeModifiedEvent;
 import org.eclipse.jgit.internal.JGitText;
-import org.eclipse.jgit.lib.Constants;
+import org.eclipse.jgit.lib.*;
 import org.eclipse.jgit.lib.CoreConfig.EolStreamType;
-import org.eclipse.jgit.lib.ObjectId;
-import org.eclipse.jgit.lib.ObjectReader;
-import org.eclipse.jgit.lib.Repository;
-import org.eclipse.jgit.lib.RepositoryState;
 import org.eclipse.jgit.merge.ContentMergeStrategy;
 import org.eclipse.jgit.merge.MergeStrategy;
 import org.eclipse.jgit.merge.Merger;
@@ -49,6 +27,14 @@ import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.treewalk.AbstractTreeIterator;
 import org.eclipse.jgit.treewalk.FileTreeIterator;
 import org.eclipse.jgit.treewalk.TreeWalk;
+
+import java.io.IOException;
+import java.text.MessageFormat;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import static org.eclipse.jgit.treewalk.TreeWalk.OperationType.CHECKOUT_OP;
 
 /**
  * Command class to apply a stashed commit.

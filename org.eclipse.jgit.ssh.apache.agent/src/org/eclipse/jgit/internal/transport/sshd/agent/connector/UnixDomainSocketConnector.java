@@ -9,19 +9,9 @@
  */
 package org.eclipse.jgit.internal.transport.sshd.agent.connector;
 
-import static org.eclipse.jgit.internal.transport.sshd.agent.connector.Sockets.AF_UNIX;
-import static org.eclipse.jgit.internal.transport.sshd.agent.connector.Sockets.DEFAULT_PROTOCOL;
-import static org.eclipse.jgit.internal.transport.sshd.agent.connector.Sockets.SOCK_STREAM;
-import static org.eclipse.jgit.internal.transport.sshd.agent.connector.UnixSockets.FD_CLOEXEC;
-import static org.eclipse.jgit.internal.transport.sshd.agent.connector.UnixSockets.F_SETFD;
-import static org.eclipse.jgit.transport.SshConstants.ENV_SSH_AUTH_SOCKET;
-
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.text.MessageFormat;
-import java.util.Arrays;
-import java.util.concurrent.atomic.AtomicBoolean;
-
+import com.sun.jna.LastErrorException;
+import com.sun.jna.Native;
+import com.sun.jna.platform.unix.LibCAPI;
 import org.apache.sshd.common.SshException;
 import org.eclipse.jgit.transport.sshd.agent.AbstractConnector;
 import org.eclipse.jgit.transport.sshd.agent.ConnectorFactory.ConnectorDescriptor;
@@ -30,9 +20,16 @@ import org.eclipse.jgit.util.SystemReader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.sun.jna.LastErrorException;
-import com.sun.jna.Native;
-import com.sun.jna.platform.unix.LibCAPI;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.text.MessageFormat;
+import java.util.Arrays;
+import java.util.concurrent.atomic.AtomicBoolean;
+
+import static org.eclipse.jgit.internal.transport.sshd.agent.connector.Sockets.*;
+import static org.eclipse.jgit.internal.transport.sshd.agent.connector.UnixSockets.FD_CLOEXEC;
+import static org.eclipse.jgit.internal.transport.sshd.agent.connector.UnixSockets.F_SETFD;
+import static org.eclipse.jgit.transport.SshConstants.ENV_SSH_AUTH_SOCKET;
 
 /**
  * JNA-based implementation of communication through a Unix domain socket.

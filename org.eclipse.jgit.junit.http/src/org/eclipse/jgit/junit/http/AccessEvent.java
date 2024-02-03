@@ -10,13 +10,10 @@
 
 package org.eclipse.jgit.junit.http;
 
-import java.util.Collections;
-import java.util.Enumeration;
-import java.util.Map;
-import java.util.TreeMap;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
-import org.eclipse.jetty.server.Request;
-import org.eclipse.jetty.server.Response;
+import java.util.*;
 
 /**
  * A single request made through {@link org.eclipse.jgit.junit.http.AppServer}.
@@ -34,19 +31,19 @@ public class AccessEvent {
 
 	private Map<String, String> responseHeaders;
 
-	AccessEvent(Request req) {
+	AccessEvent(HttpServletRequest req) {
 		method = req.getMethod();
 		uri = req.getRequestURI();
 		requestHeaders = cloneHeaders(req);
 		parameters = clone(req.getParameterMap());
 	}
 
-	void setResponse(Response rsp) {
+	void setResponse(HttpServletResponse rsp) {
 		status = rsp.getStatus();
 		responseHeaders = cloneHeaders(rsp);
 	}
 
-	private static Map<String, String> cloneHeaders(Request req) {
+	private static Map<String, String> cloneHeaders(HttpServletRequest req) {
 		Map<String, String> r = new TreeMap<>();
 		Enumeration hn = req.getHeaderNames();
 		while (hn.hasMoreElements()) {
@@ -58,14 +55,15 @@ public class AccessEvent {
 		return Collections.unmodifiableMap(r);
 	}
 
-	private static Map<String, String> cloneHeaders(Response rsp) {
+	private static Map<String, String> cloneHeaders(HttpServletResponse rsp) {
 		Map<String, String> r = new TreeMap<>();
-		Enumeration<String> hn = rsp.getHttpFields().getFieldNames();
-		while (hn.hasMoreElements()) {
-			String key = hn.nextElement();
+		Collection<String> headerNames = rsp.getHeaderNames();//.getHttpFields().getFieldNames();
+		Iterator<String> headerNamesIterator = headerNames.iterator();
+		while (headerNamesIterator.hasNext()) {
+			String key = headerNamesIterator.next();
 			if (!r.containsKey(key)) {
-				Enumeration<String> v = rsp.getHttpFields().getValues(key);
-				r.put(key, v.nextElement());
+				String value = rsp.getHeader(key);
+				r.put(key, value);
 			}
 		}
 		return Collections.unmodifiableMap(r);

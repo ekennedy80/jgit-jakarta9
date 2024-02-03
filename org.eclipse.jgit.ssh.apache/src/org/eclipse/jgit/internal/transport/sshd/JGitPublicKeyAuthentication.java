@@ -9,34 +9,6 @@
  */
 package org.eclipse.jgit.internal.transport.sshd;
 
-import static java.text.MessageFormat.format;
-import static org.eclipse.jgit.transport.SshConstants.NONE;
-import static org.eclipse.jgit.transport.SshConstants.PKCS11_PROVIDER;
-import static org.eclipse.jgit.transport.SshConstants.PKCS11_SLOT_LIST_INDEX;
-import static org.eclipse.jgit.transport.SshConstants.PUBKEY_ACCEPTED_ALGORITHMS;
-
-import java.io.File;
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.nio.file.Files;
-import java.nio.file.InvalidPathException;
-import java.nio.file.LinkOption;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.security.GeneralSecurityException;
-import java.security.KeyPair;
-import java.security.PublicKey;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.NoSuchElementException;
-import java.util.Objects;
-import java.util.stream.Collectors;
-
 import org.apache.sshd.agent.SshAgent;
 import org.apache.sshd.agent.SshAgentFactory;
 import org.apache.sshd.agent.SshAgentKeyConstraint;
@@ -63,6 +35,19 @@ import org.eclipse.jgit.transport.SshConstants;
 import org.eclipse.jgit.transport.URIish;
 import org.eclipse.jgit.util.FS;
 import org.eclipse.jgit.util.StringUtils;
+
+import java.io.File;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.nio.file.*;
+import java.security.GeneralSecurityException;
+import java.security.KeyPair;
+import java.security.PublicKey;
+import java.util.*;
+import java.util.stream.Collectors;
+
+import static java.text.MessageFormat.format;
+import static org.eclipse.jgit.transport.SshConstants.*;
 
 /**
  * Custom {@link UserAuthPublicKey} implementation for handling SSH config

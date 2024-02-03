@@ -9,22 +9,18 @@
  */
 package org.eclipse.jgit.api;
 
+import org.eclipse.jgit.api.errors.GitAPIException;
+import org.eclipse.jgit.api.errors.JGitInternalException;
+import org.eclipse.jgit.errors.ConfigInvalidException;
+import org.eclipse.jgit.lib.*;
+import org.eclipse.jgit.submodule.SubmoduleWalk;
+import org.eclipse.jgit.treewalk.filter.PathFilterGroup;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-
-import org.eclipse.jgit.api.errors.GitAPIException;
-import org.eclipse.jgit.api.errors.JGitInternalException;
-import org.eclipse.jgit.errors.ConfigInvalidException;
-import org.eclipse.jgit.lib.ConfigConstants;
-import org.eclipse.jgit.lib.Constants;
-import org.eclipse.jgit.lib.Ref;
-import org.eclipse.jgit.lib.Repository;
-import org.eclipse.jgit.lib.StoredConfig;
-import org.eclipse.jgit.submodule.SubmoduleWalk;
-import org.eclipse.jgit.treewalk.filter.PathFilterGroup;
 
 /**
  * A class used to execute a submodule sync command.

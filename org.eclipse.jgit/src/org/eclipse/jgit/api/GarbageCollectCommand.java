@@ -9,13 +9,6 @@
  */
 package org.eclipse.jgit.api;
 
-import java.io.IOException;
-import java.text.MessageFormat;
-import java.text.ParseException;
-import java.util.Date;
-import java.util.Properties;
-import java.util.concurrent.ExecutionException;
-
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.api.errors.JGitInternalException;
 import org.eclipse.jgit.internal.JGitText;
@@ -29,6 +22,13 @@ import org.eclipse.jgit.lib.ProgressMonitor;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.lib.StoredConfig;
 import org.eclipse.jgit.storage.pack.PackConfig;
+
+import java.io.IOException;
+import java.text.MessageFormat;
+import java.text.ParseException;
+import java.util.Date;
+import java.util.Properties;
+import java.util.concurrent.ExecutionException;
 
 /**
  * A class used to execute a {@code gc} command. It has setters for all

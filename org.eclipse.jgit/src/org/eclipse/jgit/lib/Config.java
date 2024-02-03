@@ -18,21 +18,6 @@
 
 package org.eclipse.jgit.lib;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
-
-import java.io.File;
-import java.nio.file.InvalidPathException;
-import java.nio.file.Path;
-import java.text.MessageFormat;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Locale;
-import java.util.Set;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicReference;
-
 import org.eclipse.jgit.annotations.NonNull;
 import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.eclipse.jgit.events.ConfigChangedEvent;
@@ -44,6 +29,17 @@ import org.eclipse.jgit.transport.RefSpec;
 import org.eclipse.jgit.util.FS;
 import org.eclipse.jgit.util.RawParseUtils;
 import org.eclipse.jgit.util.StringUtils;
+
+import java.io.File;
+import java.nio.file.InvalidPathException;
+import java.nio.file.Path;
+import java.text.MessageFormat;
+import java.util.*;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicReference;
+
+import static java.nio.charset.StandardCharsets.UTF_8;
 
 /**
  * Git style {@code .config}, {@code .gitconfig}, {@code .gitmodules} file.

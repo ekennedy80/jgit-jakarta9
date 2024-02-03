@@ -9,12 +9,18 @@
  */
 package org.eclipse.jgit.pgm;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertThrows;
-import static org.junit.Assert.assertTrue;
+import org.eclipse.jgit.api.Git;
+import org.eclipse.jgit.junit.JGitTestUtil;
+import org.eclipse.jgit.junit.MockSystemReader;
+import org.eclipse.jgit.junit.TestRepository;
+import org.eclipse.jgit.lib.*;
+import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.transport.RefSpec;
+import org.eclipse.jgit.transport.RemoteConfig;
+import org.eclipse.jgit.transport.URIish;
+import org.eclipse.jgit.util.SystemReader;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.io.File;
 import java.time.Instant;
@@ -23,25 +29,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
-import org.eclipse.jgit.api.Git;
-import org.eclipse.jgit.junit.JGitTestUtil;
-import org.eclipse.jgit.junit.MockSystemReader;
-import org.eclipse.jgit.junit.TestRepository;
-import org.eclipse.jgit.lib.CLIRepositoryTestCase;
-import org.eclipse.jgit.lib.Constants;
-import org.eclipse.jgit.lib.ObjectId;
-import org.eclipse.jgit.lib.PersonIdent;
-import org.eclipse.jgit.lib.Ref;
-import org.eclipse.jgit.lib.RefUpdate;
-import org.eclipse.jgit.lib.Repository;
-import org.eclipse.jgit.lib.StoredConfig;
-import org.eclipse.jgit.revwalk.RevCommit;
-import org.eclipse.jgit.transport.RefSpec;
-import org.eclipse.jgit.transport.RemoteConfig;
-import org.eclipse.jgit.transport.URIish;
-import org.eclipse.jgit.util.SystemReader;
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.Assert.*;
 
 public class CloneTest extends CLIRepositoryTestCase {
 
