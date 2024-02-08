@@ -106,6 +106,7 @@ public class CheckoutTest extends LfsServerTest {
 						"8bb0cf6eb9b17d0f7d22b456f121257dc1254e1f01665370476383ea776df414"),
 				"1234567");
 		git.checkout().setName("test").call();
+		System.out.println("=====> "+JGitTestUtil.read(git.getRepository(), "a.bin"));
 		// known content. we will see the actual content of the LFS blob.
 		assertEquals(
 				"1234567",

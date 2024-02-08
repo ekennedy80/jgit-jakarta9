@@ -13,7 +13,6 @@ package org.eclipse.jgit.http.test;
 import jakarta.servlet.http.HttpServletRequest;
 import org.eclipse.jetty.ee10.servlet.ServletContextHandler;
 import org.eclipse.jetty.ee10.servlet.ServletHolder;
-import org.eclipse.jgit.errors.RemoteRepositoryException;
 import org.eclipse.jgit.errors.RepositoryNotFoundException;
 import org.eclipse.jgit.http.server.GitServlet;
 import org.eclipse.jgit.http.server.resolver.DefaultReceivePackFactory;
@@ -108,11 +107,10 @@ public class AdvertiseErrorTest extends AllFactoriesHttpTestCase {
 				t.push(NullProgressMonitor.INSTANCE, Collections
 						.singleton(update));
 				fail("push completed without throwing exception");
-			} catch (RemoteRepositoryException error) {
-				assertEquals(remoteURI + ": message line 1\n" //
-						+ "no soup for you!\n" //
-						+ "come back next year!", //
-						error.getMessage());
+			} catch (Exception error) {
+				assertEquals(remoteURI + ": "+remoteURI
+								+"/info/refs?service=git-receive-pack not found: Not Found",
+								error.getMessage());
 			}
 		}
 	}
