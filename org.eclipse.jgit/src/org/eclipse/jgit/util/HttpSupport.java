@@ -303,6 +303,9 @@ public class HttpSupport {
 	public static Proxy proxyFor(ProxySelector proxySelector, URL u)
 			throws ConnectException {
 		try {
+			if(u.toString().contains("\\")) {
+				System.out.println("----> " + u.toURI().toString());
+			}
 			URI uri = new URI(u.getProtocol(), null, u.getHost(), u.getPort(),
 					null, null, null);
 			return proxySelector.select(uri).get(0);

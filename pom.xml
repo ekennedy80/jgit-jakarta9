@@ -125,6 +125,8 @@
     <jzlib-version>1.1.3</jzlib-version>
     <javaewah-version>1.2.3</javaewah-version>
     <junit-version>4.13.2</junit-version>
+    <junit.jupiter.version>5.10.2</junit.jupiter.version>
+    <junit.platform.version>1.10.2</junit.platform.version>
     <test-fork-count>1C</test-fork-count>
     <args4j-version>2.33</args4j-version>
     <commons-compress-version>1.25.0</commons-compress-version>
@@ -765,11 +767,6 @@
           </tags>
         </configuration>
       </plugin>
-<!--      <plugin>-->
-<!--        <groupId>org.apache.maven.plugins</groupId>-->
-<!--        <artifactId>maven-jxr-plugin</artifactId>-->
-<!--        <version>${maven-jxr-plugin-version}</version>-->
-<!--      </plugin>-->
       <plugin>
         <groupId>com.github.spotbugs</groupId>
         <artifactId>spotbugs-maven-plugin</artifactId>
@@ -856,10 +853,13 @@
         <version>${args4j-version}</version>
       </dependency>
 
+      <!-- https://mvnrepository.com/artifact/org.junit/junit-bom -->
       <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>${junit-version}</version>
+        <groupId>org.junit</groupId>
+        <artifactId>junit-bom</artifactId>
+        <version>5.10.2</version>
+        <type>pom</type>
+        <scope>test</scope>
       </dependency>
 
       <dependency>

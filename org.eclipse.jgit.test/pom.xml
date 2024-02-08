@@ -35,8 +35,11 @@
 
   <dependencies>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
+      <groupId>org.junit</groupId>
+      <artifactId>junit-bom</artifactId>
+      <version>5.10.2</version>
+      <type>pom</type>
+      <scope>test</scope>
     </dependency>
 
     <!-- Optional security provider for encryption tests. -->

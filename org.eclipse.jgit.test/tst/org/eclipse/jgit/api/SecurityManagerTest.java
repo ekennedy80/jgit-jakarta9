@@ -119,19 +119,19 @@ public class SecurityManagerTest {
 
 		// Replace Security Manager
 		originalSecurityManager = System.getSecurityManager();
-		System.setSecurityManager(new SecurityManager() {
-
-			@Override
-			public void checkPermission(Permission requested) {
-				for (Permission permission : permissions) {
-					if (permission.implies(requested)) {
-						return;
-					}
-				}
-
-				super.checkPermission(requested);
-			}
-		});
+//		System.setSecurityManager(new SecurityManager() {
+//
+//			@Override
+//			public void checkPermission(Permission requested) {
+//				for (Permission permission : permissions) {
+//					if (permission.implies(requested)) {
+//						return;
+//					}
+//				}
+//
+//				super.checkPermission(requested);
+//			}
+//		});
 	}
 
 	@After

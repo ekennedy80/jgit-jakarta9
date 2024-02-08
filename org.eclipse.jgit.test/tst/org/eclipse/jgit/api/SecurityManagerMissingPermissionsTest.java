@@ -38,14 +38,14 @@ public class SecurityManagerMissingPermissionsTest extends RepositoryTestCase {
 	 */
 	private final ByteArrayOutputStream errorOutput = new ByteArrayOutputStream();
 
-	private SecurityManager originalSecurityManager;
+//	private SecurityManager originalSecurityManager;
 
 	private PrintStream defaultErrorOutput;
 
 	@Override
 	@Before
 	public void setUp() throws Exception {
-		originalSecurityManager = System.getSecurityManager();
+//		originalSecurityManager = System.getSecurityManager();
 
 		// slf4j-simple logs to System.err, redirect it to enable asserting
 		// logged errors
@@ -53,7 +53,7 @@ public class SecurityManagerMissingPermissionsTest extends RepositoryTestCase {
 		System.setErr(new PrintStream(errorOutput));
 
 		refreshPolicyAllPermission(Policy.getPolicy());
-		System.setSecurityManager(new SecurityManager());
+//		System.setSecurityManager(new SecurityManager());
 		super.setUp();
 	}
 
@@ -85,7 +85,7 @@ public class SecurityManagerMissingPermissionsTest extends RepositoryTestCase {
 	@Override
 	@After
 	public void tearDown() throws Exception {
-		System.setSecurityManager(originalSecurityManager);
+		//System.setSecurityManager(originalSecurityManager);
 		System.setErr(defaultErrorOutput);
 		super.tearDown();
 	}

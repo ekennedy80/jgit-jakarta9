@@ -23,7 +23,7 @@ public class Assert {
 	 *            actual value
 	 */
 	public static void assertEquals(boolean expect, boolean actual) {
-		org.junit.Assert.assertEquals(Boolean.valueOf(expect),
+		assertEquals(Boolean.valueOf(expect),
 				Boolean.valueOf(actual));
 	}
 
@@ -39,8 +39,7 @@ public class Assert {
 	 */
 	public static void assertEquals(String message, boolean expect,
 			boolean actual) {
-		org.junit.Assert
-				.assertEquals(message, Boolean.valueOf(expect),
+		assertEquals(message, Boolean.valueOf(expect),
 						Boolean.valueOf(actual));
 	}
 }
