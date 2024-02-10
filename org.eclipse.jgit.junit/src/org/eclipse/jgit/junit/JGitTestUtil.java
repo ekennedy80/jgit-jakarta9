@@ -16,8 +16,8 @@ import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.util.FileUtils;
 import org.eclipse.jgit.util.IO;
 import org.eclipse.jgit.util.RawParseUtils;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 import java.io.*;
 import java.lang.reflect.Method;
@@ -90,7 +90,7 @@ public abstract class JGitTestUtil {
 	 *            actual value
 	 */
 	public static void assertEquals(byte[] exp, byte[] act) {
-		Assert.assertEquals(s(exp), s(act));
+		assertEquals(s(exp).getBytes(), s(act).getBytes());
 	}
 
 	private static String s(byte[] raw) {

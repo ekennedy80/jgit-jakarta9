@@ -12,13 +12,14 @@ package org.eclipse.jgit.junit;
 
 import org.eclipse.jgit.lib.ProgressMonitor;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Strict work monitor
  */
 public final class StrictWorkMonitor implements ProgressMonitor {
-	private int lastWork, totalWork;
+	private int lastWork;
+	private int totalWork;
 
 	@Override
 	public void start(int totalTasks) {
@@ -38,7 +39,7 @@ public final class StrictWorkMonitor implements ProgressMonitor {
 
 	@Override
 	public void endTask() {
-		assertEquals("Units of work recorded", totalWork, lastWork);
+		assertEquals(totalWork, lastWork);
 	}
 
 	@Override

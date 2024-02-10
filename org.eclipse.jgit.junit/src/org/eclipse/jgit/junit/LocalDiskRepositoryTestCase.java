@@ -22,9 +22,8 @@ import org.eclipse.jgit.storage.file.WindowCacheConfig;
 import org.eclipse.jgit.util.FS;
 import org.eclipse.jgit.util.FileUtils;
 import org.eclipse.jgit.util.SystemReader;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Rule;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.rules.TestName;
 
 import java.io.File;
@@ -35,8 +34,8 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.fail;
 
 /**
  * JUnit TestCase with specialized support for temporary local repository.
@@ -101,7 +100,7 @@ public abstract class LocalDiskRepositoryTestCase {
 	 * @throws Exception
 	 *             if an error occurred
 	 */
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		tmp = File.createTempFile("jgit_" + getTestName() + '_', "_tmp");
 		Cleanup.deleteOnShutdown(tmp);
