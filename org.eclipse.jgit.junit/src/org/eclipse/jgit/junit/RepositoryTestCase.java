@@ -25,9 +25,8 @@ import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.treewalk.FileTreeIterator;
 import org.eclipse.jgit.util.FS;
 import org.eclipse.jgit.util.FileUtils;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
 import java.io.*;
 import java.nio.file.Path;
@@ -37,7 +36,7 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Base class for most JGit unit tests.
@@ -45,7 +44,7 @@ import static org.junit.Assert.assertEquals;
  * Sets up a predefined test repository and has support for creating additional
  * repositories and destroying them when the tests are finished.
  */
-public abstract class 	RepositoryTestCase extends LocalDiskRepositoryTestCase {
+public abstract class	RepositoryTestCase extends LocalDiskRepositoryTestCase {
 	/**
 	 * Copy a file
 	 *
@@ -185,17 +184,15 @@ public abstract class 	RepositoryTestCase extends LocalDiskRepositoryTestCase {
 	/** Working directory of {@link #db}. */
 	protected File trash;
 
-	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
-		super.setUp();
+		super.setUp(null);
 		db = createWorkRepository();
 		trash = db.getWorkTree();
 	}
 
+
 	@AfterEach
-	@Override
-	@After
 	public void tearDown() throws Exception {
 		db.close();
 		super.tearDown();
