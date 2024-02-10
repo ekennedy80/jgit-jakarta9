@@ -23,6 +23,7 @@ import org.eclipse.jgit.revwalk.RevBlob;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
 
 public class DefaultNoteMergerTest extends RepositoryTestCase {
 
@@ -50,7 +51,8 @@ public class DefaultNoteMergerTest extends RepositoryTestCase {
 		baseNote = newNote("data");
 	}
 
-	@Override
+	@AfterEach
+    @Override
 	@After
 	public void tearDown() throws Exception {
 		reader.close();

@@ -35,6 +35,7 @@ import org.eclipse.jgit.util.FileUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
 
 /**
  * Unit tests of {@link StashApplyCommand}
@@ -67,7 +68,8 @@ public class StashApplyCommandTest extends RepositoryTestCase {
 		recorder.assertNoEvent();
 	}
 
-	@Override
+	@AfterEach
+    @Override
 	@After
 	public void tearDown() throws Exception {
 		if (handle != null) {

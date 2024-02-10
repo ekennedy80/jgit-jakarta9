@@ -28,6 +28,7 @@ import org.eclipse.jgit.revwalk.RevCommit;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
 
 public class NoteMapMergerTest extends RepositoryTestCase {
 	private TestRepository<Repository> tr;
@@ -91,7 +92,8 @@ public class NoteMapMergerTest extends RepositoryTestCase {
 		map_a_b = NoteMap.read(reader, sampleTree_a_b);
 	}
 
-	@Override
+	@AfterEach
+    @Override
 	@After
 	public void tearDown() throws Exception {
 		reader.close();

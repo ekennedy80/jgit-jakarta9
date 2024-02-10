@@ -48,6 +48,7 @@ import org.eclipse.jgit.util.io.DisabledOutputStream;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
 
 public class DiffFormatterTest extends RepositoryTestCase {
 	private static final String DIFF = "diff --git ";
@@ -74,7 +75,8 @@ public class DiffFormatterTest extends RepositoryTestCase {
 		df.setAbbreviationLength(8);
 	}
 
-	@Override
+	@AfterEach
+    @Override
 	@After
 	public void tearDown() throws Exception {
 		if (df != null) {

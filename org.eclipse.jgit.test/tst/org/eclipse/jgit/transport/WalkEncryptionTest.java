@@ -69,6 +69,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.junit.runners.Parameterized;
@@ -980,7 +981,8 @@ public class WalkEncryptionTest {
 			super.setUp();
 		}
 
-		@After
+		@AfterEach
+        @After
 		@Override
 		public void tearDown() throws Exception {
 			super.tearDown();

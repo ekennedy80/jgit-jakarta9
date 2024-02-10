@@ -22,9 +22,9 @@ import org.eclipse.jgit.storage.file.WindowCacheConfig;
 import org.eclipse.jgit.util.FS;
 import org.eclipse.jgit.util.FileUtils;
 import org.eclipse.jgit.util.SystemReader;
-import org.junit.Rule;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.rules.TestName;
+import org.junit.jupiter.api.TestInfo;
 
 import java.io.File;
 import java.io.IOException;
@@ -76,23 +76,7 @@ public abstract class LocalDiskRepositoryTestCase {
 
 	private File homeDir;
 
-	/**
-	 * The current test name.
-	 *
-	 * @since 6.0.1
-	 */
-	@Rule
-	public TestName currentTest = new TestName();
 
-	private String getTestName() {
-		String name = currentTest.getMethodName();
-		name = name.replaceAll("[^a-zA-Z0-9]", "_");
-		name = name.replaceAll("__+", "_");
-		if (name.startsWith("_")) {
-			name = name.substring(1);
-		}
-		return name;
-	}
 
 	/**
 	 * Setup test
@@ -101,8 +85,8 @@ public abstract class LocalDiskRepositoryTestCase {
 	 *             if an error occurred
 	 */
 	@BeforeEach
-	public void setUp() throws Exception {
-		tmp = File.createTempFile("jgit_" + getTestName() + '_', "_tmp");
+	public void setUp(TestInfo testInfo) throws Exception {
+		tmp = File.createTempFile("jgit_" + testInfo.getDisplayName() + '_', "_tmp");
 		Cleanup.deleteOnShutdown(tmp);
 		if (!tmp.delete() || !tmp.mkdir()) {
 			throw new IOException("Cannot create " + tmp);
@@ -191,7 +175,7 @@ public abstract class LocalDiskRepositoryTestCase {
 	 * @throws Exception
 	 *             if an error occurred
 	 */
-	@After
+	@AfterEach
 	public void tearDown() throws Exception {
 		RepositoryCache.clear();
 		for (Repository r : toClose) {

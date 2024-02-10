@@ -64,6 +64,7 @@ import org.eclipse.jgit.transport.PackParser;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
 import org.mockito.Mockito;
 
 public class PackWriterTest extends SampleDataRepositoryTestCase {
@@ -119,7 +120,8 @@ public class PackWriterTest extends SampleDataRepositoryTestCase {
 		write(alt, db.getObjectDatabase().getDirectory().getAbsolutePath() + "\n");
 	}
 
-	@Override
+	@AfterEach
+    @Override
 	@After
 	public void tearDown() throws Exception {
 		if (writer != null) {

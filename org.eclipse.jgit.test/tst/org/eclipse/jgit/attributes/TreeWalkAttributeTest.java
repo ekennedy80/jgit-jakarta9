@@ -39,6 +39,7 @@ import org.eclipse.jgit.treewalk.TreeWalk.OperationType;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
 
 /**
  * Tests the attributes are correctly computed in a {@link TreeWalk}.
@@ -95,7 +96,8 @@ public class TreeWalkAttributeTest extends RepositoryTestCase {
 		git = new Git(db);
 	}
 
-	@Override
+	@AfterEach
+    @Override
 	@After
 	public void tearDown() throws Exception {
 		if (walk != null) {

@@ -56,6 +56,8 @@ import org.junit.Test;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.junit.jupiter.api.AfterEach;
+
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URI;
@@ -98,7 +100,8 @@ public class RegexPipelineTest extends HttpTestCase {
 		ctx = server.addContext("/");
 	}
 
-	@Override
+	@AfterEach
+    @Override
 	@After
 	public void tearDown() throws Exception {
 		server.tearDown();

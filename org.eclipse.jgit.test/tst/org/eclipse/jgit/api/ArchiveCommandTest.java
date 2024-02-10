@@ -59,6 +59,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
 
 public class ArchiveCommandTest extends RepositoryTestCase {
 
@@ -80,7 +81,8 @@ public class ArchiveCommandTest extends RepositoryTestCase {
 		ArchiveFormats.registerAll();
 	}
 
-	@Override
+	@AfterEach
+    @Override
 	@After
 	public void tearDown() {
 		ArchiveCommand.unregisterFormat(format.SUFFIXES.get(0));

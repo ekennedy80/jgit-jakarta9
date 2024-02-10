@@ -38,6 +38,7 @@ import org.eclipse.jgit.revwalk.RevCommit;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
 
 public class PushOptionsTest extends RepositoryTestCase {
 	private URIish uri;
@@ -75,7 +76,8 @@ public class PushOptionsTest extends RepositoryTestCase {
 		}
 	}
 
-	@Override
+	@AfterEach
+    @Override
 	@After
 	public void tearDown() {
 		Transport.unregister(testProtocol);

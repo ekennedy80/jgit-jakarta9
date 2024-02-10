@@ -45,6 +45,7 @@ import org.eclipse.jgit.util.FileUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
 
 public class ConcurrentRepackTest extends RepositoryTestCase {
 	@Override
@@ -56,7 +57,8 @@ public class ConcurrentRepackTest extends RepositoryTestCase {
 		super.setUp();
 	}
 
-	@Override
+	@AfterEach
+    @Override
 	@After
 	public void tearDown() throws Exception {
 		super.tearDown();

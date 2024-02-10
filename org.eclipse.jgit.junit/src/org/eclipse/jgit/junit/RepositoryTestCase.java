@@ -27,6 +27,7 @@ import org.eclipse.jgit.util.FS;
 import org.eclipse.jgit.util.FileUtils;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
 
 import java.io.*;
 import java.nio.file.Path;
@@ -44,7 +45,7 @@ import static org.junit.Assert.assertEquals;
  * Sets up a predefined test repository and has support for creating additional
  * repositories and destroying them when the tests are finished.
  */
-public abstract class RepositoryTestCase extends LocalDiskRepositoryTestCase {
+public abstract class 	RepositoryTestCase extends LocalDiskRepositoryTestCase {
 	/**
 	 * Copy a file
 	 *
@@ -192,6 +193,7 @@ public abstract class RepositoryTestCase extends LocalDiskRepositoryTestCase {
 		trash = db.getWorkTree();
 	}
 
+	@AfterEach
 	@Override
 	@After
 	public void tearDown() throws Exception {

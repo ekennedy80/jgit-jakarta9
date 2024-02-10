@@ -41,6 +41,7 @@ import org.eclipse.jgit.util.FileUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
 
 public class AbbreviationTest extends LocalDiskRepositoryTestCase {
 	private FileRepository db;
@@ -58,7 +59,8 @@ public class AbbreviationTest extends LocalDiskRepositoryTestCase {
 		test = new TestRepository<>(db);
 	}
 
-	@Override
+	@AfterEach
+    @Override
 	@After
 	public void tearDown() throws Exception {
 		if (reader != null) {

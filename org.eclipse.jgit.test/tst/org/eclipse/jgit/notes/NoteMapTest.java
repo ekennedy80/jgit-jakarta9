@@ -37,6 +37,7 @@ import org.eclipse.jgit.util.RawParseUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
 
 public class NoteMapTest extends RepositoryTestCase {
 	private TestRepository<Repository> tr;
@@ -55,7 +56,8 @@ public class NoteMapTest extends RepositoryTestCase {
 		inserter = db.newObjectInserter();
 	}
 
-	@Override
+	@AfterEach
+    @Override
 	@After
 	public void tearDown() throws Exception {
 		reader.close();

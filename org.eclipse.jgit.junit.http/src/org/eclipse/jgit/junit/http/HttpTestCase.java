@@ -23,6 +23,7 @@ import org.eclipse.jgit.revwalk.RevObject;
 import org.eclipse.jgit.transport.RefSpec;
 import org.eclipse.jgit.transport.RemoteRefUpdate;
 import org.eclipse.jgit.transport.URIish;
+import org.junit.jupiter.api.AfterEach;
 
 import java.io.IOException;
 import java.net.URI;
@@ -47,7 +48,8 @@ public abstract class HttpTestCase extends LocalDiskRepositoryTestCase {
 		server = createServer();
 	}
 
-	@Override
+	@AfterEach
+    @Override
 	public void tearDown() throws Exception {
 		server.tearDown();
 		super.tearDown();

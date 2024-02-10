@@ -33,6 +33,7 @@ import org.eclipse.jgit.lib.StoredConfig;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
 
 public class FilterCommandsTest extends RepositoryTestCase {
 	private Git git;
@@ -91,7 +92,8 @@ public class FilterCommandsTest extends RepositoryTestCase {
 		secondCommit = git.commit().setMessage("Second commit").call();
 	}
 
-	@Override
+	@AfterEach
+    @Override
 	public void tearDown() throws Exception {
 		Set<String> existingFilters = new HashSet<>(
 				FilterCommandRegistry.getRegisteredFilterCommands());

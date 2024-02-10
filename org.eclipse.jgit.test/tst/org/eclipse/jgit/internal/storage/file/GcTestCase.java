@@ -22,6 +22,7 @@ import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.revwalk.RevWalk;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
 
 public abstract class GcTestCase extends LocalDiskRepositoryTestCase {
 	protected TestRepository<FileRepository> tr;
@@ -39,7 +40,8 @@ public abstract class GcTestCase extends LocalDiskRepositoryTestCase {
 		gc = new GC(repo);
 	}
 
-	@Override
+	@AfterEach
+    @Override
 	@After
 	public void tearDown() throws Exception {
 		tr.close();

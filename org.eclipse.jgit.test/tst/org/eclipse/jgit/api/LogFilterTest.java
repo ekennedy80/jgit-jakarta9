@@ -24,6 +24,7 @@ import org.eclipse.jgit.util.FileUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
 
 /**
  * Testing the log command with include and exclude filters
@@ -87,7 +88,8 @@ public class LogFilterTest extends RepositoryTestCase {
 		git.commit().setMessage("commit4").setCommitter(committer).call();
 	}
 
-	@After
+	@AfterEach
+    @After
 	@Override
 	public void tearDown() throws Exception {
 		git.close();

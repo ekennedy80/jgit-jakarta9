@@ -27,6 +27,7 @@ import org.eclipse.jgit.util.FileUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
 
 /**
  * Tests that using a SecurityManager does not result in errors logged.
@@ -82,7 +83,8 @@ public class SecurityManagerMissingPermissionsTest extends RepositoryTestCase {
 		assertEquals("", errorOutput.toString());
 	}
 
-	@Override
+	@AfterEach
+    @Override
 	@After
 	public void tearDown() throws Exception {
 		//System.setSecurityManager(originalSecurityManager);

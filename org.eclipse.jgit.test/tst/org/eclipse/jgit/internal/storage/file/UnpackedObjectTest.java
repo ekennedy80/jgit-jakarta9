@@ -44,6 +44,7 @@ import org.eclipse.jgit.util.IO;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
 
 public class UnpackedObjectTest extends LocalDiskRepositoryTestCase {
 	private int streamThreshold = 16 * 1024;
@@ -73,7 +74,8 @@ public class UnpackedObjectTest extends LocalDiskRepositoryTestCase {
 		wc = (WindowCursor) repo.newObjectReader();
 	}
 
-	@Override
+	@AfterEach
+    @Override
 	@After
 	public void tearDown() throws Exception {
 		if (wc != null)

@@ -20,6 +20,7 @@ import org.eclipse.jgit.util.FS_POSIX;
 import org.junit.After;
 import org.junit.Assume;
 import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
 
 /**
  * Base test case for external merge and diff tool tests.
@@ -72,7 +73,8 @@ public abstract class ExternalToolTestCase extends RepositoryTestCase {
 				FileElement.Type.BASE);
 	}
 
-	@After
+	@AfterEach
+    @After
 	@Override
 	public void tearDown() throws Exception {
 		Files.delete(localFile.toPath());
