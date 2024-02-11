@@ -29,6 +29,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestInfo;
 
+
 import java.io.*;
 import java.nio.file.Path;
 import java.time.Instant;
@@ -43,7 +44,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * Sets up a predefined test repository and has support for creating additional
  * repositories and destroying them when the tests are finished.
  */
-public abstract class 	RepositoryTestCase extends LocalDiskRepositoryTestCase {
+public abstract class	RepositoryTestCase extends LocalDiskRepositoryTestCase {
 	/**
 	 * Copy a file
 	 *
@@ -194,10 +195,6 @@ public abstract class 	RepositoryTestCase extends LocalDiskRepositoryTestCase {
 		trash = db.getWorkTree();
 	}
 
-	/**
-	 * Happens before each test
-	 * @throws Exception an exception
-	 */
 	@AfterEach
 	public void tearDown() throws Exception {
 		db.close();

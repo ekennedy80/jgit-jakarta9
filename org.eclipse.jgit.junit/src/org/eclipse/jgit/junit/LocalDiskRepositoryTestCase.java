@@ -76,8 +76,6 @@ public abstract class LocalDiskRepositoryTestCase {
 
 	private File homeDir;
 
-
-
 	/**
 	 * Setup test
 	 *
