@@ -17,7 +17,7 @@ import java.util.List;
 import org.eclipse.jgit.junit.RepositoryTestCase;
 import org.eclipse.jgit.util.FS;
 import org.eclipse.jgit.util.FS_POSIX;
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.Assume;
 import org.junit.Before;
 import org.junit.jupiter.api.AfterEach;

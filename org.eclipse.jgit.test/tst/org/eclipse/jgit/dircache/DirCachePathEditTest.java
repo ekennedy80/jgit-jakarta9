@@ -9,7 +9,7 @@
  */
 package org.eclipse.jgit.dircache;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ import org.eclipse.jgit.dircache.DirCacheEditor.PathEdit;
 import org.eclipse.jgit.errors.DirCacheNameConflictException;
 import org.eclipse.jgit.lib.FileMode;
 import org.eclipse.jgit.lib.ObjectId;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class DirCachePathEditTest {
 

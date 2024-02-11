@@ -11,12 +11,12 @@ package org.eclipse.jgit.lib;
 
 import static java.nio.charset.StandardCharsets.US_ASCII;
 import static java.nio.charset.StandardCharsets.UTF_8;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.Assert.assertThrows;
 
 import org.eclipse.jgit.internal.JGitText;
 import org.eclipse.jgit.util.RawParseUtils;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class TagBuilderTest {
 

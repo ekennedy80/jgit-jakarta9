@@ -14,12 +14,12 @@ import org.eclipse.jgit.junit.JGitTestUtil;
 import org.eclipse.jgit.lib.CLIRepositoryTestCase;
 import org.eclipse.jgit.lib.Repository;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.util.Arrays;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;;
 
 public class RepoTest extends CLIRepositoryTestCase {
 	private Repository defaultDb;

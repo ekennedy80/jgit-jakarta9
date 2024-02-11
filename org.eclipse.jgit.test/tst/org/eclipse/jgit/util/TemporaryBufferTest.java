@@ -12,8 +12,8 @@ package org.eclipse.jgit.util;
 
 import static org.eclipse.jgit.junit.JGitTestUtil.getName;
 import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.Assert.fail;
 
 import java.io.ByteArrayInputStream;
@@ -23,7 +23,7 @@ import java.io.InputStream;
 
 import org.eclipse.jgit.junit.TestRng;
 import org.eclipse.jgit.util.TemporaryBuffer.Block;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class TemporaryBufferTest {
 	@Test

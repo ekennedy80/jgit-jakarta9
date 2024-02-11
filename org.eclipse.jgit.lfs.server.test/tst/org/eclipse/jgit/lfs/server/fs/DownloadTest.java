@@ -11,7 +11,7 @@ package org.eclipse.jgit.lfs.server.fs;
 
 import static org.apache.http.HttpStatus.SC_NOT_FOUND;
 import static org.apache.http.HttpStatus.SC_UNPROCESSABLE_ENTITY;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.Assert.assertThrows;
 
 import java.io.IOException;
@@ -23,7 +23,7 @@ import org.apache.http.client.ClientProtocolException;
 import org.eclipse.jgit.lfs.lib.AnyLongObjectId;
 import org.eclipse.jgit.lfs.test.LongObjectIdTestUtils;
 import org.eclipse.jgit.util.FileUtils;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class DownloadTest extends LfsServerTest {
 

@@ -10,14 +10,14 @@
 
 package org.eclipse.jgit.internal.storage.file;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Collections;
 
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.revwalk.RevBlob;
 import org.eclipse.jgit.revwalk.RevTag;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class GcTagTest extends GcTestCase {
 	@Test

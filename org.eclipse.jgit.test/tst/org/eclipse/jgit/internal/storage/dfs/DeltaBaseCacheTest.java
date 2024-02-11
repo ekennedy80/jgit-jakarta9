@@ -11,15 +11,15 @@
 package org.eclipse.jgit.internal.storage.dfs;
 
 import static org.eclipse.jgit.lib.Constants.OBJ_BLOB;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
 
 import org.eclipse.jgit.internal.storage.dfs.DeltaBaseCache.Entry;
 import org.eclipse.jgit.junit.TestRng;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class DeltaBaseCacheTest {
 	private static final int SZ = 512;

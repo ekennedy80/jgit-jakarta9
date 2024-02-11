@@ -11,14 +11,14 @@
 package org.eclipse.jgit.lfs.lib;
 
 import org.eclipse.jgit.lfs.LfsPointer;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;;
 
 /*
  * Test LfsPointer file abstraction

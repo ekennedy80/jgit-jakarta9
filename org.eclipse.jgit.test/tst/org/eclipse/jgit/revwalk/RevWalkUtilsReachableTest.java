@@ -11,7 +11,7 @@
 package org.eclipse.jgit.revwalk;
 
 import static java.util.Arrays.asList;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Collection;
 import java.util.List;
@@ -19,7 +19,7 @@ import java.util.List;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.lib.Ref;
 import org.eclipse.jgit.lib.RefComparator;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class RevWalkUtilsReachableTest extends RevWalkTestCase {
 

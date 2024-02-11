@@ -9,7 +9,7 @@
  */
 package org.eclipse.jgit.dircache;
 
-import static org.junit.Assert.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.Assert.assertThrows;
 
 import java.io.File;
@@ -22,7 +22,7 @@ import org.eclipse.jgit.lib.FileMode;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.revwalk.RevBlob;
 import org.eclipse.jgit.revwalk.RevCommit;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Tests for checking out with invalid paths.

@@ -13,10 +13,10 @@ package org.eclipse.jgit.treewalk;
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.eclipse.jgit.lib.FileMode.REGULAR_FILE;
 import static org.eclipse.jgit.lib.FileMode.SYMLINK;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.ByteArrayOutputStream;
 
@@ -27,7 +27,7 @@ import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.TreeFormatter;
 import org.eclipse.jgit.util.RawParseUtils;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class CanonicalTreeParserTest {
 	private final CanonicalTreeParser ctp = new CanonicalTreeParser();

@@ -49,9 +49,9 @@ import org.eclipse.jgit.http.server.glue.MetaServlet;
 import org.eclipse.jgit.http.server.glue.RegexGroupFilter;
 import org.eclipse.jgit.junit.http.AppServer;
 import org.eclipse.jgit.junit.http.HttpTestCase;
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -63,7 +63,7 @@ import java.net.HttpURLConnection;
 import java.net.URI;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RegexPipelineTest extends HttpTestCase {
 	private ServletContextHandler ctx;

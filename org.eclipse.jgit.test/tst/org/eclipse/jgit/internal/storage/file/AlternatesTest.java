@@ -10,7 +10,7 @@
 package org.eclipse.jgit.internal.storage.file;
 
 import static org.eclipse.jgit.lib.Constants.INFO_ALTERNATES;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.File;
 import java.io.IOException;
@@ -29,7 +29,7 @@ import org.eclipse.jgit.junit.JGitTestUtil;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.test.resources.SampleDataRepositoryTestCase;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class AlternatesTest extends SampleDataRepositoryTestCase {
 

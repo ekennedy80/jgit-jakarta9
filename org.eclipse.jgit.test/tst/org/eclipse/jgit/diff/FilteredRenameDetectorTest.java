@@ -10,7 +10,7 @@
 
 package org.eclipse.jgit.diff;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.Assert.assertSame;
 
 import java.util.Arrays;
@@ -19,7 +19,7 @@ import org.eclipse.jgit.internal.diff.FilteredRenameDetector;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.treewalk.filter.PathFilter;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class FilteredRenameDetectorTest extends AbstractRenameDetectionTestCase {
 

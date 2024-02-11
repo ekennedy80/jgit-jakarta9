@@ -16,9 +16,9 @@ import static org.eclipse.jgit.lib.RefUpdate.Result.FAST_FORWARD;
 import static org.eclipse.jgit.lib.RefUpdate.Result.LOCK_FAILURE;
 import static org.eclipse.jgit.lib.RefUpdate.Result.NEW;
 import static org.eclipse.jgit.lib.RefUpdate.Result.NO_CHANGE;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -39,7 +39,7 @@ import org.eclipse.jgit.lib.PersonIdent;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.revwalk.RevWalk;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class PushCertificateStoreTest {
 	private static final ObjectId ID1 =

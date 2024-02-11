@@ -17,10 +17,10 @@ import org.eclipse.jgit.http.server.GitServlet;
 import org.eclipse.jgit.junit.http.AppServer;
 import org.eclipse.jgit.junit.http.MockServletConfig;
 import org.eclipse.jgit.junit.http.RecordingLogger;
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.Assert.fail;
 
 public class GitServletInitTest {

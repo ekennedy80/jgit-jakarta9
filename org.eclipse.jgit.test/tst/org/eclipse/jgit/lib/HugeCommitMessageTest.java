@@ -9,7 +9,7 @@
  */
 package org.eclipse.jgit.lib;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 
@@ -18,7 +18,7 @@ import org.eclipse.jgit.junit.RepositoryTestCase;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.storage.file.WindowCacheConfig;
 import org.eclipse.jgit.storage.pack.PackConfig;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class HugeCommitMessageTest extends RepositoryTestCase {
 

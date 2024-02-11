@@ -11,15 +11,15 @@
 package org.eclipse.jgit.internal.storage.io;
 
 import static org.eclipse.jgit.internal.storage.io.CancellableDigestOutputStream.BYTES_TO_WRITE_BEFORE_CANCEL_CHECK;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.Assert.assertThrows;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.InterruptedIOException;
 
 import org.eclipse.jgit.lib.ProgressMonitor;
 import org.eclipse.jgit.util.io.NullOutputStream;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class CancellableDigestOutputStreamTest {
 	private static class CancelledTestMonitor implements ProgressMonitor {

@@ -3,7 +3,7 @@ package org.eclipse.jgit.internal.storage.pack;
 import static org.eclipse.jgit.storage.pack.PackConfig.DEFAULT_BITMAP_DISTANT_COMMIT_SPAN;
 import static org.eclipse.jgit.storage.pack.PackConfig.DEFAULT_BITMAP_RECENT_COMMIT_COUNT;
 import static org.eclipse.jgit.storage.pack.PackConfig.DEFAULT_BITMAP_RECENT_COMMIT_SPAN;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.IOException;
 import java.util.Collection;
@@ -20,7 +20,7 @@ import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.ObjectLoader;
 import org.eclipse.jgit.lib.ObjectReader;
 import org.eclipse.jgit.storage.pack.PackConfig;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /** Tests for the {@link PackWriterBitmapPreparer}. */
 public class PackWriterBitmapPreparerTest {

@@ -32,7 +32,7 @@ import static org.eclipse.jgit.lib.ObjectChecker.ErrorType.NULL_SHA1;
 import static org.eclipse.jgit.lib.ObjectChecker.ErrorType.TREE_NOT_SORTED;
 import static org.eclipse.jgit.lib.ObjectChecker.ErrorType.ZERO_PADDED_FILEMODE;
 import static org.eclipse.jgit.util.RawParseUtils.decode;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.fail;
@@ -42,7 +42,7 @@ import java.text.MessageFormat;
 import org.eclipse.jgit.errors.CorruptObjectException;
 import org.eclipse.jgit.internal.JGitText;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class ObjectCheckerTest {
 	private static final ObjectChecker SECRET_KEY_CHECKER = new ObjectChecker() {

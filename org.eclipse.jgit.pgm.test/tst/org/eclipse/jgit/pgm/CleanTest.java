@@ -11,10 +11,10 @@ package org.eclipse.jgit.pgm;
 
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.lib.CLIRepositoryTestCase;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.eclipse.jgit.junit.JGitTestUtil.check;
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;;
 
 public class CleanTest extends CLIRepositoryTestCase {
 	@Test

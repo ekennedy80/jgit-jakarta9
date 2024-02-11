@@ -18,7 +18,7 @@ import static org.eclipse.jgit.transport.SideBandOutputStream.CH_PROGRESS;
 import static org.eclipse.jgit.transport.SideBandOutputStream.HDR_SIZE;
 import static org.eclipse.jgit.transport.SideBandOutputStream.MAX_BUF;
 import static org.eclipse.jgit.transport.SideBandOutputStream.SMALL_BUF;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.Assert.fail;
 
 import java.io.ByteArrayOutputStream;
@@ -28,7 +28,7 @@ import java.text.MessageFormat;
 
 import org.eclipse.jgit.internal.JGitText;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 // Note, test vectors created with:
 //

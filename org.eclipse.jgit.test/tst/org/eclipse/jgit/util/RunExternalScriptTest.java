@@ -11,7 +11,7 @@
 package org.eclipse.jgit.util;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -22,7 +22,7 @@ import java.io.InputStream;
 import org.eclipse.jgit.junit.JGitTestUtil;
 import org.eclipse.jgit.util.FS.ExecutionResult;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class RunExternalScriptTest {
 	private static final String LF = "\n";

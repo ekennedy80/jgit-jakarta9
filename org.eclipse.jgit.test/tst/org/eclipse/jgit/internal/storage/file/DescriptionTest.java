@@ -10,7 +10,7 @@
 
 package org.eclipse.jgit.internal.storage.file;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.Assert.assertNull;
 
 import java.io.File;
@@ -18,7 +18,7 @@ import java.io.IOException;
 
 import org.eclipse.jgit.junit.LocalDiskRepositoryTestCase;
 import org.eclipse.jgit.lib.Repository;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /** Test managing the gitweb description file. */
 public class DescriptionTest extends LocalDiskRepositoryTestCase {

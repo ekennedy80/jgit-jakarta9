@@ -11,9 +11,9 @@ package org.eclipse.jgit.internal.storage.file;
 
 import static org.eclipse.jgit.junit.JGitTestUtil.read;
 import static org.eclipse.jgit.junit.JGitTestUtil.write;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.io.File;
@@ -35,10 +35,10 @@ import org.eclipse.jgit.util.FS.FileStoreAttributes;
 import org.eclipse.jgit.util.FileUtils;
 import org.eclipse.jgit.util.Stats;
 import org.eclipse.jgit.util.SystemReader;
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.Assume;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

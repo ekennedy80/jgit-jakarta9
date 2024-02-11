@@ -36,7 +36,7 @@ import org.eclipse.jgit.transport.http.HttpConnectionFactory;
 import org.eclipse.jgit.util.HttpSupport;
 import org.eclipse.jgit.util.SystemReader;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
@@ -57,7 +57,7 @@ import java.util.regex.Pattern;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.eclipse.jgit.util.HttpSupport.*;
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;;
 
 public class SmartClientSmartServerTest extends AllProtocolsHttpTestCase {
 	private static final String HDR_TRANSFER_ENCODING = "Transfer-Encoding";

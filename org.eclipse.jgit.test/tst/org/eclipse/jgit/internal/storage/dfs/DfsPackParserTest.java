@@ -11,7 +11,7 @@ package org.eclipse.jgit.internal.storage.dfs;
 
 import static org.eclipse.jgit.lib.ConfigConstants.CONFIG_KEY_MIN_BYTES_OBJ_SIZE_INDEX;
 import static org.eclipse.jgit.lib.ConfigConstants.CONFIG_PACK_SECTION;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.IOException;
 
@@ -23,7 +23,7 @@ import org.eclipse.jgit.lib.ObjectInserter;
 import org.eclipse.jgit.transport.InMemoryPack;
 import org.eclipse.jgit.transport.PackParser;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class DfsPackParserTest {
   private InMemoryRepository repo;

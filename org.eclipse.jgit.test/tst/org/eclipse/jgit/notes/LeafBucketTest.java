@@ -10,7 +10,7 @@
 
 package org.eclipse.jgit.notes;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
 
@@ -18,7 +18,7 @@ import java.io.IOException;
 
 import org.eclipse.jgit.lib.AnyObjectId;
 import org.eclipse.jgit.lib.MutableObjectId;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class LeafBucketTest {
 	@Test

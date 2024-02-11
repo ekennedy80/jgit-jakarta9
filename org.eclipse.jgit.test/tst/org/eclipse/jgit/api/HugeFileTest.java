@@ -9,7 +9,7 @@
  */
 package org.eclipse.jgit.api;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.File;
 import java.io.RandomAccessFile;
@@ -18,10 +18,10 @@ import java.util.Collection;
 
 import org.eclipse.jgit.api.ResetCommand.ResetType;
 import org.eclipse.jgit.junit.RepositoryTestCase;
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.Before;
 import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class HugeFileTest extends RepositoryTestCase {
 

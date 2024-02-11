@@ -11,7 +11,7 @@ package org.eclipse.jgit.attributes;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -34,7 +34,7 @@ import org.eclipse.jgit.util.FS.ExecutionResult;
 import org.eclipse.jgit.util.RawParseUtils;
 import org.eclipse.jgit.util.TemporaryBuffer;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Tests that verify that the attributes of files in a repository are the same

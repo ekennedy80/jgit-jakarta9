@@ -27,7 +27,7 @@ import org.eclipse.jgit.util.HttpSupport;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.IOException;
@@ -35,7 +35,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 
 import static org.eclipse.jgit.lib.Constants.DEFAULT_REMOTE_NAME;
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;;
 
 public class LfsConnectionFactoryTest extends RepositoryTestCase {
 

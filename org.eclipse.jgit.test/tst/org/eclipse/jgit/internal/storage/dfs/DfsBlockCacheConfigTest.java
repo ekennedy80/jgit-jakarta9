@@ -43,7 +43,7 @@ import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThrows;
 
 import org.eclipse.jgit.internal.JGitText;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class DfsBlockCacheConfigTest {
 

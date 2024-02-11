@@ -28,7 +28,7 @@ import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.transport.*;
 import org.eclipse.jgit.util.HttpSupport;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
@@ -39,7 +39,7 @@ import java.io.IOException;
 import java.util.EnumSet;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;;
 
 @RunWith(Parameterized.class)
 public class SmartClientSmartServerSslTest extends AllProtocolsHttpTestCase {

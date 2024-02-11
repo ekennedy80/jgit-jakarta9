@@ -11,8 +11,8 @@
 
 package org.eclipse.jgit.revwalk;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -21,7 +21,7 @@ import org.eclipse.jgit.errors.IncorrectObjectTypeException;
 import org.eclipse.jgit.errors.MissingObjectException;
 import org.eclipse.jgit.errors.StopWalkException;
 import org.eclipse.jgit.revwalk.filter.RevFilter;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class RevWalkResetTest extends RevWalkTestCase {
 

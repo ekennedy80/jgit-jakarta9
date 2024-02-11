@@ -32,7 +32,7 @@ import org.eclipse.jgit.transport.ConnectivityChecker;
 import org.eclipse.jgit.transport.ConnectivityChecker.ConnectivityCheckInfo;
 import org.junit.Before;
 import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;

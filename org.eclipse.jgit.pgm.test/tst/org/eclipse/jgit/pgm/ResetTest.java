@@ -14,9 +14,9 @@ import org.eclipse.jgit.lib.CLIRepositoryTestCase;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.junit.Before;
 import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;;
 
 public class ResetTest extends CLIRepositoryTestCase {
 

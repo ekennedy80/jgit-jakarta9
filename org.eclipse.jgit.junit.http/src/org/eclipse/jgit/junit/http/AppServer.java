@@ -31,8 +31,8 @@ import java.nio.file.Files;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Tiny web application server for unit testing.
@@ -438,10 +438,10 @@ public class AppServer {
 	}
 
 	private void assertNotYetSetUp() {
-		assertFalse("server is not running", server.isRunning());
+		assertFalse(server.isRunning());
 	}
 
 	private void assertAlreadySetUp() {
-		assertTrue("server is running", server.isRunning());
+		assertTrue(server.isRunning());
 	}
 }

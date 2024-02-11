@@ -22,7 +22,7 @@ import java.util.List;
 
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.transport.PackedObjectInfo;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class PackReverseIndexWriterV1Test {
 

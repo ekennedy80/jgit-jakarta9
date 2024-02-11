@@ -20,7 +20,7 @@ import org.eclipse.jgit.junit.TestRepository.CommitBuilder;
 import org.eclipse.jgit.lib.Config;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class RevWalkFollowFilterTest extends RevWalkTestCase {
 

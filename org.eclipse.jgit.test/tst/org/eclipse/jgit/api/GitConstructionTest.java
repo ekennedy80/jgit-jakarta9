@@ -9,7 +9,7 @@
  */
 package org.eclipse.jgit.api;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.Assert.fail;
 
 import java.io.File;
@@ -23,7 +23,7 @@ import org.eclipse.jgit.junit.RepositoryTestCase;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.util.FileUtils;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class GitConstructionTest extends RepositoryTestCase {
 	private Repository bareRepo;

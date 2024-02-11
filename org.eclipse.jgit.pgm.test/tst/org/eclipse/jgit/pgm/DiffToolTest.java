@@ -13,7 +13,7 @@ import org.eclipse.jgit.internal.diffmergetool.DiffTools;
 import org.eclipse.jgit.internal.diffmergetool.ExternalDiffTool;
 import org.eclipse.jgit.lib.StoredConfig;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.InputStream;

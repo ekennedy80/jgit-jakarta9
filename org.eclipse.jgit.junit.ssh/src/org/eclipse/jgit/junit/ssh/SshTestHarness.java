@@ -9,11 +9,11 @@
  */
 package org.eclipse.jgit.junit.ssh;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -50,7 +50,8 @@ import org.eclipse.jgit.transport.RemoteRefUpdate;
 import org.eclipse.jgit.transport.SshSessionFactory;
 import org.eclipse.jgit.transport.URIish;
 import org.eclipse.jgit.util.FS;
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.TestInfo;
 
 /**
  * Root class for ssh tests. Sets up the ssh test server. A set of pre-computed
@@ -62,7 +63,6 @@ import org.junit.After;
  * to decrypt is "testpass". The key "{@code id_ecdsa_384}" is the same but
  * unencrypted. All keys were generated and encrypted via ssh-keygen. Note that
  * DSA and ec25519 have no "bits" component. Available keys are listed in
- * {@link SshTestBase#KEY_RESOURCES}.
  */
 public abstract class SshTestHarness extends RepositoryTestCase {
 
@@ -90,8 +90,8 @@ public abstract class SshTestHarness extends RepositoryTestCase {
 	protected File knownHosts;
 
 	@Override
-	public void setUp() throws Exception {
-		super.setUp();
+	public void setUp(TestInfo testInfo) throws Exception {
+		super.setUp(testInfo);
 		writeTrashFile("file.txt", "something");
 		try (Git git = new Git(db)) {
 			git.add().addFilepattern("file.txt").call();
@@ -190,12 +190,11 @@ public abstract class SshTestHarness extends RepositoryTestCase {
 			int port, File publicKey) throws IOException {
 		List<String> lines = Files.readAllLines(publicKey.toPath(),
 				StandardCharsets.UTF_8);
-		assertEquals("Public key has too many lines", 1, lines.size());
+		assertEquals(1, lines.size());
 		String pubKey = lines.get(0);
 		// Strip off the comment.
 		String[] parts = pubKey.split("\\s+");
-		assertTrue("Unexpected key content",
-				parts.length == 2 || parts.length == 3);
+		assertTrue(parts.length == 2 || parts.length == 3);
 		String keyPart = parts[0] + ' ' + parts[1];
 		String line = '[' + host + "]:" + port + ' ' + keyPart;
 		Files.write(file.toPath(), Collections.singletonList(line));
@@ -223,7 +222,7 @@ public abstract class SshTestHarness extends RepositoryTestCase {
 				.anyMatch(l -> l.contains(h) && l.contains(keyPart));
 	}
 
-	@After
+	@AfterEach
 	public void shutdownServer() throws Exception {
 		if (server != null) {
 			server.stop();
@@ -325,23 +324,19 @@ public abstract class SshTestHarness extends RepositoryTestCase {
 			Iterable<PushResult> results = push.call();
 			for (PushResult result : results) {
 				for (RemoteRefUpdate u : result.getRemoteUpdates()) {
-					assertEquals(
-							"Could not update " + u.getRemoteName() + ' '
-									+ u.getMessage(),
-							RemoteRefUpdate.Status.OK, u.getStatus());
+					assertEquals(RemoteRefUpdate.Status.OK, u.getStatus());
 				}
 			}
 		}
 		// Now check "master" in the remote repo directly:
-		assertEquals("Unexpected remote commit", commit, db.resolve("master"));
-		assertEquals("Unexpected remote commit", commit,
-				db.resolve(Constants.HEAD));
+		assertEquals(commit, db.resolve("master"));
+		assertEquals(commit, db.resolve(Constants.HEAD));
 		File remoteFile = new File(db.getWorkTree(), newFile.getName());
-		assertFalse("File should not exist on remote", remoteFile.exists());
+		assertFalse(remoteFile.exists());
 		try (Git git = new Git(db)) {
 			git.reset().setMode(ResetType.HARD).setRef(Constants.HEAD).call();
 		}
-		assertTrue("File does not exist on remote", remoteFile.exists());
+		assertTrue(remoteFile.exists());
 		checkFile(remoteFile, "something new");
 	}
 

@@ -10,14 +10,14 @@
  */
 package org.eclipse.jgit.util;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.concurrent.TimeUnit;
 
 import org.eclipse.jgit.junit.MockSystemReader;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.PersonIdent;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Portions of this test is from CommitMsgHookTest in the Android project Gerrit

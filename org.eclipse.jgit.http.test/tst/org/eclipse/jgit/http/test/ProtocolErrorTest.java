@@ -28,7 +28,7 @@ import org.eclipse.jgit.transport.PacketLineOut;
 import org.eclipse.jgit.transport.URIish;
 import org.eclipse.jgit.util.NB;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import jakarta.servlet.http.HttpServletRequest;
 import java.io.ByteArrayOutputStream;
@@ -38,8 +38,8 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ProtocolErrorTest extends HttpTestCase {
 	private Repository remoteRepository;

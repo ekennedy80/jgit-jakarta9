@@ -10,7 +10,7 @@
 
 package org.eclipse.jgit.diff;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.eclipse.jgit.diff.DiffEntry.ChangeType;
 import org.eclipse.jgit.junit.RepositoryTestCase;

@@ -11,12 +11,12 @@
 package org.eclipse.jgit.fnmatch;
 
 import static org.eclipse.jgit.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.Assert.fail;
 
 import org.eclipse.jgit.errors.InvalidPatternException;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class FileNameMatcherTest {
 

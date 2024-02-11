@@ -13,15 +13,15 @@ import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.lib.CLIRepositoryTestCase;
 import org.eclipse.jgit.pgm.opt.CmdLineParser;
 import org.eclipse.jgit.pgm.opt.SubcommandHandler;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.kohsuke.args4j.Argument;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.eclipse.jgit.junit.JGitTestUtil.check;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TextBuiltinTest extends CLIRepositoryTestCase {
 	public static class GitCliJGitWrapperParser {

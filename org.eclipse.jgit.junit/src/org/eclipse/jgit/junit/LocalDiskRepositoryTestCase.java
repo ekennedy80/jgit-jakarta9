@@ -81,6 +81,7 @@ public abstract class LocalDiskRepositoryTestCase {
 	/**
 	 * Setup test
 	 *
+	 * @param testInfo contains the test info
 	 * @throws Exception
 	 *             if an error occurred
 	 */

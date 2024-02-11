@@ -19,7 +19,7 @@ import java.io.InputStream;
 
 import org.eclipse.jgit.diff.RawText;
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class AutoCRLFInputStreamTest {
 

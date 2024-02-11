@@ -12,13 +12,13 @@ package org.eclipse.jgit.lib;
 
 import static org.eclipse.jgit.lib.RepositoryCacheConfig.AUTO_CLEANUP_DELAY;
 import static org.eclipse.jgit.lib.RepositoryCacheConfig.NO_CLEANUP;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.concurrent.TimeUnit;
 
 import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class RepositoryCacheConfigTest {
 

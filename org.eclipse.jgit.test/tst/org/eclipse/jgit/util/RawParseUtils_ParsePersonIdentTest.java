@@ -10,13 +10,13 @@
 
 package org.eclipse.jgit.util;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Date;
 import java.util.TimeZone;
 
 import org.eclipse.jgit.lib.PersonIdent;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class RawParseUtils_ParsePersonIdentTest {
 

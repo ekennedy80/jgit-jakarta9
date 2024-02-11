@@ -11,7 +11,7 @@
 package org.eclipse.jgit.http.server;
 
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.eclipse.jgit.http.server.ClientVersionUtil.invalidVersion;
 import static org.eclipse.jgit.http.server.ClientVersionUtil.parseVersion;

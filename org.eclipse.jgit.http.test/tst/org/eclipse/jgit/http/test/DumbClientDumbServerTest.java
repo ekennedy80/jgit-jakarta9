@@ -22,7 +22,7 @@ import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.transport.*;
 import org.eclipse.jgit.transport.http.HttpConnectionFactory;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.IOException;
@@ -31,7 +31,7 @@ import java.util.List;
 import java.util.Map;
 
 import static org.eclipse.jgit.util.HttpSupport.*;
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;;
 
 public class DumbClientDumbServerTest extends AllFactoriesHttpTestCase {
 	private Repository remoteRepository;

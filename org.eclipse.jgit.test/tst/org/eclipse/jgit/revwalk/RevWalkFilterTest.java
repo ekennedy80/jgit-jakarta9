@@ -10,7 +10,7 @@
 
 package org.eclipse.jgit.revwalk;
 
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.Assert.assertNull;
 
 import java.io.IOException;
@@ -24,7 +24,7 @@ import org.eclipse.jgit.revwalk.filter.CommitTimeRevFilter;
 import org.eclipse.jgit.revwalk.filter.NotRevFilter;
 import org.eclipse.jgit.revwalk.filter.OrRevFilter;
 import org.eclipse.jgit.revwalk.filter.RevFilter;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class RevWalkFilterTest extends RevWalkTestCase {
 	private static final MyAll MY_ALL = new MyAll();

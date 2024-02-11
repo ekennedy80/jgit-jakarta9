@@ -12,12 +12,12 @@ package org.eclipse.jgit.gpg.bc.internal.keys;
 import org.bouncycastle.openpgp.PGPException;
 import org.bouncycastle.util.encoders.Hex;
 import org.eclipse.jgit.util.sha1.SHA1;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigInteger;
 import java.util.Locale;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class KeyGrip25519Test {
 

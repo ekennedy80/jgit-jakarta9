@@ -10,7 +10,7 @@
 
 package org.eclipse.jgit.internal.storage.file;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Collections;
 
@@ -21,7 +21,7 @@ import org.eclipse.jgit.merge.MergeStrategy;
 import org.eclipse.jgit.merge.Merger;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.revwalk.RevTree;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class GcBranchPrunedTest extends GcTestCase {
 

@@ -9,9 +9,9 @@
  */
 package org.eclipse.jgit.lfs.lib;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /*
  * Ported to SHA-256 from org.eclipse.jgit.lib.MutableObjectIdTest

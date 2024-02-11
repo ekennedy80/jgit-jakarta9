@@ -16,7 +16,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 import org.eclipse.jgit.junit.MockSystemReader;
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.Before;
 import org.junit.experimental.theories.DataPoints;
 import org.junit.experimental.theories.Theories;

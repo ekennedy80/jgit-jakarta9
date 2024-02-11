@@ -16,9 +16,9 @@ import org.eclipse.jgit.lib.StoredConfig;
 import org.eclipse.jgit.transport.RemoteConfig;
 import org.eclipse.jgit.transport.URIish;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FetchTest extends CLIRepositoryTestCase {
 	private Git git;

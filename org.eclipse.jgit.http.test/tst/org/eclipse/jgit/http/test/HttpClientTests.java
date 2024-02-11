@@ -28,7 +28,7 @@ import org.eclipse.jgit.transport.*;
 import org.eclipse.jgit.transport.http.HttpConnection;
 import org.eclipse.jgit.transport.http.HttpConnectionFactory;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import jakarta.servlet.http.HttpServletRequest;
 import java.io.File;
@@ -42,7 +42,7 @@ import java.util.Set;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;;
 
 public class HttpClientTests extends AllFactoriesHttpTestCase {
 

@@ -11,9 +11,9 @@
 package org.eclipse.jgit.lfs.lib;
 
 import org.eclipse.jgit.lfs.test.LongObjectIdTestUtils;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;;
 
 /*
  * Ported to SHA-256 from org.eclipse.jgit.lib.AbbreviatedObjectIdTest

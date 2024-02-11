@@ -9,8 +9,8 @@
  */
 package org.eclipse.jgit.internal.revwalk;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Arrays;
 import java.util.Optional;
@@ -22,7 +22,7 @@ import org.eclipse.jgit.junit.TestRepository;
 import org.eclipse.jgit.revwalk.ReachabilityChecker;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public abstract class ReachabilityCheckerTestCase
 		extends LocalDiskRepositoryTestCase {

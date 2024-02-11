@@ -14,14 +14,14 @@ import static org.eclipse.jgit.util.RelativeDateFormatter.HOUR_IN_MILLIS;
 import static org.eclipse.jgit.util.RelativeDateFormatter.MINUTE_IN_MILLIS;
 import static org.eclipse.jgit.util.RelativeDateFormatter.SECOND_IN_MILLIS;
 import static org.eclipse.jgit.util.RelativeDateFormatter.YEAR_IN_MILLIS;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Date;
 
 import org.eclipse.jgit.junit.MockSystemReader;
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class RelativeDateFormatterTest {
 

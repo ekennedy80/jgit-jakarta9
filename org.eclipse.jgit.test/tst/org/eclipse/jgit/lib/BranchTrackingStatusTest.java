@@ -10,14 +10,14 @@
 
 package org.eclipse.jgit.lib;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.Assert.assertNull;
 
 import org.eclipse.jgit.junit.RepositoryTestCase;
 import org.eclipse.jgit.junit.TestRepository;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.revwalk.RevWalk;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class BranchTrackingStatusTest extends RepositoryTestCase {
 	private TestRepository<Repository> util;

@@ -14,7 +14,7 @@ import static org.junit.Assert.fail;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.junit.RepositoryTestCase;
 import org.eclipse.jgit.treewalk.filter.PathFilter;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Simple performance test for git add / FileTreeIterator.

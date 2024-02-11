@@ -25,23 +25,21 @@ import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.treewalk.FileTreeIterator;
 import org.eclipse.jgit.util.FS;
 import org.eclipse.jgit.util.FileUtils;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.TestInfo;
 
 import java.io.*;
 import java.nio.file.Path;
 import java.time.Instant;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Base class for most JGit unit tests.
- *
  * Sets up a predefined test repository and has support for creating additional
  * repositories and destroying them when the tests are finished.
  */
@@ -170,7 +168,7 @@ public abstract class 	RepositoryTestCase extends LocalDiskRepositoryTestCase {
 			throws IOException {
 		try (Reader r = new InputStreamReader(new FileInputStream(f),
 				UTF_8)) {
-			if (checkData.length() > 0) {
+			if (!checkData.isEmpty()) {
 				char[] data = new char[checkData.length()];
 				assertEquals(data.length, r.read(data));
 				assertEquals(checkData, new String(data));
@@ -185,17 +183,22 @@ public abstract class 	RepositoryTestCase extends LocalDiskRepositoryTestCase {
 	/** Working directory of {@link #db}. */
 	protected File trash;
 
-	@Override
-	@Before
-	public void setUp() throws Exception {
-		super.setUp();
+	/**
+	 * Happens before each test
+	 * @throws Exception an excpetion
+	 */
+	@BeforeEach
+	public void setUp(TestInfo testInfo) throws Exception {
+		super.setUp(testInfo);
 		db = createWorkRepository();
 		trash = db.getWorkTree();
 	}
 
+	/**
+	 * Happens before each test
+	 * @throws Exception an exception
+	 */
 	@AfterEach
-	@Override
-	@After
 	public void tearDown() throws Exception {
 		db.close();
 		super.tearDown();
@@ -260,7 +263,7 @@ public abstract class 	RepositoryTestCase extends LocalDiskRepositoryTestCase {
 	 *             if an IO error occurred
 	 */
 	protected void resetIndex(FileTreeIterator treeItr)
-			throws FileNotFoundException, IOException {
+			throws IOException {
 		try (ObjectInserter inserter = db.newObjectInserter()) {
 			DirCacheBuilder builder = db.lockDirCache().builder();
 			DirCacheEntry dce;
@@ -283,38 +286,6 @@ public abstract class 	RepositoryTestCase extends LocalDiskRepositoryTestCase {
 			builder.commit();
 			inserter.flush();
 		}
-	}
-
-	/**
-	 * Helper method to map arbitrary objects to user-defined names. This can be
-	 * used create short names for objects to produce small and stable debug
-	 * output. It is guaranteed that when you lookup the same object multiple
-	 * times even with different nameTemplates this method will always return
-	 * the same name which was derived from the first nameTemplate.
-	 * nameTemplates can contain "%n" which will be replaced by a running number
-	 * before used as a name.
-	 *
-	 * @param l
-	 *            the object to lookup
-	 * @param lookupTable
-	 *            a table storing object-name mappings.
-	 * @param nameTemplate
-	 *            the name for that object. Can contain "%n" which will be
-	 *            replaced by a running number before used as a name. If the
-	 *            lookup table already contains the object this parameter will
-	 *            be ignored
-	 * @return a name of that object. Is not guaranteed to be unique. Use
-	 *         nameTemplates containing "%n" to always have unique names
-	 */
-	public static String lookup(Object l, String nameTemplate,
-			Map<Object, String> lookupTable) {
-		String name = lookupTable.get(l);
-		if (name == null) {
-			name = nameTemplate.replaceAll("%n",
-					Integer.toString(lookupTable.size()));
-			lookupTable.put(l, name);
-		}
-		return name;
 	}
 
 	/**
@@ -441,27 +412,17 @@ public abstract class 	RepositoryTestCase extends LocalDiskRepositoryTestCase {
 	 * and so on. If <code>null</code> is specified as content then this file is
 	 * skipped.
 	 *
-	 * @param ensureDistinctTimestamps
-	 *            if set to <code>true</code> then between two write operations
-	 *            this method will wait to ensure that the second file will get
-	 *            a different lastmodification timestamp than the first file.
-	 * @param contents
-	 *            the contents which should be written into the files
+	 * @param contents the contents which should be written into the files
 	 * @return the File object associated to the last written file.
-	 * @throws IOException
-	 *             if an IO error occurred
-	 * @throws InterruptedException
-	 *             if thread was interrupted
+	 * @throws IOException          if an IO error occurred
+	 * @throws InterruptedException if thread was interrupted
 	 */
-	protected File writeTrashFiles(boolean ensureDistinctTimestamps,
-			String... contents)
+	protected File writeTrashFiles(String... contents)
 			throws IOException, InterruptedException {
 				File f = null;
 				for (int i = 0; i < contents.length; i++)
 					if (contents[i] != null) {
-						if (ensureDistinctTimestamps && (f != null))
-							fsTick(f);
-						f = writeTrashFile(Integer.toString(i), contents[i]);
+                        f = writeTrashFile(Integer.toString(i), contents[i]);
 					}
 				return f;
 			}

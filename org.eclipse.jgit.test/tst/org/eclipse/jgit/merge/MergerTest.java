@@ -12,11 +12,11 @@ package org.eclipse.jgit.merge;
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static java.time.Instant.EPOCH;
 import static org.eclipse.jgit.lib.Constants.OBJ_BLOB;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -1171,7 +1171,7 @@ public class MergerTest extends RepositoryTestCase {
 		File indexFile = db.getIndexFile();
 
 		// Create initial content and remember when the last file was written.
-		f = writeTrashFiles(false, "orig", "orig", "1\n2\n3", "orig", "orig");
+		f = writeTrashFiles("orig", "orig", "1\n2\n3", "orig", "orig");
 		lastTs4 = FS.DETECTED.lastModifiedInstant(f);
 
 		// add all files, commit and check this doesn't update any working tree
@@ -1192,7 +1192,7 @@ public class MergerTest extends RepositoryTestCase {
 		// Do modifications on the master branch. Then add and commit. This
 		// should touch only "0", "2 and "3"
 		fsTick(indexFile);
-		f = writeTrashFiles(false, "master", null, "1master\n2\n3", "master",
+		f = writeTrashFiles("master", null, "1master\n2\n3", "master",
 				null);
 		fsTick(f);
 		git.add().addFilepattern(".").call();
@@ -1222,7 +1222,7 @@ public class MergerTest extends RepositoryTestCase {
 				+ "[4, mode:100644, content:orig]", //
 				indexState(CONTENT));
 		fsTick(indexFile);
-		f = writeTrashFiles(false, "orig", "orig", "1\n2\n3", "orig", "orig");
+		f = writeTrashFiles("orig", "orig", "1\n2\n3", "orig", "orig");
 		lastTs4 = FS.DETECTED.lastModifiedInstant(f);
 		fsTick(f);
 		git.add().addFilepattern(".").call();
@@ -1233,7 +1233,7 @@ public class MergerTest extends RepositoryTestCase {
 
 		// Do modifications on the side branch. Touch only "1", "2 and "3"
 		fsTick(indexFile);
-		f = writeTrashFiles(false, null, "side", "1\n2\n3side", "side", null);
+		f = writeTrashFiles(null, "side", "1\n2\n3side", "side", null);
 		fsTick(f);
 		git.add().addFilepattern(".").call();
 		git.commit().setMessage("side commit").call();

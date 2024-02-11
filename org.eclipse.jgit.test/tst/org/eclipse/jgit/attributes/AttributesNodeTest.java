@@ -12,7 +12,7 @@ package org.eclipse.jgit.attributes;
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.eclipse.jgit.attributes.Attribute.State.SET;
 import static org.eclipse.jgit.attributes.Attribute.State.UNSET;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -21,8 +21,8 @@ import java.io.InputStream;
 import org.eclipse.jgit.internal.storage.dfs.DfsRepositoryDescription;
 import org.eclipse.jgit.internal.storage.dfs.InMemoryRepository;
 import org.eclipse.jgit.treewalk.TreeWalk;
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * Test {@link AttributesNode}

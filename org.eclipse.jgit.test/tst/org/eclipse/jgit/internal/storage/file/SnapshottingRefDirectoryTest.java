@@ -14,11 +14,11 @@ package org.eclipse.jgit.internal.storage.file;
 import org.eclipse.jgit.lib.NullProgressMonitor;
 import org.eclipse.jgit.transport.ReceiveCommand;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SnapshottingRefDirectoryTest extends RefDirectoryTest {
 	private RefDirectory originalRefDirectory;

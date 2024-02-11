@@ -10,12 +10,12 @@
 
 package org.eclipse.jgit.internal.storage.file;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.Assert.fail;
 
 import org.eclipse.jgit.junit.RepositoryTestCase;
 import org.eclipse.jgit.storage.file.WindowCacheConfig;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class WindowCacheReconfigureTest extends RepositoryTestCase {
 	@Test

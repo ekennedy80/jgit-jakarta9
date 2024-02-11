@@ -17,7 +17,7 @@ import java.io.IOException;
 
 import org.eclipse.jgit.junit.JGitTestUtil;
 import org.eclipse.jgit.lib.ObjectId;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class RevWalkShallowTest extends RevWalkTestCase {
 

@@ -30,7 +30,7 @@ import org.eclipse.jgit.transport.http.HttpConnection;
 import org.eclipse.jgit.util.http.HttpCookiesMatcher;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentMatchers;
 import org.mockito.Mockito;
 

@@ -9,7 +9,7 @@
  */
 package org.eclipse.jgit.api;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Date;
 import java.util.Properties;
@@ -18,7 +18,7 @@ import org.eclipse.jgit.junit.RepositoryTestCase;
 import org.eclipse.jgit.util.GitDateParser;
 import org.eclipse.jgit.util.SystemReader;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class GarbageCollectCommandTest extends RepositoryTestCase {
 	private Git git;

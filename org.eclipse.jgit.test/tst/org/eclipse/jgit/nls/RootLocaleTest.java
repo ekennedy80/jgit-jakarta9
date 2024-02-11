@@ -14,7 +14,7 @@ import org.eclipse.jgit.awtui.UIText;
 import org.eclipse.jgit.internal.JGitText;
 import org.eclipse.jgit.pgm.internal.CLIText;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class RootLocaleTest {
 	@Before

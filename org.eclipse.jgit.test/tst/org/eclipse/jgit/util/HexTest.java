@@ -13,11 +13,11 @@ package org.eclipse.jgit.util;
 
 import static org.eclipse.jgit.util.Hex.decode;
 import static org.eclipse.jgit.util.Hex.toHexString;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.eclipse.jgit.junit.JGitTestUtil;
 import org.eclipse.jgit.lib.Constants;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class HexTest {
 	@Test

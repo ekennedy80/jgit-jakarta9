@@ -53,7 +53,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.eclipse.jgit.transport.http.JDKHttpConnection;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class HttpAuthTest {
 	private static String digestHeader = "WWW-Authenticate: Digest qop=\"auth\",algorithm=MD5-sess,nonce=\"+Upgraded+v1b9...ba\",charset=utf-8,realm=\"Digest\"";

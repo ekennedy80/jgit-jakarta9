@@ -18,14 +18,14 @@ import static org.eclipse.jgit.internal.storage.dfs.DfsObjDatabase.PackSource.RE
 import static org.eclipse.jgit.internal.storage.dfs.DfsObjDatabase.PackSource.UNREACHABLE_GARBAGE;
 import static org.eclipse.jgit.internal.storage.pack.PackExt.INDEX;
 import static org.eclipse.jgit.internal.storage.pack.PackExt.PACK;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Comparator;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.eclipse.jgit.internal.storage.dfs.DfsObjDatabase.PackSource;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public final class DfsPackDescriptionTest {
 	private AtomicInteger counter;

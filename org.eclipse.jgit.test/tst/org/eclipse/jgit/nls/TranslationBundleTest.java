@@ -10,14 +10,14 @@
 
 package org.eclipse.jgit.nls;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.Assert.fail;
 
 import java.util.Locale;
 
 import org.eclipse.jgit.errors.TranslationBundleLoadingException;
 import org.eclipse.jgit.errors.TranslationStringMissingException;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class TranslationBundleTest {
 

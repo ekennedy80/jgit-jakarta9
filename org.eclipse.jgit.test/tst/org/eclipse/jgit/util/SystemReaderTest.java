@@ -9,7 +9,7 @@
  */
 package org.eclipse.jgit.util;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 import java.nio.charset.StandardCharsets;
@@ -17,9 +17,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 import org.eclipse.jgit.storage.file.FileBasedConfig;
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;

@@ -27,7 +27,7 @@ import java.util.Arrays;
 import org.eclipse.jgit.lib.CoreConfig.EolStreamType;
 import org.eclipse.jgit.util.IO;
 import org.eclipse.jgit.util.io.EolStreamTypeUtil;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Unit tests for end-of-line conversion streams

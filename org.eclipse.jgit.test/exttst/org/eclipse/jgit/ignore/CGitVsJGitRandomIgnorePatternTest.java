@@ -26,7 +26,7 @@ import java.util.Random;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.util.FileUtils;
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * This test generates random ignore patterns and random path and compares the

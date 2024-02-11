@@ -10,7 +10,7 @@
 
 package org.eclipse.jgit.revwalk;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.Assert.assertNull;
 
 import java.util.Collections;
@@ -19,7 +19,7 @@ import org.eclipse.jgit.dircache.DirCacheEntry;
 import org.eclipse.jgit.treewalk.filter.AndTreeFilter;
 import org.eclipse.jgit.treewalk.filter.PathFilterGroup;
 import org.eclipse.jgit.treewalk.filter.TreeFilter;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class RevWalkPathFilter1Test extends RevWalkTestCase {
 	protected void filter(String path) {

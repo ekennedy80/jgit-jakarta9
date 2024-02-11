@@ -12,7 +12,7 @@ package org.eclipse.jgit.revwalk;
 import static org.junit.Assert.assertNull;
 
 import org.eclipse.jgit.revwalk.filter.SkipRevFilter;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class SkipRevFilterTest extends RevWalkTestCase {
 	@Test

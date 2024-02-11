@@ -15,7 +15,7 @@ import static org.junit.Assert.fail;
 
 import org.eclipse.jgit.revwalk.filter.RevFilter;
 import org.eclipse.jgit.treewalk.filter.TreeFilter;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class RevWalkMergeBaseTest extends RevWalkTestCase {
 	@Test

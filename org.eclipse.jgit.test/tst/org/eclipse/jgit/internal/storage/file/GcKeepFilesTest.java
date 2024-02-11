@@ -14,10 +14,10 @@ import static org.eclipse.jgit.lib.ConfigConstants.CONFIG_KEY_BUILD_BITMAPS;
 import static org.eclipse.jgit.lib.ConfigConstants.CONFIG_KEY_PACK_KEPT_OBJECTS;
 import static org.eclipse.jgit.lib.ConfigConstants.CONFIG_PACK_SECTION;
 import static org.eclipse.jgit.lib.ConfigConstants.CONFIG_REPACK_SECTION;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Iterator;
 
@@ -27,7 +27,7 @@ import org.eclipse.jgit.junit.TestRepository.BranchBuilder;
 import org.eclipse.jgit.lib.Config;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.storage.pack.PackConfig;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class GcKeepFilesTest extends GcTestCase {
 	private static final int COMMIT_AND_TREE_OBJECTS = 2;

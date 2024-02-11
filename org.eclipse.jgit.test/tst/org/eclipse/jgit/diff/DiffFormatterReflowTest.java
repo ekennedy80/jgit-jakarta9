@@ -11,7 +11,7 @@
 
 package org.eclipse.jgit.diff;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.Assert.fail;
 
 import java.io.ByteArrayOutputStream;
@@ -23,7 +23,7 @@ import org.eclipse.jgit.patch.FileHeader;
 import org.eclipse.jgit.patch.Patch;
 import org.eclipse.jgit.util.RawParseUtils;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class DiffFormatterReflowTest {
 	private RawText a;

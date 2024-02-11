@@ -13,13 +13,13 @@ package org.eclipse.jgit.util;
 import static java.nio.charset.StandardCharsets.ISO_8859_1;
 import static org.eclipse.jgit.util.QuotedString.GIT_PATH;
 import static org.eclipse.jgit.util.QuotedString.GIT_PATH_MINIMAL;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.Assert.assertNotSame;
 import static org.junit.Assert.assertSame;
 
 import org.eclipse.jgit.lib.Constants;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class QuotedStringGitPathStyleTest {
 	private static void assertQuote(String exp, String in) {

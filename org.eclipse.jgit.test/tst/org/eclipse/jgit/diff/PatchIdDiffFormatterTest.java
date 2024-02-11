@@ -9,7 +9,7 @@
  */
 package org.eclipse.jgit.diff;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.File;
 
@@ -18,7 +18,7 @@ import org.eclipse.jgit.dircache.DirCacheIterator;
 import org.eclipse.jgit.junit.RepositoryTestCase;
 import org.eclipse.jgit.treewalk.FileTreeIterator;
 import org.eclipse.jgit.treewalk.filter.PathFilter;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class PatchIdDiffFormatterTest extends RepositoryTestCase {
 

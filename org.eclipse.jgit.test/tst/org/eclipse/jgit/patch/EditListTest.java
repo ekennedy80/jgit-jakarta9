@@ -10,7 +10,7 @@
 
 package org.eclipse.jgit.patch;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.Assert.fail;
 
 import java.io.IOException;
@@ -18,7 +18,7 @@ import java.io.InputStream;
 
 import org.eclipse.jgit.diff.Edit;
 import org.eclipse.jgit.diff.EditList;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class EditListTest {
 	@Test

@@ -10,9 +10,9 @@
 
 package org.eclipse.jgit.patch;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.io.IOException;
@@ -21,7 +21,7 @@ import java.io.InputStream;
 import org.eclipse.jgit.diff.DiffEntry;
 import org.eclipse.jgit.junit.JGitTestUtil;
 import org.eclipse.jgit.lib.FileMode;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class PatchCcTest {
 	@Test

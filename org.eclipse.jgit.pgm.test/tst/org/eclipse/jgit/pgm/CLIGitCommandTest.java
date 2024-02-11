@@ -9,7 +9,7 @@
  */
 package org.eclipse.jgit.pgm;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.eclipse.jgit.pgm.CLIGitCommand.split;
 import static org.junit.Assert.assertArrayEquals;

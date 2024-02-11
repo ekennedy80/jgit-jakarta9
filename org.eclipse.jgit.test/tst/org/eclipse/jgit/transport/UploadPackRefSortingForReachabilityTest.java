@@ -21,7 +21,7 @@ import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.ObjectIdRef.Unpeeled;
 import org.eclipse.jgit.lib.Ref;
 import org.eclipse.jgit.lib.Ref.Storage;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class UploadPackRefSortingForReachabilityTest {
 

@@ -12,13 +12,13 @@ package org.eclipse.jgit.revwalk;
 
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.eclipse.jgit.lib.FileMode;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.ObjectInserter;
 import org.eclipse.jgit.lib.TreeFormatter;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class ObjectWalkTest extends RevWalkTestCase {
 	protected ObjectWalk objw;

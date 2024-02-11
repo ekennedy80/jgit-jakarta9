@@ -16,8 +16,8 @@ import static org.eclipse.jgit.lib.Constants.OBJ_TREE;
 import static org.eclipse.jgit.transport.ObjectIdMatcher.hasOnlyObjectIds;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.contains;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -25,7 +25,7 @@ import java.io.IOException;
 
 import org.eclipse.jgit.errors.PackProtocolException;
 import org.eclipse.jgit.lib.Config;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class ProtocolV0ParserTest {
 	/*

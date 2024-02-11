@@ -11,12 +11,12 @@ package org.eclipse.jgit.ignore;
 
 import static org.eclipse.jgit.ignore.internal.Strings.split;
 import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.Assert.fail;
 
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class FastIgnoreRuleTest {
 

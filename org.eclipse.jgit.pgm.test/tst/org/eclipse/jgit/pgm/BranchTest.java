@@ -16,11 +16,11 @@ import org.eclipse.jgit.lib.RefUpdate;
 import org.eclipse.jgit.pgm.internal.CLIText;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.File;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;;
 
 public class BranchTest extends CLIRepositoryTestCase {
 	@Override

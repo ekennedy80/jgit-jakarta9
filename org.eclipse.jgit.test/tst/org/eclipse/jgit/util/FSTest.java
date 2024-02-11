@@ -11,12 +11,12 @@
 package org.eclipse.jgit.util;
 
 import static java.time.Instant.EPOCH;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.Assume.assumeNoException;
-import static org.junit.Assume.assumeTrue;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 import java.io.File;
 import java.io.IOException;
@@ -37,10 +37,10 @@ import org.eclipse.jgit.errors.CommandFailedException;
 import org.eclipse.jgit.junit.MockSystemReader;
 import org.eclipse.jgit.junit.RepositoryTestCase;
 import org.eclipse.jgit.lib.RepositoryCache;
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.Assume;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class FSTest {
 	private File trash;

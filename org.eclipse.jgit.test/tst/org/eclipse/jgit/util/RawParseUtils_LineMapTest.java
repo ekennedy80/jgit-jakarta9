@@ -12,11 +12,11 @@ package org.eclipse.jgit.util;
 
 import static java.nio.charset.StandardCharsets.ISO_8859_1;
 import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.Assert.assertThrows;
 
 import org.eclipse.jgit.errors.BinaryBlobException;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class RawParseUtils_LineMapTest {
 

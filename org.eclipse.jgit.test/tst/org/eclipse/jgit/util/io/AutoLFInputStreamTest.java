@@ -12,7 +12,7 @@
 package org.eclipse.jgit.util.io;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -20,7 +20,7 @@ import java.io.InputStream;
 import java.util.function.Function;
 
 import org.eclipse.jgit.util.io.AutoLFInputStream.StreamFlag;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class AutoLFInputStreamTest {
 
