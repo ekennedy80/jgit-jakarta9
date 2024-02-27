@@ -16,6 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.io.File;
 
 import org.eclipse.jgit.api.Git;
+import org.junit.jupiter.api.TestInfo;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -29,9 +30,10 @@ public abstract class SshBasicTestBase extends SshTestHarness {
 
 	protected File defaultCloneDir;
 
+
 	@Override
-	public void setUp() throws Exception {
-		super.setUp();
+	public void setUp(TestInfo testInfo) throws Exception {
+		super.setUp(testInfo);
 		defaultCloneDir = new File(getTemporaryDirectory(), "cloned");
 	}
 
