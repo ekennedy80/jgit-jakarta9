@@ -67,35 +67,35 @@ public class LongObjectIdTest {
 		final LongObjectId a = LongObjectId.fromString(x);
 		final LongObjectId b = LongObjectId.fromString(x);
 		assertEquals(a.hashCode(), b.hashCode());
-		assertEquals("a and b should be equal", b, a);
+		assertEquals(b, a);
 	}
 
 	@Test
 	public void test004_isId() {
-		assertTrue("valid id", LongObjectId.isId(
+		assertTrue(LongObjectId.isId(
 				"8367b0edc81df80e6b42eb1b71f783111224e058cb3da37894d065d2deb7ab0a"));
 	}
 
 	@Test
 	public void test005_notIsId() {
-		assertFalse("bob is not an id", LongObjectId.isId("bob"));
+		assertFalse(LongObjectId.isId("bob"));
 	}
 
 	@Test
 	public void test006_notIsId() {
-		assertFalse("63 digits is not an id", LongObjectId.isId(
+		assertFalse(LongObjectId.isId(
 				"8367b0edc81df80e6b42eb1b71f783111224e058cb3da37894d065d2deb7ab0"));
 	}
 
 	@Test
 	public void test007_isId() {
-		assertTrue("uppercase is accepted", LongObjectId.isId(
+		assertTrue(LongObjectId.isId(
 				"8367b0edc81df80e6b42eb1b71f783111224e058cb3da37894d065d2dEb7ab0A"));
 	}
 
 	@Test
 	public void test008_notIsId() {
-		assertFalse("g is not a valid hex digit", LongObjectId.isId(
+		assertFalse(LongObjectId.isId(
 				"g367b0edc81df80e6b42eb1b71f783111224e058cb3da37894d065d2deb7ab0a"));
 	}
 
@@ -132,7 +132,7 @@ public class LongObjectIdTest {
 		assertEquals(raw[1] & 0xff, id.getSecondByte());
 
 		for (int i = 2; i < 32; i++) {
-			assertEquals("index " + i, raw[i] & 0xff, id.getByte(i));
+			assertEquals(raw[i] & 0xff, id.getByte(i));
 		}
 		try {
 			id.getByte(32);
@@ -185,12 +185,12 @@ public class LongObjectIdTest {
 	@Test
 	public void testEquals() {
 		AnyLongObjectId id1 = LongObjectIdTestUtils.hash("test");
-		assertTrue("id should equal itself", id1.equals(id1));
+		assertTrue(id1.equals(id1));
 		AnyLongObjectId id2 = new LongObjectId(id1);
-		assertEquals("objects should be equals", id1, id2);
+		assertEquals( id1, id2);
 
 		id2 = LongObjectIdTestUtils.hash("other");
-		assertNotEquals("objects should be not equal", id1, id2);
+		assertNotEquals(id1, id2);
 	}
 
 	@Test
@@ -201,8 +201,7 @@ public class LongObjectIdTest {
 		byte[] buf = new byte[64];
 		id1.copyRawTo(buf, 0);
 		id2.copyRawTo(buf, 32);
-		assertTrue("objects should be equals",
-				LongObjectId.equals(buf, 0, buf, 32));
+		assertTrue(LongObjectId.equals(buf, 0, buf, 32));
 	}
 
 	@Test
@@ -214,7 +213,7 @@ public class LongObjectIdTest {
 		a[3] = 4L;
 		AnyLongObjectId id1 = new LongObjectId(a[0], a[1], a[2], a[3]);
 		AnyLongObjectId id2 = LongObjectId.fromRaw(a);
-		assertEquals("objects should be equals", id1, id2);
+		assertEquals(id1, id2);
 	}
 
 	@Test
@@ -236,7 +235,7 @@ public class LongObjectIdTest {
 		Charset cs = US_ASCII;
 		cs.encode(id1.name()).get(buf);
 		AnyLongObjectId id2 = LongObjectId.fromString(buf, 0);
-		assertEquals("objects should be equals", id1, id2);
+		assertEquals(id1, id2);
 	}
 
 	@Test
@@ -245,7 +244,7 @@ public class LongObjectIdTest {
 		Path f = tmp.resolve("test");
 		JGitTestUtil.write(f.toFile(), "test");
 		AnyLongObjectId id2 = LongObjectIdTestUtils.hash(f);
-		assertEquals("objects should be equals", id1, id2);
+		assertEquals(id1, id2);
 	}
 
 	@Test

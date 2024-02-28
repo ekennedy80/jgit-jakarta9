@@ -19,6 +19,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
 
 import java.io.File;
 import java.nio.charset.StandardCharsets;
@@ -53,8 +54,8 @@ public class LfsGitTest extends RepositoryTestCase {
 
 	@Override
 	@Before
-	public void setUp() throws Exception {
-		super.setUp();
+	public void setUp(TestInfo testInfo) throws Exception {
+		super.setUp(testInfo);
 		git = new Git(db);
 		// commit something
 		writeTrashFile("Test.txt", "Hello world");

@@ -21,8 +21,9 @@ import org.eclipse.jgit.revwalk.RevBlob;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.transport.*;
 import org.eclipse.jgit.transport.http.HttpConnectionFactory;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
 
 import java.io.File;
 import java.io.IOException;
@@ -47,9 +48,9 @@ public class DumbClientDumbServerTest extends AllFactoriesHttpTestCase {
 	}
 
 	@Override
-	@Before
-	public void setUp() throws Exception {
-		super.setUp();
+	@BeforeEach
+	public void setUp(TestInfo testInfo) throws Exception {
+		super.setUp(testInfo);
 
 		final TestRepository<Repository> src = createTestRepository();
 		final File srcGit = src.getRepository().getDirectory();
@@ -86,21 +87,21 @@ public class DumbClientDumbServerTest extends AllFactoriesHttpTestCase {
 			// approved them for inclusion into the code base. Sorry.
 			// --spearce
 			//
-			assertTrue("isa TransportHttp", t instanceof TransportHttp);
-			assertTrue("isa HttpTransport", t instanceof HttpTransport);
+			assertTrue(t instanceof TransportHttp);
+			assertTrue(t instanceof HttpTransport);
 
 			try (FetchConnection c = t.openFetch()) {
 				map = c.getRefsMap();
 			}
 		}
 
-		assertNotNull("have map of refs", map);
+		assertNotNull(map);
 		assertEquals(2, map.size());
 
-		assertNotNull("has " + master, map.get(master));
+		assertNotNull(map.get(master));
 		assertEquals(B, map.get(master).getObjectId());
 
-		assertNotNull("has " + Constants.HEAD, map.get(Constants.HEAD));
+		assertNotNull(map.get(Constants.HEAD));
 		assertEquals(B, map.get(Constants.HEAD).getObjectId());
 
 		List<AccessEvent> requests = getRequests();
@@ -114,7 +115,7 @@ public class DumbClientDumbServerTest extends AllFactoriesHttpTestCase {
 		assertEquals("git-upload-pack", info.getParameter("service"));
 		assertEquals("no-cache", info.getRequestHeader(HDR_PRAGMA));
 		assertNotNull("has user-agent", info.getRequestHeader(HDR_USER_AGENT));
-		assertTrue("is jgit agent", info.getRequestHeader(HDR_USER_AGENT)
+		assertTrue(info.getRequestHeader(HDR_USER_AGENT)
 				.startsWith("JGit/"));
 		assertEquals("application/x-git-upload-pack-advertisement, */*", info
 				.getRequestHeader(HDR_ACCEPT));
@@ -126,7 +127,7 @@ public class DumbClientDumbServerTest extends AllFactoriesHttpTestCase {
 		assertEquals(0, head.getParameters().size());
 		assertEquals("no-cache", head.getRequestHeader(HDR_PRAGMA));
 		assertNotNull("has user-agent", head.getRequestHeader(HDR_USER_AGENT));
-		assertTrue("is jgit agent", head.getRequestHeader(HDR_USER_AGENT)
+		assertTrue(head.getRequestHeader(HDR_USER_AGENT)
 				.startsWith("JGit/"));
 		assertEquals(200, head.getStatus());
 	}
@@ -186,7 +187,7 @@ public class DumbClientDumbServerTest extends AllFactoriesHttpTestCase {
 		assertEquals(0, event.getParameters().size());
 		assertEquals("no-cache", event.getRequestHeader(HDR_PRAGMA));
 		assertNotNull("has user-agent", event.getRequestHeader(HDR_USER_AGENT));
-		assertTrue("is jgit agent", event.getRequestHeader(HDR_USER_AGENT)
+		assertTrue(event.getRequestHeader(HDR_USER_AGENT)
 				.startsWith("JGit/"));
 		assertEquals(200, event.getStatus());
 	}

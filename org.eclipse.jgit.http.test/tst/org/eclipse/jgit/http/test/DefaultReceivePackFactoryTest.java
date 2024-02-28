@@ -21,8 +21,9 @@ import org.eclipse.jgit.transport.ReceivePack;
 import org.eclipse.jgit.transport.resolver.ReceivePackFactory;
 import org.eclipse.jgit.transport.resolver.ServiceNotAuthorizedException;
 import org.eclipse.jgit.transport.resolver.ServiceNotEnabledException;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
 
 import java.io.IOException;
 
@@ -34,9 +35,9 @@ public class DefaultReceivePackFactoryTest extends LocalDiskRepositoryTestCase {
 	private ReceivePackFactory<HttpServletRequest> factory;
 
 	@Override
-	@Before
-	public void setUp() throws Exception {
-		super.setUp();
+	@BeforeEach
+	public void setUp(TestInfo testInfo) throws Exception {
+		super.setUp(testInfo);
 
 		db = createBareRepository();
 		factory = new DefaultReceivePackFactory();
@@ -94,7 +95,7 @@ public class DefaultReceivePackFactoryTest extends LocalDiskRepositoryTestCase {
 			ServiceNotAuthorizedException {
 		ReceivePack rp;
 		rp = factory.create(new R("bob", "1.2.3.4"), db);
-		assertNotNull("have ReceivePack", rp);
+		assertNotNull(rp);
 		assertSame(db, rp.getRepository());
 
 		PersonIdent id = rp.getRefLogIdent();
@@ -146,7 +147,7 @@ public class DefaultReceivePackFactoryTest extends LocalDiskRepositoryTestCase {
 		ReceivePack rp;
 
 		rp = factory.create(new R(null, "1.2.3.4"), db);
-		assertNotNull("have ReceivePack", rp);
+		assertNotNull(rp);
 		assertSame(db, rp.getRepository());
 
 		PersonIdent id = rp.getRefLogIdent();
@@ -159,7 +160,7 @@ public class DefaultReceivePackFactoryTest extends LocalDiskRepositoryTestCase {
 		assertEquals(author.getWhen(), id.getWhen());
 
 		rp = factory.create(new R("bob", "1.2.3.4"), db);
-		assertNotNull("have ReceivePack", rp);
+		assertNotNull(rp);
 	}
 
 	private static final class R extends HttpServletRequestWrapper {

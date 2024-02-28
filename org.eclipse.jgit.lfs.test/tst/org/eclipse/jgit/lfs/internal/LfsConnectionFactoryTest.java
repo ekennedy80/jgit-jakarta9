@@ -25,9 +25,10 @@ import org.eclipse.jgit.transport.URIish;
 import org.eclipse.jgit.transport.http.HttpConnection;
 import org.eclipse.jgit.util.HttpSupport;
 import org.junit.AfterClass;
-import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
 
 import java.io.File;
 import java.io.IOException;
@@ -68,9 +69,9 @@ public class LfsConnectionFactoryTest extends RepositoryTestCase {
 	}
 
 	@Override
-	@Before
-	public void setUp() throws Exception {
-		super.setUp();
+	@BeforeEach
+	public void setUp(TestInfo testInfo) throws Exception {
+		super.setUp(testInfo);
 		git = new Git(db);
 
 		// Just to have a non empty repo

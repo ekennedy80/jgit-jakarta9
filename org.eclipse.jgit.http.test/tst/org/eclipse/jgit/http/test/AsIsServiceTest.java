@@ -16,9 +16,9 @@ import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.lib.StoredConfig;
 import org.eclipse.jgit.transport.resolver.ServiceNotAuthorizedException;
 import org.eclipse.jgit.transport.resolver.ServiceNotEnabledException;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
+import org.junit.jupiter.api.TestInfo;
 import jakarta.servlet.http.HttpServletRequestWrapper;
 import java.io.IOException;
 
@@ -30,9 +30,9 @@ public class AsIsServiceTest extends LocalDiskRepositoryTestCase {
 	private AsIsFileService service;
 
 	@Override
-	@Before
-	public void setUp() throws Exception {
-		super.setUp();
+	@BeforeEach
+	public void setUp(TestInfo testInfo) throws Exception {
+		super.setUp(testInfo);
 
 		db = createBareRepository();
 		service = new AsIsFileService();

@@ -424,9 +424,7 @@ public class AbbreviatedLongObjectIdTest {
 	@Test
 	public void testAbbreviate() {
 		AnyLongObjectId id = LongObjectIdTestUtils.hash("test");
-		assertEquals(
-				"abbreviated id should match the id it was abbreviated from", 0,
-				id.abbreviate(10).prefixCompare(id));
+		assertEquals(0, id.abbreviate(10).prefixCompare(id));
 	}
 
 	@Test

@@ -22,8 +22,9 @@ import org.eclipse.jgit.transport.UploadPack;
 import org.eclipse.jgit.transport.resolver.ServiceNotAuthorizedException;
 import org.eclipse.jgit.transport.resolver.ServiceNotEnabledException;
 import org.eclipse.jgit.transport.resolver.UploadPackFactory;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
 
 import java.io.IOException;
 
@@ -37,9 +38,9 @@ public class DefaultUploadPackFactoryTest extends LocalDiskRepositoryTestCase {
 	private UploadPackFactory<HttpServletRequest> factory;
 
 	@Override
-	@Before
-	public void setUp() throws Exception {
-		super.setUp();
+	@BeforeEach
+	public void setUp(TestInfo testInfo) throws Exception {
+		super.setUp(testInfo);
 
 		db = createBareRepository();
 		factory = new DefaultUploadPackFactory();
@@ -78,11 +79,11 @@ public class DefaultUploadPackFactoryTest extends LocalDiskRepositoryTestCase {
 		UploadPack up;
 
 		up = factory.create(new R(null, "1.2.3.4"), db);
-		assertNotNull("have UploadPack", up);
+		assertNotNull(up);
 		assertSame(db, up.getRepository());
 
 		up = factory.create(new R("bob", "1.2.3.4"), db);
-		assertNotNull("have UploadPack", up);
+		assertNotNull(up);
 		assertSame(db, up.getRepository());
 	}
 
@@ -115,11 +116,11 @@ public class DefaultUploadPackFactoryTest extends LocalDiskRepositoryTestCase {
 		UploadPack up;
 
 		up = factory.create(new R(null, "1.2.3.4"), db);
-		assertNotNull("have UploadPack", up);
+		assertNotNull(up);
 		assertSame(db, up.getRepository());
 
 		up = factory.create(new R("bob", "1.2.3.4"), db);
-		assertNotNull("have UploadPack", up);
+		assertNotNull(up);
 		assertSame(db, up.getRepository());
 	}
 

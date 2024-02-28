@@ -88,7 +88,7 @@ public class LFSPointerTest {
 		String cSource = "size_t someFunction(void *ptr); // Fake C source\n";
 		try (ByteArrayInputStream in = new ByteArrayInputStream(
 				cSource.getBytes(UTF_8))) {
-			assertNull("Is not a LFS pointer", LfsPointer.parseLfsPointer(in));
+			assertNull(LfsPointer.parseLfsPointer(in));
 		}
 	}
 
@@ -97,7 +97,7 @@ public class LFSPointerTest {
 		String cSource = "size_t\nsomeFunction(void *ptr);\n// Fake C source\n";
 		try (ByteArrayInputStream in = new ByteArrayInputStream(
 				cSource.getBytes(UTF_8))) {
-			assertNull("Is not a LFS pointer", LfsPointer.parseLfsPointer(in));
+			assertNull(LfsPointer.parseLfsPointer(in));
 		}
 	}
 
@@ -108,7 +108,7 @@ public class LFSPointerTest {
 				+ "size 4\n";
 		try (ByteArrayInputStream in = new ByteArrayInputStream(
 				ptr.getBytes(UTF_8))) {
-			assertNull("Is not a LFS pointer", LfsPointer.parseLfsPointer(in));
+			assertNull(LfsPointer.parseLfsPointer(in));
 		}
 	}
 
@@ -120,7 +120,7 @@ public class LFSPointerTest {
 				+ "size 4\n";
 		try (ByteArrayInputStream in = new ByteArrayInputStream(
 				ptr.getBytes(UTF_8))) {
-			assertNull("Is not a LFS pointer", LfsPointer.parseLfsPointer(in));
+			assertNull(LfsPointer.parseLfsPointer(in));
 		}
 	}
 
@@ -132,7 +132,7 @@ public class LFSPointerTest {
 				+ "size 4\n";
 		try (ByteArrayInputStream in = new ByteArrayInputStream(
 				ptr.getBytes(UTF_8))) {
-			assertNull("Is not a LFS pointer", LfsPointer.parseLfsPointer(in));
+			assertNull(LfsPointer.parseLfsPointer(in));
 		}
 	}
 
@@ -144,7 +144,7 @@ public class LFSPointerTest {
 				+ "size 4\n";
 		try (ByteArrayInputStream in = new ByteArrayInputStream(
 				ptr.getBytes(UTF_8))) {
-			assertNull("Is not a LFS pointer", LfsPointer.parseLfsPointer(in));
+			assertNull(LfsPointer.parseLfsPointer(in));
 		}
 	}
 
@@ -156,7 +156,7 @@ public class LFSPointerTest {
 				+ "oid sha256:" + TEST_SHA256 + '\n';
 		try (ByteArrayInputStream in = new ByteArrayInputStream(
 				ptr.getBytes(UTF_8))) {
-			assertNull("Is not a LFS pointer", LfsPointer.parseLfsPointer(in));
+			assertNull(LfsPointer.parseLfsPointer(in));
 		}
 	}
 
