@@ -28,7 +28,6 @@ import java.util.concurrent.TimeUnit;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 /**
  * The ssh tests. Concrete subclasses can re-use these tests by implementing the

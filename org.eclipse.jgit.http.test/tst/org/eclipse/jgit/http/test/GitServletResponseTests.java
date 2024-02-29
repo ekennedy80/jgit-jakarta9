@@ -25,10 +25,12 @@ import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.transport.*;
 import org.eclipse.jgit.transport.resolver.ServiceNotAuthorizedException;
 import org.eclipse.jgit.transport.resolver.ServiceNotEnabledException;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import jakarta.servlet.http.HttpServletRequest;
+import org.junit.jupiter.api.TestInfo;
+
 import java.util.Collection;
 import java.util.Collections;
 
@@ -62,9 +64,9 @@ public class GitServletResponseTests extends HttpTestCase {
 	 * just before they talk to the server.
 	 */
 	@Override
-	@Before
-	public void setUp() throws Exception {
-		super.setUp();
+	@BeforeEach
+	public void setUp(TestInfo testInfo) throws Exception {
+		super.setUp(testInfo);
 
 		final TestRepository<Repository> srv = createTestRepository();
 		final String repoName = srv.getRepository().getDirectory().getName();

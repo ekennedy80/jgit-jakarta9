@@ -27,8 +27,9 @@ import org.eclipse.jgit.revwalk.RevBlob;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.transport.*;
 import org.eclipse.jgit.util.HttpSupport;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
@@ -108,9 +109,9 @@ public class SmartClientSmartServerSslTest extends AllProtocolsHttpTestCase {
 	}
 
 	@Override
-	@Before
-	public void setUp() throws Exception {
-		super.setUp();
+	@BeforeEach
+	public void setUp(TestInfo testInfo) throws Exception {
+		super.setUp(testInfo);
 
 		final TestRepository<Repository> src = createTestRepository();
 		final String srcName = src.getRepository().getDirectory().getName();

@@ -22,10 +22,12 @@ import org.eclipse.jgit.transport.*;
 import org.eclipse.jgit.transport.http.HttpConnectionFactory;
 import org.eclipse.jgit.transport.resolver.ServiceNotAuthorizedException;
 import org.eclipse.jgit.transport.resolver.ServiceNotEnabledException;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import jakarta.servlet.http.HttpServletRequest;
+import org.junit.jupiter.api.TestInfo;
+
 import java.util.Collection;
 import java.util.Collections;
 
@@ -44,9 +46,9 @@ public class MeasurePackSizeTest extends AllFactoriesHttpTestCase {
 	}
 
 	@Override
-	@Before
-	public void setUp() throws Exception {
-		super.setUp();
+	@BeforeEach
+	public void setUp(TestInfo testInfo) throws Exception {
+		super.setUp(testInfo);
 
 		final TestRepository<Repository> src = createTestRepository();
 		final String srcName = src.getRepository().getDirectory().getName();
@@ -109,9 +111,8 @@ public class MeasurePackSizeTest extends AllFactoriesHttpTestCase {
 			result = t.push(NullProgressMonitor.INSTANCE,
 					Collections.singleton(update));
 		}
-		assertEquals("expected 1 RemoteUpdate", 1, result.getRemoteUpdates()
-				.size());
-		assertEquals("unexpected pack size", 1398, packSize);
+		assertEquals(1, result.getRemoteUpdates().size());
+		assertEquals(1398, packSize);
 	}
 
 }

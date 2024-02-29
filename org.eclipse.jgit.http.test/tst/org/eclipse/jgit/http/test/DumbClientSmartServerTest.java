@@ -20,8 +20,9 @@ import org.eclipse.jgit.lib.*;
 import org.eclipse.jgit.revwalk.RevBlob;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.transport.*;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
 
 import java.io.IOException;
 import java.util.List;
@@ -44,9 +45,9 @@ public class DumbClientSmartServerTest extends AllProtocolsHttpTestCase {
 	}
 
 	@Override
-	@Before
-	public void setUp() throws Exception {
-		super.setUp();
+	@BeforeEach
+	public void setUp(TestInfo testInfo) throws Exception {
+		super.setUp(testInfo);
 
 		final TestRepository<Repository> src = createTestRepository();
 		final String srcName = src.getRepository().getDirectory().getName();
@@ -83,21 +84,21 @@ public class DumbClientSmartServerTest extends AllProtocolsHttpTestCase {
 			// approved them for inclusion into the code base. Sorry.
 			// --spearce
 			//
-			assertTrue("isa TransportHttp", t instanceof TransportHttp);
-			assertTrue("isa HttpTransport", t instanceof HttpTransport);
+			assertTrue(t instanceof TransportHttp);
+			assertTrue(t instanceof HttpTransport);
 
 			try (FetchConnection c = t.openFetch()) {
 				map = c.getRefsMap();
 			}
 		}
 
-		assertNotNull("have map of refs", map);
+		assertNotNull(map);
 		assertEquals(2, map.size());
 
-		assertNotNull("has " + master, map.get(master));
+		assertNotNull(map.get(master));
 		assertEquals(B, map.get(master).getObjectId());
 
-		assertNotNull("has " + Constants.HEAD, map.get(Constants.HEAD));
+		assertNotNull(map.get(Constants.HEAD));
 		assertEquals(B, map.get(Constants.HEAD).getObjectId());
 
 		List<AccessEvent> requests = getRequests();
@@ -111,8 +112,7 @@ public class DumbClientSmartServerTest extends AllProtocolsHttpTestCase {
 		assertNull("no service parameter", info.getParameter("service"));
 		assertEquals("no-cache", info.getRequestHeader(HDR_PRAGMA));
 		assertNotNull("has user-agent", info.getRequestHeader(HDR_USER_AGENT));
-		assertTrue("is jgit agent", info.getRequestHeader(HDR_USER_AGENT)
-				.startsWith("JGit/"));
+		assertTrue(info.getRequestHeader(HDR_USER_AGENT).startsWith("JGit/"));
 		assertEquals("*/*", info.getRequestHeader(HDR_ACCEPT));
 		assertEquals(200, info.getStatus());
 		assertEquals("text/plain;charset=utf-8",

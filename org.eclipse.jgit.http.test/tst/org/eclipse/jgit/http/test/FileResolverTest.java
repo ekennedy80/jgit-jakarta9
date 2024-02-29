@@ -53,7 +53,7 @@ public class FileResolverTest extends LocalDiskRepositoryTestCase {
 			fail("Opened unreasonable name \"" + name + "\"");
 		} catch (RepositoryNotFoundException e) {
 			assertEquals("repository not found: " + name, e.getMessage());
-			assertNull("has no cause", e.getCause());
+			assertNull(e.getCause());
 		}
 	}
 
@@ -65,7 +65,7 @@ public class FileResolverTest extends LocalDiskRepositoryTestCase {
 		final File export = new File(a.getDirectory(), "git-daemon-export-ok");
 		FileResolver<RepositoryResolver> resolver;
 
-		assertFalse("no git-daemon-export-ok", export.exists());
+		assertFalse(export.exists());
 		resolver = new FileResolver<>(base, false /*
 																	 * require
 																	 * flag
@@ -115,7 +115,7 @@ public class FileResolverTest extends LocalDiskRepositoryTestCase {
 			assertEquals("repository not found: " + name, e.getMessage());
 
 			Throwable why = e.getCause();
-			assertNotNull("has cause", why);
+			assertNotNull(why);
 			assertEquals("repository not found: "
 					+ new File(base, name).getPath(), why.getMessage());
 		}

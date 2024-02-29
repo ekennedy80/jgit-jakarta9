@@ -9,9 +9,6 @@
  */
 package org.eclipse.jgit.lfs.server.fs;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-
 import java.nio.file.Files;
 import java.nio.file.Path;
 
@@ -29,6 +26,8 @@ import org.eclipse.jgit.util.FileUtils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CheckoutTest extends LfsServerTest {
 
@@ -69,7 +68,7 @@ public class CheckoutTest extends LfsServerTest {
 				"*.bin filter=lfs diff=lfs merge=lfs -text ").create();
 	}
 
-	@After
+	@AfterEach
 	public void cleanup() throws Exception {
 		tdb.getRepository().close();
 		FileUtils.delete(tdb.getRepository().getWorkTree(),
@@ -87,7 +86,7 @@ public class CheckoutTest extends LfsServerTest {
 				server.getRequests().toString());
 	}
 
-	@Test(expected = JGitInternalException.class)
+	@Test
 	public void testUnknownContentRequired() throws Exception {
 		StoredConfig cfg = tdb.getRepository().getConfig();
 		cfg.setBoolean(ConfigConstants.CONFIG_FILTER_SECTION,
@@ -96,7 +95,7 @@ public class CheckoutTest extends LfsServerTest {
 		cfg.save();
 
 		// must throw
-		git.checkout().setName("test").call();
+		assertThrows(JGitInternalException.class, () -> git.checkout().setName("test").call());
 	}
 
 	@Test

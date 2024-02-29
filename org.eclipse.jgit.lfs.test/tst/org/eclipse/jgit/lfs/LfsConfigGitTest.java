@@ -22,8 +22,8 @@ import org.eclipse.jgit.lib.StoredConfig;
 import org.eclipse.jgit.transport.http.HttpConnection;
 import org.eclipse.jgit.util.HttpSupport;
 import org.junit.AfterClass;
-import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 
@@ -113,7 +113,7 @@ public class LfsConfigGitTest extends RepositoryTestCase {
 	private Git git;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp(TestInfo testInfo) throws Exception {
 		super.setUp(testInfo);
 		git = new Git(db);

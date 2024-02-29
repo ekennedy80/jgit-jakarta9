@@ -27,10 +27,12 @@ import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.transport.*;
 import org.eclipse.jgit.transport.http.HttpConnection;
 import org.eclipse.jgit.transport.http.HttpConnectionFactory;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import jakarta.servlet.http.HttpServletRequest;
+import org.junit.jupiter.api.TestInfo;
+
 import java.io.File;
 import java.io.OutputStream;
 import java.net.URI;
@@ -61,9 +63,9 @@ public class HttpClientTests extends AllFactoriesHttpTestCase {
 	}
 
 	@Override
-	@Before
-	public void setUp() throws Exception {
-		super.setUp();
+	@BeforeEach
+	public void setUp(TestInfo testInfo) throws Exception {
+		super.setUp(testInfo);
 
 		remoteRepository = createTestRepository();
 		remoteRepository.update(master, remoteRepository.commit().create());
@@ -128,8 +130,7 @@ public class HttpClientTests extends AllFactoriesHttpTestCase {
 				String exp = uri + ": " + uri
 						+ "/info/refs?service=git-upload-pack not found";
 				assertNotNull(err.getMessage());
-				assertTrue("Unexpected error message",
-						err.getMessage().startsWith(exp));
+				assertTrue(err.getMessage().startsWith(exp));
 			}
 		}
 	}
@@ -146,8 +147,7 @@ public class HttpClientTests extends AllFactoriesHttpTestCase {
 				String exp = uri + ": " + uri
 						+ "/info/refs?service=git-upload-pack not found";
 				assertNotNull(err.getMessage());
-				assertTrue("Unexpected error message",
-						err.getMessage().startsWith(exp));
+				assertTrue(err.getMessage().startsWith(exp));
 			}
 		}
 	}
@@ -166,7 +166,7 @@ public class HttpClientTests extends AllFactoriesHttpTestCase {
 				FetchConnection c = t.openFetch()) {
 			head = c.getRef(Constants.HEAD);
 		}
-		assertNotNull("has " + Constants.HEAD, head);
+		assertNotNull(head);
 		assertEquals(Q, head.getObjectId());
 	}
 
@@ -174,8 +174,8 @@ public class HttpClientTests extends AllFactoriesHttpTestCase {
 	public void testListRemote_Dumb_NoHEAD() throws Exception {
 		Repository src = remoteRepository.getRepository();
 		File headref = new File(src.getDirectory(), Constants.HEAD);
-		assertTrue("HEAD used to be present", headref.delete());
-		assertFalse("HEAD is gone", headref.exists());
+		assertTrue(headref.delete());
+		assertFalse(headref.exists());
 
 		Repository dst = createBareRepository();
 		Ref head;
@@ -183,7 +183,7 @@ public class HttpClientTests extends AllFactoriesHttpTestCase {
 				FetchConnection c = t.openFetch()) {
 			head = c.getRef(Constants.HEAD);
 		}
-		assertNull("has no " + Constants.HEAD, head);
+		assertNull(head);
 	}
 
 	@Test
@@ -200,7 +200,7 @@ public class HttpClientTests extends AllFactoriesHttpTestCase {
 				FetchConnection c = t.openFetch()) {
 			head = c.getRef(Constants.HEAD);
 		}
-		assertNotNull("has " + Constants.HEAD, head);
+		assertNotNull(head);
 		assertEquals(Q, head.getObjectId());
 	}
 

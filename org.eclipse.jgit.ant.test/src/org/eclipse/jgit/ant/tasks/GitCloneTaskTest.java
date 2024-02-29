@@ -23,6 +23,7 @@ import org.eclipse.jgit.lib.RepositoryCache;
 import org.eclipse.jgit.util.FS;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class GitCloneTaskTest extends LocalDiskRepositoryTestCase {
 
@@ -42,27 +43,27 @@ public class GitCloneTaskTest extends LocalDiskRepositoryTestCase {
 		task.setDest(dest);
 	}
 
-	@Test(expected = BuildException.class)
+	@Test
 	public void shouldRaiseErrorOnNoUrl() throws Exception {
-		task.execute();
+		assertThrows(BuildException.class, ()->task.execute());
 	}
 
-	@Test(expected = BuildException.class)
+	@Test
 	public void shouldRaiseErrorOnEmptyUrl() throws Exception {
 		task.setUri("");
-		task.execute();
+		assertThrows(BuildException.class, ()->task.execute());
 	}
 
-	@Test(expected = BuildException.class)
+	@Test
 	public void shouldRaiseErrorOnBadUrl() throws Exception {
 		task.setUri("foo://bar");
-		task.execute();
+		assertThrows(BuildException.class, ()->task.execute());
 	}
 
-	@Test(expected = BuildException.class)
+	@Test
 	public void shouldRaiseErrorOnBadSourceURL() throws Exception {
 		task.setUri("http://localhost:9090/does-not-exist.git");
-		task.execute();
+		assertThrows(BuildException.class, ()->task.execute());
 	}
 
 	@Test

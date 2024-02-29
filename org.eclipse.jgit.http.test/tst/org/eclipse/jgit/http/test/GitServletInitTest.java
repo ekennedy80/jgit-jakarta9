@@ -26,7 +26,7 @@ import static org.junit.Assert.fail;
 public class GitServletInitTest {
 	private AppServer server;
 
-	@After
+	@AfterEach
 	public void tearDown() throws Exception {
 		if (server != null) {
 			server.tearDown();
@@ -75,8 +75,7 @@ public class GitServletInitTest {
                 why = e;
 
 			if (why != null) {
-				assertTrue("Wanted base-path",
-						why.getMessage().contains("base-path"));
+				assertTrue(why.getMessage().contains("base-path"));
 				return;
 			}
 		}
@@ -96,6 +95,6 @@ public class GitServletInitTest {
 		s.setInitParameter("aliases", "true");
 
 		server.setUp();
-		assertTrue("no warnings", RecordingLogger.getWarnings().isEmpty());
+		assertTrue(RecordingLogger.getWarnings().isEmpty());
 	}
 }

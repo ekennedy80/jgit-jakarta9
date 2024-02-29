@@ -116,6 +116,7 @@
     <java.version>17</java.version>
     <bundle-manifest>${project.build.directory}/META-INF/MANIFEST.MF</bundle-manifest>
 
+    <!--suppress UnresolvedMavenProperty -->
     <project.build.outputTimestamp>${commit.time.iso}</project.build.outputTimestamp>
 
     <jgit-last-release-version>6.8.0.202311291450-r</jgit-last-release-version>
@@ -195,10 +196,15 @@
                 <Implementation-Vendor>Eclipse.org - JGit</Implementation-Vendor>
                 <Implementation-Vendor-Id>org.eclipse.jgit</Implementation-Vendor-Id>
                 <Implementation-Vendor-URL>${jgit-url}</Implementation-Vendor-URL>
+                <!--suppress UnresolvedMavenProperty -->
                 <git-describe>${git.commit.id.describe}</git-describe>
+                <!--suppress UnresolvedMavenProperty -->
                 <git-commit-id>${git.commit.id}</git-commit-id>
+                <!--suppress UnresolvedMavenProperty -->
                 <git-commit-time>${git.commit.time}</git-commit-time>
+                <!--suppress UnresolvedMavenProperty -->
                 <git-tags>${git.tags}</git-tags>
+                <!--suppress UnresolvedMavenProperty -->
                 <git-remote-origin-url>${git.remote.origin.url}</git-remote-origin-url>
               </manifestEntries>
             </archive>

@@ -35,12 +35,14 @@ import org.eclipse.jgit.transport.http.HttpConnection;
 import org.eclipse.jgit.transport.http.HttpConnectionFactory;
 import org.eclipse.jgit.util.HttpSupport;
 import org.eclipse.jgit.util.SystemReader;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.junit.jupiter.api.TestInfo;
+
 import java.io.*;
 import java.net.Proxy;
 import java.net.URI;
@@ -57,7 +59,7 @@ import java.util.regex.Pattern;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.eclipse.jgit.util.HttpSupport.*;
-import static org.junit.jupiter.api.Assertions.*;;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class SmartClientSmartServerTest extends AllProtocolsHttpTestCase {
 	private static final String HDR_TRANSFER_ENCODING = "Transfer-Encoding";
@@ -92,9 +94,9 @@ public class SmartClientSmartServerTest extends AllProtocolsHttpTestCase {
 	}
 
 	@Override
-	@Before
-	public void setUp() throws Exception {
-		super.setUp();
+	@BeforeEach
+	public void setUp(TestInfo testInfo) throws Exception {
+		super.setUp(testInfo);
 
 		final TestRepository<Repository> src = createTestRepository();
 		final String srcName = src.getRepository().getDirectory().getName();
@@ -398,21 +400,21 @@ public class SmartClientSmartServerTest extends AllProtocolsHttpTestCase {
 			// approved them for inclusion into the code base. Sorry.
 			// --spearce
 			//
-			assertTrue("isa TransportHttp", t instanceof TransportHttp);
-			assertTrue("isa HttpTransport", t instanceof HttpTransport);
+			assertTrue(t instanceof TransportHttp);
+			assertTrue(t instanceof HttpTransport);
 
 			try (FetchConnection c = t.openFetch()) {
 				map = c.getRefsMap();
 			}
 		}
 
-		assertNotNull("have map of refs", map);
+		assertNotNull(map);
 		assertEquals(3, map.size());
 
-		assertNotNull("has " + master, map.get(master));
+		assertNotNull(map.get(master));
 		assertEquals(B, map.get(master).getObjectId());
 
-		assertNotNull("has " + Constants.HEAD, map.get(Constants.HEAD));
+		assertNotNull(map.get(Constants.HEAD));
 		assertEquals(B, map.get(Constants.HEAD).getObjectId());
 
 		List<AccessEvent> requests = getRequests();
@@ -529,8 +531,7 @@ public class SmartClientSmartServerTest extends AllProtocolsHttpTestCase {
 			TransportException expected = assertThrows(TransportException.class,
 					() -> t.fetch(NullProgressMonitor.INSTANCE,
 							mirror(master)));
-			assertTrue("Unexpected exception message: " + expected.toString(),
-					expected.getMessage().contains("time"));
+			assertTrue(expected.getMessage().contains("time"));
 		}
 	}
 
@@ -543,10 +544,8 @@ public class SmartClientSmartServerTest extends AllProtocolsHttpTestCase {
 			TransportException expected = assertThrows(TransportException.class,
 					() -> t.fetch(NullProgressMonitor.INSTANCE,
 							mirror(master)));
-			assertTrue("Unexpected exception message: " + expected.toString(),
-					expected.getMessage().contains("time"));
-			assertFalse("Unexpected exception message: " + expected.toString(),
-					expected.getMessage().contains("auth"));
+			assertTrue(expected.getMessage().contains("time"));
+			assertFalse(expected.getMessage().contains("auth"));
 		}
 	}
 
@@ -653,8 +652,7 @@ public class SmartClientSmartServerTest extends AllProtocolsHttpTestCase {
 			try (Git git = Git.cloneRepository().setDirectory(tmp)
 					.setTransportConfigCallback(callback)
 					.setURI(remoteURI.toPrivateString()).call()) {
-				assertTrue("Should have used the local HttpConnectionFactory",
-						localFactoryUsed[0]);
+				assertTrue(localFactoryUsed[0]);
 			}
 		} finally {
 			HttpTransport.setConnectionFactory(globalFactory);
@@ -1051,8 +1049,7 @@ public class SmartClientSmartServerTest extends AllProtocolsHttpTestCase {
 					() -> t.fetch(NullProgressMonitor.INSTANCE,
 							mirror(master)));
 			String msg = e.getMessage();
-			assertTrue("Unexpected exception message: " + msg,
-					msg.contains("no CredentialsProvider"));
+			assertTrue(msg.contains("no CredentialsProvider"));
 		}
 		List<AccessEvent> requests = getRequests();
 		assertEquals(1, requests.size());
@@ -1112,8 +1109,7 @@ public class SmartClientSmartServerTest extends AllProtocolsHttpTestCase {
 			fail("Should not have succeeded -- no authentication");
 		} catch (TransportException e) {
 			String msg = e.getMessage();
-			assertTrue("Unexpected exception message: " + msg,
-					msg.contains("no CredentialsProvider"));
+			assertTrue(msg.contains("no CredentialsProvider"));
 		}
 		List<AccessEvent> requests = getRequests();
 		assertEquals(1, requests.size());
@@ -1135,8 +1131,7 @@ public class SmartClientSmartServerTest extends AllProtocolsHttpTestCase {
 			fail("Should not have succeeded -- wrong password");
 		} catch (TransportException e) {
 			String msg = e.getMessage();
-			assertTrue("Unexpected exception message: " + msg,
-					msg.contains("auth"));
+			assertTrue(msg.contains("auth"));
 		}
 		List<AccessEvent> requests = getRequests();
 		// Once without authentication plus three re-tries with authentication
@@ -1611,8 +1606,7 @@ public class SmartClientSmartServerTest extends AllProtocolsHttpTestCase {
 						Collections.<ObjectId> emptySet());
 				fail("Successfully served ref with value " + c.getRef(master));
 			} catch (TransportException err) {
-				assertTrue("Unexpected exception message " + err.getMessage(),
-						err.getMessage().contains("Server Error"));
+				assertTrue(err.getMessage().contains("Server Error"));
 			}
 		} finally {
 			noRefServer.tearDown();
@@ -1680,15 +1674,15 @@ public class SmartClientSmartServerTest extends AllProtocolsHttpTestCase {
 		}
 
 		assertTrue(remoteRepository.getObjectDatabase().has(Q_txt));
-		assertNotNull("has " + dstName, remoteRepository.exactRef(dstName));
+		assertNotNull(remoteRepository.exactRef(dstName));
 		assertEquals(Q, remoteRepository.exactRef(dstName).getObjectId());
 		fsck(remoteRepository, Q);
 
 		final ReflogReader log = remoteRepository.getReflogReader(dstName);
-		assertNotNull("has log for " + dstName, log);
+		assertNotNull(log);
 
 		final ReflogEntry last = log.getLastEntry();
-		assertNotNull("has last entry", last);
+		assertNotNull(last);
 		assertEquals(ObjectId.zeroId(), last.getOldId());
 		assertEquals(Q, last.getNewId());
 		assertEquals("anonymous", last.getWho().getName());
@@ -1754,7 +1748,7 @@ public class SmartClientSmartServerTest extends AllProtocolsHttpTestCase {
 		}
 
 		assertTrue(remoteRepository.getObjectDatabase().has(Q_bin));
-		assertNotNull("has " + dstName, remoteRepository.exactRef(dstName));
+		assertNotNull(remoteRepository.exactRef(dstName));
 		assertEquals(Q, remoteRepository.exactRef(dstName).getObjectId());
 		fsck(remoteRepository, Q);
 

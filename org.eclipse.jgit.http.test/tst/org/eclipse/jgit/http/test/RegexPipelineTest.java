@@ -43,6 +43,9 @@
 
 package org.eclipse.jgit.http.test;
 
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.eclipse.jetty.ee10.servlet.ServletContextHandler;
 import org.eclipse.jetty.ee10.servlet.ServletHolder;
 import org.eclipse.jgit.http.server.glue.MetaServlet;
@@ -50,13 +53,9 @@ import org.eclipse.jgit.http.server.glue.RegexGroupFilter;
 import org.eclipse.jgit.junit.http.AppServer;
 import org.eclipse.jgit.junit.http.HttpTestCase;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.TestInfo;
 
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -94,15 +93,15 @@ public class RegexPipelineTest extends HttpTestCase {
 	}
 
 	@Override
-	@Before
-	public void setUp() throws Exception {
+	@BeforeEach
+	public void setUp(TestInfo testInfo) throws Exception {
 		server = new AppServer();
 		ctx = server.addContext("/");
 	}
 
-	@AfterEach
+
     @Override
-	@After
+	@AfterEach
 	public void tearDown() throws Exception {
 		server.tearDown();
 	}

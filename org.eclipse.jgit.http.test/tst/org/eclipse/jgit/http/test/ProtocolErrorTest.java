@@ -28,9 +28,12 @@ import org.eclipse.jgit.transport.PacketLineOut;
 import org.eclipse.jgit.transport.URIish;
 import org.eclipse.jgit.util.NB;
 import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import jakarta.servlet.http.HttpServletRequest;
+import org.junit.jupiter.api.TestInfo;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -49,9 +52,9 @@ public class ProtocolErrorTest extends HttpTestCase {
 	private RevBlob a_blob;
 
 	@Override
-	@Before
-	public void setUp() throws Exception {
-		super.setUp();
+	@BeforeEach
+	public void setUp(TestInfo testInfo) throws Exception {
+		super.setUp(testInfo);
 
 		final TestRepository<Repository> src = createTestRepository();
 		final String srcName = src.getRepository().getDirectory().getName();

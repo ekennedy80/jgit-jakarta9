@@ -24,10 +24,12 @@ import org.eclipse.jgit.transport.*;
 import org.eclipse.jgit.transport.http.HttpConnectionFactory;
 import org.eclipse.jgit.transport.resolver.ServiceNotAuthorizedException;
 import org.eclipse.jgit.transport.resolver.ServiceNotEnabledException;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import jakarta.servlet.http.HttpServletRequest;
+import org.junit.jupiter.api.TestInfo;
+
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
 import java.util.Collection;
@@ -47,9 +49,9 @@ public class HookMessageTest extends AllFactoriesHttpTestCase {
 	}
 
 	@Override
-	@Before
-	public void setUp() throws Exception {
-		super.setUp();
+	@BeforeEach
+	public void setUp(TestInfo testInfo) throws Exception {
+		super.setUp(testInfo);
 
 		final TestRepository<Repository> src = createTestRepository();
 		final String srcName = src.getRepository().getDirectory().getName();
@@ -115,7 +117,7 @@ public class HookMessageTest extends AllFactoriesHttpTestCase {
 		}
 
 		assertTrue(remoteRepository.getObjectDatabase().has(Q_txt));
-		assertNotNull("has " + dstName, remoteRepository.exactRef(dstName));
+		assertNotNull(remoteRepository.exactRef(dstName));
 		assertEquals(Q, remoteRepository.exactRef(dstName).getObjectId());
 		fsck(remoteRepository, Q);
 

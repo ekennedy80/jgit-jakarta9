@@ -23,8 +23,9 @@ import org.eclipse.jgit.transport.Transport;
 import org.eclipse.jgit.transport.TransportHttp;
 import org.eclipse.jgit.transport.URIish;
 import org.eclipse.jgit.transport.http.HttpConnectionFactory;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
 
 import java.io.File;
 import java.io.IOException;
@@ -49,9 +50,9 @@ public class SetAdditionalHeadersTest extends AllFactoriesHttpTestCase {
 	}
 
 	@Override
-	@Before
-	public void setUp() throws Exception {
-		super.setUp();
+	@BeforeEach
+	public void setUp(TestInfo testInfo) throws Exception {
+		super.setUp(testInfo);
 
 		final TestRepository<Repository> src = createTestRepository();
 		final File srcGit = src.getRepository().getDirectory();
@@ -79,8 +80,8 @@ public class SetAdditionalHeadersTest extends AllFactoriesHttpTestCase {
 		assertEquals("http", remoteURI.getScheme());
 
 		try (Transport t = Transport.open(dst, remoteURI)) {
-			assertTrue("isa TransportHttp", t instanceof TransportHttp);
-			assertTrue("isa HttpTransport", t instanceof HttpTransport);
+			assertTrue(t instanceof TransportHttp);
+			assertTrue(t instanceof HttpTransport);
 
 			HashMap<String, String> headers = new HashMap<>();
 			headers.put("Cookie", "someTokenValue=23gBog34");
