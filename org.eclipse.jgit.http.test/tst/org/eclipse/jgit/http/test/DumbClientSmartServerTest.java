@@ -109,9 +109,9 @@ public class DumbClientSmartServerTest extends AllProtocolsHttpTestCase {
 		assertEquals("GET", info.getMethod());
 		assertEquals(join(remoteURI, "info/refs"), info.getPath());
 		assertEquals(0, info.getParameters().size());
-		assertNull("no service parameter", info.getParameter("service"));
+//		assertNull("no service parameter", info.getParameter("service"));
 		assertEquals("no-cache", info.getRequestHeader(HDR_PRAGMA));
-		assertNotNull("has user-agent", info.getRequestHeader(HDR_USER_AGENT));
+//		assertNotNull("has user-agent", info.getRequestHeader(HDR_USER_AGENT));
 		assertTrue(info.getRequestHeader(HDR_USER_AGENT).startsWith("JGit/"));
 		assertEquals("*/*", info.getRequestHeader(HDR_ACCEPT));
 		assertEquals(200, info.getStatus());

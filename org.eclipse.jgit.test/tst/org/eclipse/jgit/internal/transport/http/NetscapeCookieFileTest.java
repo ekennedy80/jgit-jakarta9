@@ -10,8 +10,7 @@
 package org.eclipse.jgit.internal.transport.http;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -144,9 +143,9 @@ public class NetscapeCookieFileTest {
 								+ expectedExpiration + "\tkey2\tvalue2")));
 	}
 
-	@Test(expected = IOException.class)
+	@Test
 	public void testWriteWhileSomeoneIsHoldingTheLock()
-			throws IllegalArgumentException, IOException, InterruptedException {
+			throws IllegalArgumentException, IOException {
 		try (InputStream input = this.getClass()
 				.getResourceAsStream("cookies-simple1.txt")) {
 			Files.copy(input, tmpFile, StandardCopyOption.REPLACE_EXISTING);
@@ -155,8 +154,9 @@ public class NetscapeCookieFileTest {
 		// now imitate another process/thread holding the lock file
 		LockFile lockFile = new LockFile(tmpFile.toFile());
 		try {
-			assertTrue("Could not acquire lock", lockFile.lock());
-			cookieFile.write(baseUrl);
+			assertTrue(lockFile.lock());
+			assertThrows(IOException.class, () -> cookieFile.write(baseUrl));
+//			cookieFile.write(baseUrl);
 		} finally {
 			lockFile.unlock();
 		}
@@ -198,7 +198,7 @@ public class NetscapeCookieFileTest {
 		List<String> lines = Files.readAllLines(tmpFile,
 				StandardCharsets.US_ASCII);
 
-		assertEquals("Expected 3 lines", 3, lines.size());
+		assertEquals(3, lines.size());
 		assertEquals(
 				"some-domain1\tTRUE\t/some/path1\tFALSE\t1893499200\tkey1\tvalueFromSimple2",
 				lines.get(0));

@@ -22,7 +22,7 @@ import org.eclipse.jgit.junit.MockSystemReader;
 import org.eclipse.jgit.lib.ConfigConstants;
 import org.eclipse.jgit.storage.file.FileBasedConfig;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class FS_POSIXTest {
@@ -34,7 +34,7 @@ public class FS_POSIXTest {
 
 	private Path tmp;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		tmp = Files.createTempDirectory("jgit_test_");
 
@@ -65,7 +65,7 @@ public class FS_POSIXTest {
 		mockSystemReader.setUserGitConfig(userConfig);
 	}
 
-	@After
+	@AfterEach
 	public void tearDown() throws IOException {
 		SystemReader.setInstance(null);
 		FileUtils.delete(tmp.toFile(), FileUtils.RECURSIVE | FileUtils.RETRY);

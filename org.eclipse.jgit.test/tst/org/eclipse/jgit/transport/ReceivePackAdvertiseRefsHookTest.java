@@ -10,13 +10,8 @@
 
 package org.eclipse.jgit.transport;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -48,9 +43,7 @@ import org.eclipse.jgit.revwalk.RevTree;
 import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.util.NB;
 import org.eclipse.jgit.util.TemporaryBuffer;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.Before;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 public class ReceivePackAdvertiseRefsHookTest extends LocalDiskRepositoryTestCase {
 	private static final NullProgressMonitor PM = NullProgressMonitor.INSTANCE;
@@ -68,9 +61,9 @@ public class ReceivePackAdvertiseRefsHookTest extends LocalDiskRepositoryTestCas
 	private RevBlob a, b;
 
 	@Override
-	@Before
-	public void setUp() throws Exception {
-		super.setUp();
+	@BeforeEach
+	public void setUp(TestInfo testInfo) throws Exception {
+		super.setUp(testInfo);
 
 		src = createBareRepository();
 		addRepoToClose(src);
@@ -120,12 +113,12 @@ public class ReceivePackAdvertiseRefsHookTest extends LocalDiskRepositoryTestCas
 		}
 
 		assertNotNull(refs);
-		assertNull("no private", refs.get(R_PRIVATE));
-		assertNull("no HEAD", refs.get(Constants.HEAD));
+		Assertions.assertNull(refs.get(R_PRIVATE));
+		Assertions.assertNull(refs.get(Constants.HEAD), "no HEAD");
 		assertEquals(1, refs.size());
 
 		Ref master = refs.get(R_MASTER);
-		assertNotNull("has master", master);
+		assertNotNull(master);
 		assertEquals(B, master.getObjectId());
 	}
 
@@ -200,8 +193,8 @@ public class ReceivePackAdvertiseRefsHookTest extends LocalDiskRepositoryTestCas
 		// Verify the only storage of b is our packed delta above.
 		//
 		ObjectDirectory od = (ObjectDirectory) src.getObjectDatabase();
-		assertTrue("has b", od.has(b));
-		assertFalse("b not loose", od.fileFor(b).exists());
+		assertTrue(od.has(b));
+		assertFalse(od.fileFor(b).exists());
 
 		// Now use b but in a different commit than what is hidden.
 		//
@@ -226,10 +219,9 @@ public class ReceivePackAdvertiseRefsHookTest extends LocalDiskRepositoryTestCas
 				r = t.push(PM, Collections.singleton(u));
 			}
 
-			assertNotNull("have result", r);
-			assertNull("private not advertised", r.getAdvertisedRef(R_PRIVATE));
-			assertSame("master updated", RemoteRefUpdate.Status.OK,
-					u.getStatus());
+			assertNotNull(r);
+			Assertions.assertNull(r.getAdvertisedRef(R_PRIVATE), "private not advertised");
+			Assertions.assertSame(RemoteRefUpdate.Status.OK, u.getStatus(), "master updated");
 			assertEquals(N, dst.resolve(R_MASTER));
 		}
 	}
@@ -255,10 +247,10 @@ public class ReceivePackAdvertiseRefsHookTest extends LocalDiskRepositoryTestCas
 		rp.setAdvertiseRefsHook(new HidePrivateHook());
 		try {
 			receive(rp, inBuf, outBuf);
-			fail("Expected UnpackException");
+			Assertions.fail("Expected UnpackException");
 		} catch (UnpackException failed) {
 			Throwable err = failed.getCause();
-			assertTrue(err instanceof MissingObjectException);
+            assertInstanceOf(MissingObjectException.class, err);
 			MissingObjectException moe = (MissingObjectException) err;
 			assertEquals(P, moe.getObjectId());
 		}
@@ -266,7 +258,7 @@ public class ReceivePackAdvertiseRefsHookTest extends LocalDiskRepositoryTestCas
 		final PacketLineIn r = asPacketLineIn(outBuf);
 		String master = r.readString();
 		int nul = master.indexOf('\0');
-		assertTrue("has capability list", nul > 0);
+		assertTrue(nul > 0);
 		assertEquals(B.name() + ' ' + R_MASTER, master.substring(0, nul));
 		assertTrue(PacketLineIn.isEnd(r.readString()));
 
@@ -316,10 +308,10 @@ public class ReceivePackAdvertiseRefsHookTest extends LocalDiskRepositoryTestCas
 			rp.setAdvertiseRefsHook(new HidePrivateHook());
 			try {
 				receive(rp, inBuf, outBuf);
-				fail("Expected UnpackException");
+				Assertions.fail("Expected UnpackException");
 			} catch (UnpackException failed) {
 				Throwable err = failed.getCause();
-				assertTrue(err instanceof MissingObjectException);
+                assertInstanceOf(MissingObjectException.class, err);
 				MissingObjectException moe = (MissingObjectException) err;
 				assertEquals(b, moe.getObjectId());
 			}
@@ -327,7 +319,7 @@ public class ReceivePackAdvertiseRefsHookTest extends LocalDiskRepositoryTestCas
 			final PacketLineIn r = asPacketLineIn(outBuf);
 			String master = r.readString();
 			int nul = master.indexOf('\0');
-			assertTrue("has capability list", nul > 0);
+			assertTrue(nul > 0);
 			assertEquals(B.name() + ' ' + R_MASTER, master.substring(0, nul));
 			assertTrue(PacketLineIn.isEnd(r.readString()));
 
@@ -381,7 +373,7 @@ public class ReceivePackAdvertiseRefsHookTest extends LocalDiskRepositoryTestCas
 			final PacketLineIn r = asPacketLineIn(outBuf);
 			String master = r.readString();
 			int nul = master.indexOf('\0');
-			assertTrue("has capability list", nul > 0);
+			assertTrue( nul > 0);
 			assertEquals(B.name() + ' ' + R_MASTER, master.substring(0, nul));
 			assertTrue(PacketLineIn.isEnd(r.readString()));
 
@@ -425,10 +417,10 @@ public class ReceivePackAdvertiseRefsHookTest extends LocalDiskRepositoryTestCas
 			rp.setAdvertiseRefsHook(new HidePrivateHook());
 			try {
 				receive(rp, inBuf, outBuf);
-				fail("Expected UnpackException");
+				Assertions.fail("Expected UnpackException");
 			} catch (UnpackException failed) {
 				Throwable err = failed.getCause();
-				assertTrue(err instanceof MissingObjectException);
+                assertInstanceOf(MissingObjectException.class, err);
 				MissingObjectException moe = (MissingObjectException) err;
 				assertEquals(n, moe.getObjectId());
 			}
@@ -436,7 +428,7 @@ public class ReceivePackAdvertiseRefsHookTest extends LocalDiskRepositoryTestCas
 			final PacketLineIn r = asPacketLineIn(outBuf);
 			String master = r.readString();
 			int nul = master.indexOf('\0');
-			assertTrue("has capability list", nul > 0);
+			assertTrue(nul > 0);
 			assertEquals(B.name() + ' ' + R_MASTER, master.substring(0, nul));
 			assertTrue(PacketLineIn.isEnd(r.readString()));
 
@@ -466,7 +458,7 @@ public class ReceivePackAdvertiseRefsHookTest extends LocalDiskRepositoryTestCas
 		final PacketLineIn r = asPacketLineIn(outBuf);
 		String master = r.readString();
 		int nul = master.indexOf('\0');
-		assertTrue("has capability list", nul > 0);
+		assertTrue(nul > 0);
 		assertEquals(B.name() + ' ' + R_MASTER, master.substring(0, nul));
 		assertTrue(PacketLineIn.isEnd(r.readString()));
 
@@ -542,10 +534,10 @@ public class ReceivePackAdvertiseRefsHookTest extends LocalDiskRepositoryTestCas
 			rp.setAdvertiseRefsHook(new HidePrivateHook());
 			try {
 				receive(rp, inBuf, outBuf);
-				fail("Expected UnpackException");
+				Assertions.fail("Expected UnpackException");
 			} catch (UnpackException failed) {
 				Throwable err = failed.getCause();
-				assertTrue(err instanceof MissingObjectException);
+                assertInstanceOf(MissingObjectException.class, err);
 				MissingObjectException moe = (MissingObjectException) err;
 				assertEquals(t, moe.getObjectId());
 			}
@@ -553,7 +545,7 @@ public class ReceivePackAdvertiseRefsHookTest extends LocalDiskRepositoryTestCas
 			final PacketLineIn r = asPacketLineIn(outBuf);
 			String master = r.readString();
 			int nul = master.indexOf('\0');
-			assertTrue("has capability list", nul > 0);
+			assertTrue(nul > 0);
 			assertEquals(B.name() + ' ' + R_MASTER, master.substring(0, nul));
 			assertTrue(PacketLineIn.isEnd(r.readString()));
 
@@ -616,7 +608,7 @@ public class ReceivePackAdvertiseRefsHookTest extends LocalDiskRepositoryTestCas
 
 	private ObjectInserter inserter;
 
-	@After
+	@AfterEach
 	public void release() {
 		if (inserter != null) {
 			inserter.close();

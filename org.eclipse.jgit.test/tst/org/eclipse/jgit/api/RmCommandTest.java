@@ -18,8 +18,9 @@ import java.io.IOException;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.api.errors.JGitInternalException;
 import org.eclipse.jgit.junit.RepositoryTestCase;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
 
 public class RmCommandTest extends RepositoryTestCase {
 
@@ -28,9 +29,9 @@ public class RmCommandTest extends RepositoryTestCase {
 	private static final String FILE = "test.txt";
 
 	@Override
-	@Before
-	public void setUp() throws Exception {
-		super.setUp();
+	@BeforeEach
+	public void setUp(TestInfo testInfo) throws Exception {
+		super.setUp(testInfo);
 		git = new Git(db);
 		// commit something
 		writeTrashFile(FILE, "Hello world");
@@ -59,6 +60,6 @@ public class RmCommandTest extends RepositoryTestCase {
 		git.rm().setCached(true).addFilepattern(newFile.getName()).call();
 
 		assertEquals("[test.txt, mode:100644]", indexState(0));
-		assertTrue("File should not have been removed.", newFile.exists());
+		assertTrue(newFile.exists());
 	}
 }

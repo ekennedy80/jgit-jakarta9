@@ -62,8 +62,9 @@ import org.eclipse.jgit.transport.URIish;
 import org.eclipse.jgit.util.FS;
 import org.eclipse.jgit.util.FileUtils;
 import org.eclipse.jgit.util.SystemReader;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
 
 public class CheckoutCommandTest extends RepositoryTestCase {
 	private Git git;
@@ -73,10 +74,10 @@ public class CheckoutCommandTest extends RepositoryTestCase {
 	RevCommit secondCommit;
 
 	@Override
-	@Before
-	public void setUp() throws Exception {
+	@BeforeEach
+	public void setUp(TestInfo testInfo) throws Exception {
 		BuiltinLFS.register();
-		super.setUp();
+		super.setUp(testInfo);
 		git = new Git(db);
 		// commit something
 		writeTrashFile("Test.txt", "Hello world");
@@ -153,7 +154,7 @@ public class CheckoutCommandTest extends RepositoryTestCase {
 		git.add().addFilepattern("NewFile.txt").call();
 		git.commit().setMessage("New file created").call();
 		git.checkout().setName("test").call();
-		assertFalse("NewFile.txt should not exist", f.exists());
+		assertFalse(f.exists());
 		writeTrashFile("NewFile.txt", "New file");
 		git.add().addFilepattern("NewFile.txt").call();
 		git.commit().setMessage("New file created again with same content")
@@ -161,13 +162,12 @@ public class CheckoutCommandTest extends RepositoryTestCase {
 		// Now remove the file from the index only. So it exists in both
 		// commits, and in the working tree, but not in the index.
 		git.rm().addFilepattern("NewFile.txt").setCached(true).call();
-		assertTrue("NewFile.txt should exist", f.isFile());
+		assertTrue(f.isFile());
 		git.checkout().setForced(true).setName("test2").call();
-		assertTrue("NewFile.txt should exist", f.isFile());
+		assertTrue(f.isFile());
 		assertEquals(Constants.R_HEADS + "test2", git.getRepository()
 				.exactRef(Constants.HEAD).getTarget().getName());
-		assertTrue("Force checkout should have undone git rm --cached",
-				git.status().call().isClean());
+		assertTrue(git.status().call().isClean());
 	}
 
 	@Test
@@ -177,7 +177,7 @@ public class CheckoutCommandTest extends RepositoryTestCase {
 		git.add().addFilepattern("NewFile.txt").call();
 		git.commit().setMessage("New file created").call();
 		git.checkout().setName("test").call();
-		assertFalse("NewFile.txt should not exist", f.exists());
+		assertFalse(f.exists());
 		writeTrashFile("NewFile.txt", "New file");
 		git.add().addFilepattern("NewFile.txt").call();
 		git.commit().setMessage("New file created again with same content")
@@ -185,9 +185,9 @@ public class CheckoutCommandTest extends RepositoryTestCase {
 		// Now remove the file from the index only. So it exists in both
 		// commits, and in the working tree, but not in the index.
 		git.rm().addFilepattern("NewFile.txt").setCached(true).call();
-		assertTrue("NewFile.txt should exist", f.isFile());
+		assertTrue(f.isFile());
 		git.checkout().setName("test2").call();
-		assertTrue("NewFile.txt should exist", f.isFile());
+		assertTrue(f.isFile());
 		assertEquals(Constants.R_HEADS + "test2", git.getRepository()
 				.exactRef(Constants.HEAD).getTarget().getName());
 		org.eclipse.jgit.api.Status status = git.status().call();
@@ -612,8 +612,7 @@ public class CheckoutCommandTest extends RepositoryTestCase {
 					"Test_" + i + ".txt");
 			if (!entry.isSmudged()) {
 				foundUnsmudged = true;
-				assertEquals("unexpected file length in git index", 28,
-						entry.getLength());
+				assertEquals(28, entry.getLength());
 			}
 		}
 		org.junit.Assume.assumeTrue(foundUnsmudged);

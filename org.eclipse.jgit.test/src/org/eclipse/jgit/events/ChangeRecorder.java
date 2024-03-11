@@ -54,7 +54,7 @@ public class ChangeRecorder implements WorkingTreeModifiedListener {
 	}
 
 	public void assertNoEvent() {
-		assertEquals("Unexpected WorkingTreeModifiedEvent ", 0, eventCount);
+		assertEquals(0, eventCount);
 	}
 
 	public void assertEvent(String[] expectedModified,

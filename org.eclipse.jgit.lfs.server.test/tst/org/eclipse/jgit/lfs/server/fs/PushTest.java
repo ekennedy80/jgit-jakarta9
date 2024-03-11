@@ -36,6 +36,7 @@ import org.eclipse.jgit.treewalk.TreeWalk;
 import org.eclipse.jgit.treewalk.filter.PathFilter;
 import org.eclipse.jgit.util.FileUtils;
 import org.eclipse.jgit.util.IO;
+import org.junit.After;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;

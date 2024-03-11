@@ -61,7 +61,7 @@ public class FileSnapshotTest {
 	}
 
 	@Before
-	@After
+	@AfterEach
 	public void tearDown() throws Exception {
 		FileUtils.delete(trash.toFile(),
 				FileUtils.RECURSIVE | FileUtils.SKIP_MISSING);
@@ -173,12 +173,10 @@ public class FileSnapshotTest {
 				StandardCopyOption.ATOMIC_MOVE);
 		Files.setLastModifiedTime(f1, timestamp);
 		assertTrue(save.isModified(f1.toFile()));
-		assertTrue("unexpected change of fileKey", save.wasFileKeyChanged());
-		assertFalse("unexpected size change", save.wasSizeChanged());
-		assertFalse("unexpected lastModified change",
-				save.wasLastModifiedChanged());
-		assertFalse("lastModified was unexpectedly racily clean",
-				save.wasLastModifiedRacilyClean());
+		assertTrue(save.wasFileKeyChanged());
+		assertFalse(save.wasSizeChanged());
+		assertFalse(save.wasLastModifiedChanged());
+		assertFalse(save.wasLastModifiedRacilyClean());
 	}
 
 	/**
@@ -260,16 +258,7 @@ public class FileSnapshotTest {
 					failures, racyNanos, stats.min(), stats.max(),
 					stats.avg(), stats.stddev()));
 		}
-		assertTrue(
-				String.format(
-						"FileSnapshot: failures to detect file modifications"
-								+ " %d out of %d\n"
-								+ "timestamp resolution %d µs"
-								+ " min racy threshold %d µs"
-						, failures, COUNT,
-						fsAttrCache.getFsTimestampResolution().toNanos() / 1000,
-						fsAttrCache.getMinimalRacyInterval().toNanos() / 1000),
-				failures == 0);
+		assertEquals(0,failures);
 	}
 
 	private Path createFile(String string) throws IOException {
