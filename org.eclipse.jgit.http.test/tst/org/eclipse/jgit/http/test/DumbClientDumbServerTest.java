@@ -32,7 +32,7 @@ import java.util.List;
 import java.util.Map;
 
 import static org.eclipse.jgit.util.HttpSupport.*;
-import static org.junit.jupiter.api.Assertions.*;;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class DumbClientDumbServerTest extends AllFactoriesHttpTestCase {
 	private Repository remoteRepository;

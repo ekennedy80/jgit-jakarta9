@@ -27,7 +27,7 @@ import org.junit.jupiter.api.TestInfo;
 
 import java.io.IOException;
 
-import static org.junit.jupiter.api.Assertions.*;;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class DefaultReceivePackFactoryTest extends LocalDiskRepositoryTestCase {
 	private Repository db;
