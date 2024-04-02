@@ -10,6 +10,7 @@
 
 package org.eclipse.jgit.http.test;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.eclipse.jgit.http.server.resolver.AsIsFileService;
 import org.eclipse.jgit.junit.LocalDiskRepositoryTestCase;
 import org.eclipse.jgit.lib.Repository;
@@ -20,10 +21,16 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 import jakarta.servlet.http.HttpServletRequestWrapper;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
+
 import java.io.IOException;
 
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.fail;
+import static org.mockito.Mockito.mock;
 
+
+@ExtendWith(MockitoExtension.class)
 public class AsIsServiceTest extends LocalDiskRepositoryTestCase {
 	private Repository db;
 
@@ -99,7 +106,8 @@ public class AsIsServiceTest extends LocalDiskRepositoryTestCase {
 		private final String host;
 
 		R(String user, String host) {
-			super(new HttpServletRequestWrapper(null) /* can't pass null, sigh */);
+
+			super(mock(HttpServletRequest.class) /* can't pass null, sigh */);
 			this.user = user;
 			this.host = host;
 		}

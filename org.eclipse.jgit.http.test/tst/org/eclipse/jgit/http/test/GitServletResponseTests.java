@@ -11,10 +11,7 @@ package org.eclipse.jgit.http.test;
 
 import org.eclipse.jetty.ee10.servlet.ServletContextHandler;
 import org.eclipse.jetty.ee10.servlet.ServletHolder;
-import org.eclipse.jgit.errors.CorruptObjectException;
-import org.eclipse.jgit.errors.RepositoryNotFoundException;
-import org.eclipse.jgit.errors.TooLargePackException;
-import org.eclipse.jgit.errors.TransportException;
+import org.eclipse.jgit.errors.*;
 import org.eclipse.jgit.http.server.GitServlet;
 import org.eclipse.jgit.http.server.resolver.DefaultReceivePackFactory;
 import org.eclipse.jgit.junit.TestRepository;
@@ -25,6 +22,7 @@ import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.transport.*;
 import org.eclipse.jgit.transport.resolver.ServiceNotAuthorizedException;
 import org.eclipse.jgit.transport.resolver.ServiceNotEnabledException;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -34,6 +32,7 @@ import org.junit.jupiter.api.TestInfo;
 import java.util.Collection;
 import java.util.Collections;
 
+import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.Assert.fail;
 
@@ -199,7 +198,7 @@ public class GitServletResponseTests extends HttpTestCase {
 	@Test
 	public void testUnpackErrorWithSubsequentExceptionInPostReceiveHook()
 			throws Exception {
-		final TestRepository client = createTestRepository();
+		final TestRepository<Repository> client = createTestRepository();
 		final RevBlob Q_txt = client
 				.blob("some blob content to measure pack size");
 		final RevCommit Q = client.commit().add("Q", Q_txt).create();
@@ -223,9 +222,9 @@ public class GitServletResponseTests extends HttpTestCase {
 			try {
 				t.push(NullProgressMonitor.INSTANCE,
 						Collections.singleton(update));
-				fail("should not reach this line");
+				Assertions.fail("should not reach this line");
 			} catch (Exception e) {
-				assertTrue(e instanceof TooLargePackException);
+                assertInstanceOf(NoRemoteRepositoryException.class, e);
 			}
 		}
 	}

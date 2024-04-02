@@ -156,8 +156,7 @@ public class SmartClientSmartServerTest extends AllProtocolsHttpTestCase {
 		app.addFilter(new FilterHolder(new Filter() {
 
 			@Override
-			public void init(FilterConfig filterConfig)
-					throws ServletException {
+			public void init(FilterConfig filterConfig) {
 				// empty
 			}
 
@@ -400,8 +399,8 @@ public class SmartClientSmartServerTest extends AllProtocolsHttpTestCase {
 			// approved them for inclusion into the code base. Sorry.
 			// --spearce
 			//
-			assertTrue(t instanceof TransportHttp);
-			assertTrue(t instanceof HttpTransport);
+            assertInstanceOf(TransportHttp.class, t);
+            assertInstanceOf(HttpTransport.class, t);
 
 			try (FetchConnection c = t.openFetch()) {
 				map = c.getRefsMap();

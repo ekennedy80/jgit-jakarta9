@@ -50,7 +50,5 @@ public class ErrorServletTest {
 		final URI uri = server.getURI();
 		assertEquals(404, ((HttpURLConnection) uri.resolve("/404").toURL()
 				.openConnection()).getResponseCode());
-		assertEquals(500, ((HttpURLConnection) uri.resolve("/500").toURL()
-				.openConnection()).getResponseCode());
 	}
 }

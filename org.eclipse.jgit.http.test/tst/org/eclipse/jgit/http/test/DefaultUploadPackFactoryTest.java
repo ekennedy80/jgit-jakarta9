@@ -10,8 +10,6 @@
 
 package org.eclipse.jgit.http.test;
 
-import jakarta.servlet.ServletRequest;
-import jakarta.servlet.ServletRequestWrapper;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletRequestWrapper;
 import org.eclipse.jgit.http.server.resolver.DefaultUploadPackFactory;
@@ -29,13 +27,12 @@ import org.junit.jupiter.api.TestInfo;
 import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
 
 public class DefaultUploadPackFactoryTest extends LocalDiskRepositoryTestCase {
 	private Repository db;
 
-	private static ServletRequest request = null;
-
-	private UploadPackFactory<HttpServletRequest> factory;
+    private UploadPackFactory<HttpServletRequest> factory;
 
 	@Override
 	@BeforeEach
@@ -130,7 +127,7 @@ public class DefaultUploadPackFactoryTest extends LocalDiskRepositoryTestCase {
 		private final String host;
 
 		R(String user, String host) {
-			super((HttpServletRequest) new ServletRequestWrapper(request) /* can't pass null, sigh */);
+			super(mock(HttpServletRequest.class) /* can't pass null, sigh */);
 			this.user = user;
 			this.host = host;
 		}

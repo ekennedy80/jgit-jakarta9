@@ -28,6 +28,7 @@ import org.junit.jupiter.api.TestInfo;
 import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
 
 public class DefaultReceivePackFactoryTest extends LocalDiskRepositoryTestCase {
 	private Repository db;
@@ -170,7 +171,7 @@ public class DefaultReceivePackFactoryTest extends LocalDiskRepositoryTestCase {
 
 
 		R(String user, String host) {
-            super(new HttpServletRequestWrapper(null));
+            super(mock(HttpServletRequest.class));
             //super(new HttpServletRequest(null, null) /* can't pass null, sigh */);
 			this.user = user;
 			this.host = host;
