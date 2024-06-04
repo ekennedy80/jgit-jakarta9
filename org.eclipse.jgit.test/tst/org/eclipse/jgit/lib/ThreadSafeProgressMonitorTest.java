@@ -123,7 +123,7 @@ public class ThreadSafeProgressMonitorTest {
 
 	private static void await(CountDownLatch cdl) {
 		try {
-			assertTrue("latch released", cdl.await(1000, TimeUnit.MILLISECONDS));
+			assertTrue(cdl.await(1000, TimeUnit.MILLISECONDS));
 		} catch (InterruptedException ie) {
 			fail("Did not expect to be interrupted");
 		}
@@ -133,7 +133,7 @@ public class ThreadSafeProgressMonitorTest {
 		Thread t = new Thread(task);
 		t.start();
 		t.join(1000);
-		assertFalse("thread has stopped", t.isAlive());
+		assertFalse(t.isAlive());
 	}
 
 	private static class MockProgressMonitor implements ProgressMonitor {

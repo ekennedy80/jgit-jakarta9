@@ -715,9 +715,7 @@ public class IndexDiffTest extends RepositoryTestCase {
 			IndexDiff diff = new IndexDiff(db, Constants.HEAD, iterator);
 			diff.diff();
 
-			assertTrue(
-					"Expected no modified files, but there were: "
-							+ diff.getModified(), diff.getModified().isEmpty());
+			assertTrue(diff.getModified().isEmpty());
 		}
 	}
 
@@ -735,9 +733,7 @@ public class IndexDiffTest extends RepositoryTestCase {
 				new FileTreeIterator(db));
 		diff.diff();
 
-		assertEquals(
-				"Conflict for entries in stages " + Arrays.toString(stages),
-				expected, diff.getConflictingStageStates().get("a"));
+		assertEquals(expected, diff.getConflictingStageStates().get("a"));
 	}
 
 	private void removeFromIndex(String path) throws IOException {

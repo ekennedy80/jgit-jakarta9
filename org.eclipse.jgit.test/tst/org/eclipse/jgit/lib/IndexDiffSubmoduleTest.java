@@ -30,11 +30,12 @@ import org.eclipse.jgit.junit.RepositoryTestCase;
 import org.eclipse.jgit.storage.file.FileBasedConfig;
 import org.eclipse.jgit.submodule.SubmoduleWalk.IgnoreSubmoduleMode;
 import org.eclipse.jgit.treewalk.FileTreeIterator;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.experimental.theories.DataPoints;
 import org.junit.experimental.theories.Theories;
 import org.junit.experimental.theories.Theory;
+import org.junit.jupiter.api.TestInfo;
 import org.junit.runner.RunWith;
 
 @RunWith(Theories.class)
@@ -49,9 +50,9 @@ public class IndexDiffSubmoduleTest extends RepositoryTestCase {
 	public static IgnoreSubmoduleMode allModes[] = IgnoreSubmoduleMode.values();
 
 	@Override
-	@Before
-	public void setUp() throws Exception {
-		super.setUp();
+	@BeforeEach
+	public void setUp(TestInfo testInfo) throws Exception {
+		super.setUp(testInfo);
 		FileRepository submoduleStandalone = createWorkRepository();
 		JGitTestUtil.writeTrashFile(submoduleStandalone, "fileInSubmodule",
 				"submodule");
@@ -158,15 +159,11 @@ public class IndexDiffSubmoduleTest extends RepositoryTestCase {
 			}
 		}
 		if (emptyExpected) {
-			assertFalse("diff should be false with mode=" + mode,
-					diffResult);
-			assertEquals("should have no paths with FileMode.GITLINK", 0,
-					submodulePaths.size());
+			assertFalse(diffResult);
+			assertEquals(0, submodulePaths.size());
 		} else {
-			assertTrue("diff should be true with mode=" + mode,
-					diffResult);
-			assertTrue("submodule path should have FileMode.GITLINK",
-					submodulePaths.contains("modules/submodule"));
+			assertTrue(diffResult);
+			assertTrue(submodulePaths.contains("modules/submodule"));
 		}
 	}
 

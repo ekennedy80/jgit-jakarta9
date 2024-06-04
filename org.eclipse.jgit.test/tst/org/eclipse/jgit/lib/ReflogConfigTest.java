@@ -39,8 +39,7 @@ public class ReflogConfigTest extends RepositoryTestCase {
 		// written
 		commit("A Commit\n", commitTime, tz);
 		commitTime += 60 * 1000;
-		assertTrue("Reflog for HEAD still contain no entry", db
-				.getReflogReader(Constants.HEAD).getReverseEntries().isEmpty());
+		assertTrue(db.getReflogReader(Constants.HEAD).getReverseEntries().isEmpty());
 
 		// set the logAllRefUpdates parameter to true and check it
 		cfg.setBoolean("core", null, "logallrefupdates", true);
@@ -53,9 +52,7 @@ public class ReflogConfigTest extends RepositoryTestCase {
 		// do one commit and check that reflog size is increased to 1
 		commit("A Commit\n", commitTime, tz);
 		commitTime += 60 * 1000;
-		assertTrue(
-				"Reflog for HEAD should contain one entry",
-				db.getReflogReader(Constants.HEAD).getReverseEntries().size() == 1);
+        assertEquals(1, db.getReflogReader(Constants.HEAD).getReverseEntries().size());
 
 		// set the logAllRefUpdates parameter to false and check it
 		cfg.setBoolean("core", null, "logallrefupdates", false);
@@ -68,9 +65,7 @@ public class ReflogConfigTest extends RepositoryTestCase {
 		// do one commit and check that reflog size is 2
 		commit("A Commit\n", commitTime, tz);
 		commitTime += 60 * 1000;
-		assertTrue(
-				"Reflog for HEAD should contain two entries",
-				db.getReflogReader(Constants.HEAD).getReverseEntries().size() == 2);
+        assertEquals(2, db.getReflogReader(Constants.HEAD).getReverseEntries().size());
 
 		// set the logAllRefUpdates parameter to false and check it
 		cfg.setEnum("core", null, "logallrefupdates",
@@ -83,9 +78,7 @@ public class ReflogConfigTest extends RepositoryTestCase {
 
 		// do one commit and check that reflog size is 3
 		commit("A Commit\n", commitTime, tz);
-		assertTrue("Reflog for HEAD should contain three entries",
-				db.getReflogReader(Constants.HEAD).getReverseEntries()
-						.size() == 3);
+        assertEquals(3, db.getReflogReader(Constants.HEAD).getReverseEntries().size());
 	}
 
 	private void commit(String commitMsg, long commitTime, int tz)

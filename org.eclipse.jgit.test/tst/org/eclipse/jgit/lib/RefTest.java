@@ -142,7 +142,7 @@ public class RefTest extends SampleDataRepositoryTestCase {
 		writeSymref("HEAD", "refs/heads/b");
 		Ref ref = db.exactRef("HEAD");
 		assertEquals(Ref.Storage.LOOSE, ref.getStorage());
-		assertTrue("is symref", ref.isSymbolic());
+		assertTrue(ref.isSymbolic());
 		ref = ref.getTarget();
 		assertEquals("refs/heads/b", ref.getName());
 		assertEquals(Ref.Storage.PACKED, ref.getStorage());
@@ -271,11 +271,11 @@ public class RefTest extends SampleDataRepositoryTestCase {
 	public void testResolvedSymRef() throws IOException {
 		Ref ref = db.exactRef(Constants.HEAD);
 		assertEquals(Constants.HEAD, ref.getName());
-		assertTrue("is symbolic ref", ref.isSymbolic());
+		assertTrue(ref.isSymbolic());
 		assertSame(Ref.Storage.LOOSE, ref.getStorage());
 
 		Ref dst = ref.getTarget();
-		assertNotNull("has target", dst);
+		assertNotNull(dst);
 		assertEquals("refs/heads/master", dst.getName());
 
 		assertSame(dst.getObjectId(), ref.getObjectId());

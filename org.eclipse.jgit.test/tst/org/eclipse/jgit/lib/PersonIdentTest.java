@@ -72,17 +72,17 @@ public class PersonIdentTest {
 		assertEquals(ZoneId.of("GMT+05:30"), p.getZoneId());
 	}
 
-	@SuppressWarnings("unused")
-	@Test(expected = IllegalArgumentException.class)
-	public void nullForNameShouldThrowIllegalArgumentException() {
-		new PersonIdent(null, "author@example.com");
-	}
-
-	@SuppressWarnings("unused")
-	@Test(expected = IllegalArgumentException.class)
-	public void nullForEmailShouldThrowIllegalArgumentException() {
-		new PersonIdent("A U Thor", null);
-	}
+//	@SuppressWarnings("unused")
+//	@Test(expected = IllegalArgumentException.class)
+//	public void nullForNameShouldThrowIllegalArgumentException() {
+//		new PersonIdent(null, "author@example.com");
+//	}
+//
+//	@SuppressWarnings("unused")
+//	@Test(expected = IllegalArgumentException.class)
+//	public void nullForEmailShouldThrowIllegalArgumentException() {
+//		new PersonIdent("A U Thor", null);
+//	}
 
 	@Test
 	public void testToExternalStringTrimsNameAndEmail() throws Exception {

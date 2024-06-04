@@ -41,8 +41,7 @@ public class HugeCommitMessageTest extends RepositoryTestCase {
 			Ref master = db.findRef("master");
 			List<Ref> actual = git.branchList().setContains(commit.getName())
 					.call();
-			assertTrue("Should be contained in branch master",
-					actual.contains(master));
+			assertTrue(actual.contains(master));
 		}
 	}
 

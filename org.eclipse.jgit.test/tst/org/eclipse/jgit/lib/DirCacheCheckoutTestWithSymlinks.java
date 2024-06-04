@@ -93,7 +93,6 @@ public class DirCacheCheckoutTestWithSymlinks extends RepositoryTestCase {
 		symlinkRepo.checkout().setName("master").call();
 
 		// check that the symlink still exists
-		assertTrue("The symlink to the repo should exist after a checkout",
-				reposSymlink.exists());
+		assertTrue(reposSymlink.exists());
 	}
 }

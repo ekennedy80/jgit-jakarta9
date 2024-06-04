@@ -39,11 +39,11 @@ public class ObjectIdRefTest {
 		assertSame(Ref.Storage.LOOSE, r.getStorage());
 		assertSame(name, r.getName());
 		assertSame(ID_A, r.getObjectId());
-		assertFalse("not peeled", r.isPeeled());
+		assertFalse(r.isPeeled());
 		assertNull("no peel id", r.getPeeledObjectId());
 		assertSame("leaf is this", r, r.getLeaf());
 		assertSame("target is this", r, r.getTarget());
-		assertFalse("not symbolic", r.isSymbolic());
+		assertFalse(r.isSymbolic());
 
 		r = new ObjectIdRef.Unpeeled(Ref.Storage.PACKED, name, ID_A);
 		assertSame(Ref.Storage.PACKED, r.getStorage());
@@ -55,11 +55,11 @@ public class ObjectIdRefTest {
 		assertSame(Ref.Storage.NEW, r.getStorage());
 		assertSame(name, r.getName());
 		assertNull("no id on new ref", r.getObjectId());
-		assertFalse("not peeled", r.isPeeled());
+		assertFalse(r.isPeeled());
 		assertNull("no peel id", r.getPeeledObjectId());
 		assertSame("leaf is this", r, r.getLeaf());
 		assertSame("target is this", r, r.getTarget());
-		assertFalse("not symbolic", r.isSymbolic());
+		assertFalse(r.isSymbolic());
 	}
 
 	@Test
@@ -70,18 +70,18 @@ public class ObjectIdRefTest {
 		assertSame(Ref.Storage.LOOSE, r.getStorage());
 		assertSame(name, r.getName());
 		assertSame(ID_A, r.getObjectId());
-		assertFalse("not peeled", r.isPeeled());
+		assertFalse(r.isPeeled());
 		assertNull("no peel id", r.getPeeledObjectId());
 		assertSame("leaf is this", r, r.getLeaf());
 		assertSame("target is this", r, r.getTarget());
-		assertFalse("not symbolic", r.isSymbolic());
+		assertFalse(r.isSymbolic());
 
 		r = new ObjectIdRef.PeeledNonTag(Ref.Storage.LOOSE, name, ID_A);
-		assertTrue("is peeled", r.isPeeled());
+		assertTrue(r.isPeeled());
 		assertNull("no peel id", r.getPeeledObjectId());
 
 		r = new ObjectIdRef.PeeledTag(Ref.Storage.LOOSE, name, ID_A, ID_B);
-		assertTrue("is peeled", r.isPeeled());
+		assertTrue(r.isPeeled());
 		assertSame(ID_B, r.getPeeledObjectId());
 	}
 

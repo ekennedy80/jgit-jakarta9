@@ -101,7 +101,7 @@ public class RefDatabaseConflictingNamesTest {
 	}
 
 	private void assertNoConflictingNames(String proposed) throws IOException {
-		assertTrue("expected conflicting names to be empty", refDatabase
+		assertTrue(refDatabase
 				.getConflictingNames(proposed).isEmpty());
 	}
 
