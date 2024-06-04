@@ -26,7 +26,7 @@ import org.eclipse.jgit.lib.FileMode;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.TreeFormatter;
 import org.eclipse.jgit.util.RawParseUtils;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class CanonicalTreeParserTest {
@@ -51,7 +51,7 @@ public class CanonicalTreeParserTest {
 
 	private byte[] tree3;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		tree1 = mktree(entry(m644, "a", hash_a));
 		tree2 = mktree(entry(m644, "a", hash_a), entry(m644, "foo", hash_foo));

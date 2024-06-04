@@ -77,7 +77,7 @@ import org.eclipse.jgit.treewalk.WorkingTreeIterator;
 import org.eclipse.jgit.treewalk.filter.PathFilterGroup;
 import org.eclipse.jgit.util.FS;
 import org.eclipse.jgit.util.SystemReader;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -106,7 +106,7 @@ public class IndexDiffWithSymlinkTest extends LocalDiskRepositoryTestCase {
 	private File testRepoDir;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		assumeTrue(SystemReader.getInstance().isMacOS()
 				&& FS.DETECTED.supportsSymlinks());

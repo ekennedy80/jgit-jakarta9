@@ -38,7 +38,7 @@ import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.storage.file.FileBasedConfig;
 import org.eclipse.jgit.util.NB;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class CommitGraphWriterTest extends RepositoryTestCase {
@@ -52,7 +52,7 @@ public class CommitGraphWriterTest extends RepositoryTestCase {
 	private RevWalk walk;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		super.setUp();
 		os = new ByteArrayOutputStream();

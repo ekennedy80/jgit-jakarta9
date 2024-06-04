@@ -18,7 +18,7 @@ import java.nio.file.Path;
 
 import org.eclipse.jgit.storage.file.FileBasedConfig;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -35,7 +35,7 @@ public class SystemReaderTest {
 	@Mock
 	private FS fs;
 
-	@Before
+	@BeforeEach
 	public void setup() throws Exception {
 		trash = Files.createTempDirectory("jgit_test");
 		mockSystemConfig = trash.resolve("systemgitconfig");

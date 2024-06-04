@@ -60,7 +60,7 @@ import org.eclipse.jgit.transport.BasePackFetchConnection.FetchConfig;
 import org.eclipse.jgit.transport.UploadPack.RequestPolicy;
 import org.eclipse.jgit.util.io.NullOutputStream;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -83,7 +83,7 @@ public class UploadPackTest {
 
 	private PackStatistics stats;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		server = newRepo("server");
 		client = newRepo("client");

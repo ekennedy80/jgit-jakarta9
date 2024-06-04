@@ -39,21 +39,21 @@ import org.eclipse.jgit.junit.RepositoryTestCase;
 import org.eclipse.jgit.lib.RepositoryCache;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.Assume;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class FSTest {
 	private File trash;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		SystemReader.setInstance(new MockSystemReader());
 		trash = File.createTempFile("tmp_", "");
 		trash.delete();
-		assertTrue("mkdir " + trash, trash.mkdir());
+		assertTrue(trash.mkdir());
 	}
 
-	@After
+	@AfterEach
 	public void tearDown() throws Exception {
 		FileUtils.delete(trash, FileUtils.RECURSIVE | FileUtils.RETRY);
 	}
@@ -147,12 +147,9 @@ public class FSTest {
 		fs.setExecute(f, true);
 
 		permissions = readPermissions(f);
-		assertTrue("'owner' execute permission not set",
-				permissions.contains(PosixFilePermission.OWNER_EXECUTE));
-		assertTrue("'group' execute permission not set",
-				permissions.contains(PosixFilePermission.GROUP_EXECUTE));
-		assertTrue("'others' execute permission not set",
-				permissions.contains(PosixFilePermission.OTHERS_EXECUTE));
+		assertTrue(permissions.contains(PosixFilePermission.OWNER_EXECUTE));
+		assertTrue(permissions.contains(PosixFilePermission.GROUP_EXECUTE));
+		assertTrue(permissions.contains(PosixFilePermission.OTHERS_EXECUTE));
 
 		((FS_POSIX) fs).setUmask(0033);
 		fs.setExecute(f, false);
@@ -160,12 +157,9 @@ public class FSTest {
 		fs.setExecute(f, true);
 
 		permissions = readPermissions(f);
-		assertTrue("'owner' execute permission not set",
-				permissions.contains(PosixFilePermission.OWNER_EXECUTE));
-		assertFalse("'group' execute permission set",
-				permissions.contains(PosixFilePermission.GROUP_EXECUTE));
-		assertFalse("'others' execute permission set",
-				permissions.contains(PosixFilePermission.OTHERS_EXECUTE));
+		assertTrue(permissions.contains(PosixFilePermission.OWNER_EXECUTE));
+		assertFalse(permissions.contains(PosixFilePermission.GROUP_EXECUTE));
+		assertFalse(permissions.contains(PosixFilePermission.OTHERS_EXECUTE));
 	}
 
 	private Set<PosixFilePermission> readPermissions(File f) throws IOException {
@@ -215,11 +209,7 @@ public class FSTest {
 				TimeUnit.NANOSECONDS.sleep(resolutionNs);
 				FileUtils.touch(f);
 				FileTime t2 = Files.getLastModifiedTime(f);
-				assertTrue(String.format(
-						"expected t2=%s to be larger than t1=%s\nsince file timestamp resolution was measured to be %,d ns",
-						formatter.format(t2.toInstant()),
-						formatter.format(t1.toInstant()),
-						Long.valueOf(resolutionNs)), t2.compareTo(t1) > 0);
+				assertTrue(t2.compareTo(t1) > 0);
 			} finally {
 				if (f != null) {
 					Files.delete(f);

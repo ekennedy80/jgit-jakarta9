@@ -45,7 +45,7 @@ import org.eclipse.jgit.util.FS;
 import org.eclipse.jgit.util.FileUtils;
 import org.eclipse.jgit.util.GitDateFormatter;
 import org.eclipse.jgit.util.GitDateFormatter.Format;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.experimental.theories.DataPoints;
 import org.junit.experimental.theories.Theories;
@@ -61,7 +61,7 @@ public class MergeCommandTest extends RepositoryTestCase {
 	private GitDateFormatter dateFormatter;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		super.setUp();
 		dateFormatter = new GitDateFormatter(Format.DEFAULT);

@@ -86,7 +86,7 @@ public abstract class AllProtocolsHttpTestCase extends HttpTestCase {
 
 	private static HttpConnectionFactory originalFactory;
 
-	@BeforeClass
+	@BeforeEachClass
 	public static void saveConnectionFactory() {
 		originalFactory = HttpTransport.getConnectionFactory();
 	}

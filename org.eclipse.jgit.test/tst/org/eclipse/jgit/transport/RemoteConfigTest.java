@@ -23,13 +23,13 @@ import java.util.List;
 
 import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.eclipse.jgit.lib.Config;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class RemoteConfigTest {
 	private Config config;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		config = new Config();
 	}

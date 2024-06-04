@@ -31,7 +31,7 @@ import org.eclipse.jgit.lib.NullProgressMonitor;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.transport.UploadPack.RequestPolicy;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -59,7 +59,7 @@ public class UploadPackHandleDeletedPackFileTest
 				new Boolean[][] { { Boolean.TRUE }, { Boolean.FALSE } });
 	}
 
-	@Before
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception {
 		super.setUp();

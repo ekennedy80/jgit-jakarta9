@@ -23,7 +23,7 @@ import org.eclipse.jgit.transport.URIish;
 import org.eclipse.jgit.util.FS;
 import org.eclipse.jgit.util.SystemReader;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.jcraft.jsch.Session;
@@ -40,7 +40,7 @@ public class JschConfigSessionFactoryTest {
 
 	JschConfigSessionFactory factory = new JschConfigSessionFactory();
 
-	@Before
+	@BeforeEach
 	public void setup() {
 		SystemReader.setInstance(new MockSystemReader());
 	}

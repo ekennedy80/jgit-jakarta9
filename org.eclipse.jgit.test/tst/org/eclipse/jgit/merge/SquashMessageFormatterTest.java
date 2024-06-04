@@ -19,7 +19,7 @@ import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.test.resources.SampleDataRepositoryTestCase;
 import org.eclipse.jgit.util.GitDateFormatter;
 import org.eclipse.jgit.util.GitDateFormatter.Format;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -31,7 +31,7 @@ public class SquashMessageFormatterTest extends SampleDataRepositoryTestCase {
 	private RevCommit revCommit;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		super.setUp();
 		dateFormatter = new GitDateFormatter(Format.DEFAULT);

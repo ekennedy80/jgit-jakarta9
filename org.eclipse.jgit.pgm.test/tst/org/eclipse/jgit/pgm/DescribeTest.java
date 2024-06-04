@@ -12,7 +12,7 @@ package org.eclipse.jgit.pgm;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.lib.CLIRepositoryTestCase;
 import org.eclipse.jgit.pgm.internal.CLIText;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -24,7 +24,7 @@ public class DescribeTest extends CLIRepositoryTestCase {
 	private Git git;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		super.setUp();
 		git = new Git(db);

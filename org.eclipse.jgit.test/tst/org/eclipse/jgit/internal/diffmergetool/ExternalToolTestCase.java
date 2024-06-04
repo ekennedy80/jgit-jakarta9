@@ -19,7 +19,7 @@ import org.eclipse.jgit.util.FS;
 import org.eclipse.jgit.util.FS_POSIX;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.Assume;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.AfterEach;
 
 /**
@@ -47,7 +47,7 @@ public abstract class ExternalToolTestCase extends RepositoryTestCase {
 
 	protected FileElement base;
 
-	@Before
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception {
 		super.setUp();

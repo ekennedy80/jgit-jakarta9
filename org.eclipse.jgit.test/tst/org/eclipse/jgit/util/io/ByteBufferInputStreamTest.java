@@ -21,7 +21,7 @@ import java.util.Arrays;
 
 import org.eclipse.jgit.internal.JGitText;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class ByteBufferInputStreamTest {
@@ -33,13 +33,13 @@ public class ByteBufferInputStreamTest {
 
 	private ByteBufferInputStream is;
 
-	@Before
+	@BeforeEach
 	public void setup() {
 		buf = ByteBuffer.wrap(data);
 		is = new ByteBufferInputStream(buf);
 	}
 
-	@After
+	@AfterEach
 	public void tearDown() {
 		is.close();
 	}

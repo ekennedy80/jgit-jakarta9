@@ -17,14 +17,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.concurrent.TimeUnit;
 
 import org.eclipse.jgit.errors.ConfigInvalidException;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class RepositoryCacheConfigTest {
 
 	private RepositoryCacheConfig config;
 
-	@Before
+	@BeforeEach
 	public void setUp() {
 		config = new RepositoryCacheConfig();
 	}

@@ -37,7 +37,7 @@ import org.eclipse.jgit.util.Stats;
 import org.eclipse.jgit.util.SystemReader;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.Assume;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -50,7 +50,7 @@ public class FileSnapshotTest {
 
 	private FileStoreAttributes fsAttrCache;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		SystemReader.setInstance(new MockSystemReader());
 		trash = Files.createTempDirectory("tmp_");
@@ -60,7 +60,7 @@ public class FileSnapshotTest {
 				.getFileStoreAttributes(trash.getParent());
 	}
 
-	@Before
+	@BeforeEach
 	@AfterEach
 	public void tearDown() throws Exception {
 		FileUtils.delete(trash.toFile(),

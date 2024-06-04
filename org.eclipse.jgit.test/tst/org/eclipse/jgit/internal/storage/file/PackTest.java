@@ -54,7 +54,7 @@ import org.eclipse.jgit.util.IO;
 import org.eclipse.jgit.util.NB;
 import org.eclipse.jgit.util.TemporaryBuffer;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.AfterEach;
 
@@ -76,7 +76,7 @@ public class PackTest extends LocalDiskRepositoryTestCase {
 	}
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		super.setUp();
 

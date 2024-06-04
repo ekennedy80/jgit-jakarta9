@@ -31,9 +31,10 @@ import org.eclipse.jgit.lib.RefUpdate;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.lib.StoredConfig;
 import org.eclipse.jgit.revwalk.RevCommit;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.TestInfo;
 
 public class FilterCommandsTest extends RepositoryTestCase {
 	private Git git;
@@ -72,9 +73,9 @@ public class FilterCommandsTest extends RepositoryTestCase {
 	}
 
 	@Override
-	@Before
-	public void setUp() throws Exception {
-		super.setUp();
+	@BeforeEach
+	public void setUp(TestInfo testInfo) throws Exception {
+		super.setUp(testInfo);
 		git = new Git(db);
 		// commit something
 		writeTrashFile("Test.txt", "Hello world");

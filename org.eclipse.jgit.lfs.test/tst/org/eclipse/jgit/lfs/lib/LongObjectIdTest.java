@@ -37,7 +37,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class LongObjectIdTest {
 	private static Path tmp;
 
-	@BeforeClass
+	@BeforeEachClass
 	public static void setup() throws IOException {
 		tmp = Files.createTempDirectory("jgit_test_");
 	}

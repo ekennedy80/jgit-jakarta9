@@ -10,8 +10,7 @@
 package org.eclipse.jgit.util;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.eclipse.jgit.junit.RepositoryTestCase;
 import org.junit.jupiter.api.Test;
@@ -47,16 +46,18 @@ public class RawSubStringPatternTest extends RepositoryTestCase {
 		assertMatchResult("aB", "Ab", 0);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void testEmptyPattern() {
-		assertNotNull(new RawSubStringPattern(""));
+		IllegalArgumentException thrown = assertThrows(
+				IllegalArgumentException.class,
+				() -> new RawSubStringPattern("")
+		);
+		assertNotNull(thrown);
 	}
 
 	private static void assertMatchResult(String pattern, String input, int position) {
 		RawSubStringPattern p = new RawSubStringPattern(pattern);
-		assertEquals("Expected match result " + position + " with input "
-				+ input + " for pattern " + pattern,
-				position, p.match(raw(input)));
+		assertEquals(position, p.match(raw(input)));
 	}
 
 	private static RawCharSequence raw(String text) {

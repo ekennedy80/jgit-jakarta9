@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.eclipse.jgit.junit.MockSystemReader;
 import org.eclipse.jgit.lib.Config;
 import org.eclipse.jgit.util.SystemReader;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -32,7 +32,7 @@ public class HttpConfigTest {
 
 	private Config config;
 
-	@Before
+	@BeforeEach
 	public void setUp() {
 		config = new Config();
 	}

@@ -18,7 +18,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 // Note, test vectors created with:
@@ -30,7 +30,7 @@ public class PacketLineOutTest {
 
 	private PacketLineOut out;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		rawOut = new ByteArrayOutputStream();
 		out = new PacketLineOut(rawOut);

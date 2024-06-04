@@ -27,7 +27,7 @@ import org.eclipse.jgit.lib.FileMode;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.treewalk.TreeWalk;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class InterIndexDiffFilterTest extends LocalDiskRepositoryTestCase {
@@ -35,7 +35,7 @@ public class InterIndexDiffFilterTest extends LocalDiskRepositoryTestCase {
 	private Repository db;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		super.setUp();
 		db = createWorkRepository();

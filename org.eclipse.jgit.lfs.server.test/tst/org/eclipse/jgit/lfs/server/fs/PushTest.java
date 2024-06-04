@@ -25,7 +25,7 @@ import org.eclipse.jgit.treewalk.filter.PathFilter;
 import org.eclipse.jgit.util.FileUtils;
 import org.eclipse.jgit.util.IO;
 import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.InputStream;
@@ -45,7 +45,7 @@ public class PushTest extends LfsServerTest {
 	private Repository remoteDb;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setup() throws Exception {
 		super.setup();
 

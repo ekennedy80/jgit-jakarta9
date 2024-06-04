@@ -20,7 +20,7 @@ import static org.junit.Assert.fail;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class ObjectIdSubclassMapTest {
@@ -28,7 +28,7 @@ public class ObjectIdSubclassMapTest {
 
 	private SubId id_1, id_2, id_3, id_a31, id_b31;
 
-	@Before
+	@BeforeEach
 	public void init() {
 		idBuf = new MutableObjectId();
 		id_1 = new SubId(id(1));

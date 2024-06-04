@@ -35,7 +35,7 @@ import org.eclipse.jgit.transport.resolver.ReceivePackFactory;
 import org.eclipse.jgit.transport.resolver.ServiceNotAuthorizedException;
 import org.eclipse.jgit.transport.resolver.UploadPackFactory;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class TestProtocolTest {
@@ -79,7 +79,7 @@ public class TestProtocolTest {
 	private TestRepository<InMemoryRepository> local;
 	private TestRepository<InMemoryRepository> remote;
 
-  @Before
+  @BeforeEach
 	public void setUp() throws Exception {
 		protos = new ArrayList<>();
 		local = new TestRepository<>(

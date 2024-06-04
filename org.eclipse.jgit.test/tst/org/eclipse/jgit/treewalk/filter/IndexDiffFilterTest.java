@@ -24,7 +24,7 @@ import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.treewalk.FileTreeIterator;
 import org.eclipse.jgit.treewalk.TreeWalk;
 import org.eclipse.jgit.util.FileUtils;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class IndexDiffFilterTest extends RepositoryTestCase {
@@ -57,7 +57,7 @@ public class IndexDiffFilterTest extends RepositoryTestCase {
 	private Git git;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		super.setUp();
 		git = new Git(db);

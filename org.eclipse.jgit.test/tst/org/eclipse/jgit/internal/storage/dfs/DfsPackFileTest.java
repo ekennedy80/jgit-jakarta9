@@ -32,7 +32,7 @@ import org.eclipse.jgit.junit.TestRng;
 import org.eclipse.jgit.lib.Constants;
 import org.eclipse.jgit.lib.NullProgressMonitor;
 import org.eclipse.jgit.lib.ObjectId;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class DfsPackFileTest {
@@ -40,7 +40,7 @@ public class DfsPackFileTest {
 	boolean bypassCache;
 	boolean clearCache;
 
-	@Before
+	@BeforeEach
 	public void setUp() {
 		db = new InMemoryRepository(new DfsRepositoryDescription("test"));
 	}

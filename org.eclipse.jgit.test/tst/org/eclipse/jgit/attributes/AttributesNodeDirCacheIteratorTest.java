@@ -27,7 +27,7 @@ import org.eclipse.jgit.dircache.DirCacheIterator;
 import org.eclipse.jgit.junit.RepositoryTestCase;
 import org.eclipse.jgit.lib.FileMode;
 import org.eclipse.jgit.treewalk.TreeWalk;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -46,7 +46,7 @@ public class AttributesNodeDirCacheIteratorTest extends RepositoryTestCase {
 	private Git git;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		super.setUp();
 		git = new Git(db);

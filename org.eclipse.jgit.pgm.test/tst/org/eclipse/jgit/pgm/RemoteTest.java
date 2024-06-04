@@ -17,7 +17,7 @@ import org.eclipse.jgit.lib.StoredConfig;
 import org.eclipse.jgit.transport.RefSpec;
 import org.eclipse.jgit.transport.RemoteConfig;
 import org.eclipse.jgit.transport.URIish;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -30,7 +30,7 @@ public class RemoteTest extends CLIRepositoryTestCase {
 
 	private RemoteConfig remote;
 
-	@Before
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception {
 		super.setUp();

@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.io.File;
 import java.io.IOException;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class GcOrphanFilesTest extends GcTestCase {
@@ -48,7 +48,7 @@ public class GcOrphanFilesTest extends GcTestCase {
 	private File packDir;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		super.setUp();
 		packDir = repo.getObjectDatabase().getPackDirectory();

@@ -35,7 +35,7 @@ import org.eclipse.jgit.lib.ObjectInserter;
 import org.eclipse.jgit.lib.RefUpdate;
 import org.eclipse.jgit.lib.Repository;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class PushConnectionTest {
@@ -50,7 +50,7 @@ public class PushConnectionTest {
 	private ObjectId obj3;
 	private String refName = "refs/tags/blob";
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		server = newRepo("server");
 		client = newRepo("client");

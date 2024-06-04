@@ -13,7 +13,7 @@ import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.lib.CLIRepositoryTestCase;
 import org.eclipse.jgit.lib.Constants;
 import org.eclipse.jgit.lib.RefUpdate;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -24,7 +24,7 @@ public class LsRemoteTest extends CLIRepositoryTestCase {
 	private Git git;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		super.setUp();
 		git = new Git(db);

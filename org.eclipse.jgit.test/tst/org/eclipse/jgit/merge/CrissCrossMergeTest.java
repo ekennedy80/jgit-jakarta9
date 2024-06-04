@@ -45,7 +45,7 @@ import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.treewalk.FileTreeIterator;
 import org.eclipse.jgit.treewalk.TreeWalk;
 import org.eclipse.jgit.treewalk.filter.PathFilter;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.experimental.theories.DataPoints;
 import org.junit.experimental.theories.Theories;
 import org.junit.experimental.theories.Theory;
@@ -76,7 +76,7 @@ public class CrissCrossMergeTest extends RepositoryTestCase {
 	private TestRepository<FileRepository> db_t;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		super.setUp();
 		db_t = new TestRepository<>(db);

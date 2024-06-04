@@ -39,7 +39,7 @@ import org.eclipse.jgit.revwalk.RevBlob;
 import org.eclipse.jgit.transport.PackedObjectInfo;
 import org.eclipse.jgit.util.FileUtils;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.AfterEach;
 
@@ -51,7 +51,7 @@ public class AbbreviationTest extends LocalDiskRepositoryTestCase {
 	private TestRepository<Repository> test;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		super.setUp();
 		db = createBareRepository();

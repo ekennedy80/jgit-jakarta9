@@ -31,7 +31,7 @@ import org.eclipse.jgit.transport.resolver.ServiceNotAuthorizedException;
 import org.eclipse.jgit.transport.resolver.ServiceNotEnabledException;
 import org.eclipse.jgit.transport.resolver.UploadPackFactory;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -56,7 +56,7 @@ public class UploadPackReachabilityTest {
 
 	private TestRepository<InMemoryRepository> remote;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		server = newRepo("server");
 		client = newRepo("client");

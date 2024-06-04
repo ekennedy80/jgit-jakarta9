@@ -24,7 +24,7 @@ import org.eclipse.jgit.api.errors.NoFilepatternException;
 import org.eclipse.jgit.errors.NoWorkTreeException;
 import org.eclipse.jgit.junit.RepositoryTestCase;
 import org.eclipse.jgit.lib.Repository;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -34,7 +34,7 @@ public class CleanCommandTest extends RepositoryTestCase {
 	private Git git;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		super.setUp();
 		git = new Git(db);

@@ -14,7 +14,7 @@ import org.eclipse.jgit.lib.CLIRepositoryTestCase;
 import org.eclipse.jgit.merge.MergeStrategy;
 import org.eclipse.jgit.pgm.internal.CLIText;
 import org.eclipse.jgit.revwalk.RevCommit;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Iterator;
@@ -27,7 +27,7 @@ public class MergeTest extends CLIRepositoryTestCase {
 	private Git git;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		super.setUp();
 		git = new Git(db);

@@ -30,7 +30,7 @@ import org.eclipse.jgit.transport.PackParser;
 import org.eclipse.jgit.transport.ReceiveCommand;
 import org.eclipse.jgit.transport.ConnectivityChecker;
 import org.eclipse.jgit.transport.ConnectivityChecker.ConnectivityCheckInfo;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.Rule;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -69,7 +69,7 @@ public class IterativeConnectivityCheckerTest {
 
 	private TestRepository tr;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		tr = new TestRepository<>(
 				new InMemoryRepository(new DfsRepositoryDescription("test")));

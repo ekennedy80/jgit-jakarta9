@@ -27,13 +27,13 @@ import org.eclipse.jgit.junit.JGitTestUtil;
 import org.eclipse.jgit.junit.TestRng;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.ObjectInserter;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class DfsReaderTest {
 	InMemoryRepository db;
 
-	@Before
+	@BeforeEach
 	public void setUp() {
 		db = new InMemoryRepository(new DfsRepositoryDescription("test"));
 	}

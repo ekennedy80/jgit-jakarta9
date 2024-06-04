@@ -25,7 +25,7 @@ import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.ObjectIdRef;
 import org.eclipse.jgit.lib.Ref;
 import org.eclipse.jgit.lib.SymbolicRef;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class RefMapTest {
@@ -41,7 +41,7 @@ public class RefMapTest {
 
 	private RefList<Ref> resolved;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		packed = RefList.emptyList();
 		loose = RefList.emptyList();

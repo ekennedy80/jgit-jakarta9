@@ -27,7 +27,7 @@ import org.eclipse.jgit.transport.PacketLineIn;
 import org.eclipse.jgit.transport.PacketLineOut;
 import org.eclipse.jgit.transport.URIish;
 import org.eclipse.jgit.util.NB;
-//import org.junit.Before;
+//import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

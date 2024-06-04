@@ -17,7 +17,7 @@ import org.eclipse.jgit.junit.MockSystemReader;
 import org.eclipse.jgit.lib.PersonIdent;
 import org.eclipse.jgit.util.GitDateFormatter.Format;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class GitDateFormatterTest {
@@ -26,7 +26,7 @@ public class GitDateFormatterTest {
 
 	private PersonIdent ident;
 
-	@Before
+	@BeforeEach
 	public void setUp() {
 		mockSystemReader = new MockSystemReader() {
 			@Override
@@ -39,7 +39,7 @@ public class GitDateFormatterTest {
 				.parsePersonIdent("A U Thor <author@example.com> 1316560165 -0400");
 	}
 
-	@After
+	@AfterEach
 	public void tearDown() {
 		SystemReader.setInstance(null);
 	}

@@ -42,7 +42,7 @@ import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.transport.RefSpec;
 import org.eclipse.jgit.transport.RemoteConfig;
 import org.eclipse.jgit.transport.URIish;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class PullCommandTest extends RepositoryTestCase {
@@ -578,7 +578,7 @@ public class PullCommandTest extends RepositoryTestCase {
 	}
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		super.setUp();
 		dbTarget = createWorkRepository();

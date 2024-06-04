@@ -20,7 +20,7 @@ import java.nio.file.Paths;
 import java.nio.file.attribute.FileTime;
 import java.time.Instant;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class GcDeleteEmptyRefsFoldersTest extends GcTestCase {
@@ -31,7 +31,7 @@ public class GcDeleteEmptyRefsFoldersTest extends GcTestCase {
 	private Path heads;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		super.setUp();
 		refsDir = Paths.get(repo.getDirectory().getAbsolutePath())

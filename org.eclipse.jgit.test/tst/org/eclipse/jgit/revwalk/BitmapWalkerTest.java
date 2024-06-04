@@ -25,7 +25,7 @@ import org.eclipse.jgit.lib.BitmapIndex.BitmapBuilder;
 import org.eclipse.jgit.lib.BitmapIndex.BitmapLookupListener;
 import org.eclipse.jgit.lib.NullProgressMonitor;
 import org.eclipse.jgit.lib.ObjectReader;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class BitmapWalkerTest extends LocalDiskRepositoryTestCase {
@@ -37,7 +37,7 @@ public class BitmapWalkerTest extends LocalDiskRepositoryTestCase {
 	RevCommit tipWithBitmap;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		super.setUp();
 		FileRepository db = createWorkRepository();

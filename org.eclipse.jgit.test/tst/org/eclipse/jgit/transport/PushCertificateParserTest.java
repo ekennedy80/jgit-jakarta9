@@ -66,7 +66,7 @@ import org.eclipse.jgit.lib.Constants;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.transport.PushCertificate.NonceStatus;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /** Test for push certificate parsing. */
@@ -119,7 +119,7 @@ public class PushCertificateParserTest {
 
 	private Repository db;
 
-	@Before
+	@BeforeEach
 	public void setUp() {
 		db = new InMemoryRepository(new DfsRepositoryDescription("repo"));
 	}

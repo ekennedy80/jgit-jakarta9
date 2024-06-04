@@ -32,7 +32,7 @@ import java.util.Set;
 import org.eclipse.jgit.internal.storage.file.LockFile;
 import org.eclipse.jgit.util.http.HttpCookiesMatcher;
 import org.hamcrest.CoreMatchers;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.Rule;
 import org.junit.jupiter.api.Test;
 import org.junit.rules.TemporaryFolder;
@@ -56,7 +56,7 @@ public class NetscapeCookieFileTest {
 	private static final Instant TEST_DATE = TEST_EXPIRY_DATE.minus(180,
 			ChronoUnit.DAYS);
 
-	@Before
+	@BeforeEach
 	public void setUp() throws IOException {
 		// this will not only return a new file name but also create new empty
 		// file!

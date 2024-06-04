@@ -33,7 +33,7 @@ import org.eclipse.jgit.util.FS;
 import org.eclipse.jgit.util.FS.ExecutionResult;
 import org.eclipse.jgit.util.RawParseUtils;
 import org.eclipse.jgit.util.TemporaryBuffer;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -42,7 +42,7 @@ import org.junit.jupiter.api.Test;
  */
 public class CGitAttributesTest extends RepositoryTestCase {
 
-	@Before
+	@BeforeEach
 	public void initRepo() throws IOException {
 		// Because we run C-git, we must ensure that global or user exclude
 		// files cannot influence the tests. So we set core.excludesFile to an

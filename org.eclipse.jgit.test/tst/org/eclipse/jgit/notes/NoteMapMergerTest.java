@@ -25,10 +25,9 @@ import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.merge.MergeStrategy;
 import org.eclipse.jgit.revwalk.RevBlob;
 import org.eclipse.jgit.revwalk.RevCommit;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.Before;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
 public class NoteMapMergerTest extends RepositoryTestCase {
 	private TestRepository<Repository> tr;
@@ -62,9 +61,9 @@ public class NoteMapMergerTest extends RepositoryTestCase {
 	private RevCommit sampleTree_a_b;
 
 	@Override
-	@Before
-	public void setUp() throws Exception {
-		super.setUp();
+	@BeforeEach
+	public void setUp(TestInfo testInfo) throws Exception {
+		super.setUp(testInfo);
 		tr = new TestRepository<>(db);
 		reader = db.newObjectReader();
 		inserter = db.newObjectInserter();
@@ -92,9 +91,8 @@ public class NoteMapMergerTest extends RepositoryTestCase {
 		map_a_b = NoteMap.read(reader, sampleTree_a_b);
 	}
 
-	@AfterEach
     @Override
-	@After
+	@AfterEach
 	public void tearDown() throws Exception {
 		reader.close();
 		inserter.close();

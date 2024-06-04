@@ -43,7 +43,7 @@ import org.junit.runners.Parameterized.Parameters;
 @RunWith(Parameterized.class)
 public class DirectoryTest extends RepositoryTestCase {
 
-	@BeforeClass
+	@BeforeEachClass
 	public static void checkPrecondition() throws Exception {
 		Assume.assumeTrue(FS.DETECTED.supportsSymlinks());
 		Path tempDir = Files.createTempDirectory("jgit");

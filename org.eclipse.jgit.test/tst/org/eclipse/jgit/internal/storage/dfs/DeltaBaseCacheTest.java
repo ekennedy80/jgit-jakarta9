@@ -18,7 +18,7 @@ import static org.junit.Assert.assertSame;
 
 import org.eclipse.jgit.internal.storage.dfs.DeltaBaseCache.Entry;
 import org.eclipse.jgit.junit.TestRng;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class DeltaBaseCacheTest {
@@ -28,7 +28,7 @@ public class DeltaBaseCacheTest {
 	private DeltaBaseCache cache;
 	private TestRng rng;
 
-	@Before
+	@BeforeEach
 	public void setUp() {
 		DfsRepositoryDescription repo = new DfsRepositoryDescription("test");
 		key = DfsStreamKey.of(repo, "test.key", null);

@@ -18,7 +18,7 @@ import java.io.InputStream;
 import java.io.StringWriter;
 import java.nio.charset.StandardCharsets;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class SideBandInputStreamTest {
@@ -27,7 +27,7 @@ public class SideBandInputStreamTest {
 
 	private SideBandInputStream sideband;
 
-	@Before
+	@BeforeEach
 	public void setup() {
 		messages = new StringWriter();
 	}

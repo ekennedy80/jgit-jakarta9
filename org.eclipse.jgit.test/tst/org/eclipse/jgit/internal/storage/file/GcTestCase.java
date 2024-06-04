@@ -21,7 +21,7 @@ import org.eclipse.jgit.lib.AnyObjectId;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.revwalk.RevWalk;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.AfterEach;
 
 public abstract class GcTestCase extends LocalDiskRepositoryTestCase {
@@ -31,7 +31,7 @@ public abstract class GcTestCase extends LocalDiskRepositoryTestCase {
 	protected RepoStatistics stats;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		super.setUp();
 		repo = createWorkRepository();

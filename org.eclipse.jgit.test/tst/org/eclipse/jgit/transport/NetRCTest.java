@@ -53,7 +53,7 @@ import java.io.OutputStreamWriter;
 
 import org.eclipse.jgit.junit.RepositoryTestCase;
 import org.eclipse.jgit.util.FileUtils;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class NetRCTest extends RepositoryTestCase {
@@ -64,7 +64,7 @@ public class NetRCTest extends RepositoryTestCase {
 	private File configFile;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		super.setUp();
 

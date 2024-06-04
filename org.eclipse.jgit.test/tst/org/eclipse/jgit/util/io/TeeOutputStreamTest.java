@@ -40,8 +40,8 @@ public class TeeOutputStreamTest {
 			assertArrayEquals("Stream output must match", first.toByteArray(),
 					second.toByteArray());
 		}
-		assertTrue("First stream should be closed", first.closed);
-		assertTrue("Second stream should be closed", second.closed);
+		assertTrue(first.closed);
+		assertTrue(second.closed);
 	}
 
 	@Test
@@ -62,9 +62,8 @@ public class TeeOutputStreamTest {
 		} catch (IOException ex) {
 			// Expected from first closed
 		}
-		assertFalse("First stream should not be closed", first.closed);
-		assertTrue("Second stream should still be closed if first close failed",
-				second.closed);
+		assertFalse(first.closed);
+		assertTrue(second.closed);
 	}
 
 	private static class TestOutput extends ByteArrayOutputStream {

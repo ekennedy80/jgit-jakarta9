@@ -9,17 +9,15 @@
  */
 package org.eclipse.jgit.util;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.Assert.assertNull;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
 import org.junit.jupiter.api.AfterEach;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class SimpleLruCacheTest {
 
@@ -28,14 +26,13 @@ public class SimpleLruCacheTest {
 	private SimpleLruCache<String, String> cache;
 
 
-	@Before
+	@BeforeEach
 	public void setup() throws IOException {
 		trash = Files.createTempDirectory("tmp_");
 		cache = new SimpleLruCache<>(100, 0.2f);
 	}
 
-	@Before
-	@After
+	@AfterEach
 	public void tearDown() throws Exception {
 		FileUtils.delete(trash.toFile(),
 				FileUtils.RECURSIVE | FileUtils.SKIP_MISSING);
@@ -49,24 +46,40 @@ public class SimpleLruCacheTest {
 		assertEquals("Z", cache.get("z"));
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void testPurgeFactorTooLarge() {
-		cache.configure(5, 1.01f);
+		IllegalArgumentException thrown = assertThrows(
+				IllegalArgumentException.class,
+				() -> cache.configure(5, 1.01f)
+		);
+		assertNotNull(thrown);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void testPurgeFactorTooLarge2() {
-		cache.configure(5, 100);
+		IllegalArgumentException thrown = assertThrows(
+				IllegalArgumentException.class,
+				() -> cache.configure(5, 100)
+		);
+		assertNotNull(thrown);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void testPurgeFactorTooSmall() {
-		cache.configure(5, 0);
+		IllegalArgumentException thrown = assertThrows(
+				IllegalArgumentException.class,
+				() -> cache.configure(5, 0)
+		);
+		assertNotNull(thrown);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void testPurgeFactorTooSmall2() {
-		cache.configure(5, -100);
+		IllegalArgumentException thrown = assertThrows(
+				IllegalArgumentException.class,
+				() -> cache.configure(5, -100)
+		);
+		assertNotNull(thrown);
 	}
 
 	@Test

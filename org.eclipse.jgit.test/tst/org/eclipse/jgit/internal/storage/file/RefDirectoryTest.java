@@ -52,7 +52,7 @@ import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.revwalk.RevTag;
 import org.eclipse.jgit.util.FS;
 import org.eclipse.jgit.util.StringUtils;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 @SuppressWarnings("boxing")
@@ -70,7 +70,7 @@ public class RefDirectoryTest extends LocalDiskRepositoryTestCase {
 	private RevTag v1_0;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		super.setUp();
 		refDirectorySetup();

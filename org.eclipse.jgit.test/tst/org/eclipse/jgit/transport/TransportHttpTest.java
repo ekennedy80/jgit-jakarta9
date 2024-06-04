@@ -29,7 +29,7 @@ import org.eclipse.jgit.test.resources.SampleDataRepositoryTestCase;
 import org.eclipse.jgit.transport.http.HttpConnection;
 import org.eclipse.jgit.util.http.HttpCookiesMatcher;
 import org.junit.Assert;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentMatchers;
 import org.mockito.Mockito;
@@ -39,7 +39,7 @@ public class TransportHttpTest extends SampleDataRepositoryTestCase {
 	private File cookieFile;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		super.setUp();
 		uri = new URIish("https://everyones.loves.git/u/2");

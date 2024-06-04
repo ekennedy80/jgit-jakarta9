@@ -16,7 +16,7 @@ import org.eclipse.jgit.internal.storage.file.BasePackBitmapIndex.StoredBitmap;
 import org.eclipse.jgit.lib.AnyObjectId;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.ObjectIdOwnerMap;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.googlecode.javaewah.EWAHCompressedBitmap;
@@ -33,7 +33,7 @@ public class BasePackBitmapIndexTest {
 
 	private ObjectIdOwnerMap<StoredBitmap> bitmaps;
 
-	@Before
+	@BeforeEach
 	public void setUp() {
 		baseOid = ObjectId
 				.fromString("c46f36f2bfc96d6d6f75bd71ee33625293aee690");

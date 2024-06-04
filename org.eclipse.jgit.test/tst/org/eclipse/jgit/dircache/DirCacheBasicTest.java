@@ -32,7 +32,7 @@ import org.eclipse.jgit.lib.FileMode;
 import org.eclipse.jgit.lib.ObjectInserter;
 import org.eclipse.jgit.storage.file.FileBasedConfig;
 import org.eclipse.jgit.util.SystemReader;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -51,7 +51,7 @@ public class DirCacheBasicTest extends RepositoryTestCase {
 						{ Boolean.FALSE } });
 	}
 
-	@Before
+	@BeforeEach
 	public void setup() throws IOException {
 		FileBasedConfig cfg = db.getConfig();
 		cfg.setBoolean(ConfigConstants.CONFIG_INDEX_SECTION, null,

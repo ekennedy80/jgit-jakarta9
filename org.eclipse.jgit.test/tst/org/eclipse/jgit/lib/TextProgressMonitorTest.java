@@ -15,7 +15,7 @@ import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 
 import org.junit.Assert;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class TextProgressMonitorTest {
@@ -24,7 +24,7 @@ public class TextProgressMonitorTest {
 
 	private ByteArrayOutputStream buf;
 
-	@Before
+	@BeforeEach
 	public void setup() {
 		buf = new ByteArrayOutputStream();
 		m = new TextProgressMonitor(

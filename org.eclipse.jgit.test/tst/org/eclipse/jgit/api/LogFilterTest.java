@@ -22,7 +22,7 @@ import org.eclipse.jgit.junit.RepositoryTestCase;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.util.FileUtils;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.AfterEach;
 
@@ -32,7 +32,7 @@ import org.junit.jupiter.api.AfterEach;
 public class LogFilterTest extends RepositoryTestCase {
 	private Git git;
 
-	@Before
+	@BeforeEach
 	public void setup() throws Exception {
 		super.setUp();
 		git = new Git(db);

@@ -20,7 +20,7 @@ import java.util.HashMap;
 import org.eclipse.jgit.treewalk.filter.AndTreeFilter;
 import org.eclipse.jgit.treewalk.filter.PathFilterGroup;
 import org.eclipse.jgit.treewalk.filter.TreeFilter;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 // Note: Much of this test case is broken as it depends upon
@@ -37,7 +37,7 @@ public class RevWalkPathFilter6012Test extends RevWalkTestCase {
 	private HashMap<RevCommit, String> byName;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		super.setUp();
 

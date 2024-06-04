@@ -33,7 +33,7 @@ import org.eclipse.jgit.storage.file.WindowCacheConfig;
 import org.eclipse.jgit.storage.file.WindowCacheStats;
 import org.eclipse.jgit.test.resources.SampleDataRepositoryTestCase;
 import org.eclipse.jgit.util.MutableInteger;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -56,7 +56,7 @@ public class WindowCacheGetTest extends SampleDataRepositoryTestCase {
 	}
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		super.setUp();
 

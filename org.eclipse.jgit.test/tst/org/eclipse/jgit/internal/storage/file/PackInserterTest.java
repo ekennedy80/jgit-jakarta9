@@ -87,7 +87,7 @@ import org.eclipse.jgit.storage.file.WindowCacheConfig;
 import org.eclipse.jgit.treewalk.CanonicalTreeParser;
 import org.eclipse.jgit.util.IO;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 @SuppressWarnings("boxing")
@@ -96,7 +96,7 @@ public class PackInserterTest extends RepositoryTestCase {
 
 	private static final Random random = new Random(0);
 
-	@Before
+	@BeforeEach
 	public void setWindowCacheConfig() {
 		origWindowCacheConfig = new WindowCacheConfig();
 		origWindowCacheConfig.install();
@@ -107,7 +107,7 @@ public class PackInserterTest extends RepositoryTestCase {
 		origWindowCacheConfig.install();
 	}
 
-	@Before
+	@BeforeEach
 	public void emptyAtSetUp() throws Exception {
 		assertEquals(0, listPacks().size());
 		assertNoObjects();

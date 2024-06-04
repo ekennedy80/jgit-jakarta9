@@ -25,8 +25,9 @@ import java.util.List;
 
 import org.eclipse.jgit.util.IO;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
 
 public class TimeoutInputStreamTest {
 	private static final int timeout = 250;
@@ -41,16 +42,17 @@ public class TimeoutInputStreamTest {
 
 	private long start;
 
-	@Before
-	public void setUp() throws Exception {
+	@BeforeEach
+	public void setUp(TestInfo testInfo) throws Exception {
 		out = new PipedOutputStream();
 		in = new PipedInputStream(out);
 		timer = new InterruptTimer();
 		is = new TimeoutInputStream(in, timer);
 		is.setTimeout(timeout);
+		System.out.println(testInfo.toString());
 	}
 
-	@After
+	@AfterEach
 	public void tearDown() throws Exception {
 		timer.terminate();
 		for (Thread t : active())
@@ -150,7 +152,7 @@ public class TimeoutInputStreamTest {
 		// 50 ms of the expected timeout.
 		//
 		final long wait = now() - start;
-		assertTrue("waited only " + wait + " ms", timeout - wait < 50);
+		assertTrue(timeout - wait < 50);
 	}
 
 	private static List<Thread> active() {

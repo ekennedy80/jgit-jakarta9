@@ -21,9 +21,9 @@ import org.eclipse.jgit.lib.ObjectReader;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.revwalk.RevBlob;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.TestInfo;
 
 public class DefaultNoteMergerTest extends RepositoryTestCase {
 
@@ -40,9 +40,9 @@ public class DefaultNoteMergerTest extends RepositoryTestCase {
 	private RevBlob noteOn;
 
 	@Override
-	@Before
-	public void setUp() throws Exception {
-		super.setUp();
+	@BeforeEach
+	public void setUp(TestInfo testInfo) throws Exception {
+		super.setUp(testInfo);
 		tr = new TestRepository<>(db);
 		reader = db.newObjectReader();
 		inserter = db.newObjectInserter();
@@ -51,9 +51,8 @@ public class DefaultNoteMergerTest extends RepositoryTestCase {
 		baseNote = newNote("data");
 	}
 
-	@AfterEach
     @Override
-	@After
+	@AfterEach
 	public void tearDown() throws Exception {
 		reader.close();
 		inserter.close();

@@ -19,7 +19,7 @@ import org.eclipse.jgit.lib.Constants;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.ReflogEntry;
 import org.eclipse.jgit.revwalk.RevCommit;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class ReflogCommandTest extends RepositoryTestCase {
@@ -31,7 +31,7 @@ public class ReflogCommandTest extends RepositoryTestCase {
 	private static final String FILE = "test.txt";
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		super.setUp();
 

@@ -26,7 +26,7 @@ import org.eclipse.jgit.lib.Ref;
 import org.eclipse.jgit.lib.ReflogEntry;
 import org.eclipse.jgit.lib.ReflogReader;
 import org.eclipse.jgit.revwalk.RevCommit;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -41,7 +41,7 @@ public class StashDropCommandTest extends RepositoryTestCase {
 	private File committedFile;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		super.setUp();
 		git = Git.wrap(db);

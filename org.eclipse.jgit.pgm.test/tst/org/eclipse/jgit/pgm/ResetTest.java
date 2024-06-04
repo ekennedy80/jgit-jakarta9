@@ -12,7 +12,7 @@ package org.eclipse.jgit.pgm;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.lib.CLIRepositoryTestCase;
 import org.eclipse.jgit.revwalk.RevCommit;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 
@@ -23,7 +23,7 @@ public class ResetTest extends CLIRepositoryTestCase {
 	private Git git;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		super.setUp();
 		git = new Git(db);

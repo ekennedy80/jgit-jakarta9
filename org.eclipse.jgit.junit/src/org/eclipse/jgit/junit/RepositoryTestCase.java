@@ -188,6 +188,7 @@ public abstract class	RepositoryTestCase extends LocalDiskRepositoryTestCase {
 	 * Happens before each test
 	 * @throws Exception an excpetion
 	 */
+	@Override
 	@BeforeEach
 	public void setUp(TestInfo testInfo) throws Exception {
 		super.setUp(testInfo);
@@ -195,6 +196,7 @@ public abstract class	RepositoryTestCase extends LocalDiskRepositoryTestCase {
 		trash = db.getWorkTree();
 	}
 
+	@Override
 	@AfterEach
 	public void tearDown() throws Exception {
 		db.close();

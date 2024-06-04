@@ -21,7 +21,7 @@ import org.eclipse.jgit.junit.TestRepository;
 import org.eclipse.jgit.lib.AnyObjectId;
 import org.eclipse.jgit.lib.ObjectLoader;
 import org.eclipse.jgit.revwalk.filter.RevFilter;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class RevCommitWithOverriddenParentTest {
@@ -29,7 +29,7 @@ public class RevCommitWithOverriddenParentTest {
 
 	private RevWalk rw;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		tr = new TestRepository<>(
 				new InMemoryRepository(new DfsRepositoryDescription("test")));

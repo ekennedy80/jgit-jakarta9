@@ -17,7 +17,7 @@ import java.io.File;
 import java.nio.file.Paths;
 import java.time.Instant;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class GcTemporaryFilesTest extends GcTestCase {
@@ -28,7 +28,7 @@ public class GcTemporaryFilesTest extends GcTestCase {
 	private File packDir;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		super.setUp();
 		packDir = Paths.get(repo.getObjectsDirectory().getAbsolutePath(),

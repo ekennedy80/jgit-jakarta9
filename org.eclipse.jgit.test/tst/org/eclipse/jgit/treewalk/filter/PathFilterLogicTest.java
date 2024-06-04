@@ -25,14 +25,14 @@ import org.eclipse.jgit.lib.FileMode;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.ObjectInserter;
 import org.eclipse.jgit.treewalk.TreeWalk;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class PathFilterLogicTest extends RepositoryTestCase {
 
 	private ObjectId treeId;
 
-	@Before
+	@BeforeEach
 	public void setup() throws IOException {
 		String[] paths = new String[] {
 				"a.txt",

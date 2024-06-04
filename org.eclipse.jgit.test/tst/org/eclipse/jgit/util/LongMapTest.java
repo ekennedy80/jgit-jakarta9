@@ -16,13 +16,13 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class LongMapTest {
 	private LongMap<Long> map;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		map = new LongMap<>();
 	}

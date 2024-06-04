@@ -65,7 +65,7 @@ import org.eclipse.jgit.test.resources.SampleDataRepositoryTestCase;
 import org.eclipse.jgit.util.FileUtils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.AfterClass;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.jupiter.api.Test;
@@ -952,7 +952,7 @@ public class WalkEncryptionTest {
 
 		//////////////////////////////////////////////////
 
-		@BeforeClass
+		@BeforeEachClass
 		public static void initialize() throws Exception {
 			Transport.register(TransportAmazonS3.PROTO_S3);
 			proxySetup();
@@ -975,7 +975,7 @@ public class WalkEncryptionTest {
 			}
 		}
 
-		@Before
+		@BeforeEach
 		@Override
 		public void setUp() throws Exception {
 			super.setUp();

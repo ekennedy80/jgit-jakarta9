@@ -30,7 +30,7 @@ import org.eclipse.jgit.submodule.SubmoduleStatusType;
 import org.eclipse.jgit.submodule.SubmoduleWalk;
 import org.eclipse.jgit.transport.FetchResult;
 import org.eclipse.jgit.transport.RefSpec;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.experimental.theories.DataPoints;
 import org.junit.experimental.theories.Theories;
 import org.junit.experimental.theories.Theory;
@@ -63,7 +63,7 @@ public class FetchAndPullCommandsRecurseSubmodulesTest extends RepositoryTestCas
 
 	private final String PATH = "sub";
 
-	@Before
+	@BeforeEach
 	public void setUpSubmodules() throws Exception {
 		git = new Git(db);
 

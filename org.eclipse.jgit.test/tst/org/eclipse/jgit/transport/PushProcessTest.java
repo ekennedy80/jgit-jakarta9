@@ -37,7 +37,7 @@ import org.eclipse.jgit.lib.TextProgressMonitor;
 import org.eclipse.jgit.test.resources.SampleDataRepositoryTestCase;
 import org.eclipse.jgit.transport.RemoteRefUpdate.Status;
 import org.eclipse.jgit.util.io.NullOutputStream;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class PushProcessTest extends SampleDataRepositoryTestCase {
@@ -52,7 +52,7 @@ public class PushProcessTest extends SampleDataRepositoryTestCase {
 	private Status connectionUpdateStatus;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		super.setUp();
 		transport = new MockTransport(db, new URIish());

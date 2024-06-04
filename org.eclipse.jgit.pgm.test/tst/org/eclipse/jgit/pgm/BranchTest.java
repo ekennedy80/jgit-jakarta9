@@ -15,7 +15,7 @@ import org.eclipse.jgit.lib.Constants;
 import org.eclipse.jgit.lib.RefUpdate;
 import org.eclipse.jgit.pgm.internal.CLIText;
 import org.eclipse.jgit.revwalk.RevCommit;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -24,7 +24,7 @@ import static org.junit.jupiter.api.Assertions.*;;
 
 public class BranchTest extends CLIRepositoryTestCase {
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		super.setUp();
 		try (Git git = new Git(db)) {

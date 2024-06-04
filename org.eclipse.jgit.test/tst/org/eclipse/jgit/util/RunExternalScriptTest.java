@@ -11,7 +11,7 @@
 package org.eclipse.jgit.util;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -21,7 +21,7 @@ import java.io.InputStream;
 
 import org.eclipse.jgit.junit.JGitTestUtil;
 import org.eclipse.jgit.util.FS.ExecutionResult;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class RunExternalScriptTest {
@@ -31,7 +31,7 @@ public class RunExternalScriptTest {
 
 	private ByteArrayOutputStream err;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		out = new ByteArrayOutputStream();
 		err = new ByteArrayOutputStream();
@@ -116,16 +116,24 @@ public class RunExternalScriptTest {
 		assertEquals("3,a,b,c,,," + LF, new String(err.toByteArray(), UTF_8));
 	}
 
-	@Test(expected = IOException.class)
-	public void testWrongSh() throws IOException, InterruptedException {
-		File script = writeTempFile("cat -");
-		FS.DETECTED.runProcess(
-				new ProcessBuilder("/bin/sh-foo", script.getPath(), "a", "b",
-						"c"), out, err, (InputStream) null);
-	}
+	@Test
+	public void wrongShTest() {
+		try {
+			File script = writeTempFile("cat -");
+			IOException thrown = assertThrows(
+					IOException.class,
+					() -> FS.DETECTED.runProcess(new ProcessBuilder("/bin/sh-foo", script.getPath(), "a", "b",
+							"c"), out, err, (InputStream) null)
+			);
+			assertNotNull(thrown);
+		} catch (IOException e) {
+           System.out.println(e.getMessage());
+        }
+
+    }
 
 	@Test
-	public void testWrongScript() throws IOException, InterruptedException {
+	public void wrongScriptTest() throws IOException, InterruptedException {
 		File script = writeTempFile("cat-foo -");
 		int rc = FS.DETECTED.runProcess(
 				new ProcessBuilder("sh", script.getPath(), "a", "b", "c"),

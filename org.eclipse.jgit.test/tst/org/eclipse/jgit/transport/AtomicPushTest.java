@@ -30,7 +30,7 @@ import org.eclipse.jgit.transport.resolver.ReceivePackFactory;
 import org.eclipse.jgit.transport.resolver.ServiceNotAuthorizedException;
 import org.eclipse.jgit.transport.resolver.ServiceNotEnabledException;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class AtomicPushTest {
@@ -42,7 +42,7 @@ public class AtomicPushTest {
 	private ObjectId commit1;
 	private ObjectId commit2;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		server = newRepo("server");
 		client = newRepo("client");

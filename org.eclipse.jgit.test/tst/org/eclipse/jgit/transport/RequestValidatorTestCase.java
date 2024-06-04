@@ -28,7 +28,7 @@ import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.revwalk.RevBlob;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.transport.UploadPack.RequestValidator;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public abstract class RequestValidatorTestCase {
@@ -49,7 +49,7 @@ public abstract class RequestValidatorTestCase {
 
 	protected abstract RequestValidator createValidator();
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		repo = new InMemoryRepository(new DfsRepositoryDescription());
 		try (TestRepository<InMemoryRepository> git = new TestRepository<>(

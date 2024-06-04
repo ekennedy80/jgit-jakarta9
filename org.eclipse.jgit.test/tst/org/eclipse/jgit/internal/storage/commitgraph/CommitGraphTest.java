@@ -35,7 +35,7 @@ import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.storage.file.FileBasedConfig;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -48,7 +48,7 @@ public class CommitGraphTest extends RepositoryTestCase {
 	private CommitGraph commitGraph;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		super.setUp();
 		tr = new TestRepository<>(db, new RevWalk(db), mockSystemReader);

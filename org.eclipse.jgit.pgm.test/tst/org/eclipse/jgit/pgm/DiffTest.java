@@ -11,7 +11,7 @@
 package org.eclipse.jgit.pgm;
 
 import org.eclipse.jgit.lib.CLIRepositoryTestCase;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -20,7 +20,7 @@ public class DiffTest extends CLIRepositoryTestCase {
 
 	private static final String NO_NEWLINE = "\\ No newline at end of file";
 
-	@Before
+	@BeforeEach
 	public void setup() throws Exception {
 		writeTrashFile("a", "a");
 		execute("git add a");

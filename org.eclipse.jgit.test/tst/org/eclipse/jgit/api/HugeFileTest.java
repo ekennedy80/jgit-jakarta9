@@ -19,7 +19,7 @@ import java.util.Collection;
 import org.eclipse.jgit.api.ResetCommand.ResetType;
 import org.eclipse.jgit.junit.RepositoryTestCase;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 
@@ -37,7 +37,7 @@ public class HugeFileTest extends RepositoryTestCase {
 		lastt = c;
 	}
 
-	@Before
+	@BeforeEach
 	public void before() {
 		git = new Git(db);
 	}

@@ -33,7 +33,7 @@ import static org.junit.jupiter.api.Assertions.*;;
 @RunWith(Parameterized.class)
 public class SecretKeysTest {
 
-	@BeforeClass
+	@BeforeEachClass
 	public static void ensureBC() {
 		if (Security.getProvider(BouncyCastleProvider.PROVIDER_NAME) == null) {
 			Security.addProvider(new BouncyCastleProvider());

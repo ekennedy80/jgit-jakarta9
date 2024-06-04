@@ -13,7 +13,7 @@ import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.junit.JGitTestUtil;
 import org.eclipse.jgit.lib.CLIRepositoryTestCase;
 import org.eclipse.jgit.lib.Repository;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -34,7 +34,7 @@ public class RepoTest extends CLIRepositoryTestCase {
 	private String groupBUri;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		super.setUp();
 

@@ -31,14 +31,14 @@ import org.eclipse.jgit.internal.storage.dfs.InMemoryRepository;
 import org.eclipse.jgit.junit.TestRepository;
 import org.eclipse.jgit.lib.Config;
 import org.eclipse.jgit.revwalk.RevCommit;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class ProtocolV2ParserTest {
 
 	private TestRepository<InMemoryRepository> testRepo;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		testRepo = new TestRepository<>(newRepo("protocol-v2-parser-test"));
 	}

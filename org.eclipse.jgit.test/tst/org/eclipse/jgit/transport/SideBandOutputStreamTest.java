@@ -27,7 +27,7 @@ import java.io.OutputStream;
 import java.text.MessageFormat;
 
 import org.eclipse.jgit.internal.JGitText;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 // Note, test vectors created with:
@@ -37,7 +37,7 @@ import org.junit.jupiter.api.Test;
 public class SideBandOutputStreamTest {
 	private ByteArrayOutputStream rawOut;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		rawOut = new ByteArrayOutputStream();
 	}

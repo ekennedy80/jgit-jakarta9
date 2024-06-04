@@ -19,7 +19,7 @@ import org.eclipse.jgit.diff.DiffEntry;
 import org.eclipse.jgit.junit.TestRepository.CommitBuilder;
 import org.eclipse.jgit.lib.Config;
 import org.junit.Assert;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class RevWalkFollowFilterTest extends RevWalkTestCase {
@@ -43,7 +43,7 @@ public class RevWalkFollowFilterTest extends RevWalkTestCase {
 
 	private DiffCollector diffCollector;
 
-	@Before
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception {
 		super.setUp();

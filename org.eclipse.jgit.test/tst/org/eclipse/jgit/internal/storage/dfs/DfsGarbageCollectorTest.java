@@ -42,7 +42,7 @@ import org.eclipse.jgit.storage.pack.PackConfig;
 import org.eclipse.jgit.transport.ReceiveCommand;
 import org.eclipse.jgit.util.SystemReader;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /** Tests for pack creation and garbage expiration. */
@@ -52,7 +52,7 @@ public class DfsGarbageCollectorTest {
 	private DfsObjDatabase odb;
 	private MockSystemReader mockSystemReader;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws IOException {
 		DfsRepositoryDescription desc = new DfsRepositoryDescription("test");
 		git = new TestRepository<>(new InMemoryRepository(desc));

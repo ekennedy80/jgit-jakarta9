@@ -24,7 +24,7 @@ import org.eclipse.jgit.lib.StoredConfig;
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
 import org.eclipse.jgit.util.FileUtils;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -35,7 +35,7 @@ public class CheckoutTest extends LfsServerTest {
 	private TestRepository tdb;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setup() throws Exception {
 		super.setup();
 

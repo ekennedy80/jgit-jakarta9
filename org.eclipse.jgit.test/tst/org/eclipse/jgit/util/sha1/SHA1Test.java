@@ -30,10 +30,10 @@ import org.eclipse.jgit.util.IO;
 import org.eclipse.jgit.util.SystemReader;
 import org.eclipse.jgit.util.sha1.SHA1.Sha1Implementation;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.Before;
 import org.junit.experimental.theories.DataPoints;
 import org.junit.experimental.theories.Theories;
 import org.junit.experimental.theories.Theory;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
 
 @RunWith(Theories.class)
@@ -56,7 +56,7 @@ public class SHA1Test {
 		this.sha1Implementation = impl;
 	}
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		MockSystemReader mockSystemReader = new MockSystemReader();
 		SystemReader.setInstance(mockSystemReader);
@@ -64,7 +64,7 @@ public class SHA1Test {
 					sha1Implementation.name());
 	}
 
-	@After
+	@AfterEach
 	public void tearDown() {
 		SystemReader.setInstance(null);
 	}
@@ -152,19 +152,17 @@ public class SHA1Test {
 				.fromString("38762cf7f55934b34d179ae6a4c80cadccbb7f0a");
 		md = MessageDigest.getInstance("SHA-1");
 		md.update(pdf1);
-		assertEquals("shattered-1 collides", bad,
-				ObjectId.fromRaw(md.digest()));
+		assertEquals(bad, ObjectId.fromRaw(md.digest()));
 		s = SHA1.newInstance().setDetectCollision(false);
 		s.update(pdf1);
-		assertEquals("shattered-1 collides", bad, s.toObjectId());
+		assertEquals(bad, s.toObjectId());
 
 		md = MessageDigest.getInstance("SHA-1");
 		md.update(pdf2);
-		assertEquals("shattered-2 collides", bad,
-				ObjectId.fromRaw(md.digest()));
+		assertEquals(bad, ObjectId.fromRaw(md.digest()));
 		s = SHA1.newInstance().setDetectCollision(false);
 		s.update(pdf2);
-		assertEquals("shattered-2 collides", bad, s.toObjectId());
+		assertEquals(bad, s.toObjectId());
 
 		// SHA1 with detectCollision shouldn't be fooled.
 		s = SHA1.newInstance().setDetectCollision(true);
@@ -230,7 +228,7 @@ public class SHA1Test {
 			s.digest();
 			fail("expected " + Sha1CollisionException.class.getSimpleName());
 		} catch (Sha1CollisionException e) {
-			assertTrue("shattered-1 detected", true);
+			assertTrue(true);
 		}
 	}
 

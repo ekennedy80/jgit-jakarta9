@@ -49,7 +49,7 @@ import org.eclipse.jgit.internal.storage.dfs.DfsRepositoryDescription;
 import org.eclipse.jgit.internal.storage.dfs.InMemoryRepository;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.transport.PushCertificate.NonceStatus;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /** Test for HMAC SHA-1 certificate verifier. */
@@ -59,7 +59,7 @@ public class HMACSHA1NonceGeneratorTest {
 	private HMACSHA1NonceGenerator gen;
 	private Repository db;
 
-	@Before
+	@BeforeEach
 	public void setUp() {
 		gen = new HMACSHA1NonceGenerator("sekret");
 		db = new InMemoryRepository(new DfsRepositoryDescription("db"));

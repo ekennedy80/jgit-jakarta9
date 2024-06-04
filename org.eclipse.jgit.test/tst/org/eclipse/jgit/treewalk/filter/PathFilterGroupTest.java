@@ -34,7 +34,7 @@ import org.eclipse.jgit.lib.FileMode;
 import org.eclipse.jgit.lib.ObjectReader;
 import org.eclipse.jgit.lib.Sets;
 import org.eclipse.jgit.treewalk.TreeWalk;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class PathFilterGroupTest {
@@ -43,7 +43,7 @@ public class PathFilterGroupTest {
 
 	private Map<String, TreeFilter> singles;
 
-	@Before
+	@BeforeEach
 	public void setup() {
 		// @formatter:off
 		String[] paths = new String[] {

@@ -41,7 +41,7 @@ import java.text.MessageFormat;
 
 import org.eclipse.jgit.errors.CorruptObjectException;
 import org.eclipse.jgit.internal.JGitText;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class ObjectCheckerTest {
@@ -83,7 +83,7 @@ public class ObjectCheckerTest {
 
 	private ObjectChecker checker;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		checker = new ObjectChecker();
 	}

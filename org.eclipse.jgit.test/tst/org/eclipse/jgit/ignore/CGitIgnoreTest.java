@@ -35,7 +35,7 @@ import org.eclipse.jgit.util.FS;
 import org.eclipse.jgit.util.FS.ExecutionResult;
 import org.eclipse.jgit.util.RawParseUtils;
 import org.eclipse.jgit.util.TemporaryBuffer;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -44,7 +44,7 @@ import org.junit.jupiter.api.Test;
  */
 public class CGitIgnoreTest extends RepositoryTestCase {
 
-	@Before
+	@BeforeEach
 	public void initRepo() throws IOException {
 		// These tests focus on .gitignore files inside the repository. Because
 		// we run C-git, we must ensure that global or user exclude files cannot

@@ -35,7 +35,7 @@ import org.eclipse.jgit.transport.RemoteConfig;
 import org.eclipse.jgit.transport.TagOpt;
 import org.eclipse.jgit.transport.TrackingRefUpdate;
 import org.eclipse.jgit.transport.URIish;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class FetchCommandTest extends RepositoryTestCase {
@@ -43,7 +43,7 @@ public class FetchCommandTest extends RepositoryTestCase {
 	private Git git;
 	private Git remoteGit;
 
-	@Before
+	@BeforeEach
 	public void setupRemoteRepository() throws Exception {
 		git = new Git(db);
 

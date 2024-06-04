@@ -24,7 +24,7 @@ import org.eclipse.jgit.revwalk.ObjectReachabilityChecker;
 import org.eclipse.jgit.revwalk.RevBlob;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.revwalk.RevObject;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public abstract class ObjectReachabilityTestCase
@@ -52,7 +52,7 @@ public abstract class ObjectReachabilityTestCase
 	}
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		super.setUp();
 		FileRepository db = createWorkRepository();

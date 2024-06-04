@@ -56,7 +56,7 @@ import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.util.IO;
 import org.eclipse.jgit.util.StringUtils;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.AfterEach;
@@ -74,7 +74,7 @@ public class ArchiveCommandTest extends RepositoryTestCase {
 
 	private MockFormat format = null;
 
-	@Before
+	@BeforeEach
 	public void setup() {
 		format = new MockFormat();
 		ArchiveCommand.registerFormat(format.SUFFIXES.get(0), format);

@@ -24,13 +24,13 @@ import java.util.Comparator;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.eclipse.jgit.internal.storage.dfs.DfsObjDatabase.PackSource;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public final class DfsPackDescriptionTest {
 	private AtomicInteger counter;
 
-	@Before
+	@BeforeEach
 	public void setUp() {
 		counter = new AtomicInteger();
 	}

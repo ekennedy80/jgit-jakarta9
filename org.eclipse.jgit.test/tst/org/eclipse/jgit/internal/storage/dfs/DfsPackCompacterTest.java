@@ -20,7 +20,7 @@ import java.io.IOException;
 
 import org.eclipse.jgit.junit.TestRepository;
 import org.eclipse.jgit.revwalk.RevCommit;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class DfsPackCompacterTest {
@@ -28,7 +28,7 @@ public class DfsPackCompacterTest {
 	private InMemoryRepository repo;
 	private DfsObjDatabase odb;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws IOException {
 		DfsRepositoryDescription desc = new DfsRepositoryDescription("test");
 		git = new TestRepository<>(new InMemoryRepository(desc));

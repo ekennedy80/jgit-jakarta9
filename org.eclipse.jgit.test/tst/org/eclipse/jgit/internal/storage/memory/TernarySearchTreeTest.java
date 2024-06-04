@@ -24,14 +24,14 @@ import java.util.function.Consumer;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class TernarySearchTreeTest {
 
 	private TernarySearchTree<String> tree;
 
-	@Before
+	@BeforeEach
 	public void setup() {
 		tree = new TernarySearchTree<>();
 		tree.insert("foo", "1");

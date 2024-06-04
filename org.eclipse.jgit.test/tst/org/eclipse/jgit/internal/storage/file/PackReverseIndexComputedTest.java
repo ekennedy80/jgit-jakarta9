@@ -21,7 +21,7 @@ import org.eclipse.jgit.errors.PackMismatchException;
 import org.eclipse.jgit.internal.storage.file.PackIndex.MutableEntry;
 import org.eclipse.jgit.junit.JGitTestUtil;
 import org.eclipse.jgit.junit.RepositoryTestCase;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class PackReverseIndexComputedTest extends RepositoryTestCase {
@@ -34,7 +34,7 @@ public class PackReverseIndexComputedTest extends RepositoryTestCase {
 	 * Set up tested class instance, test constructor by the way.
 	 */
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		super.setUp();
 		// index with both small (< 2^31) and big offsets

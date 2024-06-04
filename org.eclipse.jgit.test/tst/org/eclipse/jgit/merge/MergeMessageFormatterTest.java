@@ -22,7 +22,7 @@ import org.eclipse.jgit.lib.Ref.Storage;
 import org.eclipse.jgit.lib.RefUpdate;
 import org.eclipse.jgit.lib.SymbolicRef;
 import org.eclipse.jgit.test.resources.SampleDataRepositoryTestCase;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -33,7 +33,7 @@ public class MergeMessageFormatterTest extends SampleDataRepositoryTestCase {
 	private MergeMessageFormatter formatter;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		super.setUp();
 

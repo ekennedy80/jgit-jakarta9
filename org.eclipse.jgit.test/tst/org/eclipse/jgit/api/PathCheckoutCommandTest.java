@@ -32,7 +32,7 @@ import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.util.FS;
 import org.eclipse.jgit.util.FileUtils;
 import org.junit.Assume;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -55,7 +55,7 @@ public class PathCheckoutCommandTest extends RepositoryTestCase {
 	RevCommit secondCommit;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		super.setUp();
 		git = new Git(db);

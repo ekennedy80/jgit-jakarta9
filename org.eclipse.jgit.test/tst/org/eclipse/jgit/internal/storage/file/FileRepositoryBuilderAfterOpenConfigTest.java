@@ -15,10 +15,10 @@ import org.eclipse.jgit.lib.ConfigConstants;
 import org.eclipse.jgit.lib.CoreConfig;
 import org.eclipse.jgit.lib.StoredConfig;
 import org.eclipse.jgit.util.SystemReader;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 
 public class FileRepositoryBuilderAfterOpenConfigTest extends FileRepositoryBuilderTest {
-	@Before
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception {
 		super.setUp();

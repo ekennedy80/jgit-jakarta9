@@ -19,17 +19,19 @@ import java.util.GregorianCalendar;
 import org.eclipse.jgit.junit.MockSystemReader;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.Assert;
-import org.junit.Before;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
 
 public class GitDateParserTest {
-	@Before
-	public void setUp() {
+	@BeforeEach
+	public void setUp(TestInfo testInfo) {
 		MockSystemReader mockSystemReader = new MockSystemReader();
 		SystemReader.setInstance(mockSystemReader);
 	}
 
-	@After
+	@AfterEach
 	public void tearDown() {
 		SystemReader.setInstance(null);
 	}

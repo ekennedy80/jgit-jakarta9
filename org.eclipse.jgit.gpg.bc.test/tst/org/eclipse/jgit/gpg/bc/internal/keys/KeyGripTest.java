@@ -33,7 +33,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @RunWith(Parameterized.class)
 public class KeyGripTest {
 
-	@BeforeClass
+	@BeforeEachClass
 	public static void ensureBC() {
 		if (Security.getProvider(BouncyCastleProvider.PROVIDER_NAME) == null) {
 			Security.addProvider(new BouncyCastleProvider());

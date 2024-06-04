@@ -17,10 +17,10 @@ import java.util.GregorianCalendar;
 
 import org.eclipse.jgit.junit.MockSystemReader;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.Before;
 import org.junit.experimental.theories.DataPoints;
 import org.junit.experimental.theories.Theories;
 import org.junit.experimental.theories.Theory;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
 
 /**
@@ -30,13 +30,13 @@ import org.junit.runner.RunWith;
 public class GitDateParserBadlyFormattedTest {
 	private String dateStr;
 
-	@Before
+	@BeforeEach
 	public void setUp() {
 		MockSystemReader mockSystemReader = new MockSystemReader();
 		SystemReader.setInstance(mockSystemReader);
 	}
 
-	@After
+	@AfterEach
 	public void tearDown() {
 		SystemReader.setInstance(null);
 	}

@@ -36,7 +36,7 @@ import org.eclipse.jgit.revwalk.RevObject;
 import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.treewalk.TreeWalk;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class TestRepositoryTest {
@@ -44,7 +44,7 @@ public class TestRepositoryTest {
 	private InMemoryRepository repo;
 	private RevWalk rw;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		tr = new TestRepository<>(new InMemoryRepository(
 				new DfsRepositoryDescription("test")));

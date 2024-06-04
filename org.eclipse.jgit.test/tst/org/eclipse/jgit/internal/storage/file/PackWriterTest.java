@@ -62,7 +62,7 @@ import org.eclipse.jgit.storage.pack.PackStatistics;
 import org.eclipse.jgit.test.resources.SampleDataRepositoryTestCase;
 import org.eclipse.jgit.transport.PackParser;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.AfterEach;
 import org.mockito.Mockito;
@@ -108,7 +108,7 @@ public class PackWriterTest extends SampleDataRepositoryTestCase {
 	private RevCommit c5;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		super.setUp();
 		os = new ByteArrayOutputStream();

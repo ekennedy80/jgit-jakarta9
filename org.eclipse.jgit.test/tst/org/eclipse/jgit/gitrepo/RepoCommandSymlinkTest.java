@@ -20,11 +20,11 @@ import org.eclipse.jgit.junit.JGitTestUtil;
 import org.eclipse.jgit.junit.RepositoryTestCase;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.util.FS;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class RepoCommandSymlinkTest extends RepositoryTestCase {
-	@Before
+	@BeforeEach
 	public void beforeMethod() {
 		// If this assumption fails the tests are skipped. When running on a
 		// filesystem not supporting symlinks I don't want this tests

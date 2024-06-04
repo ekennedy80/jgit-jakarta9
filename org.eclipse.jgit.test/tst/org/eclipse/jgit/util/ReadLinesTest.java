@@ -14,13 +14,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class ReadLinesTest {
 	List<String> l = new ArrayList<>();
 
-	@Before
+	@BeforeEach
 	public void clearList() {
 		l.clear();
 	}

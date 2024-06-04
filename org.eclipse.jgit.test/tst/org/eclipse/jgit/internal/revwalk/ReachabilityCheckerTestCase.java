@@ -21,7 +21,7 @@ import org.eclipse.jgit.junit.LocalDiskRepositoryTestCase;
 import org.eclipse.jgit.junit.TestRepository;
 import org.eclipse.jgit.revwalk.ReachabilityChecker;
 import org.eclipse.jgit.revwalk.RevCommit;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public abstract class ReachabilityCheckerTestCase
@@ -33,7 +33,7 @@ public abstract class ReachabilityCheckerTestCase
 	TestRepository<FileRepository> repo;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		super.setUp();
 		FileRepository db = createWorkRepository();

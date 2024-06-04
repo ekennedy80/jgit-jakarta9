@@ -37,7 +37,7 @@
  */
 package org.eclipse.jgit.pgm;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
@@ -61,7 +61,7 @@ public class ProxyConfigTest {
 
 	private Map<String, String> environment;
 
-	@Before
+	@BeforeEach
 	public void setUp() {
 		String separator = System.getProperty("file.separator");
 		String classpath = System.getProperty("java.class.path");

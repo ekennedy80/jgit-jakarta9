@@ -26,7 +26,7 @@ import org.eclipse.jgit.errors.PackMismatchException;
 import org.eclipse.jgit.junit.JGitTestUtil;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.transport.PackedObjectInfo;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class PackReverseIndexV1Test {
@@ -102,7 +102,7 @@ public class PackReverseIndexV1Test {
 	// last object's offset + last object's length
 	private final long smallMaxOffset = 631;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		System.arraycopy(SMALL_PACK_CHECKSUM, 0, SMALL_CONTENTS, 36,
 				SMALL_PACK_CHECKSUM.length);

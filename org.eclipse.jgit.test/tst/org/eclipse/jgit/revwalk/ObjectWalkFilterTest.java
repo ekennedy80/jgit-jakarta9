@@ -25,7 +25,7 @@ import org.eclipse.jgit.revwalk.filter.MessageRevFilter;
 import org.eclipse.jgit.revwalk.filter.NotRevFilter;
 import org.eclipse.jgit.revwalk.filter.ObjectFilter;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class ObjectWalkFilterTest {
@@ -35,7 +35,7 @@ public class ObjectWalkFilterTest {
 	// 3 commits, 2 top-level trees, 4 subtrees, 3 blobs
 	private static final int OBJECT_COUNT = 12;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		tr = new TestRepository<>(new InMemoryRepository(
 				new DfsRepositoryDescription("test")));

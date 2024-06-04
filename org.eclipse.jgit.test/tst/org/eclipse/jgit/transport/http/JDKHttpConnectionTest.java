@@ -22,7 +22,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class JDKHttpConnectionTest {
@@ -33,7 +33,7 @@ public class JDKHttpConnectionTest {
 
 	private JDKHttpConnection c;
 
-	@Before
+	@BeforeEach
 	public void setup() {
 		u = mock(HttpURLConnection.class);
 		c = new JDKHttpConnection(u);

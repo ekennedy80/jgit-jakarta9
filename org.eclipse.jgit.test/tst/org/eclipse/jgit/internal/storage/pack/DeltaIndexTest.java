@@ -21,7 +21,7 @@ import java.io.IOException;
 import org.eclipse.jgit.junit.JGitTestUtil;
 import org.eclipse.jgit.junit.TestRng;
 import org.eclipse.jgit.lib.Constants;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class DeltaIndexTest {
@@ -45,7 +45,7 @@ public class DeltaIndexTest {
 		return rng;
 	}
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		actDeltaBuf = new ByteArrayOutputStream();
 		expDeltaBuf = new ByteArrayOutputStream();

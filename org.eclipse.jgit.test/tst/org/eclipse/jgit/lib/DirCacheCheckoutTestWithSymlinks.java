@@ -48,11 +48,11 @@ import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
 import org.eclipse.jgit.util.FS;
 import org.eclipse.jgit.util.FileUtils;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class DirCacheCheckoutTestWithSymlinks extends RepositoryTestCase {
-	@Before
+	@BeforeEach
 	public void beforeMethod() {
 		// If this assumption fails the tests are skipped. When running on a
 		// filesystem not supporting symlinks I don't want this tests

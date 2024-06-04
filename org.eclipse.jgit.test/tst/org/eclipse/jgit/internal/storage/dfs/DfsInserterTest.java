@@ -43,13 +43,13 @@ import org.eclipse.jgit.lib.TagBuilder;
 import org.eclipse.jgit.lib.TreeFormatter;
 import org.eclipse.jgit.util.IO;
 import org.eclipse.jgit.util.RawParseUtils;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class DfsInserterTest {
 	InMemoryRepository db;
 
-	@Before
+	@BeforeEach
 	public void setUp() {
 		db = new InMemoryRepository(new DfsRepositoryDescription("test"));
 	}

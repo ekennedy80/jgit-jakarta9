@@ -43,13 +43,13 @@ import org.eclipse.jgit.storage.file.WindowCacheConfig;
 import org.eclipse.jgit.util.FS;
 import org.eclipse.jgit.util.FileUtils;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.AfterEach;
 
 public class ConcurrentRepackTest extends RepositoryTestCase {
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		WindowCacheConfig windowCacheConfig = new WindowCacheConfig();
 		windowCacheConfig.setPackedGitOpenFiles(1);

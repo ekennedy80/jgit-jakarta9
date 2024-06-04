@@ -12,7 +12,7 @@ package org.eclipse.jgit.pgm;
 import org.eclipse.jgit.internal.diffmergetool.ExternalMergeTool;
 import org.eclipse.jgit.internal.diffmergetool.MergeTools;
 import org.eclipse.jgit.lib.StoredConfig;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.InputStream;
@@ -33,7 +33,7 @@ public class MergeToolTest extends ToolTestCase {
 	private static final String MERGE_TOOL = CONFIG_MERGETOOL_SECTION;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		super.setUp();
 		configureEchoTool(TOOL_NAME);

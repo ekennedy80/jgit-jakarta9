@@ -30,7 +30,7 @@ import org.eclipse.jgit.transport.FetchResult;
 import org.eclipse.jgit.transport.RefSpec;
 import org.eclipse.jgit.transport.TransportBundleStream;
 import org.eclipse.jgit.transport.URIish;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class DfsBundleWriterTest {
@@ -38,7 +38,7 @@ public class DfsBundleWriterTest {
 
 	private InMemoryRepository repo;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws IOException {
 		DfsRepositoryDescription desc = new DfsRepositoryDescription("test");
 		git = new TestRepository<>(new InMemoryRepository(desc));

@@ -36,7 +36,7 @@ import org.eclipse.jgit.treewalk.TreeWalk;
 import org.eclipse.jgit.util.FileUtils;
 import org.eclipse.jgit.util.SystemReader;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 
@@ -78,7 +78,7 @@ public class SecurityManagerTest {
 
 	private List<Permission> permissions = new ArrayList<>();
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		// Create working directory
 		SystemReader.setInstance(new MockSystemReader());

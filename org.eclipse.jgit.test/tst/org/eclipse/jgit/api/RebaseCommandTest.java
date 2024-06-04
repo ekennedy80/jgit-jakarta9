@@ -68,7 +68,7 @@ import org.eclipse.jgit.treewalk.filter.TreeFilter;
 import org.eclipse.jgit.util.FileUtils;
 import org.eclipse.jgit.util.IO;
 import org.eclipse.jgit.util.RawParseUtils;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class RebaseCommandTest extends RepositoryTestCase {
@@ -83,7 +83,7 @@ public class RebaseCommandTest extends RepositoryTestCase {
 	protected Git git;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		super.setUp();
 		this.git = new Git(db);

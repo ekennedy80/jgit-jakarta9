@@ -25,7 +25,7 @@ import java.util.Collections;
 import org.eclipse.jgit.junit.RepositoryTestCase;
 import org.eclipse.jgit.util.FileUtils;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.AfterEach;
 
@@ -44,7 +44,7 @@ public class SecurityManagerMissingPermissionsTest extends RepositoryTestCase {
 	private PrintStream defaultErrorOutput;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 //		originalSecurityManager = System.getSecurityManager();
 

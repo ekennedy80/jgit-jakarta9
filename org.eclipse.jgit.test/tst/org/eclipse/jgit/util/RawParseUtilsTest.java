@@ -83,10 +83,10 @@ public class RawParseUtilsTest {
 		byte[] commitBytes = commit.getBytes(UTF_8);
 		int[] expected = new int[] {45, 93, 148, 619, 637};
 		int start = 0;
-		for (int i = 0; i < expected.length; i++) {
-			start = RawParseUtils.headerEnd(commitBytes, start);
-			assertEquals(expected[i], start);
-			start += 1;
-		}
+        for (int j : expected) {
+            start = RawParseUtils.nextLfSkippingSplitLines(commitBytes, start);
+            assertEquals(j, start);
+            start += 1;
+        }
 	}
 }

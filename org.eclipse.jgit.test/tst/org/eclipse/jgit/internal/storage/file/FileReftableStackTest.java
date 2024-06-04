@@ -35,7 +35,7 @@ import org.eclipse.jgit.lib.Ref;
 import org.eclipse.jgit.util.FileUtils;
 import org.eclipse.jgit.util.SystemReader;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 
@@ -47,7 +47,7 @@ public class FileReftableStackTest {
 
 	private File reftableDir;
 
-	@Before
+	@BeforeEach
 	public void setup() throws Exception {
 		reftableDir = FileUtils.createTempDir("rtstack", "", null);
 	}

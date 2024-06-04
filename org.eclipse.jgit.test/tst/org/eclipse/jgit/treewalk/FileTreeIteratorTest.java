@@ -50,7 +50,7 @@ import org.eclipse.jgit.treewalk.filter.PathFilter;
 import org.eclipse.jgit.util.FS;
 import org.eclipse.jgit.util.FileUtils;
 import org.eclipse.jgit.util.RawParseUtils;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class FileTreeIteratorTest extends RepositoryTestCase {
@@ -59,7 +59,7 @@ public class FileTreeIteratorTest extends RepositoryTestCase {
 	private Instant[] mtime;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		super.setUp();
 

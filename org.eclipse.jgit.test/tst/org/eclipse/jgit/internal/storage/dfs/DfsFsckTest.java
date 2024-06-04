@@ -28,7 +28,7 @@ import org.eclipse.jgit.lib.ObjectChecker.ErrorType;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.ObjectInserter;
 import org.eclipse.jgit.revwalk.RevCommit;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class DfsFsckTest {
@@ -38,7 +38,7 @@ public class DfsFsckTest {
 
 	private ObjectInserter ins;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws IOException {
 		DfsRepositoryDescription desc = new DfsRepositoryDescription("test");
 		git = new TestRepository<>(new InMemoryRepository(desc));

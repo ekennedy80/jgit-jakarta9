@@ -17,14 +17,14 @@ import java.util.Properties;
 import org.eclipse.jgit.junit.RepositoryTestCase;
 import org.eclipse.jgit.util.GitDateParser;
 import org.eclipse.jgit.util.SystemReader;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class GarbageCollectCommandTest extends RepositoryTestCase {
 	private Git git;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		super.setUp();
 		git = new Git(db);

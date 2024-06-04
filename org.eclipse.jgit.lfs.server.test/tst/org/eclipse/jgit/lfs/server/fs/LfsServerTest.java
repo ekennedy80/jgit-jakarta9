@@ -55,7 +55,7 @@ import org.eclipse.jgit.util.FileUtils;
 import org.eclipse.jgit.util.IO;
 import org.eclipse.jgit.util.SystemReader;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 
 public abstract class LfsServerTest {
 
@@ -86,7 +86,7 @@ public abstract class LfsServerTest {
 		return dir;
 	}
 
-	@Before
+	@BeforeEach
 	public void setup() throws Exception {
 		SystemReader.setInstance(new MockSystemReader());
 		tmp = Files.createTempDirectory("jgit_test_");

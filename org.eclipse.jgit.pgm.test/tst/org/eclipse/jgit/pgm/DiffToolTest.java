@@ -12,7 +12,7 @@ package org.eclipse.jgit.pgm;
 import org.eclipse.jgit.internal.diffmergetool.DiffTools;
 import org.eclipse.jgit.internal.diffmergetool.ExternalDiffTool;
 import org.eclipse.jgit.lib.StoredConfig;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -35,7 +35,7 @@ public class DiffToolTest extends ToolTestCase {
 	private static final String DIFF_TOOL = CONFIG_DIFFTOOL_SECTION;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		super.setUp();
 		configureEchoTool(TOOL_NAME);

@@ -22,7 +22,7 @@ import org.eclipse.jgit.junit.JGitTestUtil;
 import org.eclipse.jgit.patch.FileHeader;
 import org.eclipse.jgit.patch.Patch;
 import org.eclipse.jgit.util.RawParseUtils;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class DiffFormatterReflowTest {
@@ -36,7 +36,7 @@ public class DiffFormatterReflowTest {
 
 	private DiffFormatter fmt;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		out = new ByteArrayOutputStream();
 		fmt = new DiffFormatter(out);

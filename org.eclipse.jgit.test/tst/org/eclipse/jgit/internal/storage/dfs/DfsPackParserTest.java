@@ -22,14 +22,14 @@ import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.ObjectInserter;
 import org.eclipse.jgit.transport.InMemoryPack;
 import org.eclipse.jgit.transport.PackParser;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class DfsPackParserTest {
   private InMemoryRepository repo;
 
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		DfsRepositoryDescription desc = new DfsRepositoryDescription("test");
 		repo = new InMemoryRepository(desc);

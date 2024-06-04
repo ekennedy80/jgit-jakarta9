@@ -33,7 +33,7 @@ import org.eclipse.jgit.transport.ssh.jsch.OpenSshConfig.Host;
 import org.eclipse.jgit.util.FS;
 import org.eclipse.jgit.util.FileUtils;
 import org.eclipse.jgit.util.SystemReader;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.jcraft.jsch.ConfigRepository;
@@ -47,7 +47,7 @@ public class OpenSshConfigTest extends RepositoryTestCase {
 	private OpenSshConfig osc;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		super.setUp();
 

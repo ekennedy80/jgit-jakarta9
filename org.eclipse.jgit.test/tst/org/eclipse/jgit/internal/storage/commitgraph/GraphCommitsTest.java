@@ -26,7 +26,7 @@ import org.eclipse.jgit.junit.TestRepository;
 import org.eclipse.jgit.lib.NullProgressMonitor;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.revwalk.RevWalk;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class GraphCommitsTest extends RepositoryTestCase {
@@ -34,7 +34,7 @@ public class GraphCommitsTest extends RepositoryTestCase {
 	private TestRepository<FileRepository> tr;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		super.setUp();
 		tr = new TestRepository<>(db, new RevWalk(db), mockSystemReader);

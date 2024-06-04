@@ -20,17 +20,17 @@ import java.util.Date;
 
 import org.eclipse.jgit.junit.MockSystemReader;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class RelativeDateFormatterTest {
 
-	@Before
+	@BeforeEach
 	public void setUp() {
 		SystemReader.setInstance(new MockSystemReader());
 	}
 
-	@After
+	@AfterEach
 	public void tearDown() {
 		SystemReader.setInstance(null);
 	}

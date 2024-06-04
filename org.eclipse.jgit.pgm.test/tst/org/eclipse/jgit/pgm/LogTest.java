@@ -11,14 +11,14 @@
 package org.eclipse.jgit.pgm;
 
 import org.eclipse.jgit.lib.CLIRepositoryTestCase;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LogTest extends CLIRepositoryTestCase {
 
-	@Before
+	@BeforeEach
 	public void setup() throws Exception {
 		writeTrashFile("a", "a");
 		writeTrashFile("b", "a");

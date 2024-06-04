@@ -35,7 +35,7 @@ import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.ObjectInserter;
 import org.eclipse.jgit.lib.ObjectReader;
 import org.eclipse.jgit.revwalk.RevCommit;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.Rule;
 import org.junit.jupiter.api.Test;
 import org.junit.rules.TestName;
@@ -47,7 +47,7 @@ public class DfsBlockCacheTest {
 	private DfsBlockCache cache;
 	private ExecutorService pool;
 
-	@Before
+	@BeforeEach
 	public void setUp() {
 		rng = new TestRng(testName.getMethodName());
 		pool = Executors.newFixedThreadPool(10);

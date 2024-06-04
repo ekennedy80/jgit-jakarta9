@@ -38,7 +38,7 @@ import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.PersonIdent;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.revwalk.RevWalk;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class PushCertificateStoreTest {
@@ -80,7 +80,7 @@ public class PushCertificateStoreTest {
 	private InMemoryRepository repo;
 	private PushCertificateStore store;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		repo = new InMemoryRepository(new DfsRepositoryDescription("repo"));
 		store = newStore();
