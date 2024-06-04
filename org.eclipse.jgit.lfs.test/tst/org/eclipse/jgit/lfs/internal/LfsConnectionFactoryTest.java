@@ -56,7 +56,7 @@ public class LfsConnectionFactoryTest extends RepositoryTestCase {
 
 	private Git git;
 
-	@BeforeEachClass
+	@BeforeClass
 	public static void installLfs() {
 		FilterCommandRegistry.register(SMUDGE_NAME, SmudgeFilter.FACTORY);
 		FilterCommandRegistry.register(CLEAN_NAME, CleanFilter.FACTORY);

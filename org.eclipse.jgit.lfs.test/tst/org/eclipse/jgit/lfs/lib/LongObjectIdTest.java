@@ -10,13 +10,13 @@
 
 package org.eclipse.jgit.lfs.lib;
 
-//import org.eclipse.jgit.junit.JGitTestUtil;
 import org.eclipse.jgit.lfs.errors.InvalidLongObjectIdException;
 import org.eclipse.jgit.lfs.test.LongObjectIdTestUtils;
 import org.eclipse.jgit.util.FileUtils;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -37,13 +37,14 @@ import static org.junit.jupiter.api.Assertions.*;
 public class LongObjectIdTest {
 	private static Path tmp;
 
-	@BeforeEachClass
-	public static void setup() throws IOException {
+	@BeforeEach
+	public void setup(TestInfo testInfo) throws IOException {
 		tmp = Files.createTempDirectory("jgit_test_");
+		System.out.println(testInfo);
 	}
 
-	@AfterClass
-	public static void tearDown() throws IOException {
+	@AfterEach
+	public void tearDown() throws IOException {
 		FileUtils.delete(tmp.toFile(), FileUtils.RECURSIVE | FileUtils.RETRY);
 	}
 

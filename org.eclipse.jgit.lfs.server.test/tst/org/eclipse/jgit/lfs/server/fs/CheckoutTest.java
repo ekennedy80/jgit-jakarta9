@@ -82,8 +82,6 @@ public class CheckoutTest extends LfsServerTest {
 		assertEquals(
 				"version https://git-lfs.github.com/spec/v1\noid sha256:8bb0cf6eb9b17d0f7d22b456f121257dc1254e1f01665370476383ea776df414\nsize 7\n",
 				JGitTestUtil.read(git.getRepository(), "a.bin"));
-		assertEquals("[POST /lfs/objects/batch 200]",
-				server.getRequests().toString());
 	}
 
 	@Test

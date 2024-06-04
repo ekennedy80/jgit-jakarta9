@@ -118,7 +118,7 @@ public abstract class LfsServerTest {
 		this.repository.setUrl(server.getURI() + "/lfs/objects/");
 	}
 
-	@After
+	@AfterEach
 	public void tearDown() throws Exception {
 		server.tearDown();
 		FileUtils.delete(tmp.toFile(), FileUtils.RECURSIVE | FileUtils.RETRY);
