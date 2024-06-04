@@ -26,9 +26,9 @@ import java.util.regex.Matcher;
 import javax.management.remote.JMXProviderException;
 
 import org.eclipse.jgit.junit.JGitTestUtil;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.Assume;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class FileUtilsTest {
@@ -45,14 +45,14 @@ public class FileUtilsTest {
 
 	private File trash;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		trash = File.createTempFile("tmp_", "");
 		trash.delete();
-		assertTrue("mkdir " + trash, trash.mkdir());
+		assertTrue(trash.mkdir());
 	}
 
-	@After
+	@AfterEach
 	public void tearDown() throws Exception {
 		FileUtils.delete(trash, FileUtils.RECURSIVE | FileUtils.RETRY);
 	}

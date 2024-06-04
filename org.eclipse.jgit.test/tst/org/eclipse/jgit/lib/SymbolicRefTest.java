@@ -39,24 +39,24 @@ public class SymbolicRefTest {
 		assertSame(Ref.Storage.LOOSE, r.getStorage());
 		assertSame(name, r.getName());
 		assertNull("no id on new ref", r.getObjectId());
-		assertFalse("not peeled", r.isPeeled());
+		assertFalse(r.isPeeled());
 		assertNull("no peel id", r.getPeeledObjectId());
 		assertSame("leaf is t", t, r.getLeaf());
 		assertSame("target is t", t, r.getTarget());
-		assertTrue("is symbolic", r.isSymbolic());
-		assertTrue("holds update index", r.getUpdateIndex() == 1);
+		assertTrue(r.isSymbolic());
+		assertTrue(r.getUpdateIndex() == 1);
 
 		t = new ObjectIdRef.Unpeeled(Ref.Storage.PACKED, targetName, ID_A);
 		r = new SymbolicRef(name, t, 2);
 		assertSame(Ref.Storage.LOOSE, r.getStorage());
 		assertSame(name, r.getName());
 		assertSame(ID_A, r.getObjectId());
-		assertFalse("not peeled", r.isPeeled());
+		assertFalse(r.isPeeled());
 		assertNull("no peel id", r.getPeeledObjectId());
 		assertSame("leaf is t", t, r.getLeaf());
 		assertSame("target is t", t, r.getTarget());
-		assertTrue("is symbolic", r.isSymbolic());
-		assertTrue("holds update index", r.getUpdateIndex() == 2);
+		assertTrue(r.isSymbolic());
+		assertTrue(r.getUpdateIndex() == 2);
 	}
 
 	@Test

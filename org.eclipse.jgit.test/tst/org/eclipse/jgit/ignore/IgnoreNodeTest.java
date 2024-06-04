@@ -51,7 +51,7 @@ public class IgnoreNodeTest extends RepositoryTestCase {
 
 	private TreeWalk walk;
 
-	@After
+	@AfterEach
 	public void closeWalk() {
 		if (walk != null) {
 			walk.close();
@@ -821,17 +821,17 @@ public class IgnoreNodeTest extends RepositoryTestCase {
 	}
 
 	private void endWalk() throws IOException {
-		assertFalse("Not all files tested", walk.next());
+		assertFalse(walk.next());
 	}
 
 	private void assertEntry(FileMode type, boolean entryIgnored,
 			String pathName) throws IOException {
-		assertTrue("walk has entry", walk.next());
+		assertTrue(walk.next());
 		assertEquals(pathName, walk.getPathString());
 		assertEquals(type, walk.getFileMode(0));
 
 		WorkingTreeIterator itr = walk.getTree(0, WorkingTreeIterator.class);
-		assertNotNull("has tree", itr);
+		assertNotNull(itr);
 		assertEquals("is ignored", entryIgnored, itr.isEntryIgnored());
 		if (D.equals(type))
 			walk.enterSubtree();

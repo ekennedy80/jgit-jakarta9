@@ -18,8 +18,9 @@ import org.eclipse.jgit.junit.LocalDiskRepositoryTestCase;
 import org.eclipse.jgit.junit.TestRepository;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.revwalk.RevWalk;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
 
 public class BitmapIndexTest extends LocalDiskRepositoryTestCase {
 
@@ -30,9 +31,9 @@ public class BitmapIndexTest extends LocalDiskRepositoryTestCase {
   RevCommit tipWithBitmap;
 
   @Override
-  @Before
-  public void setUp() throws Exception {
-    super.setUp();
+  @BeforeEach
+  public void setUp(TestInfo testInfo) throws Exception {
+    super.setUp(testInfo);
     FileRepository db = createWorkRepository();
     repo = new TestRepository<>(db);
 

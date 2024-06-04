@@ -14,9 +14,7 @@ import static org.eclipse.jgit.util.FileUtils.delete;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.File;
 import java.util.List;
@@ -311,21 +309,20 @@ public class DiffEntryTest extends RepositoryTestCase {
 		}
 	}
 
-	@Test(expected = IllegalArgumentException.class)
-	public void shouldThrowIAEWhenTreeWalkHasLessThanTwoTrees()
-			throws Exception {
+	@Test
+	public void shouldThrowIAEWhenTreeWalkHasLessThanTwoTrees() {
 		// given - we don't need anything here
 
 		// when
 		try (TreeWalk walk = new TreeWalk(db)) {
 			walk.addTree(new EmptyTreeIterator());
-			DiffEntry.scan(walk);
+			IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> DiffEntry.scan(walk));
+			assertNotNull(thrown);
 		}
 	}
 
-	@Test(expected = IllegalArgumentException.class)
-	public void shouldThrowIAEWhenTreeWalkHasMoreThanTwoTrees()
-			throws Exception {
+	@Test
+	public void shouldThrowIAEWhenTreeWalkHasMoreThanTwoTrees() {
 		// given - we don't need anything here
 
 		// when
@@ -333,13 +330,13 @@ public class DiffEntryTest extends RepositoryTestCase {
 			walk.addTree(new EmptyTreeIterator());
 			walk.addTree(new EmptyTreeIterator());
 			walk.addTree(new EmptyTreeIterator());
-			DiffEntry.scan(walk);
+			IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> DiffEntry.scan(walk));
+			assertNotNull(thrown);
 		}
 	}
 
-	@Test(expected = IllegalArgumentException.class)
-	public void shouldThrowIAEWhenScanShouldIncludeTreesAndWalkIsRecursive()
-			throws Exception {
+	@Test
+	public void shouldThrowIAEWhenScanShouldIncludeTreesAndWalkIsRecursive() {
 		// given - we don't need anything here
 
 		// when
@@ -347,7 +344,9 @@ public class DiffEntryTest extends RepositoryTestCase {
 			walk.addTree(new EmptyTreeIterator());
 			walk.addTree(new EmptyTreeIterator());
 			walk.setRecursive(true);
-			DiffEntry.scan(walk, true);
+			IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> DiffEntry.scan(walk, true));
+			assertNotNull(thrown);
+
 		}
 	}
 

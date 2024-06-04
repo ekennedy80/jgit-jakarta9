@@ -151,7 +151,7 @@ public class SimilarityIndexTest {
 
 	private static int keyFor(String line) throws TableFullException {
 		SimilarityIndex si = hash(line);
-		assertEquals("single line scored", 1, si.size());
+		assertEquals(1, si.size());
 		return si.key(0);
 	}
 }

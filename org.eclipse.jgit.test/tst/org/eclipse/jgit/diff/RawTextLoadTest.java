@@ -16,10 +16,11 @@ import org.eclipse.jgit.lib.Constants;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.ObjectInserter;
 import org.eclipse.jgit.lib.ObjectLoader;
-import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class RawTextLoadTest extends RepositoryTestCase {
 	private static byte[] generate(int size, int nullAt) {
@@ -47,31 +48,45 @@ public class RawTextLoadTest extends RepositoryTestCase {
 	public void testSmallOK() throws Exception {
 		byte[] data = generate(1000, -1);
 		RawText result = textFor(data, 1 << 20);
-		Assert.assertArrayEquals(result.content, data);
+		assertArrayEquals(result.content, data);
 	}
 
-	@Test(expected = BinaryBlobException.class)
-	public void testSmallNull() throws Exception {
+	@Test
+	public void testSmallNull() {
 		byte[] data = generate(1000, 22);
-		textFor(data, 1 << 20);
+		Exception thrown = assertThrows(
+				Exception.class,
+				() -> textFor(data, 1 << 20),
+				"Expected doThing() to throw, but it didn't"
+		);
+
+		assertTrue(thrown.getMessage().contains("Expected doThing() to throw, but it didn't"));
 	}
 
 	@Test
 	public void testBigOK() throws Exception {
 		byte[] data = generate(10000, -1);
 		RawText result = textFor(data, 1 << 20);
-		Assert.assertArrayEquals(result.content, data);
+		assertArrayEquals(result.content, data);
 	}
 
-	@Test(expected = BinaryBlobException.class)
-	public void testBigWithNullAtStart() throws Exception {
+	@Test
+	public void testBigWithNullAtStart()  {
 		byte[] data = generate(10000, 22);
-		textFor(data, 1 << 20);
+		BinaryBlobException thrown = assertThrows(
+				BinaryBlobException.class,
+				() -> textFor(data, 1 << 20)
+		);
+        assertNotNull(thrown);
 	}
 
-	@Test(expected = BinaryBlobException.class)
-	public void testBinaryThreshold() throws Exception {
+	@Test
+	public void testBinaryThreshold() {
 		byte[] data = generate(2 << 20, -1);
-		textFor(data, 1 << 20);
+		BinaryBlobException thrown = assertThrows(
+				BinaryBlobException.class,
+				() -> textFor(data, 1 << 20)
+		);
+		assertNotNull(thrown);
 	}
 }

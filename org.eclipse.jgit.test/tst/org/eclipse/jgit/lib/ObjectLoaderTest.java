@@ -47,39 +47,39 @@ public class ObjectLoaderTest {
 
 		assertEquals(OBJ_BLOB, ldr.getType());
 		assertEquals(act.length, ldr.getSize());
-		assertFalse("not is large", ldr.isLarge());
+		assertFalse(ldr.isLarge());
 		assertSame(act, ldr.getCachedBytes());
 		assertSame(act, ldr.getCachedBytes(1));
 		assertSame(act, ldr.getCachedBytes(Integer.MAX_VALUE));
 
 		byte[] copy = ldr.getBytes();
 		assertNotSame(act, copy);
-		assertTrue("same content", Arrays.equals(act, copy));
+		assertTrue(Arrays.equals(act, copy));
 
 		copy = ldr.getBytes(1);
 		assertNotSame(act, copy);
-		assertTrue("same content", Arrays.equals(act, copy));
+		assertTrue(Arrays.equals(act, copy));
 
 		copy = ldr.getBytes(Integer.MAX_VALUE);
 		assertNotSame(act, copy);
-		assertTrue("same content", Arrays.equals(act, copy));
+		assertTrue(Arrays.equals(act, copy));
 
 		ObjectStream in = ldr.openStream();
-		assertNotNull("has stream", in);
-		assertTrue("is small stream", in instanceof ObjectStream.SmallStream);
+		assertNotNull(in);
+		assertTrue(in instanceof ObjectStream.SmallStream);
 		assertEquals(OBJ_BLOB, in.getType());
 		assertEquals(act.length, in.getSize());
 		assertEquals(act.length, in.available());
-		assertTrue("mark supported", in.markSupported());
+		assertTrue(in.markSupported());
 		copy = new byte[act.length];
 		assertEquals(act.length, in.read(copy));
 		assertEquals(0, in.available());
 		assertEquals(-1, in.read());
-		assertTrue("same content", Arrays.equals(act, copy));
+		assertTrue(Arrays.equals(act, copy));
 
 		ByteArrayOutputStream tmp = new ByteArrayOutputStream();
 		ldr.copyTo(tmp);
-		assertTrue("same content", Arrays.equals(act, tmp.toByteArray()));
+		assertTrue(Arrays.equals(act, tmp.toByteArray()));
 	}
 
 	@Test
@@ -112,7 +112,7 @@ public class ObjectLoaderTest {
 
 		assertEquals(OBJ_BLOB, ldr.getType());
 		assertEquals(act.length, ldr.getSize());
-		assertTrue("is large", ldr.isLarge());
+		assertTrue(ldr.isLarge());
 
 		try {
 			ldr.getCachedBytes();
@@ -137,23 +137,23 @@ public class ObjectLoaderTest {
 
 		byte[] copy = ldr.getCachedBytes(1024);
 		assertNotSame(act, copy);
-		assertTrue("same content", Arrays.equals(act, copy));
+		assertTrue(Arrays.equals(act, copy));
 
 		ObjectStream in = ldr.openStream();
-		assertNotNull("has stream", in);
+		assertNotNull(in);
 		assertEquals(OBJ_BLOB, in.getType());
 		assertEquals(act.length, in.getSize());
 		assertEquals(act.length, in.available());
-		assertTrue("mark supported", in.markSupported());
+		assertTrue(in.markSupported());
 		copy = new byte[act.length];
 		assertEquals(act.length, in.read(copy));
 		assertEquals(0, in.available());
 		assertEquals(-1, in.read());
-		assertTrue("same content", Arrays.equals(act, copy));
+		assertTrue(Arrays.equals(act, copy));
 
 		ByteArrayOutputStream tmp = new ByteArrayOutputStream();
 		ldr.copyTo(tmp);
-		assertTrue("same content", Arrays.equals(act, tmp.toByteArray()));
+		assertTrue(Arrays.equals(act, tmp.toByteArray()));
 	}
 
 	@Test
@@ -166,7 +166,7 @@ public class ObjectLoaderTest {
 				return true;
 			}
 		};
-		assertTrue("is large", ldr.isLarge());
+		assertTrue(ldr.isLarge());
 
 		try {
 			ldr.getCachedBytes(10);
@@ -177,11 +177,11 @@ public class ObjectLoaderTest {
 
 		byte[] copy = ldr.getCachedBytes(512);
 		assertNotSame(act, copy);
-		assertTrue("same content", Arrays.equals(act, copy));
+		assertTrue(Arrays.equals(act, copy));
 
 		copy = ldr.getCachedBytes(1024);
 		assertNotSame(act, copy);
-		assertTrue("same content", Arrays.equals(act, copy));
+		assertTrue(Arrays.equals(act, copy));
 	}
 
 	@Test
@@ -236,7 +236,7 @@ public class ObjectLoaderTest {
 				};
 			}
 		};
-		assertTrue("is large", ldr.isLarge());
+		assertTrue(ldr.isLarge());
 
 		try {
 			ldr.getCachedBytes(10);

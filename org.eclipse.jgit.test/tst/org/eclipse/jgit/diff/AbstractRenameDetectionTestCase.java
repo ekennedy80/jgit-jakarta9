@@ -19,7 +19,8 @@ import org.eclipse.jgit.lib.AbbreviatedObjectId;
 import org.eclipse.jgit.lib.FileMode;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.Repository;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.TestInfo;
 
 public abstract class AbstractRenameDetectionTestCase
 		extends RepositoryTestCase {
@@ -35,9 +36,9 @@ public abstract class AbstractRenameDetectionTestCase
 	protected TestRepository<Repository> testDb;
 
 	@Override
-	@Before
-	public void setUp() throws Exception {
-		super.setUp();
+	@BeforeEach
+	public void setUp(TestInfo testInfo) throws Exception {
+		super.setUp(testInfo);
 		testDb = new TestRepository<>(db);
 	}
 

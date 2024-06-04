@@ -20,7 +20,7 @@ public abstract class AbstractDiffTestCase {
 	@Test
 	public void testEmptyInputs() {
 		EditList r = diff(t(""), t(""));
-		assertTrue("is empty", r.isEmpty());
+		assertTrue(r.isEmpty());
 	}
 
 	@Test

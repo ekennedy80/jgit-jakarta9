@@ -25,7 +25,7 @@ public class CommitConfigTest {
 	@Test
 	public void testDefaults() throws Exception {
 		CommitConfig cfg = parse("");
-		assertEquals("Unexpected clean-up mode", CleanupMode.DEFAULT,
+		assertEquals(CleanupMode.DEFAULT,
 				cfg.getCleanupMode());
 	}
 
@@ -38,8 +38,7 @@ public class CommitConfigTest {
 				CleanupMode.DEFAULT };
 		for (int i = 0; i < values.length; i++) {
 			CommitConfig cfg = parse("[commit]\n\tcleanup = " + values[i]);
-			assertEquals("Unexpected clean-up mode", expected[i],
-					cfg.getCleanupMode());
+			assertEquals(expected[i], cfg.getCleanupMode());
 		}
 	}
 
@@ -56,16 +55,11 @@ public class CommitConfigTest {
 				for (int j = 0; j < 2; j++) {
 					CleanupMode resolved = cfg.resolve(mode, j == 0);
 					if (mode != CleanupMode.DEFAULT) {
-						assertEquals("Clean-up mode should be unchanged", mode,
-								resolved);
+						assertEquals(mode, resolved);
 					} else if (i + 1 < values.length) {
-						assertEquals("Unexpected clean-up mode", expected[i],
-								resolved);
+						assertEquals(expected[i], resolved);
 					} else {
-						assertEquals("Unexpected clean-up mode",
-								j == 0 ? CleanupMode.STRIP
-										: CleanupMode.WHITESPACE,
-								resolved);
+						assertEquals(j == 0 ? CleanupMode.STRIP: CleanupMode.WHITESPACE, resolved);
 					}
 				}
 			}

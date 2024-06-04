@@ -14,7 +14,8 @@ import org.eclipse.jgit.junit.LocalDiskRepositoryTestCase;
 import org.eclipse.jgit.pgm.CLIGitCommand;
 import org.eclipse.jgit.pgm.CLIGitCommand.Result;
 import org.eclipse.jgit.pgm.TextBuiltin.TerminatedByHelpException;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.TestInfo;
 
 import java.io.File;
 import java.io.IOException;
@@ -30,9 +31,9 @@ public class CLIRepositoryTestCase extends LocalDiskRepositoryTestCase {
 	protected Repository db;
 
 	@Override
-	@Before
-	public void setUp() throws Exception {
-		super.setUp();
+	@BeforeEach
+	public void setUp(TestInfo testInfo) throws Exception {
+		super.setUp(testInfo);
 		db = createWorkRepository();
 	}
 
@@ -190,8 +191,7 @@ public class CLIRepositoryTestCase extends LocalDiskRepositoryTestCase {
 	protected void assertStringArrayEquals(String expected, String[] actual) {
 		// if there is more than one line, ignore last one if empty
 		assertEquals(1,
-				actual.length > 1 && actual[actual.length - 1].isEmpty()
-						? actual.length - 1 : actual.length);
+				(actual.length > 1 && actual[actual.length - 1].isEmpty() ? actual.length - 1 : actual.length) );
 		assertEquals(expected, actual[0]);
 	}
 

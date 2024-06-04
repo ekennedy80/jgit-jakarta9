@@ -42,35 +42,35 @@ public class ObjectIdTest {
 		final ObjectId a = ObjectId.fromString(x);
 		final ObjectId b = ObjectId.fromString(x);
 		assertEquals(a.hashCode(), b.hashCode());
-		assertEquals("a and b are same", b, a);
+		assertEquals(b, a);
 	}
 
 	@Test
 	public void test004_isId() {
-		assertTrue("valid id", ObjectId
+		assertTrue(ObjectId
 				.isId("def4c620bc3713bb1bb26b808ec9312548e73946"));
 	}
 
 	@Test
 	public void test005_notIsId() {
-		assertFalse("bob is not an id", ObjectId.isId("bob"));
+		assertFalse(ObjectId.isId("bob"));
 	}
 
 	@Test
 	public void test006_notIsId() {
-		assertFalse("39 digits is not an id", ObjectId
+		assertFalse(ObjectId
 				.isId("def4c620bc3713bb1bb26b808ec9312548e7394"));
 	}
 
 	@Test
 	public void test007_isId() {
-		assertTrue("uppercase is accepted", ObjectId
+		assertTrue(ObjectId
 				.isId("Def4c620bc3713bb1bb26b808ec9312548e73946"));
 	}
 
 	@Test
 	public void test008_notIsId() {
-		assertFalse("g is not a valid hex digit", ObjectId
+		assertFalse(ObjectId
 				.isId("gef4c620bc3713bb1bb26b808ec9312548e73946"));
 	}
 

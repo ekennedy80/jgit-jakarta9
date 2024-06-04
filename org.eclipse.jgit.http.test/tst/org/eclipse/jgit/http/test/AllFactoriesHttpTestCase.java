@@ -17,9 +17,6 @@ import org.eclipse.jgit.transport.http.apache.HttpClientConnectionFactory;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -30,10 +27,10 @@ import java.util.Collection;
  * Apache HTTP {@link HttpClientConnectionFactory}.
  */
 @Ignore
-@RunWith(Parameterized.class)
+//@RunWith(Parameterized.class)
 public abstract class AllFactoriesHttpTestCase extends HttpTestCase {
 
-	@Parameters(name = "{0}")
+//	@Parameters(name = "{0}")
 	public static Collection<Object[]> data() {
 		// run all tests with both connection factories we have
 		return Arrays.asList(new Object[][] { { new JDKHttpConnectionFactory() {

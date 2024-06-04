@@ -45,9 +45,7 @@ import org.eclipse.jgit.treewalk.filter.TreeFilter;
 import org.eclipse.jgit.util.FileUtils;
 import org.eclipse.jgit.util.RawParseUtils;
 import org.eclipse.jgit.util.io.DisabledOutputStream;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.Before;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.AfterEach;
 
 public class DiffFormatterTest extends RepositoryTestCase {
@@ -66,18 +64,17 @@ public class DiffFormatterTest extends RepositoryTestCase {
 	private TestRepository<Repository> testDb;
 
 	@Override
-	@Before
-	public void setUp() throws Exception {
-		super.setUp();
+	@BeforeEach
+	public void setUp(TestInfo testInfo) throws Exception {
+		super.setUp(testInfo);
 		testDb = new TestRepository<>(db);
 		df = new DiffFormatter(DisabledOutputStream.INSTANCE);
 		df.setRepository(db);
 		df.setAbbreviationLength(8);
 	}
 
-	@AfterEach
     @Override
-	@After
+	@AfterEach
 	public void tearDown() throws Exception {
 		if (df != null) {
 			df.close();

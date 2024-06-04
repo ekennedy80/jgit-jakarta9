@@ -18,6 +18,7 @@ import org.eclipse.jgit.junit.TestRepository;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.revwalk.RevWalk;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
 
 public class BranchTrackingStatusTest extends RepositoryTestCase {
 	private TestRepository<Repository> util;
@@ -25,8 +26,8 @@ public class BranchTrackingStatusTest extends RepositoryTestCase {
 	protected RevWalk rw;
 
 	@Override
-	public void setUp() throws Exception {
-		super.setUp();
+	public void setUp(TestInfo testInfo) throws Exception {
+		super.setUp(testInfo);
 		util = new TestRepository<>(db);
 		StoredConfig config = util.getRepository().getConfig();
 		config.setString(ConfigConstants.CONFIG_BRANCH_SECTION, "master",
