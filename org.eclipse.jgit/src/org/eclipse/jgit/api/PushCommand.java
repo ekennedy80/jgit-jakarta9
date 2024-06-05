@@ -132,6 +132,9 @@ public class PushCommand extends
 						.findRemoteRefUpdatesFor(refSpecs, refLeaseSpecs);
 
 				try {
+					System.out.println("monitor: "+monitor);
+					System.out.println("toPush: "+toPush.iterator().next().toString());
+					System.out.println("out: "+out);
 					PushResult result = transport.push(monitor, toPush, out);
 					pushResults.add(result);
 

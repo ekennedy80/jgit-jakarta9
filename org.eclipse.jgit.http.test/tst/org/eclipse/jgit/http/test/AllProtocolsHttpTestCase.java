@@ -14,11 +14,9 @@ import org.eclipse.jgit.transport.HttpTransport;
 import org.eclipse.jgit.transport.http.HttpConnectionFactory;
 import org.eclipse.jgit.transport.http.JDKHttpConnectionFactory;
 import org.eclipse.jgit.transport.http.apache.HttpClientConnectionFactory;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
 import org.junit.Ignore;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.runners.Parameterized.Parameters;
 
 import java.util.ArrayList;
@@ -30,7 +28,7 @@ import java.util.List;
  * factories provided in JGit and with both protocol V0 and V2.
  */
 @Ignore
-@RunWith(Parameterized.class)
+//@RunWith(Parameterized.class)
 public abstract class AllProtocolsHttpTestCase extends HttpTestCase {
 
 	protected static class TestParameters {
@@ -86,12 +84,12 @@ public abstract class AllProtocolsHttpTestCase extends HttpTestCase {
 
 	private static HttpConnectionFactory originalFactory;
 
-	@BeforeClass
+	@BeforeAll
 	public static void saveConnectionFactory() {
 		originalFactory = HttpTransport.getConnectionFactory();
 	}
 
-	@AfterClass
+	@AfterAll
 	public static void restoreConnectionFactory() {
 		HttpTransport.setConnectionFactory(originalFactory);
 	}

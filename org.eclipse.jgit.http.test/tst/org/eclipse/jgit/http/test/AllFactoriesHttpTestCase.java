@@ -14,9 +14,9 @@ import org.eclipse.jgit.transport.HttpTransport;
 import org.eclipse.jgit.transport.http.HttpConnectionFactory;
 import org.eclipse.jgit.transport.http.JDKHttpConnectionFactory;
 import org.eclipse.jgit.transport.http.apache.HttpClientConnectionFactory;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
 import org.junit.Ignore;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -52,13 +52,13 @@ public abstract class AllFactoriesHttpTestCase extends HttpTestCase {
 
 	private static HttpConnectionFactory originalFactory;
 
-	@BeforeClass
-	public static void saveConnectionFactory() {
+	@BeforeEach
+	public void saveConnectionFactory() {
 		originalFactory = HttpTransport.getConnectionFactory();
 	}
 
-	@AfterClass
-	public static void restoreConnectionFactory() {
+	@AfterEach
+	public void restoreConnectionFactory() {
 		HttpTransport.setConnectionFactory(originalFactory);
 	}
 

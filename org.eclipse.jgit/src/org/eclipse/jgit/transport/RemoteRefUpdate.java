@@ -366,6 +366,7 @@ public class RemoteRefUpdate {
 		this.remoteName = null;
 		this.newObjectId = null;
 		this.status = Status.NOT_ATTEMPTED;
+		System.out.println(this.toString());
 	}
 
 	/**
