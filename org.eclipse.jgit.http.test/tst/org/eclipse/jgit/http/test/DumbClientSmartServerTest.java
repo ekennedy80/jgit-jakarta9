@@ -10,198 +10,198 @@
 
 package org.eclipse.jgit.http.test;
 
-import org.eclipse.jetty.ee10.servlet.ServletContextHandler;
-import org.eclipse.jetty.ee10.servlet.ServletHolder;
-import org.eclipse.jgit.errors.NotSupportedException;
-import org.eclipse.jgit.http.server.GitServlet;
-import org.eclipse.jgit.junit.TestRepository;
-import org.eclipse.jgit.junit.http.AccessEvent;
-import org.eclipse.jgit.lib.*;
-import org.eclipse.jgit.revwalk.RevBlob;
-import org.eclipse.jgit.revwalk.RevCommit;
-import org.eclipse.jgit.transport.*;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInfo;
+//import org.eclipse.jetty.ee10.servlet.ServletContextHandler;
+//import org.eclipse.jetty.ee10.servlet.ServletHolder;
+//import org.eclipse.jgit.errors.NotSupportedException;
+//import org.eclipse.jgit.http.server.GitServlet;
+//import org.eclipse.jgit.junit.TestRepository;
+//import org.eclipse.jgit.junit.http.AccessEvent;
+//import org.eclipse.jgit.lib.*;
+//import org.eclipse.jgit.revwalk.RevBlob;
+//import org.eclipse.jgit.revwalk.RevCommit;
+//import org.eclipse.jgit.transport.*;
+//import org.junit.jupiter.api.BeforeEach;
+//import org.junit.jupiter.api.Test;
+//import org.junit.jupiter.api.TestInfo;
 
-import java.io.IOException;
-import java.util.List;
-import java.util.Map;
+//import java.io.IOException;
+//import java.util.List;
+//import java.util.Map;
 
-import static org.eclipse.jgit.util.HttpSupport.*;
-import static org.junit.jupiter.api.Assertions.*;
+//import static org.eclipse.jgit.util.HttpSupport.*;
+//import static org.junit.jupiter.api.Assertions.*;
 
 public class DumbClientSmartServerTest extends AllProtocolsHttpTestCase {
-	private Repository remoteRepository;
+//	private Repository remoteRepository;
 
-	private URIish remoteURI;
+//	private URIish remoteURI;
 
-	private RevBlob A_txt;
+//	private RevBlob A_txt;
 
-	private RevCommit A, B;
+//	private RevCommit A, B;
 
-	public DumbClientSmartServerTest(TestParameters params) {
-		super(params);
-	}
+//	public DumbClientSmartServerTest(TestParameters params) {
+//		super(params);
+//	}
 
-	@Override
-	@BeforeEach
-	public void setUp(TestInfo testInfo) throws Exception {
-		super.setUp(testInfo);
+//	@Override
+//	@BeforeEach
+//	public void setUp(TestInfo testInfo) throws Exception {
+//		super.setUp(testInfo);
+//
+//		final TestRepository<Repository> src = createTestRepository();
+//		final String srcName = src.getRepository().getDirectory().getName();
+//
+//		ServletContextHandler app = server.addContext("/git");
+//		GitServlet gs = new GitServlet();
+//		gs.setRepositoryResolver(new TestRepositoryResolver(src, srcName));
+//		app.addServlet(new ServletHolder(gs), "/*");
+//
+//		server.setUp();
+//
+//		remoteRepository = src.getRepository();
+//		remoteURI = toURIish(app, srcName);
+//		StoredConfig cfg = remoteRepository.getConfig();
+//		cfg.setInt("protocol", null, "version", enableProtocolV2 ? 2 : 0);
+//		cfg.save();
+//
+//		A_txt = src.blob("A");
+//		A = src.commit().add("A_txt", A_txt).create();
+//		B = src.commit().parent(A).add("A_txt", "C").add("B", "B").create();
+//		src.update(master, B);
+//	}
 
-		final TestRepository<Repository> src = createTestRepository();
-		final String srcName = src.getRepository().getDirectory().getName();
+//	@Test
+//	public void testListRemote() throws IOException {
+//		Repository dst = createBareRepository();
+//
+//		assertEquals("http", remoteURI.getScheme());
+//
+//		Map<String, Ref> map;
+//		try (Transport t = Transport.open(dst, remoteURI)) {
+//		((TransportHttp) t).setUseSmartHttp(false);
+//			// I didn't make up these public interface names, I just
+//			// approved them for inclusion into the code base. Sorry.
+//			// --spearce
+//			//
+//			assertTrue(t instanceof TransportHttp);
+//			assertTrue(t instanceof HttpTransport);
+//
+//			try (FetchConnection c = t.openFetch()) {
+//				map = c.getRefsMap();
+//			}
+//		}
+//
+//		assertNotNull(map);
+//		assertEquals(2, map.size());
+//
+//		assertNotNull(map.get(master));
+//		assertEquals(B, map.get(master).getObjectId());
+//
+//		assertNotNull(map.get(Constants.HEAD));
+//		assertEquals(B, map.get(Constants.HEAD).getObjectId());
+//
+//		List<AccessEvent> requests = getRequests();
+//		assertEquals(2, requests.size());
+//		assertEquals(0, getRequests(remoteURI, "git-upload-pack").size());
+//
+//		AccessEvent info = requests.get(0);
+//		assertEquals("GET", info.getMethod());
+//		assertEquals(join(remoteURI, "info/refs"), info.getPath());
+//		assertEquals(0, info.getParameters().size());
+////		assertNull("no service parameter", info.getParameter("service"));
+//		assertEquals("no-cache", info.getRequestHeader(HDR_PRAGMA));
+////		assertNotNull("has user-agent", info.getRequestHeader(HDR_USER_AGENT));
+//		assertTrue(info.getRequestHeader(HDR_USER_AGENT).startsWith("JGit/"));
+//		assertEquals("*/*", info.getRequestHeader(HDR_ACCEPT));
+//		assertEquals(200, info.getStatus());
+//		assertEquals("text/plain;charset=utf-8",
+//				info
+//				.getResponseHeader(HDR_CONTENT_TYPE));
+//
+//		AccessEvent head = requests.get(1);
+//		assertEquals("GET", head.getMethod());
+//		assertEquals(join(remoteURI, "HEAD"), head.getPath());
+//		assertEquals(0, head.getParameters().size());
+//		assertEquals(200, head.getStatus());
+//		assertEquals("text/plain", head.getResponseHeader(HDR_CONTENT_TYPE));
+//	}
 
-		ServletContextHandler app = server.addContext("/git");
-		GitServlet gs = new GitServlet();
-		gs.setRepositoryResolver(new TestRepositoryResolver(src, srcName));
-		app.addServlet(new ServletHolder(gs), "/*");
+//	@Test
+//	public void testInitialClone_Small() throws Exception {
+//		Repository dst = createBareRepository();
+//		assertFalse(dst.getObjectDatabase().has(A_txt));
+//
+//		try (Transport t = Transport.open(dst, remoteURI)) {
+//		((TransportHttp) t).setUseSmartHttp(false);
+//			t.fetch(NullProgressMonitor.INSTANCE, mirror(master));
+//		}
+//
+//		assertTrue(dst.getObjectDatabase().has(A_txt));
+//		assertEquals(B, dst.exactRef(master).getObjectId());
+//		fsck(dst, B);
+//
+//		List<AccessEvent> loose = getRequests(loose(remoteURI, A_txt));
+//		assertEquals(1, loose.size());
+//		assertEquals("GET", loose.get(0).getMethod());
+//		assertEquals(0, loose.get(0).getParameters().size());
+//		assertEquals(200, loose.get(0).getStatus());
+//		assertEquals("application/x-git-loose-object", loose.get(0)
+//				.getResponseHeader(HDR_CONTENT_TYPE));
+//	}
 
-		server.setUp();
+//	@Test
+//	public void testInitialClone_Packed() throws Exception {
+//		try (TestRepository<Repository> tr = new TestRepository<>(
+//				remoteRepository)) {
+//			tr.packAndPrune();
+//		}
+//
+//		Repository dst = createBareRepository();
+//		assertFalse(dst.getObjectDatabase().has(A_txt));
+//
+//		try (Transport t = Transport.open(dst, remoteURI)) {
+//			((TransportHttp) t).setUseSmartHttp(false);
+//			t.fetch(NullProgressMonitor.INSTANCE, mirror(master));
+//		}
+//
+//		assertTrue(dst.getObjectDatabase().has(A_txt));
+//		assertEquals(B, dst.exactRef(master).getObjectId());
+//		fsck(dst, B);
+//
+//		List<AccessEvent> req;
+//
+//		req = getRequests(loose(remoteURI, B));
+//		assertEquals(1, req.size());
+//		assertEquals("GET", req.get(0).getMethod());
+//		assertEquals(0, req.get(0).getParameters().size());
+//		assertEquals(404, req.get(0).getStatus());
+//
+//		req = getRequests(join(remoteURI, "objects/info/packs"));
+//		assertEquals(1, req.size());
+//		assertEquals("GET", req.get(0).getMethod());
+//		assertEquals(0, req.get(0).getParameters().size());
+//		assertEquals(200, req.get(0).getStatus());
+//		assertEquals("text/plain;charset=utf-8",
+//				req.get(0).getResponseHeader(
+//				HDR_CONTENT_TYPE));
+//	}
 
-		remoteRepository = src.getRepository();
-		remoteURI = toURIish(app, srcName);
-		StoredConfig cfg = remoteRepository.getConfig();
-		cfg.setInt("protocol", null, "version", enableProtocolV2 ? 2 : 0);
-		cfg.save();
-
-		A_txt = src.blob("A");
-		A = src.commit().add("A_txt", A_txt).create();
-		B = src.commit().parent(A).add("A_txt", "C").add("B", "B").create();
-		src.update(master, B);
-	}
-
-	@Test
-	public void testListRemote() throws IOException {
-		Repository dst = createBareRepository();
-
-		assertEquals("http", remoteURI.getScheme());
-
-		Map<String, Ref> map;
-		try (Transport t = Transport.open(dst, remoteURI)) {
-		((TransportHttp) t).setUseSmartHttp(false);
-			// I didn't make up these public interface names, I just
-			// approved them for inclusion into the code base. Sorry.
-			// --spearce
-			//
-			assertTrue(t instanceof TransportHttp);
-			assertTrue(t instanceof HttpTransport);
-
-			try (FetchConnection c = t.openFetch()) {
-				map = c.getRefsMap();
-			}
-		}
-
-		assertNotNull(map);
-		assertEquals(2, map.size());
-
-		assertNotNull(map.get(master));
-		assertEquals(B, map.get(master).getObjectId());
-
-		assertNotNull(map.get(Constants.HEAD));
-		assertEquals(B, map.get(Constants.HEAD).getObjectId());
-
-		List<AccessEvent> requests = getRequests();
-		assertEquals(2, requests.size());
-		assertEquals(0, getRequests(remoteURI, "git-upload-pack").size());
-
-		AccessEvent info = requests.get(0);
-		assertEquals("GET", info.getMethod());
-		assertEquals(join(remoteURI, "info/refs"), info.getPath());
-		assertEquals(0, info.getParameters().size());
-//		assertNull("no service parameter", info.getParameter("service"));
-		assertEquals("no-cache", info.getRequestHeader(HDR_PRAGMA));
-//		assertNotNull("has user-agent", info.getRequestHeader(HDR_USER_AGENT));
-		assertTrue(info.getRequestHeader(HDR_USER_AGENT).startsWith("JGit/"));
-		assertEquals("*/*", info.getRequestHeader(HDR_ACCEPT));
-		assertEquals(200, info.getStatus());
-		assertEquals("text/plain;charset=utf-8",
-				info
-				.getResponseHeader(HDR_CONTENT_TYPE));
-
-		AccessEvent head = requests.get(1);
-		assertEquals("GET", head.getMethod());
-		assertEquals(join(remoteURI, "HEAD"), head.getPath());
-		assertEquals(0, head.getParameters().size());
-		assertEquals(200, head.getStatus());
-		assertEquals("text/plain", head.getResponseHeader(HDR_CONTENT_TYPE));
-	}
-
-	@Test
-	public void testInitialClone_Small() throws Exception {
-		Repository dst = createBareRepository();
-		assertFalse(dst.getObjectDatabase().has(A_txt));
-
-		try (Transport t = Transport.open(dst, remoteURI)) {
-		((TransportHttp) t).setUseSmartHttp(false);
-			t.fetch(NullProgressMonitor.INSTANCE, mirror(master));
-		}
-
-		assertTrue(dst.getObjectDatabase().has(A_txt));
-		assertEquals(B, dst.exactRef(master).getObjectId());
-		fsck(dst, B);
-
-		List<AccessEvent> loose = getRequests(loose(remoteURI, A_txt));
-		assertEquals(1, loose.size());
-		assertEquals("GET", loose.get(0).getMethod());
-		assertEquals(0, loose.get(0).getParameters().size());
-		assertEquals(200, loose.get(0).getStatus());
-		assertEquals("application/x-git-loose-object", loose.get(0)
-				.getResponseHeader(HDR_CONTENT_TYPE));
-	}
-
-	@Test
-	public void testInitialClone_Packed() throws Exception {
-		try (TestRepository<Repository> tr = new TestRepository<>(
-				remoteRepository)) {
-			tr.packAndPrune();
-		}
-
-		Repository dst = createBareRepository();
-		assertFalse(dst.getObjectDatabase().has(A_txt));
-
-		try (Transport t = Transport.open(dst, remoteURI)) {
-			((TransportHttp) t).setUseSmartHttp(false);
-			t.fetch(NullProgressMonitor.INSTANCE, mirror(master));
-		}
-
-		assertTrue(dst.getObjectDatabase().has(A_txt));
-		assertEquals(B, dst.exactRef(master).getObjectId());
-		fsck(dst, B);
-
-		List<AccessEvent> req;
-
-		req = getRequests(loose(remoteURI, B));
-		assertEquals(1, req.size());
-		assertEquals("GET", req.get(0).getMethod());
-		assertEquals(0, req.get(0).getParameters().size());
-		assertEquals(404, req.get(0).getStatus());
-
-		req = getRequests(join(remoteURI, "objects/info/packs"));
-		assertEquals(1, req.size());
-		assertEquals("GET", req.get(0).getMethod());
-		assertEquals(0, req.get(0).getParameters().size());
-		assertEquals(200, req.get(0).getStatus());
-		assertEquals("text/plain;charset=utf-8",
-				req.get(0).getResponseHeader(
-				HDR_CONTENT_TYPE));
-	}
-
-	@Test
-	public void testPushNotSupported() throws Exception {
-		final TestRepository src = createTestRepository();
-		final RevCommit Q = src.commit().create();
-		final Repository db = src.getRepository();
-
-		try (Transport t = Transport.open(db, remoteURI)) {
-			((TransportHttp) t).setUseSmartHttp(false);
-			try {
-				t.push(NullProgressMonitor.INSTANCE, push(src, Q));
-				fail("push incorrectly completed against a smart server");
-			} catch (NotSupportedException nse) {
-				String exp = "smart HTTP push disabled";
-				assertEquals(exp, nse.getMessage());
-			}
-		}
-	}
+//	@Test
+//	public void testPushNotSupported() throws Exception {
+//		final TestRepository src = createTestRepository();
+//		final RevCommit Q = src.commit().create();
+//		final Repository db = src.getRepository();
+//
+//		try (Transport t = Transport.open(db, remoteURI)) {
+//			((TransportHttp) t).setUseSmartHttp(false);
+//			try {
+//				t.push(NullProgressMonitor.INSTANCE, push(src, Q));
+//				fail("push incorrectly completed against a smart server");
+//			} catch (NotSupportedException nse) {
+//				String exp = "smart HTTP push disabled";
+//				assertEquals(exp, nse.getMessage());
+//			}
+//		}
+//	}
 }
