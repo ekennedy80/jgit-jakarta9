@@ -89,9 +89,11 @@ public class SmartClientSmartServerTest extends AllProtocolsHttpTestCase {
 
 	private RevCommit A, B, unreachableCommit;
 
-	public SmartClientSmartServerTest(TestParameters params) {
-		super(params);
-	}
+	private boolean enableProtocolV2;
+
+//	public SmartClientSmartServerTest(TestParameters params) {
+//		super(params);
+//	}
 
 	@Override
 	@BeforeEach

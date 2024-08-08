@@ -12,7 +12,7 @@ package org.eclipse.jgit.lfs.server.fs;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.RemoteAddCommand;
 //import org.eclipse.jgit.junit.JGitTestUtil;
-import org.eclipse.jgit.junit.TestRepository;
+//import org.eclipse.jgit.junit.TestRepository;
 import org.eclipse.jgit.lfs.BuiltinLFS;
 import org.eclipse.jgit.lib.*;
 //import org.eclipse.jgit.revwalk.RevCommit;
